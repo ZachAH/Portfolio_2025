@@ -1,0 +1,143 @@
+/* index.css or App.css */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* Removed @config directive - not needed for Tailwind v3 */
+
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark; /* Allows browser UI like scrollbars to adapt */
+
+  /* --- LIGHT MODE DEFAULTS --- */
+  /* These are now your base styles */
+  color: #D4AF37; /* Standard dark text for light background */
+  background-color: #5FB49C; /* Standard teal background */
+  /* You could use your custom colors here instead if you prefer: */
+  /* color: #000000; */ /* black */
+  /* background-color: #F0EDEE; */ /* offWhite */
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Optional: You could define base dark mode styles here using html.dark, */
+/* but it's often better to handle this with Tailwind utility classes */
+/* in your components (e.g., <body className="bg-white dark:bg-black">) */
+
+html.dark {
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+}
+
+
+a {
+  font-weight: 500;
+  /* Base link color - Suggest using Tailwind text utilities in components */
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  /* Base link hover - Suggest using Tailwind hover utilities in components */
+  color: #535bf2;
+}
+/* If you need specific dark mode overrides for these base 'a' styles: */
+/* html.dark a { color: #ADADFF; } */ /* Example */
+/* html.dark a:hover { color: #8A8AFF; } */ /* Example */
+
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  /* Body background should be transparent or a light color */
+  /* Let the html background or component backgrounds show through */
+  background-color: transparent;
+}
+
+/* --- Custom Cursor Styles --- */
+/* These styles apply in both light and dark mode unless overridden below */
+.custom-cursor {
+  cursor: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  /* Using offWhite for border in light mode might be hard to see on white bg */
+  /* Consider a slightly darker border for light mode? e.g., border-gray-400 */
+  border: 1px solid #cacaca; /* Changed example to light gray */
+  border-radius: 50%;
+  background-color: transparent;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: width 0.2s ease, height 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, transform 0.1s ease-out;
+  will-change: width, height, background-color, border-color, transform;
+}
+/* Example: Dark mode style for the cursor border */
+html.dark .custom-cursor {
+  border-color: #F0EDEE; /* Your offWhite for dark mode */
+}
+
+.custom-cursor--hover {
+  width: 40px;
+  height: 40px;
+  background-color: rgba(95, 180, 156, 0.2); /* Your tealGreen with alpha */
+  border-color: #5FB49C; /* Your tealGreen */
+}
+/* Optional: Adjust cursor hover for dark mode if needed */
+/* html.dark .custom-cursor--hover { ... } */
+
+.interactive-element:hover {
+  cursor: none;
+}
+
+/* --- Base Element Styles --- */
+/* It's generally better to style h1/button primarily with Tailwind utilities */
+/* in your components rather than relying heavily on these base styles. */
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+  /* Color/margin should ideally be set in components */
+}
+
+button {
+  /* Base button styles - updated for light mode default */
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #f0f0f0; /* Lighter background for light mode */
+  color: #213547; /* Dark text for light mode */
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  /* Consider using Tailwind hover variants */
+  border-color: #646cff;
+  /* background-color: #e0e0e0; */ /* Optional: Slightly darker hover */
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+/* Optional: Define base dark mode button style */
+/* html.dark button { */
+  /* background-color: #1a1a1a; */ /* Your previous dark button background */
+  /* color: rgba(255, 255, 255, 0.87); */
+/* } */
+/* html.dark button:hover { */
+   /* border-color: #646cff; */
+/* } */
+
+
+/* REMOVE the entire @media (prefers-color-scheme: light) block */
+/* It's no longer needed as light mode is the default */
