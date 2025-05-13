@@ -4,6 +4,7 @@ import Projects from './components/Projects';
 import Footer from './components/Footer';
 import React, { useState, useEffect, useRef } from 'react';
 
+import AnimatedBackground from './components/AnimatedBackground'; 
 import './index.css';
 
 function App() {
@@ -44,6 +45,7 @@ function App() {
     <div>
       {/* Render your page components */}
       {/* Pass the handlers down as props to components containing interactive elements */}
+      <AnimatedBackground />
       <Navbar handleMouseEnter={handleMouseEnter} handleMouseLeave={handleMouseLeave} />
       <Hero handleMouseEnter={handleMouseEnter} handleMouseLeave={handleMouseLeave} />
       <Projects handleMouseEnter={handleMouseEnter} handleMouseLeave={handleMouseLeave} />

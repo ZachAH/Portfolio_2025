@@ -1,9 +1,91 @@
 /* index.css or App.css */
 
+/* --- Add your custom @font-face rule for Canarias --- */
+@font-face {
+  font-family: 'Canarias'; /* This is the name you'll use */
+  src: url('./assets/Canarias.otf') format('opentype'); /* Path relative to src/index.css if Canarias.otf is in src/assets/ */
+  font-weight: normal; /* Assuming it's a regular weight font */
+  font-style: normal;  /* Assuming it's a regular style font */
+}
+
+/* Keyframes for the selfie light-up effect */
+@keyframes selfieLightUpEffect {
+  0% {
+    opacity: 0;
+    transform: scale(0.7); /* Start smaller and invisible */
+    box-shadow: 0 0 0px rgba(240, 237, 238, 0); /* Using your offWhite color for glow base */
+  }
+  70% {
+    opacity: 1;
+    transform: scale(1.05); /* Slightly overshoot for a 'pop' */
+    box-shadow: 0 0 20px 5px rgba(240, 237, 238, 0.3); /* Glow effect */
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1); /* Settle to normal size */
+    box-shadow: 0 0 15px 3px rgba(240, 237, 238, 0.2); /* Softer, stable glow */
+  }
+}
+
+/* Class for initial state of selfie */
+.selfie-awaiting-animation {
+  opacity: 0; /* Start completely invisible */
+}
+
+/* Class to trigger the light-up animation on the selfie */
+.animate-selfie-light-up {
+  animation-name: selfieLightUpEffect;
+  animation-duration: s; /* Duration of the selfie lighting up */
+  animation-fill-mode: forwards; /* Stays in the final 'lit' state */
+  animation-timing-function: ease-out;
+  /* animation-delay will be applied inline in the JSX */
+}
+
+/* Keyframes for the icon light-up effect */
+@keyframes iconLightUpEffect {
+  0% {
+    opacity: 0.4; /* Start dimmer */
+    /* Using a drop-shadow for a subtle glow around the SVG icon itself */
+    filter: drop-shadow(0 0 1px rgba(240, 237, 238, 0.2)); /* Softer offWhite glow */
+  }
+  100% {
+    opacity: 1;   /* Full opacity */
+    filter: drop-shadow(0 0 5px rgba(240, 237, 238, 0.8)) drop-shadow(0 0 10px rgba(95, 180, 156, 0.5)); /* Brighter offWhite + hint of tealGreen glow */
+  }
+}
+
+/* Class to apply to icons for initial state (before animation starts for them) */
+.icon-awaiting-animation {
+  opacity: 0.4; /* Keep them dim until their animation delay is met */
+}
+
+/* Class to trigger the light-up animation on icons */
+.animate-icon-light-up {
+  animation-name: iconLightUpEffect;
+  animation-duration: 0.6s; /* How long each icon takes to 'light up' */
+  animation-fill-mode: forwards; /* Stays in the final 'lit' state */
+  animation-timing-function: ease-in-out;
+  /* animation-delay will be applied inline in the JSX */
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 /* Removed @config directive - not needed for Tailwind v3 */
+
+/* Keyframes for the gradient animation */
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -141,3 +223,52 @@ button:focus-visible {
 
 /* REMOVE the entire @media (prefers-color-scheme: light) block */
 /* It's no longer needed as light mode is the default */
+
+/* src/index.css */
+
+/* ... (your @tailwind directives and other styles) ... */
+
+/* Keyframes for the neon flicker and turn-on effect */
+@keyframes neonFlickerOn {
+  0%, 18%, 22%, 25%, 53%, 57%, 100% {
+    text-shadow:
+      0 0 4px #fff,
+      0 0 10px #fff,
+      0 0 18px #fff,
+      0 0 38px var(--neon-glow-color, #00b3ff), /* Use a CSS variable for glow color */
+      0 0 70px var(--neon-glow-color, #00b3ff);
+    opacity: 1;
+  }
+  20%, 24%, 55% {
+    text-shadow: none;
+    opacity: 0.6;
+  }
+  /* Initial dim state */
+  0% {
+    text-shadow:
+      0 0 4px rgba(255,255,255,0.5),
+      0 0 10px rgba(255,255,255,0.5),
+      0 0 18px rgba(255,255,255,0.5),
+      0 0 38px rgba(0,179,255,0.3), /* Dimmer glow */
+      0 0 70px rgba(0,179,255,0.3);
+    opacity: 0.7;
+  }
+}
+
+/* Class to apply to your name */
+.neon-text-flicker {
+  /* Define your base text color for the name (can be overridden by Tailwind) */
+  /* color: #fff; /* White base, for example */
+
+  /* Define the glow color as a CSS variable for easy customization */
+  --neon-glow-color: #00e1ff; /* Bright cyan, or use your tealGreen: #5FB49C */
+
+  /* Apply the animation */
+  animation: neonFlickerOn 2.5s ease-in-out forwards; /* 'forwards' keeps the final state */
+  /* Adjust duration and timing function as needed */
+
+  /* Initial state before animation might fully kick in (optional, handled by keyframes 0%) */
+  opacity: 0.7;
+}
+
+/* ... (rest of your index.css styles like :root, body, etc.) ... */

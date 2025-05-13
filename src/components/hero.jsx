@@ -1,9 +1,13 @@
 import React from 'react';
 // Assuming your Hero.jsx is in src/components/, this path is correct for src/assets/
-import profileImage from '../assets/joey.webp';
 import resumePdfUrl from '../assets/ZacharyHowell_Resume.pdf'; // Make sure this filename matches your PDF
+import userSelfieImage from '../assets/selfie.jpg'; // Your selfie image
 
 export default function Hero() {
+    // Define a delay for the selfie animation (e.g., 0.5 seconds after page load)
+    // You can adjust this, or set to '0s' for an immediate animation.
+    const selfieAnimationDelay = 4;
+
     return (
         <section className="flex flex-col md:flex-row items-center justify-between gap-8 px-6 py-20 md:px-12 lg:px-24 min-h-[calc(100vh-80px)]">
 
@@ -22,24 +26,30 @@ export default function Hero() {
                         VIEW PROJECTS
                     </button>
                     {/* View Resume Link (Styled as Button) */}
-                    <a // Changed from <button>
+                    <a
                         href={resumePdfUrl}
                         download="Zachary Howell - Resume.pdf" // Suggested download filename
-                        className="inline-block text-center bg-transparent text-offWhite hover:text-tealGreen font-medium py-3 px-6 rounded transition duration-300" // Copied styles + added inline-block & text-center
+                        className="inline-block text-center bg-transparent text-offWhite hover:text-tealGreen font-medium py-3 px-6 rounded transition duration-300"
                     >
-                        VIEW RESUME
+                        Download Resume
                     </a>
                 </div>
             </div>
 
-            {/* Right Column (Image and Quote) */}
-            <div className="flex-shrink-0 mt-12 md:mt-0 md:ml-12 lg:ml-20">
+            {/* Right Column (Animated Selfie and Optional Quote) */}
+            <div className="flex-shrink-0 mt-12 md:mt-0 md:ml-12 lg:ml-20 flex flex-col items-center md:items-start">
                  <img
-                    src={profileImage}
-                    alt="Joey Jordison" // Remember to change alt text if needed
-                    className="w-64 h-80 object-cover rounded mb-4"
+                    src={userSelfieImage}
+                    alt="Zachary Howell"
+                    // --- UPDATED CLASSES FOR TALL RECTANGLE --- vvv
+                    className="w-48 h-80 md:w-56 md:h-96 rounded-lg object-cover object-center mb-6 selfie-awaiting-animation animate-selfie-light-up border-2 border-transparent dark:border-offWhite/20 shadow-lg"
+                    // Example: w-48 (12rem), h-64 (16rem) for mobile
+                    //          md:w-56 (14rem), md:h-72 (18rem) for desktop
+                    // Change object-center to object-top if your head is at the top of the image
+                    // ---                                       ^^^
+                    style={{ animationDelay: `${selfieAnimationDelay}s` }}
                  />
-                 <div className="bg-indigo text-offWhite p-4 rounded max-w-xs">
+                 <div className="bg-indigo text-offWhite p-4 rounded-lg max-w-xs w-full text-center md:text-left shadow-md">
                     <p className="text-sm italic">
                     "When you have the power of music within your soul and your heart, nothing can stop you." - Joey Jordison
                     </p>
