@@ -4,7 +4,7 @@ import React, { useState, useEffect, useRef } from 'react';
 // Component Imports (ensure casing matches your actual filenames)
 // e.g., if your file is Navbar.jsx, import Navbar from './components/Navbar';
 import Navbar from './components/navbar';
-import Hero from './components/Hero';
+import Hero from './components/hero';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
