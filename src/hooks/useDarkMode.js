@@ -2,32 +2,39 @@
 import { useState, useEffect } from 'react';
 
 export default function useDarkMode() {
-  // 1. Initialize state: Check localStorage first, then system preference, default to 'light'
-  const [theme, setTheme] = useState(() => {
-    if (typeof window !== 'undefined') { // Ensure code runs only in browser
+  const [theme, setThemeState] = useState(() => {
+    if (typeof window !== 'undefined') {
       const storedTheme = window.localStorage.getItem('theme');
       const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
       return storedTheme || (prefersDark ? 'dark' : 'light');
     }
-    return 'light'; // Default for server-side rendering or non-browser env
+    return 'light';
   });
 
-  // 2. Effect to apply class and update localStorage
   useEffect(() => {
-    const root = window.document.documentElement; // Get the <html> element
+    const root = window.document.documentElement;
+    const isDark = theme === 'dark';
 
-    root.classList.remove('light', 'dark'); // Remove previous theme class
-    root.classList.add(theme);             // Add current theme class
+    root.classList.remove(isDark ? 'light' : 'dark');
+    root.classList.add(theme);
 
-    // Save theme to localStorage
     localStorage.setItem('theme', theme);
-  }, [theme]); // Re-run only when theme state changes
+  }, [theme]);
 
-  // 3. Function to toggle theme
+  // Modified toggleTheme function
   const toggleTheme = () => {
-    setTheme((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'));
+    setThemeState((prevTheme) => {
+      const newTheme = prevTheme === 'light' ? 'dark' : 'light';
+      // Set the new theme first so localStorage and class on <html> are updated by useEffect
+      // Then, reload the page. The useEffect will run again on the new page load
+      // and correctly apply the class from localStorage.
+      // A slight delay can sometimes help ensure localStorage is written before reload.
+      setTimeout(() => {
+        window.location.reload();
+      }, 50); // Small delay, can be adjusted or removed if not needed
+      return newTheme;
+    });
   };
 
-  // 4. Return theme state and toggle function
   return [theme, toggleTheme];
 }

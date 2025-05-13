@@ -3,11 +3,12 @@ import React, { useState, useEffect, useRef } from 'react';
 
 // Component Imports (ensure casing matches your actual filenames)
 // e.g., if your file is Navbar.jsx, import Navbar from './components/Navbar';
-import Navbar from './components/Navbar';
+import Navbar from './components/navbar';
 import Hero from './components/Hero';
 import Projects from './components/Projects';
 import Footer from './components/Footer';
 import AnimatedBackground from './components/AnimatedBackground';
+import RainyCityBackground from './components/RainyCityBackground';
 import useDarkMode from './hooks/useDarkMode'; // Make sure this path is correct (e.g., src/hooks/useDarkMode.js)
 
 import './index.css'; // Your main stylesheet with Tailwind directives
@@ -55,15 +56,10 @@ function App() {
     <div>
       {/* Animated background, conditionally renders based on theme */}
       <AnimatedBackground currentTheme={theme} />
+      <RainyCityBackground currentTheme={theme} />
 
       {/* Wrapper for all page content to ensure it sits above the fixed background */}
       <div style={{ position: 'relative', zIndex: 1 }}>
-        {/*
-          Pass toggleTheme to your ThemeToggle component.
-          If ThemeToggle is inside Navbar, Navbar needs to receive toggleTheme and pass it down.
-          Alternatively, ThemeToggle can import and use useDarkMode() directly itself.
-          For simplicity here, I'm assuming ThemeToggle might be self-contained or gets props via Navbar.
-        */}
         <Navbar
           handleMouseEnter={handleMouseEnter}
           handleMouseLeave={handleMouseLeave}

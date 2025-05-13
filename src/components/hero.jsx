@@ -49,7 +49,7 @@ export default function Hero() {
                     // ---                                       ^^^
                     style={{ animationDelay: `${selfieAnimationDelay}s` }}
                  />
-                 <div className="bg-indigo text-offWhite p-4 rounded-lg max-w-xs w-full text-center md:text-left shadow-md">
+                 <div className="text-offWhite p-4 rounded-lg max-w-xs w-full text-center md:text-left shadow-md">
                     <p className="text-sm italic">
                     "When you have the power of music within your soul and your heart, nothing can stop you." - Joey Jordison
                     </p>

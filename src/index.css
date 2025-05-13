@@ -97,6 +97,13 @@
   /* The canvas itself will draw 'lightModeCanvasBackgroundColor' from the JS script. */
   background-color: #F0EDEE; /* Your offWhite or a generic light color */
 
+    /* Light Mode Icon Glow Colors */
+    --icon-glow-color-main: rgba(240, 237, 238, 0.8); /* offWhite for main glow */
+    --icon-glow-color-accent: rgba(95, 180, 156, 0.4); /* tealGreen for accent glow */
+    /* Default neon glow for name (light mode) */
+    --neon-glow-color: #5FB49C; /* Your tealGreen */
+    --neon-glow-color-dim: rgba(95, 180, 156, 0.3);
+
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -109,7 +116,25 @@
 
 html.dark {
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: #000000;
+  --icon-glow-color-main: rgba(190, 100, 255, 0.8);   /* A lighter, vibrant purple for the main glow */
+  --icon-glow-color-accent: rgba(160, 32, 240, 0.6);    /* Your neonPurple (#A020F0) for accent glow, slightly more intense */
+  /* Neon glow for name in dark mode */
+  --neon-glow-color: #A020F0;      /* Vibrant Neon Purple */
+  --neon-glow-color-dim: rgba(160, 32, 240, 0.3);
+}
+
+/* Keyframes for the icon light-up effect (uses the CSS variables) */
+@keyframes iconLightUpEffect {
+  0% {
+    opacity: 0.4;
+    filter: drop-shadow(0 0 1px var(--icon-glow-color-main, rgba(240, 237, 238, 0.2))); /* Fallback if var not defined */
+  }
+  100% {
+    opacity: 1;
+    filter: drop-shadow(0 0 5px var(--icon-glow-color-main, rgba(240, 237, 238, 0.8))) 
+            drop-shadow(0 0 10px var(--icon-glow-color-accent, rgba(95, 180, 156, 0.5))); /* Fallback if var not defined */
+  }
 }
 
 
@@ -264,6 +289,12 @@ button:focus-visible {
 
   /* Initial state before animation might fully kick in (optional, handled by keyframes 0%) */
   opacity: 0.7;
+}
+/* --- DARK MODE OVERRIDE for the neon glow color --- */
+html.dark .neon-text-flicker {
+  --neon-glow-color: #A020F0;      /* Vibrant Neon Purple */
+  --neon-glow-color-dim: rgba(160, 32, 240, 0.3); /* Dimmer version of Neon Purple */
+  /* You can also adjust base text color here if needed for dark mode, e.g., color: #f0f0f0; */
 }
 
 /* ... (rest of your index.css styles like :root, body, etc.) ... */
