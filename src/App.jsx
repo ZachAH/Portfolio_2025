@@ -6,6 +6,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import Navbar from './components/navbar';
 import Hero from './components/Hero';
 import Projects from './components/Projects';
+import Contact from './components/Contact';
 import Footer from './components/Footer';
 import AnimatedBackground from './components/AnimatedBackground';
 import RainyCityBackground from './components/RainyCityBackground';
@@ -71,6 +72,7 @@ function App() {
           handleMouseLeave={handleMouseLeave}
         />
         <Projects /> {/* Add handleMouseEnter/Leave if Projects component has interactive elements for cursor */}
+        <Contact />
         <Footer
           handleMouseEnter={handleMouseEnter}
           handleMouseLeave={handleMouseLeave}

@@ -90,7 +90,7 @@ const RainyCityBackground = ({ currentTheme }) => {
     function drawRaindrops() {
       if (!canvas || !ctx) return; // Guard
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = "rgba(10, 10, 25, 0.85)"; // Dark blueish overlay
+      ctx.fillStyle = "rgba(10, 10, 10, 0.5)"; // Dark gray, 50% opacity
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       ctx.strokeStyle = rainColor; // Should be white now

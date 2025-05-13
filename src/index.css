@@ -115,6 +115,11 @@
 /* in your components (e.g., <body className="bg-white dark:bg-black">) */
 
 html.dark {
+  background-image: url('/rock.png'); /* Path from the public folder */
+  background-size: cover;                     /* Cover the entire viewport */
+  background-position: center center;         /* Center the image */
+  background-repeat: no-repeat;               /* Don't repeat the image */
+  background-attachment: fixed;               /* Image stays fixed during scroll for a parallax effect */
   color: rgba(255, 255, 255, 0.87);
   background-color: #000000;
   --icon-glow-color-main: rgba(190, 100, 255, 0.8);   /* A lighter, vibrant purple for the main glow */

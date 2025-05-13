@@ -6,8 +6,7 @@ import ThemeToggle from './ThemeToggle';
 import { AiOutlineLinkedin, AiOutlineGithub } from "react-icons/ai";
 import { TfiEmail } from "react-icons/tfi";
 
-// Import your selfie image (ensure this path and filename are correct)
-import selfieImage from '../assets/selfie.jpg'; // Assuming selfie.jpg is in src/assets/
+// Removed selfieImage import as it's not used in this version of Navbar
 
 export default function Navbar({ handleMouseEnter, handleMouseLeave }) {
   const yourLinkedInUrl = "https://www.linkedin.com/in/zach-howell-189118210";
@@ -15,80 +14,77 @@ export default function Navbar({ handleMouseEnter, handleMouseLeave }) {
   const yourEmail = "zacharywd91@yahoo.com";
 
   // Animation Timings
-  const nameAnimationDuration = 2;    // Duration of neonFlickerOn for the name (from your CSS)
+  const nameAnimationDuration = 2.5;  // Should match the CSS duration of .neon-text-flicker
   const iconAnimationStagger = 0.5;   // Delay between each social icon
-  const iconLightUpDuration = 0.6;    // Duration of each icon's light-up animation (from .animate-icon-light-up CSS)
-  const iconBaseDelay = nameAnimationDuration + 0.2; // Start of first icon's animation
+  const iconLightUpDuration = 0.6;    // Duration of .animate-icon-light-up CSS animation
+
+  const iconBaseDelay = nameAnimationDuration + 0.1; // Start social icons slightly after name
 
   // Calculate when the last social icon animation FINISHES
-  const lastIconStartTime = iconBaseDelay + (iconAnimationStagger * 2); // Delay for the 3rd icon
-  const lastIconEndTime = lastIconStartTime + iconLightUpDuration;
+  const lastSocialIconStartTime = iconBaseDelay + (iconAnimationStagger * 2); // Delay for the 3rd social icon
+  const lastSocialIconEndTime = lastSocialIconStartTime + iconLightUpDuration;
 
-  const selfieAnimationDelay = lastIconEndTime + 0.1; // Selfie starts slightly after the last icon finishes
+  // Nav links start after social icons
+  const navLinkBaseDelay = lastSocialIconEndTime + 0.1;
 
   return (
     <nav className="flex flex-col md:flex-row justify-between items-center px-6 py-4 md:px-12 lg:px-24 bg-transparent text-gray-800 dark:text-offWhite">
 
-      {/* Left side: Selfie, Name, and Social Icons */}
-      <div className="flex items-center space-x-3 md:space-x-4 mb-4 md:mb-0"> {/* Main wrapper for left content */}
-
-        {/* Wrapper for Name and Social Icons (stacked vertically next to selfie) */}
-        <div className="text-left"> {/* Ensures name and icons align left within this block */}
-          <h1
-            className="font-canarias text-5xl md:text-9xl font-bold cursor-pointer text-offWhite neon-text-flicker" // Adjusted text size slightly
-            // The --neon-glow-color is now controlled by CSS in index.css for light/dark mode
+      {/* Left side: Name and Social Icons */}
+      <div className="text-center md:text-left mb-4 md:mb-0">
+        <h1
+          className="interactive-element font-canarias text-5xl md:text-9xl font-bold cursor-pointer text-offWhite neon-text-flicker"
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+        >
+          Zachary Howell
+        </h1>
+        <div className="flex justify-center md:justify-start space-x-4 mt-2">
+          <a
+            href={yourLinkedInUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn Profile"
+            className="interactive-element text-offWhite hover:text-tealGreen dark:hover:text-purple-400 transition-colors duration-300 icon-awaiting-animation animate-icon-light-up"
+            style={{ animationDelay: `${iconBaseDelay}s` }}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
           >
-            Zachary Howell
-          </h1>
-          {/* Social Icons Container */}
-          <div className="flex justify-start space-x-3 mt-1 md:mt-2">
-            <a
-              href={yourLinkedInUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="LinkedIn Profile"
-              className="interactive-element text-offWhite hover:text-tealGreen dark:hover:text-purple-400 transition-colors duration-300 icon-awaiting-animation animate-icon-light-up"
-              style={{ animationDelay: `${iconBaseDelay}s` }}
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
-            >
-              <AiOutlineLinkedin size={35} /> {/* Adjusted icon size */}
-            </a>
-            <a
-              href={yourGitHubUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="GitHub Profile"
-              className="interactive-element text-offWhite hover:text-tealGreen dark:hover:text-purple-400 transition-colors duration-300 icon-awaiting-animation animate-icon-light-up"
-              style={{ animationDelay: `${iconBaseDelay + iconAnimationStagger}s` }}
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
-            >
-              <AiOutlineGithub size={35} />
-            </a>
-            <a
-              href={`mailto:${yourEmail}`}
-              aria-label="Send an Email"
-              className="interactive-element text-offWhite hover:text-tealGreen dark:hover:text-purple-400 transition-colors duration-300 icon-awaiting-animation animate-icon-light-up"
-              style={{ animationDelay: `${iconBaseDelay + (iconAnimationStagger * 2)}s` }}
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
-            >
-              <TfiEmail size={35} />
-            </a>
-          </div>
+            <AiOutlineLinkedin size={35} />
+          </a>
+          <a
+            href={yourGitHubUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub Profile"
+            className="interactive-element text-offWhite hover:text-tealGreen dark:hover:text-purple-400 transition-colors duration-300 icon-awaiting-animation animate-icon-light-up"
+            style={{ animationDelay: `${iconBaseDelay + iconAnimationStagger}s` }}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+          >
+            <AiOutlineGithub size={35} />
+          </a>
+          <a
+            href={`mailto:${yourEmail}`}
+            aria-label="Send an Email"
+            className="interactive-element text-offWhite hover:text-tealGreen dark:hover:text-purple-400 transition-colors duration-300 icon-awaiting-animation animate-icon-light-up"
+            style={{ animationDelay: `${iconBaseDelay + (iconAnimationStagger * 2)}s` }}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+          >
+            <TfiEmail size={35} />
+          </a>
         </div>
       </div>
 
       {/* Right side: Navigation Links and Theme Toggle */}
-      <div className="flex items-center space-x-6 mt-4 md:mt-0"> {/* Added mt-4 for spacing on mobile */}
-        <ul className="hidden md:flex space-x-8 text-xl">
+      <div className="flex items-center space-x-6 mt-4 md:mt-0">
+        <ul className="hidden md:flex space-x-8 text-4xl"> {/* Using text-2xl as decided */}
           <li>
             <a
               href="#projects"
-              className="interactive-element hover:text-tealGreen dark:hover:text-purple-400 transition duration-300"
+              className="interactive-element font-canarias text-offWhite hover:text-tealGreen dark:hover:text-purple-400 transition-colors duration-300 icon-awaiting-animation animate-icon-light-up" // Added text-offWhite
+              style={{ animationDelay: `${navLinkBaseDelay}s` }}
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
             >
@@ -98,7 +94,8 @@ export default function Navbar({ handleMouseEnter, handleMouseLeave }) {
           <li>
             <a
               href="#contact"
-              className="interactive-element hover:text-tealGreen dark:hover:text-purple-400 transition duration-300"
+              className="interactive-element font-canarias text-offWhite hover:text-tealGreen dark:hover:text-purple-400 transition-colors duration-300 icon-awaiting-animation animate-icon-light-up" // Added text-offWhite
+              style={{ animationDelay: `${navLinkBaseDelay + iconAnimationStagger}s` }}
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
             >
