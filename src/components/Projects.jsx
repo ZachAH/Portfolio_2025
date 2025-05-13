@@ -10,7 +10,7 @@ const projectsData = [
     imageUrl: "/portfolio25.png", // Using an existing image for placeholder
     description: "An Upadated portfolio since my last one was years old!.",
     technologies: ["React", "Node.js","Tailwind CSS","Vite"],
-    liveLink: "#",
+    liveLink: "zhowellportfolio.netlify.app",
     repoLink: "https://github.com/ZachAH/Portfolio_2025",
   },
   {
