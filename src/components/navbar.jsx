@@ -24,7 +24,7 @@ export default function Navbar({ handleMouseEnter, handleMouseLeave }) {
       {/* Left side: Name and Social Icons */}
       <div className="text-center md:text-left mb-4 md:mb-0"> {/* Added margin-bottom for mobile */}
         <h1
-          className="interactive-element font-canarias text-8xl font-bold cursor-pointer text-offWhite neon-text-flicker"
+          className="interactive-element font-canarias text-9xl font-bold cursor-pointer text-offWhite neon-text-flicker"
           style={{ '--neon-glow-color': '#5FB49C' }}
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}

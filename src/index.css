@@ -1,5 +1,8 @@
 /* index.css or App.css */
-
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* Removed @config directive - not needed for Tailwind v3 */
 /* --- Add your custom @font-face rule for Canarias --- */
 @font-face {
   font-family: 'Canarias'; /* This is the name you'll use */
@@ -68,11 +71,6 @@
   /* animation-delay will be applied inline in the JSX */
 }
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-/* Removed @config directive - not needed for Tailwind v3 */
-
 /* Keyframes for the gradient animation */
 @keyframes gradientBG {
   0% {
@@ -91,16 +89,13 @@
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
-  color-scheme: light dark; /* Allows browser UI like scrollbars to adapt */
+  color-scheme: light dark;
 
   /* --- LIGHT MODE DEFAULTS --- */
-  /* These are now your base styles */
-  color: #D4AF37; /* Standard dark text for light background */
-  background-color: #5FB49C; /* Standard teal background */
-  /* You could use your custom colors here instead if you prefer: */
-  /* color: #000000; */ /* black */
-  /* background-color: #F0EDEE; */ /* offWhite */
+  color: #213547; /* Dark text for light mode */
+  /* This background is a FALLBACK for light mode if the canvas doesn't load. */
+  /* The canvas itself will draw 'lightModeCanvasBackgroundColor' from the JS script. */
+  background-color: #F0EDEE; /* Your offWhite or a generic light color */
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;

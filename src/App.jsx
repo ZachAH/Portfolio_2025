@@ -1,20 +1,25 @@
-import Navbar from './components/navbar';
-import Hero from './components/hero';
-import Projects from './components/Projects';
-import Footer from './components/Footer';
+// src/App.jsx
 import React, { useState, useEffect, useRef } from 'react';
 
-import AnimatedBackground from './components/AnimatedBackground'; 
-import './index.css';
+// Component Imports (ensure casing matches your actual filenames)
+// e.g., if your file is Navbar.jsx, import Navbar from './components/Navbar';
+import Navbar from './components/Navbar';
+import Hero from './components/Hero';
+import Projects from './components/Projects';
+import Footer from './components/Footer';
+import AnimatedBackground from './components/AnimatedBackground';
+import useDarkMode from './hooks/useDarkMode'; // Make sure this path is correct (e.g., src/hooks/useDarkMode.js)
+
+import './index.css'; // Your main stylesheet with Tailwind directives
 
 function App() {
-  // State to track mouse position
-  const [cursorPosition, setCursorPosition] = useState({ x: -100, y: -100 }); // Start off-screen
+  // Dark Mode Hook
+  const [theme, toggleTheme] = useDarkMode();
 
-  // Ref for the custom cursor element
+  // Custom Cursor Logic
+  const [cursorPosition, setCursorPosition] = useState({ x: -100, y: -100 });
   const cursorRef = useRef(null);
 
-  // Effect to update mouse position
   useEffect(() => {
     const updateCursor = (e) => {
       setCursorPosition({ x: e.clientX, y: e.clientY });
@@ -25,9 +30,9 @@ function App() {
     return () => {
       window.removeEventListener('mousemove', updateCursor);
     };
-  }, []); // Empty dependency array means this runs once on mount
+  }, []); // Empty dependency array ensures this runs once on mount for cursor
 
-  // Handlers to add/remove the hover class
+  // Handlers for custom cursor hover effect (to be passed to components)
   const handleMouseEnter = () => {
     if (cursorRef.current) {
       cursorRef.current.classList.add('custom-cursor--hover');
@@ -40,19 +45,43 @@ function App() {
     }
   };
 
+  // Log the theme for debugging purposes
+  useEffect(() => {
+    console.log("App.jsx current theme:", theme);
+  }, [theme]);
+
+
   return (
-    // You might want a container div if App itself doesn't have one
     <div>
-      {/* Render your page components */}
-      {/* Pass the handlers down as props to components containing interactive elements */}
-      <AnimatedBackground />
-      <Navbar handleMouseEnter={handleMouseEnter} handleMouseLeave={handleMouseLeave} />
-      <Hero handleMouseEnter={handleMouseEnter} handleMouseLeave={handleMouseLeave} />
-      <Projects handleMouseEnter={handleMouseEnter} handleMouseLeave={handleMouseLeave} />
-      <Footer handleMouseEnter={handleMouseEnter} handleMouseLeave={handleMouseLeave} />
+      {/* Animated background, conditionally renders based on theme */}
+      <AnimatedBackground currentTheme={theme} />
+
+      {/* Wrapper for all page content to ensure it sits above the fixed background */}
+      <div style={{ position: 'relative', zIndex: 1 }}>
+        {/*
+          Pass toggleTheme to your ThemeToggle component.
+          If ThemeToggle is inside Navbar, Navbar needs to receive toggleTheme and pass it down.
+          Alternatively, ThemeToggle can import and use useDarkMode() directly itself.
+          For simplicity here, I'm assuming ThemeToggle might be self-contained or gets props via Navbar.
+        */}
+        <Navbar
+          handleMouseEnter={handleMouseEnter}
+          handleMouseLeave={handleMouseLeave}
+          // toggleTheme={toggleTheme} // Example if Navbar hosts the ThemeToggle button directly
+          // currentTheme={theme}   // Example if Navbar needs to know the theme for other reasons
+        />
+        <Hero
+          handleMouseEnter={handleMouseEnter}
+          handleMouseLeave={handleMouseLeave}
+        />
+        <Projects /> {/* Add handleMouseEnter/Leave if Projects component has interactive elements for cursor */}
+        <Footer
+          handleMouseEnter={handleMouseEnter}
+          handleMouseLeave={handleMouseLeave}
+        />
+      </div>
 
       {/* Custom Cursor Element */}
-      {/* It's crucial this element exists */}
       <div
         ref={cursorRef}
         className="custom-cursor"
