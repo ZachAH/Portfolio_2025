@@ -1,30 +1,38 @@
-# ⚡ Minimal React + Vite + TailwindCSS Template
+# React-Vite-Tailwind-Template
 
-This project provides a minimal boilerplate to quickly get started with React using [Vite](https://vitejs.dev/), [TailwindCSS](https://tailwindcss.com/), and JavaScript. It also includes ESLint for code quality and Hot Module Replacement (HMR) for a fast development experience.
+## What is it?
+This is a minimal boilerplate project using **React**, **Vite**, and **TailwindCSS**, designed for fast development with Hot Module Replacement (HMR) and basic ESLint setup. It's a simple starting point for building modern web apps with a clean stack.
 
-## 🚀 Features
+<br/>
 
-- ⚛️ React with Vite
-- 🎨 TailwindCSS for utility-first styling
-- 🧠 ESLint for linting
-- 🔁 Fast Refresh with HMR
-- 📦 Minimal setup for rapid development
+## How to Use
+* Clone the repository and install dependencies.
+* Run the development server to start building your React app with instant updates via HMR.
+* TailwindCSS is already configured, so you can use utility classes right away.
+* ESLint is included to help maintain clean code as you build.
 
-## 🛠 Plugins
+<br/>
 
-This template supports both official React plugins for Vite:
+## Live Demo
 
-- [`@vitejs/plugin-react`](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react): Uses [Babel](https://babeljs.io/) for Fast Refresh
-- [`@vitejs/plugin-react-swc`](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc): Uses [SWC](https://swc.rs/) for Fast Refresh
+https://zhowellportfolio.netlify.app/
 
-## 📦 Installation
+<br/>
+
+## Tech Stack
+
+- React  
+- Vite  
+- TailwindCSS  
+- ESLint  
+- JavaScript
+
+<br/>
+
+## Installation
 
 ```bash
-# Clone the repository
-git clone https://github.com/your-username/your-repo-name.git
-
-# Navigate into the project
-cd your-repo-name
-
-# Install dependencies
+git clone https://github.com/your-username/react-vite-tailwind-template.git
+cd react-vite-tailwind-template
 npm install
+npm run dev
