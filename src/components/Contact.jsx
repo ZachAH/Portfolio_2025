@@ -1,4 +1,3 @@
-// src/components/Contact.jsx
 import React, { useState } from 'react';
 
 export default function Contact() {
@@ -19,7 +18,7 @@ export default function Contact() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setFormStatus('Submitting...');
-    const formspreeEndpoint = 'https://formspree.io/f/xyzwbdrl'; // Your Formspree endpoint
+    const formspreeEndpoint = 'https://formspree.io/f/xyzwbdrl'; //endpoint for fromspree
 
     try {
       const response = await fetch(formspreeEndpoint, {
@@ -35,7 +34,6 @@ export default function Contact() {
         setFormStatus('Message sent successfully!');
         setFormData({ name: '', email: '', message: '' }); // Clear form
       } else {
-        // ... (error handling as before) ...
         const data = await response.json();
         if (data.errors) {
           setFormStatus(data.errors.map(error => error.message).join(', '));

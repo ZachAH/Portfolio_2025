@@ -1,13 +1,12 @@
-// src/components/Projects.jsx
 import React from 'react';
-import ProjectCard from './ProjectCard'; // Assuming ProjectCard.jsx is in the same folder
+import ProjectCard from './ProjectCard';
 
-// Example Project Data (move to a separate file or define here)
+// Porject Data
 const projectsData = [
   {
     id: 1,
     title: "Portfolio 2025",
-    imageUrl: "/portfolio25.png", // Using an existing image for placeholder
+    imageUrl: "/portfolio25.png", 
     description: "An Upadated portfolio since my last one was years old!.",
     technologies: ["React", "Node.js","Tailwind CSS","Vite"],
     liveLink: "zhowellportfolio.netlify.app",
@@ -16,7 +15,7 @@ const projectsData = [
   {
     id: 2,
     title: "Personal Portfolio 2022",
-    imageUrl: "/portfolioV1.png", // Using an existing image for placeholder
+    imageUrl: "/portfolioV1.png", 
     description: "A dynamic personal portfolio to showcase skills and projects, built with modern web tech.",
     technologies: ["Firebase","Gatsby", "React", "Bootstrap", "JavaScript"],
     liveLink: "https://zhportfolio.netlify.app",
@@ -25,13 +24,13 @@ const projectsData = [
   {
     id: 3,
     title: "Weather App",
-    imageUrl: "/weather.png", // Using an existing image for placeholder
+    imageUrl: "/weather.png", 
     description: "A simple weather app utilizing React and third party api's",
     technologies: ["React"],
     liveLink: "https://zachsreactfulweather.netlify.app/",
     repoLink: "https://github.com/ZachAH/Reactful-Weather",
   },
-  // Add more projects... make sure you have enough to scroll
+  // need to add more projects
 ];
 
 

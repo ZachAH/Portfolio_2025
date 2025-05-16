@@ -1,4 +1,3 @@
-// src/components/Footer.jsx
 import React from 'react';
 
 // Import chosen icons from react-icons

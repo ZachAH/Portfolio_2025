@@ -1,7 +1,6 @@
-// src/components/ThemeToggle.jsx
 import React from 'react';
-import useDarkMode from '../hooks/useDarkMode'; // Adjust import path if needed
-import { BsToggleOn, BsToggleOff } from 'react-icons/bs'; // Example icons
+import useDarkMode from '../hooks/useDarkMode';
+import { BsToggleOn, BsToggleOff } from 'react-icons/bs';
 
 export default function ThemeToggle({ handleMouseEnter, handleMouseLeave }) {
   const [theme, toggleTheme] = useDarkMode();

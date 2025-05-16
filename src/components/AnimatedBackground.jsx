@@ -1,4 +1,3 @@
-// src/components/AnimatedBackground.jsx
 import React, { useEffect, useRef, useState } from 'react';
 import * as SimplexNoiseModule from 'simplex-noise';
 
@@ -37,7 +36,7 @@ const AnimatedBackground = ({ currentTheme }) => {
   const zOff = 0.0015;
   const originalBackgroundColor = 'hsla(0,0%,5%,1)'; // Canvas background for light mode
 
-  // Timing for your foreground animations to complete
+  // Timing for foreground animations to complete
   const foregroundAnimationEndTime = 4800; // 4.8 seconds in milliseconds (adjust as needed)
 
   useEffect(() => {
@@ -231,7 +230,6 @@ const AnimatedBackground = ({ currentTheme }) => {
       }
       if (resizeHandlerRef.current) {
         window.removeEventListener('resize', resizeHandlerRef.current);
-        // No need to null resizeHandlerRef.current here as it's a ref, not a direct variable in this scope
       }
       if (containerRef.current) {
         containerRef.current.innerHTML = '';

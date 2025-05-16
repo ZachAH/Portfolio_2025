@@ -11,8 +11,7 @@ const RainyCityBackground = ({ currentTheme }) => {
 
   // Rain properties
   const numRaindrops = 200;
-  // --- DEBUG: Change rain color to white and more opaque ---
-  const rainColor = "rgba(58, 106, 177, 0.5)"; // White, 50% opacity
+  const rainColor = "rgba(58, 106, 177, 0.5)"; // blue, 50% opacity
   const rainSpeedFactor = 5;
   const windFactor = 1;
 
@@ -43,7 +42,6 @@ const RainyCityBackground = ({ currentTheme }) => {
         console.error('[RainyCityBackground] Failed to get 2D context!');
         return;
     }
-    // let lastTimestamp = 0; // For FPS throttle if you re-enable it
 
     function createRaindrop(canvasWidth, canvasHeight) {
       return {

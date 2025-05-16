@@ -1,13 +1,10 @@
-// src/components/Hero.jsx
 import React from 'react';
-// Assuming your Hero.jsx is in src/components/, this path is correct for src/assets/
-import resumePdfUrl from '../assets/ZacharyHowell_Resume.pdf'; // Make sure this filename matches your PDF
-import userSelfieImage from '../assets/selfie.jpg'; // Your selfie image
+import resumePdfUrl from '../assets/ZacharyHowell_Resume.pdf';
+import userSelfieImage from '../assets/selfie.jpg'; 
 
 export default function Hero() {
     // Define a delay for the selfie animation (e.g., 0.5 seconds after page load)
-    // You can adjust this, or set to '0s' for an immediate animation.
-    const selfieAnimationDelay = 4; // This was the last value you had
+    const selfieAnimationDelay = 4;
 
     return (
         <section className="flex flex-col md:flex-row items-center justify-between gap-8 px-6 py-20 md:px-12 lg:px-24 min-h-[calc(100vh-80px)]">
