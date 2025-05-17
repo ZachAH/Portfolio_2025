@@ -1,12 +1,38 @@
-# React + Vite
+# React-Vite-Tailwind-Template
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## What is it?
+This is a minimal boilerplate project using **React**, **Vite**, and **TailwindCSS**, designed for fast development with Hot Module Replacement (HMR) and basic ESLint setup. It's a simple starting point for building modern web apps with a clean stack.
 
-Currently, two official plugins are available:
+<br/>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## How to Use
+* Clone the repository and install dependencies.
+* Run the development server to start building your React app with instant updates via HMR.
+* TailwindCSS is already configured, so you can use utility classes right away.
+* ESLint is included to help maintain clean code as you build.
 
-## Expanding the ESLint configuration
+<br/>
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Live Demo
+
+https://zhowellportfolio.netlify.app/
+
+<br/>
+
+## Tech Stack
+
+- React  
+- Vite  
+- TailwindCSS  
+- ESLint  
+- JavaScript
+
+<br/>
+
+## Installation
+
+```bash
+git clone https://github.com/your-username/react-vite-tailwind-template.git
+cd react-vite-tailwind-template
+npm install
+npm run dev
