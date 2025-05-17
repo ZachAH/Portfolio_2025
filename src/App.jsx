@@ -1,8 +1,5 @@
-// src/App.jsx
 import React, { useState, useEffect, useRef } from 'react';
 
-// Component Imports (ensure casing matches your actual filenames)
-// e.g., if your file is Navbar.jsx, import Navbar from './components/Navbar';
 import Navbar from './components/navbar';
 import Hero from './components/hero';
 import Projects from './components/Projects';
@@ -10,10 +7,9 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import AnimatedBackground from './components/AnimatedBackground';
 import RainyCityBackground from './components/RainyCityBackground';
-import useDarkMode from './hooks/useDarkMode'; // Make sure this path is correct (e.g., src/hooks/useDarkMode.js)
+import useDarkMode from './hooks/useDarkMode';
 
-import './index.css'; // Your main stylesheet with Tailwind directives
-
+import './index.css';
 function App() {
   // Dark Mode Hook
   const [theme, toggleTheme] = useDarkMode();
