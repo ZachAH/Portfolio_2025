@@ -115,7 +115,7 @@
 /* in your components (e.g., <body className="bg-white dark:bg-black">) */
 
 html.dark {
-  background-image: url('/rock.png'); /* Path from the public folder */
+  background-image: url('/rock.webp'); /* Path from the public folder */
   background-size: cover;                     /* Cover the entire viewport */
   background-position: center center;         /* Center the image */
   background-repeat: no-repeat;               /* Don't repeat the image */
