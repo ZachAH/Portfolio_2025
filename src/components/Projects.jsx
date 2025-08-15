@@ -33,10 +33,10 @@ const projectsData = [
   {
     id: 4,
     title: "Weather App",
-    imageUrl: "/weather.webp", 
+    imageUrl: "/weather.png", 
     description: "A simple weather app utilizing React and third party api's",
     technologies: ["React"],
-    liveLink: "https://zachsreactfulweather.netlify.app/",
+    liveLink: "https://reactingtoweather.netlify.app/",
     repoLink: "https://github.com/ZachAH/Reactful-Weather",
   },
   {
