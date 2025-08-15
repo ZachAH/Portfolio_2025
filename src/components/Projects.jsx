@@ -39,6 +39,15 @@ const projectsData = [
     liveLink: "https://zachsreactfulweather.netlify.app/",
     repoLink: "https://github.com/ZachAH/Reactful-Weather",
   },
+  {
+    id: 5,
+    title: "ChatterBox",
+    imageUrl: "/chat.png", 
+    description: "A chat app using live firestore database and google gemini",
+    technologies: ["React","Firestore","TailwindCss"],
+    liveLink: "https://chatterbots33.netlify.app/",
+    repoLink: "https://github.com/ZachAH/Chatster",
+  },
   // need to add more projects
 ];
 
