@@ -48,6 +48,15 @@ const projectsData = [
     liveLink: "https://chatterbots33.netlify.app/",
     repoLink: "https://github.com/ZachAH/Chatster",
   },
+  {
+    id: 6,
+    title: "Interview Prep",
+    imageUrl: "/interview.png", 
+    description: "A application I built to study and prepare for a wide range of interview questions",
+    technologies: ["React","TailwindCss"],
+    liveLink: "https://interviewhelper92.netlify.app/",
+    repoLink: "https://github.com/ZachAH/Interview_Prep",
+  },
   // need to add more projects
 ];
 
