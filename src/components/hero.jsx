@@ -15,8 +15,7 @@ export default function Hero() {
                     The dev-driven launchpad for your business.
                 </h1>
                 <p className="text-lg text-offWhite mb-8">
-                Hey there! I'm Zach — a programmer with a passion for crafting clean, functional, and user-focused web and mobile experiences. I specialize in modern front-end development but also dive deep into full-stack solutions to bring ideas to life with precision and style. When I’m not coding, you’ll find me behind a drum kit or jamming on guitar — because creativity drives everything I do.
-                </p>
+                Hey there! I’m Zach — a tech-savvy professional passionate about helping customers succeed. With a strong foundation in web development, I understand the challenges teams face when adopting new tools and workflows, and I love turning those challenges into smooth, positive experiences. My goal is to bridge the gap between technology and people — ensuring customers not only get results but feel supported every step of the way. When I’m not working with clients, you’ll find me behind a drum kit or jamming on guitar — because creativity drives everything I do.                </p>
                 {/* --- BUTTONS CONTAINER --- */}
                 <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
                     {/* Download Resume Link (Styled as Button) */}
