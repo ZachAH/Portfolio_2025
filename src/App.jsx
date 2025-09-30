@@ -28,7 +28,7 @@ function App() {
     return () => {
       window.removeEventListener('mousemove', updateCursor);
     };
-  }, []); // Empty dependency array ensures this runs once on mount for cursor
+  }, []); 
 
   // Handlers for custom cursor hover effect (to be passed to components)
   const handleMouseEnter = () => {
@@ -60,14 +60,18 @@ function App() {
         <Navbar
           handleMouseEnter={handleMouseEnter}
           handleMouseLeave={handleMouseLeave}
-          // toggleTheme={toggleTheme} // Example if Navbar hosts the ThemeToggle button directly
-          // currentTheme={theme}   // Example if Navbar needs to know the theme for other reasons
+          // toggleTheme={toggleTheme} 
+          // currentTheme={theme}
         />
         <Hero
           handleMouseEnter={handleMouseEnter}
           handleMouseLeave={handleMouseLeave}
         />
-        <Projects /> {/* Add handleMouseEnter/Leave if Projects component has interactive elements for cursor */}
+        {/* UPDATED: Passing cursor handlers to Projects */}
+        <Projects 
+           handleMouseEnter={handleMouseEnter} 
+           handleMouseLeave={handleMouseLeave}
+        /> 
         <Contact />
         <Footer
           handleMouseEnter={handleMouseEnter}
