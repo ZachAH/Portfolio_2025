@@ -1,6 +1,6 @@
 import React from 'react';
 import resumePdfUrl from '../assets/ZacharyHowell_Resume.pdf';
-import userSelfieImage from '../assets/selfie.jpg'; 
+import userSelfieImage from '../assets/selfie.jpg';
 
 export default function Hero() {
     // Define a delay for the selfie animation (e.g., 0.5 seconds after page load)
@@ -12,10 +12,13 @@ export default function Hero() {
             {/* Left Column (Text Content) */}
             <div className="flex-1 max-w-2xl text-center md:text-left">
                 <h1 className="text-5xl lg:text-6xl font-bold text-offWhite mb-6 leading-tight">
-                    The dev-driven launchpad for your business.
-                </h1>
+                Modern websites for real businesses — built with care, coffee, and way too much talking.                </h1>
                 <p className="text-lg text-offWhite mb-8">
-                Hey there! I’m Zach — a tech-savvy professional passionate about helping customers succeed. With a strong foundation in web development, I understand the challenges teams face when adopting new tools and workflows, and I love turning those challenges into smooth, positive experiences. My goal is to bridge the gap between technology and people — ensuring customers not only get results but feel supported every step of the way. When I’m not working with clients, you’ll find me behind a drum kit or jamming on guitar — because creativity drives everything I do.                </p>
+                    Hey there! I’m Zach — a freelance web developer and technical problem-solver who loves building clean, modern, high-performing websites for real businesses. With a strong foundation in React, TypeScript, and UI/UX design, I help clients transform outdated sites into fast, intuitive experiences that actually drive results.
+
+                    I’m big on communication and clarity — I enjoy breaking down technical ideas in a way that makes sense to clients, teams, and users alike. Whether I’m optimizing a customer journey or redesigning a full brand experience, my goal is always the same: create something polished, reliable, and easy to use.
+
+                    Outside of work, you’ll usually find me behind a drum kit or playing guitar — creativity fuels everything I do, both on screen and off.               </p>
                 {/* --- BUTTONS CONTAINER --- */}
                 <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
                     {/* Download Resume Link (Styled as Button) */}
@@ -40,21 +43,21 @@ export default function Hero() {
 
             {/* Right Column (Animated Selfie and Optional Quote) */}
             <div className="flex-shrink-0 mt-12 md:mt-0 md:ml-12 lg:ml-20 flex flex-col items-center md:items-start">
-                 <img
+                <img
                     src={userSelfieImage}
                     alt="Zachary Howell"
                     className="w-48 h-80 md:w-56 md:h-96 rounded-lg object-cover object-center mb-6 selfie-awaiting-animation animate-selfie-light-up border-2 border-transparent dark:border-offWhite/20 shadow-lg"
                     style={{ animationDelay: `${selfieAnimationDelay}s` }}
-                 />
-                 <div
+                />
+                <div
                     className="p-4 rounded-lg max-w-xs w-full text-center md:text-left shadow-md 
                                bg-black/60 backdrop-blur-sm text-offWhite 
                                dark:bg-transparent dark:backdrop-blur-none dark:shadow-none"
-                 >
+                >
                     <p className="text-sm italic">
-                    "When you have the power of music within your soul and your heart, nothing can stop you." - Joey Jordison
+                        "90% building, 10% Googling — we’ve all been there."
                     </p>
-                 </div>
+                </div>
             </div>
         </section>
     );
