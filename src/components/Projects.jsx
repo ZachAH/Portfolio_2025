@@ -5,7 +5,7 @@ import ProjectCard from './ProjectCard';
 const projectsData = [
   {
     id: 9,
-    title: "Kettle Moraine Professional Cleaners – Website Redesign",
+    title: "Kettle Moraine Professional Cleaners – Website Redesign(In Development)",
     description:
       "A complete modern redesign of a local cleaning company's website, focused on speed, clarity, and converting visitors into customers. Built with React, Tailwind, and Vite for top-tier performance.",
     csTitle: "Small Business Web Modernization & UX Optimization",
