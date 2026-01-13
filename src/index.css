@@ -2,44 +2,60 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 /* Removed @config directive - not needed for Tailwind v3 */
 /* --- Add your custom @font-face rule for Canarias --- */
 @font-face {
-  font-family: 'Canarias'; /* This is the name you'll use */
-  src: url('./assets/Canarias.otf') format('opentype'); /* Path relative to src/index.css if Canarias.otf is in src/assets/ */
-  font-weight: normal; /* Assuming it's a regular weight font */
-  font-style: normal;  /* Assuming it's a regular style font */
+  font-family: 'Canarias';
+  /* This is the name you'll use */
+  src: url('./assets/Canarias.otf') format('opentype');
+  /* Path relative to src/index.css if Canarias.otf is in src/assets/ */
+  font-weight: normal;
+  /* Assuming it's a regular weight font */
+  font-style: normal;
+  /* Assuming it's a regular style font */
 }
 
 /* Keyframes for the selfie light-up effect */
 @keyframes selfieLightUpEffect {
   0% {
     opacity: 0;
-    transform: scale(0.7); /* Start smaller and invisible */
-    box-shadow: 0 0 0px rgba(240, 237, 238, 0); /* Using your offWhite color for glow base */
+    transform: scale(0.7);
+    /* Start smaller and invisible */
+    box-shadow: 0 0 0px rgba(240, 237, 238, 0);
+    /* Using your offWhite color for glow base */
   }
+
   70% {
     opacity: 1;
-    transform: scale(1.05); /* Slightly overshoot for a 'pop' */
-    box-shadow: 0 0 20px 5px rgba(240, 237, 238, 0.3); /* Glow effect */
+    transform: scale(1.05);
+    /* Slightly overshoot for a 'pop' */
+    box-shadow: 0 0 20px 5px rgba(240, 237, 238, 0.3);
+    /* Glow effect */
   }
+
   100% {
     opacity: 1;
-    transform: scale(1); /* Settle to normal size */
-    box-shadow: 0 0 15px 3px rgba(240, 237, 238, 0.2); /* Softer, stable glow */
+    transform: scale(1);
+    /* Settle to normal size */
+    box-shadow: 0 0 15px 3px rgba(240, 237, 238, 0.2);
+    /* Softer, stable glow */
   }
 }
 
 /* Class for initial state of selfie */
 .selfie-awaiting-animation {
-  opacity: 0; /* Start completely invisible */
+  opacity: 0;
+  /* Start completely invisible */
 }
 
 /* Class to trigger the light-up animation on the selfie */
 .animate-selfie-light-up {
   animation-name: selfieLightUpEffect;
-  animation-duration: s; /* Duration of the selfie lighting up */
-  animation-fill-mode: forwards; /* Stays in the final 'lit' state */
+  animation-duration: s;
+  /* Duration of the selfie lighting up */
+  animation-fill-mode: forwards;
+  /* Stays in the final 'lit' state */
   animation-timing-function: ease-out;
   /* animation-delay will be applied inline in the JSX */
 }
@@ -47,26 +63,34 @@
 /* Keyframes for the icon light-up effect */
 @keyframes iconLightUpEffect {
   0% {
-    opacity: 0.4; /* Start dimmer */
+    opacity: 0.4;
+    /* Start dimmer */
     /* Using a drop-shadow for a subtle glow around the SVG icon itself */
-    filter: drop-shadow(0 0 1px rgba(240, 237, 238, 0.2)); /* Softer offWhite glow */
+    filter: drop-shadow(0 0 1px rgba(240, 237, 238, 0.2));
+    /* Softer offWhite glow */
   }
+
   100% {
-    opacity: 1;   /* Full opacity */
-    filter: drop-shadow(0 0 5px rgba(240, 237, 238, 0.8)) drop-shadow(0 0 10px rgba(95, 180, 156, 0.5)); /* Brighter offWhite + hint of tealGreen glow */
+    opacity: 1;
+    /* Full opacity */
+    filter: drop-shadow(0 0 5px rgba(240, 237, 238, 0.8)) drop-shadow(0 0 10px rgba(95, 180, 156, 0.5));
+    /* Brighter offWhite + hint of tealGreen glow */
   }
 }
 
 /* Class to apply to icons for initial state (before animation starts for them) */
 .icon-awaiting-animation {
-  opacity: 0.4; /* Keep them dim until their animation delay is met */
+  opacity: 0.4;
+  /* Keep them dim until their animation delay is met */
 }
 
 /* Class to trigger the light-up animation on icons */
 .animate-icon-light-up {
   animation-name: iconLightUpEffect;
-  animation-duration: 0.6s; /* How long each icon takes to 'light up' */
-  animation-fill-mode: forwards; /* Stays in the final 'lit' state */
+  animation-duration: 0.6s;
+  /* How long each icon takes to 'light up' */
+  animation-fill-mode: forwards;
+  /* Stays in the final 'lit' state */
   animation-timing-function: ease-in-out;
   /* animation-delay will be applied inline in the JSX */
 }
@@ -76,9 +100,11 @@
   0% {
     background-position: 0% 50%;
   }
+
   50% {
     background-position: 100% 50%;
   }
+
   100% {
     background-position: 0% 50%;
   }
@@ -92,17 +118,22 @@
   color-scheme: light dark;
 
   /* --- LIGHT MODE DEFAULTS --- */
-  color: #213547; /* Dark text for light mode */
+  color: #213547;
+  /* Dark text for light mode */
   /* This background is a FALLBACK for light mode if the canvas doesn't load. */
   /* The canvas itself will draw 'lightModeCanvasBackgroundColor' from the JS script. */
-  background-color: #F0EDEE; /* Your offWhite or a generic light color */
+  background-color: #F0EDEE;
+  /* Your offWhite or a generic light color */
 
-    /* Light Mode Icon Glow Colors */
-    --icon-glow-color-main: rgba(240, 237, 238, 0.8); /* offWhite for main glow */
-    --icon-glow-color-accent: rgba(95, 180, 156, 0.4); /* tealGreen for accent glow */
-    /* Default neon glow for name (light mode) */
-    --neon-glow-color: #5FB49C; /* Your tealGreen */
-    --neon-glow-color-dim: rgba(95, 180, 156, 0.3);
+  /* Light Mode Icon Glow Colors */
+  --icon-glow-color-main: rgba(240, 237, 238, 0.8);
+  /* offWhite for main glow */
+  --icon-glow-color-accent: rgba(95, 180, 156, 0.4);
+  /* tealGreen for accent glow */
+  /* Default neon glow for name (light mode) */
+  --neon-glow-color: #5FB49C;
+  /* Your tealGreen */
+  --neon-glow-color-dim: rgba(95, 180, 156, 0.3);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -115,17 +146,25 @@
 /* in your components (e.g., <body className="bg-white dark:bg-black">) */
 
 html.dark {
-  background-image: url('/rock.webp'); /* Path from the public folder */
-  background-size: cover;                     /* Cover the entire viewport */
-  background-position: center center;         /* Center the image */
-  background-repeat: no-repeat;               /* Don't repeat the image */
-  background-attachment: fixed;               /* Image stays fixed during scroll for a parallax effect */
+  background-image: url('/rock.webp');
+  /* Path from the public folder */
+  background-size: cover;
+  /* Cover the entire viewport */
+  background-position: center center;
+  /* Center the image */
+  background-repeat: no-repeat;
+  /* Don't repeat the image */
+  background-attachment: fixed;
+  /* Image stays fixed during scroll for a parallax effect */
   color: rgba(255, 255, 255, 0.87);
   background-color: #000000;
-  --icon-glow-color-main: rgba(190, 100, 255, 0.8);   /* A lighter, vibrant purple for the main glow */
-  --icon-glow-color-accent: rgba(160, 32, 240, 0.6);    /* Your neonPurple (#A020F0) for accent glow, slightly more intense */
+  --icon-glow-color-main: rgba(190, 100, 255, 0.8);
+  /* A lighter, vibrant purple for the main glow */
+  --icon-glow-color-accent: rgba(160, 32, 240, 0.6);
+  /* Your neonPurple (#A020F0) for accent glow, slightly more intense */
   /* Neon glow for name in dark mode */
-  --neon-glow-color: #A020F0;      /* Vibrant Neon Purple */
+  --neon-glow-color: #A020F0;
+  /* Vibrant Neon Purple */
   --neon-glow-color-dim: rgba(160, 32, 240, 0.3);
 }
 
@@ -133,12 +172,14 @@ html.dark {
 @keyframes iconLightUpEffect {
   0% {
     opacity: 0.4;
-    filter: drop-shadow(0 0 1px var(--icon-glow-color-main, rgba(240, 237, 238, 0.2))); /* Fallback if var not defined */
+    filter: drop-shadow(0 0 1px var(--icon-glow-color-main, rgba(240, 237, 238, 0.2)));
+    /* Fallback if var not defined */
   }
+
   100% {
     opacity: 1;
-    filter: drop-shadow(0 0 5px var(--icon-glow-color-main, rgba(240, 237, 238, 0.8))) 
-            drop-shadow(0 0 10px var(--icon-glow-color-accent, rgba(95, 180, 156, 0.5))); /* Fallback if var not defined */
+    filter: drop-shadow(0 0 5px var(--icon-glow-color-main, rgba(240, 237, 238, 0.8))) drop-shadow(0 0 10px var(--icon-glow-color-accent, rgba(95, 180, 156, 0.5)));
+    /* Fallback if var not defined */
   }
 }
 
@@ -149,13 +190,17 @@ a {
   color: #646cff;
   text-decoration: inherit;
 }
+
 a:hover {
   /* Base link hover - Suggest using Tailwind hover utilities in components */
   color: #535bf2;
 }
+
 /* If you need specific dark mode overrides for these base 'a' styles: */
-/* html.dark a { color: #ADADFF; } */ /* Example */
-/* html.dark a:hover { color: #8A8AFF; } */ /* Example */
+/* html.dark a { color: #ADADFF; } */
+/* Example */
+/* html.dark a:hover { color: #8A8AFF; } */
+/* Example */
 
 
 body {
@@ -178,7 +223,8 @@ body {
   height: 20px;
   /* Using offWhite for border in light mode might be hard to see on white bg */
   /* Consider a slightly darker border for light mode? e.g., border-gray-400 */
-  border: 1px solid #cacaca; /* Changed example to light gray */
+  border: 1px solid #cacaca;
+  /* Changed example to light gray */
   border-radius: 50%;
   background-color: transparent;
   pointer-events: none;
@@ -187,17 +233,22 @@ body {
   transition: width 0.2s ease, height 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, transform 0.1s ease-out;
   will-change: width, height, background-color, border-color, transform;
 }
+
 /* Example: Dark mode style for the cursor border */
 html.dark .custom-cursor {
-  border-color: #F0EDEE; /* Your offWhite for dark mode */
+  border-color: #F0EDEE;
+  /* Your offWhite for dark mode */
 }
 
 .custom-cursor--hover {
   width: 40px;
   height: 40px;
-  background-color: rgba(95, 180, 156, 0.2); /* Your tealGreen with alpha */
-  border-color: #5FB49C; /* Your tealGreen */
+  background-color: rgba(95, 180, 156, 0.2);
+  /* Your tealGreen with alpha */
+  border-color: #5FB49C;
+  /* Your tealGreen */
 }
+
 /* Optional: Adjust cursor hover for dark mode if needed */
 /* html.dark .custom-cursor--hover { ... } */
 
@@ -222,27 +273,34 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #f0f0f0; /* Lighter background for light mode */
-  color: #213547; /* Dark text for light mode */
+  background-color: #f0f0f0;
+  /* Lighter background for light mode */
+  color: #213547;
+  /* Dark text for light mode */
   cursor: pointer;
   transition: border-color 0.25s;
 }
+
 button:hover {
   /* Consider using Tailwind hover variants */
   border-color: #646cff;
-  /* background-color: #e0e0e0; */ /* Optional: Slightly darker hover */
+  /* background-color: #e0e0e0; */
+  /* Optional: Slightly darker hover */
 }
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
+
 /* Optional: Define base dark mode button style */
 /* html.dark button { */
-  /* background-color: #1a1a1a; */ /* Your previous dark button background */
-  /* color: rgba(255, 255, 255, 0.87); */
+/* background-color: #1a1a1a; */
+/* Your previous dark button background */
+/* color: rgba(255, 255, 255, 0.87); */
 /* } */
 /* html.dark button:hover { */
-   /* border-color: #646cff; */
+/* border-color: #646cff; */
 /* } */
 
 
@@ -255,27 +313,40 @@ button:focus-visible {
 
 /* Keyframes for the neon flicker and turn-on effect */
 @keyframes neonFlickerOn {
-  0%, 18%, 22%, 25%, 53%, 57%, 100% {
+
+  0%,
+  18%,
+  22%,
+  25%,
+  53%,
+  57%,
+  100% {
     text-shadow:
       0 0 4px #fff,
       0 0 10px #fff,
       0 0 18px #fff,
-      0 0 38px var(--neon-glow-color, #00b3ff), /* Use a CSS variable for glow color */
+      0 0 38px var(--neon-glow-color, #00b3ff),
+      /* Use a CSS variable for glow color */
       0 0 70px var(--neon-glow-color, #00b3ff);
     opacity: 1;
   }
-  20%, 24%, 55% {
+
+  20%,
+  24%,
+  55% {
     text-shadow: none;
     opacity: 0.6;
   }
+
   /* Initial dim state */
   0% {
     text-shadow:
-      0 0 4px rgba(255,255,255,0.5),
-      0 0 10px rgba(255,255,255,0.5),
-      0 0 18px rgba(255,255,255,0.5),
-      0 0 38px rgba(0,179,255,0.3), /* Dimmer glow */
-      0 0 70px rgba(0,179,255,0.3);
+      0 0 4px rgba(255, 255, 255, 0.5),
+      0 0 10px rgba(255, 255, 255, 0.5),
+      0 0 18px rgba(255, 255, 255, 0.5),
+      0 0 38px rgba(0, 179, 255, 0.3),
+      /* Dimmer glow */
+      0 0 70px rgba(0, 179, 255, 0.3);
     opacity: 0.7;
   }
 }
@@ -286,20 +357,77 @@ button:focus-visible {
   /* color: #fff; /* White base, for example */
 
   /* Define the glow color as a CSS variable for easy customization */
-  --neon-glow-color: #00e1ff; /* Bright cyan, or use your tealGreen: #5FB49C */
+  --neon-glow-color: #00e1ff;
+  /* Bright cyan, or use your tealGreen: #5FB49C */
 
   /* Apply the animation */
-  animation: neonFlickerOn 2.5s ease-in-out forwards; /* 'forwards' keeps the final state */
+  animation: neonFlickerOn 2.5s ease-in-out forwards;
+  /* 'forwards' keeps the final state */
   /* Adjust duration and timing function as needed */
 
   /* Initial state before animation might fully kick in (optional, handled by keyframes 0%) */
   opacity: 0.7;
 }
+
 /* --- DARK MODE OVERRIDE for the neon glow color --- */
 html.dark .neon-text-flicker {
-  --neon-glow-color: #A020F0;      /* Vibrant Neon Purple */
-  --neon-glow-color-dim: rgba(160, 32, 240, 0.3); /* Dimmer version of Neon Purple */
+  --neon-glow-color: #A020F0;
+  /* Vibrant Neon Purple */
+  --neon-glow-color-dim: rgba(160, 32, 240, 0.3);
+  /* Dimmer version of Neon Purple */
   /* You can also adjust base text color here if needed for dark mode, e.g., color: #f0f0f0; */
 }
 
-/* ... (rest of your index.css styles like :root, body, etc.) ... */
+/* Bullet Animation Keyframes */
+@keyframes slideGlow {
+  0% {
+    opacity: 0;
+    transform: translateY(1rem);
+    text-shadow: 0 0 5px currentColor;
+  }
+
+  50% {
+    opacity: 1;
+    transform: translateY(0);
+    text-shadow: 0 0 20px currentColor, 0 0 40px teal;
+    /* Quick glow burst */
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    text-shadow: none;
+  }
+}
+
+/* Bullet Animation Classes */
+.animate-slide-glow {
+  animation: slideGlow 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.animation-delay-200 {
+  animation-delay: 0.2s;
+}
+
+.animation-delay-400 {
+  animation-delay: 0.4s;
+}
+
+.bullet-item {
+  animation-fill-mode: both;
+}
+
+/* Selfie Animation Fix (if duration was broken) */
+.animate-selfie-light-up {
+  animation-name: selfieLightUpEffect;
+  animation-duration: 1s;
+  /* Fixed: was just 's' */
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-out;
+}
+
+/* Ensure bullets start hidden until animation plays */
+.bullet-item {
+  opacity: 0;
+  /* Initial state */
+}
