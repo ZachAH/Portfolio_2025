@@ -42,10 +42,12 @@ export default function Hero() {
         <section className="flex flex-col md:flex-row items-center justify-between gap-8 px-6 py-20 md:px-12 lg:px-24 min-h-[calc(100vh-80px)]">
             {/* Left Column (Text Content) */}
             <div className="flex-1 max-w-2xl text-center md:text-left">
-                <h1 className="text-5xl lg:text-6xl font-bold text-offWhite mb-6 leading-tight">
-                    Modern websites for real businesses.
-                </h1>
-                <p className="text-lg text-offWhite mb-4">
+                <header>
+                    <h1 className="text-5xl lg:text-6xl font-bold text-offWhite mb-6 leading-tight">
+                        Modern websites for real businesses.
+                    </h1>
+                </header>
+                <p className="text-lg text-offWhite mb-4" role="doc-subtitle">
                     Hey, I'm Zach—a freelance web developer building fast, intuitive sites with React, TypeScript, and clear communication.
                 </p>
                 <ul className="hero-bullets text-lg text-offWhite mb-8 space-y-2 max-w-xl list-none">
@@ -58,6 +60,7 @@ export default function Hero() {
                     <a
                         href={resumePdfUrl}
                         download="Zachary Howell - Resume.pdf"
+                        aria-label="Download Zachary Howell's resume as PDF"
                         className="inline-block text-center bg-transparent font-medium py-3 px-6 rounded border-2 
                                    transition-colors duration-300 text-offWhite border-offWhite 
                                    hover:text-tealGreen hover:border-tealGreen
@@ -69,6 +72,7 @@ export default function Hero() {
                     <a
                         href={freelancguide}
                         download="Zachary Howell - Freelance Price Guide.pdf"
+                        aria-label="Download Zachary Howell's resume as PDF"
                         className="inline-block text-center bg-transparent font-medium py-3 px-6 rounded border-2 
                                    transition-colors duration-300 text-offWhite border-offWhite 
                                    hover:text-tealGreen hover:border-tealGreen
