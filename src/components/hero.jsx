@@ -18,18 +18,18 @@ export default function Hero() {
             {
                 opacity: 1,
                 y: 0,
-                duration: 0.6,
-                stagger: 0.2,
-                ease: "power2.out",
+                duration: 0.8,
+                stagger: 0.4,
+                ease: "power3.out",
                 scrollTrigger: {
                     trigger: ".hero-bullets",
-                    start: "top 80%",
+                    start: "top 85%",
                 },
                 onStart: () => {
                     gsap.to(bulletRefs.current, {
                         textShadow: "0 0 20px currentColor, 0 0 40px teal",
-                        duration: 0.3,
-                        stagger: 0.1,
+                        duration: 0.5,
+                        stagger: 0.4,
                         yoyo: true,
                         repeat: 1
                     });
@@ -48,12 +48,32 @@ export default function Hero() {
                     </h1>
                 </header>
                 <p className="text-lg text-offWhite mb-4" role="doc-subtitle">
-                    Hey, I'm Zach—a freelance web developer building fast, intuitive sites with React, TypeScript, and clear communication.
-                </p>
-                <ul className="hero-bullets text-lg text-offWhite mb-8 space-y-2 max-w-xl list-none">
-                    <li ref={el => (bulletRefs.current[0] = el)}>• Transform outdated sites into high-performers that drive results.</li>
-                    <li ref={el => (bulletRefs.current[1] = el)}>• Full-service: domains to deployment—delivered fast & reliable.</li>
-                    <li ref={el => (bulletRefs.current[2] = el)}>• Trusted by local businesses: proven track record, clear communication.</li>
+                    Hey, I'm Zach. With over 5 years of experience as a Frontend Engineer, I craft high-performance digital experiences. My toolkit focuses on React, TypeScript, and the art of seamless user interaction.                </p>
+                <ul className="hero-bullets text-lg text-offWhite mb-8 space-y-3 max-w-xl list-none">
+                    {/* 1. The "Performance" Bullet (Reworded) */}
+                    <li ref={el => (bulletRefs.current[0] = el)}>
+                        • Modernizing legacy codebases into **high-performance applications** that rank and convert.
+                    </li>
+
+                    {/* 2. The "Full-Cycle" Bullet (Reworded) */}
+                    <li ref={el => (bulletRefs.current[1] = el)}>
+                        • **End-to-end delivery:** Architecting everything from initial system design to automated deployment.
+                    </li>
+
+                    {/* 3. The "New" Technical Bullet (Engineering Depth) */}
+                    <li ref={el => (bulletRefs.current[2] = el)}>
+                        • Building **scalable, type-safe architectures** using TypeScript to ensure long-term maintainability.
+                    </li>
+
+                    {/* 4. The "New" User Experience Bullet (UX/UI Polish) */}
+                    <li ref={el => (bulletRefs.current[3] = el)}>
+                        • Crafting **fluid, accessible user interfaces** with a focus on motion, responsiveness, and clean UX.
+                    </li>
+
+                    {/* 5. The "Trust" Bullet (Reworded) */}
+                    <li ref={el => (bulletRefs.current[4] = el)}>
+                        • A **trusted partner** for businesses, providing technical strategy and transparent communication.
+                    </li>
                 </ul>
                 {/* --- BUTTONS CONTAINER --- */}
                 <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
