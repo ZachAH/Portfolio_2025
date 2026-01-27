@@ -23,14 +23,14 @@ const projectsData = [
     id: 7,
     title: "Upper Crust Pizza Website Redesign",
     description:
-      "A fully responsive React + Vite + Tailwind website built for a real Milwaukee-area pizzeria, featuring intuitive navigation, dynamic menu sections, and embedded Google Maps.",
+      "A fully responsive React + Vite + Tailwind website built for a real Milwaukee-area pizzeria, featuring intuitive navigation, dynamic menu sections, and an embedded Google Map. The site includes a custom CMS admin dashboard powered by Firebase and Firestore, allowing the owner to update content, manage the menu, and make real-time changes—no code required.",
     csTitle: "Digital Transformation for Local Business Growth",
     csDescription:
       "Designed and launched a modern digital storefront to increase online visibility, improve ordering convenience, and drive repeat customers. Implemented responsive UI, clear menu browsing paths, and optimized load speeds — enhancing customer engagement and supporting the client’s marketing efforts.",
     labels: ["Client Website", "Freelance Build", "Business Redesign"],
     solutionBriefLink: "/solutions/restaurant-digital-presence",
     imageUrl: "/pizza.webp",
-    technologies: ["React", "TailwindCss", "Typescript", "Netlify"],
+    technologies: ["React", "TailwindCss", "Typescript", "Firebase/Firestore", "Netlify"],
     liveLink: "https://uppercrustpizza.netlify.app/",
     repoLink: "https://github.com/ZachAH/UpperCrust",
   },
