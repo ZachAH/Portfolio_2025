@@ -15,7 +15,7 @@ const projectsData = [
     solutionBriefLink: "/solutions/kml-cleaners",
     imageUrl: "/KMPC.webp",
     technologies: ["React", "TypeScript", "Tailwind CSS", "Vite"],
-    liveLink: "https://kmpc.netlify.app/",
+    liveLink: "https://kettlemoraineprofessionalcleaners.com/",
     repoLink: "https://github.com/ZachAH/KML",
   },
 
