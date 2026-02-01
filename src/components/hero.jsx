@@ -3,7 +3,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import resumePdfUrl from '../assets/ZacharyHowell_Resume.pdf';
 import freelancguide from '../assets/freelance_price_guide.pdf';
-import userSelfieImage from '../assets/selfie.jpg';
+import userSelfieImage from '../assets/selfie.webp';
 
 gsap.registerPlugin(ScrollTrigger);
 
