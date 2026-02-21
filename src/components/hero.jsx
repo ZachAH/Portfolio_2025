@@ -7,35 +7,62 @@ import userSelfieImage from '../assets/selfie.webp';
 
 gsap.registerPlugin(ScrollTrigger);
 
+/**
+ * Helper component for the "Sharpie" effect.
+ * Wraps keywords in a span with an animated background stroke.
+ */
+const Highlight = ({ children }) => (
+    <span className="relative inline-block px-1 mx-1 group">
+        {/* The Sharpie Stroke - Width is animated via GSAP */}
+        <span className="highlight-stroke absolute bottom-1 left-0 w-0 h-[55%] bg-tealGreen/40 dark:bg-purple-500/40 -z-10" />
+        <span className="relative font-bold text-offWhite">
+            {children}
+        </span>
+    </span>
+);
+
 export default function Hero() {
     const selfieAnimationDelay = 4;
     const bulletRefs = useRef([]);
 
     useEffect(() => {
-        // Bullet stagger animation with glow
-        gsap.fromTo(bulletRefs.current,
+        const tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: ".hero-bullets",
+                start: "top 85%",
+            }
+        });
+
+        // 1. Bullet line stagger animation
+        tl.fromTo(bulletRefs.current,
             { opacity: 0, y: 20 },
             {
                 opacity: 1,
                 y: 0,
                 duration: 0.8,
-                stagger: 0.4,
+                stagger: 0.3,
                 ease: "power3.out",
-                scrollTrigger: {
-                    trigger: ".hero-bullets",
-                    start: "top 85%",
-                },
-                onStart: () => {
-                    gsap.to(bulletRefs.current, {
+                onStart: function() {
+                    // Optional: Brief glow effect on the whole line as it appears
+                    gsap.to(this.targets(), {
                         textShadow: "0 0 20px currentColor, 0 0 40px teal",
                         duration: 0.5,
-                        stagger: 0.4,
                         yoyo: true,
                         repeat: 1
                     });
                 }
             }
         );
+
+        // 2. Sharpie "Drawing" animation
+        // This targets all .highlight-stroke elements and draws them sequentially
+        tl.to(".highlight-stroke", {
+            width: "100%",
+            duration: 1.75,
+            stagger: 0.2,
+            ease: "power2.inOut",
+        }, "+=3.5"); // Overlap slightly with the bullet animation for smoothness
+
     }, []);
 
     return (
@@ -48,33 +75,31 @@ export default function Hero() {
                     </h1>
                 </header>
                 <p className="text-lg text-offWhite mb-4" role="doc-subtitle">
-                    Hey, I'm Zach. With over 5 years of experience as a Frontend Engineer, I craft high-performance digital experiences. My toolkit focuses on React, TypeScript, and the art of seamless user interaction.                </p>
-                <ul className="hero-bullets text-lg text-offWhite mb-8 space-y-3 max-w-xl list-none">
-                    {/* 1. The "Performance" Bullet (Reworded) */}
+                    Hey, I'm Zach. With over 5 years of experience as a Frontend Engineer, I craft high-performance digital experiences. My toolkit focuses on React, TypeScript, and the art of seamless user interaction.
+                </p>
+                
+                <ul className="hero-bullets text-lg text-offWhite mb-8 space-y-5 max-w-xl list-none">
                     <li ref={el => (bulletRefs.current[0] = el)}>
-                        • Modernizing legacy codebases into **high-performance applications** that rank and convert.
+                        • Modernizing legacy codebases into <Highlight>high-performance applications</Highlight> that rank and convert.
                     </li>
 
-                    {/* 2. The "Full-Cycle" Bullet (Reworded) */}
                     <li ref={el => (bulletRefs.current[1] = el)}>
-                        • **End-to-end delivery:** Architecting everything from initial system design to automated deployment.
+                        • <Highlight>End-to-end delivery:</Highlight> Architecting everything from initial system design to automated deployment.
                     </li>
 
-                    {/* 3. The "New" Technical Bullet (Engineering Depth) */}
                     <li ref={el => (bulletRefs.current[2] = el)}>
-                        • Building **scalable, type-safe architectures** using TypeScript to ensure long-term maintainability.
+                        • Building <Highlight>scalable, type-safe architectures</Highlight> using TypeScript to ensure long-term maintainability.
                     </li>
 
-                    {/* 4. The "New" User Experience Bullet (UX/UI Polish) */}
                     <li ref={el => (bulletRefs.current[3] = el)}>
-                        • Crafting **fluid, accessible user interfaces** with a focus on motion, responsiveness, and clean UX.
+                        • Crafting <Highlight>fluid, accessible user interfaces</Highlight> with a focus on motion and clean UX.
                     </li>
 
-                    {/* 5. The "Trust" Bullet (Reworded) */}
                     <li ref={el => (bulletRefs.current[4] = el)}>
-                        • A **trusted partner** for businesses, providing technical strategy and transparent communication.
+                        • A <Highlight>trusted partner</Highlight> for businesses, providing technical strategy and transparent communication.
                     </li>
                 </ul>
+
                 {/* --- BUTTONS CONTAINER --- */}
                 <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
                     <a
@@ -92,7 +117,7 @@ export default function Hero() {
                     <a
                         href={freelancguide}
                         download="Zachary Howell - Freelance Price Guide.pdf"
-                        aria-label="Download Zachary Howell's resume as PDF"
+                        aria-label="Download Zachary Howell's pricing guide as PDF"
                         className="inline-block text-center bg-transparent font-medium py-3 px-6 rounded border-2 
                                    transition-colors duration-300 text-offWhite border-offWhite 
                                    hover:text-tealGreen hover:border-tealGreen

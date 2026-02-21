@@ -431,3 +431,24 @@ html.dark .neon-text-flicker {
   opacity: 0;
   /* Initial state */
 }
+
+/* Sharpie / Marker Effect Styling */
+.highlight-stroke {
+  /* Give it a slightly wobbly, hand-drawn look */
+  clip-path: polygon(0% 10%, 100% 0%, 98% 90%, 2% 100%);
+
+  /* Adds a soft felt-tip texture */
+  filter: blur(0.5px);
+
+  /* Slight rotation for personality */
+  transform: rotate(-1deg);
+
+  /* Optional: specific marker-like border radius */
+  border-radius: 2px 4px 2px 8px;
+}
+
+/* Ensure the parent text sits cleanly on top */
+.hero-bullets li {
+  line-height: 1.8;
+  /* Added spacing to prevent highlights from overlapping lines */
+}
