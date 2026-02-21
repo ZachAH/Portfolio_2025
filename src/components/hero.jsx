@@ -33,24 +33,16 @@ export default function Hero() {
             }
         });
 
-        // 1. Bullet line stagger animation
+        // 1. Slide bullets in after a 3-second hold off
         tl.fromTo(bulletRefs.current,
             { opacity: 0, y: 20 },
             {
                 opacity: 1,
                 y: 0,
                 duration: 0.8,
-                stagger: 0.3,
+                stagger: 0.2,
                 ease: "power3.out",
-                onStart: function() {
-                    // Optional: Brief glow effect on the whole line as it appears
-                    gsap.to(this.targets(), {
-                        textShadow: "0 0 20px currentColor, 0 0 40px teal",
-                        duration: 0.5,
-                        yoyo: true,
-                        repeat: 1
-                    });
-                }
+                delay: 5 // <--- This holds the text entrance for 3 seconds
             }
         );
 
@@ -61,7 +53,7 @@ export default function Hero() {
             duration: 1.75,
             stagger: 0.2,
             ease: "power2.inOut",
-        }, "+=3.5"); // Overlap slightly with the bullet animation for smoothness
+        }, ); // Overlap slightly with the bullet animation for smoothness
 
     }, []);
 
@@ -77,7 +69,7 @@ export default function Hero() {
                 <p className="text-lg text-offWhite mb-4" role="doc-subtitle">
                     Hey, I'm Zach. With over 5 years of experience as a Frontend Engineer, I craft high-performance digital experiences. My toolkit focuses on React, TypeScript, and the art of seamless user interaction.
                 </p>
-                
+
                 <ul className="hero-bullets text-lg text-offWhite mb-8 space-y-5 max-w-xl list-none">
                     <li ref={el => (bulletRefs.current[0] = el)}>
                         • Modernizing legacy codebases into <Highlight>high-performance applications</Highlight> that rank and convert.
