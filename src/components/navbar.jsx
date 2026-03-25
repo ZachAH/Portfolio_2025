@@ -1,5 +1,5 @@
-// src/components/Navbar.jsx
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import ThemeToggle from './ThemeToggle';
 
 // icons
@@ -112,7 +112,7 @@ export default function Navbar({ handleMouseEnter, handleMouseLeave }) {
           <ul className="hidden md:flex space-x-8 text-2xl">
             <li>
               <a
-                href="#projects"
+                href="/#projects"
                 className="interactive-element font-canarias text-offWhite hover:text-tealGreen dark:hover:text-purple-400 transition-colors duration-300 icon-awaiting-animation animate-icon-light-up"
                 style={{ animationDelay: `${navLinkBaseDelay}s` }}
                 onMouseEnter={handleMouseEnter}
@@ -122,10 +122,21 @@ export default function Navbar({ handleMouseEnter, handleMouseLeave }) {
               </a>
             </li>
             <li>
-              <a
-                href="#contact"
+              <Link
+                to="/services"
                 className="interactive-element font-canarias text-offWhite hover:text-tealGreen dark:hover:text-purple-400 transition-colors duration-300 icon-awaiting-animation animate-icon-light-up"
                 style={{ animationDelay: `${navLinkBaseDelay + iconAnimationStagger}s` }}
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+              >
+                Services
+              </Link>
+            </li>
+            <li>
+              <a
+                href="/#contact"
+                className="interactive-element font-canarias text-offWhite hover:text-tealGreen dark:hover:text-purple-400 transition-colors duration-300 icon-awaiting-animation animate-icon-light-up"
+                style={{ animationDelay: `${navLinkBaseDelay + (iconAnimationStagger * 2)}s` }}
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
               >
@@ -161,7 +172,7 @@ export default function Navbar({ handleMouseEnter, handleMouseLeave }) {
             <ul className="flex flex-col space-y-4">
             <li>
                 <a
-                href="#projects"
+                href="/#projects"
                 className="font-canarias text-xl text-offWhite hover:text-tealGreen dark:hover:text-purple-400 transition-colors duration-300"
                 onClick={toggleMobileMenu}
                 >
@@ -169,8 +180,17 @@ export default function Navbar({ handleMouseEnter, handleMouseLeave }) {
                 </a>
             </li>
             <li>
+                <Link
+                to="/services"
+                className="font-canarias text-xl text-offWhite hover:text-tealGreen dark:hover:text-purple-400 transition-colors duration-300"
+                onClick={toggleMobileMenu}
+                >
+                Services
+                </Link>
+            </li>
+            <li>
                 <a
-                href="#contact"
+                href="/#contact"
                 className="font-canarias text-xl text-offWhite hover:text-tealGreen dark:hover:text-purple-400 transition-colors duration-300"
                 onClick={toggleMobileMenu}
                 >

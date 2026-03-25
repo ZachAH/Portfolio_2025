@@ -1,8 +1,8 @@
 import React, { useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import resumePdfUrl from '../assets/ZacharyHowell_Resume.pdf';
-import freelancguide from '../assets/freelance_price_guide.pdf';
 import userSelfieImage from '../assets/selfie.webp';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -106,18 +106,16 @@ export default function Hero() {
                     >
                         Download Resume
                     </a>
-                    <a
-                        href={freelancguide}
-                        download="Zachary Howell - Freelance Price Guide.pdf"
-                        aria-label="Download Zachary Howell's pricing guide as PDF"
-                        className="inline-block text-center bg-transparent font-medium py-3 px-6 rounded border-2 
-                                   transition-colors duration-300 text-offWhite border-offWhite 
-                                   hover:text-tealGreen hover:border-tealGreen
-                                   dark:text-offWhite dark:border-purple-500 
-                                   dark:hover:text-purple-300 dark:hover:border-purple-400"
+                    <Link
+                        to="/services"
+                        className="inline-block text-center bg-tealGreen text-gray-900 font-bold py-3 px-6 rounded border-2 border-tealGreen
+                                   transition-colors duration-300 shadow-lg shadow-tealGreen/20
+                                   hover:bg-transparent hover:text-tealGreen
+                                   dark:bg-purple-600 dark:text-offWhite dark:border-purple-600 dark:shadow-purple-500/20
+                                   dark:hover:bg-transparent dark:hover:text-purple-400"
                     >
-                        View Pricing Guide
-                    </a>
+                        Hire Me & Templates
+                    </Link>
                 </div>
             </div>
 

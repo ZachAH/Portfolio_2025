@@ -12,6 +12,25 @@ const fadeInOut = (currentTime, totalTime) => {
   return (totalTime - currentTime) / halfTime;
 };
 
+// Constants from the original script
+const circleCount = 150;
+const circlePropCount = 8;
+const circlePropsLength = circleCount * circlePropCount;
+const baseSpeed = 0.1;
+const rangeSpeed = 1;
+const baseTTL = 150;
+const rangeTTL = 200;
+const baseRadius = 100;
+const rangeRadius = 200;
+const rangeHue = 60; // Hue variance once active
+const xOff = 0.0015;
+const yOff = 0.0015;
+const zOff = 0.0015;
+const originalBackgroundColor = 'hsla(0,0%,5%,1)'; // Canvas background for light mode
+
+// Timing for foreground animations to complete
+const foregroundAnimationEndTime = 4800; // 4.8 seconds in milliseconds (adjust as needed)
+
 const AnimatedBackground = ({ currentTheme }) => {
   const containerRef = useRef(null);
   const animationFrameId = useRef(null);
@@ -20,26 +39,8 @@ const AnimatedBackground = ({ currentTheme }) => {
   // State to control when the full colorful animation starts
   const [isAnimationActive, setIsAnimationActive] = useState(false);
 
-  // Constants from the original script
-  const circleCount = 150;
-  const circlePropCount = 8;
-  const circlePropsLength = circleCount * circlePropCount;
-  const baseSpeed = 0.1;
-  const rangeSpeed = 1;
-  const baseTTL = 150;
-  const rangeTTL = 200;
-  const baseRadius = 100;
-  const rangeRadius = 200;
-  const rangeHue = 60; // Hue variance once active
-  const xOff = 0.0015;
-  const yOff = 0.0015;
-  const zOff = 0.0015;
-  const originalBackgroundColor = 'hsla(0,0%,5%,1)'; // Canvas background for light mode
-
-  // Timing for foreground animations to complete
-  const foregroundAnimationEndTime = 4800; // 4.8 seconds in milliseconds (adjust as needed)
-
   useEffect(() => {
+    const currentContainer = containerRef.current;
     console.log('[AnimatedBackground] useEffect. Theme:', currentTheme, "Animation Active:", isAnimationActive);
 
     let canvas, ctx, circleProps, simplex, baseHue;
@@ -231,8 +232,8 @@ const AnimatedBackground = ({ currentTheme }) => {
       if (resizeHandlerRef.current) {
         window.removeEventListener('resize', resizeHandlerRef.current);
       }
-      if (containerRef.current) {
-        containerRef.current.innerHTML = '';
+      if (currentContainer) {
+        currentContainer.innerHTML = '';
       }
     };
   }, [currentTheme, isAnimationActive]); // Dependencies for the main effect

@@ -1,18 +1,40 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 
 import Navbar from './components/navbar';
-import Hero from './components/hero';
-import Projects from './components/Projects';
-import Contact from './components/Contact';
 import Footer from './components/Footer';
 import AnimatedBackground from './components/AnimatedBackground';
 import RainyCityBackground from './components/RainyCityBackground';
 import useDarkMode from './hooks/useDarkMode';
 
+import Home from './pages/Home';
+import Services from './pages/Services';
+
 import './index.css';
+
+function ScrollHandler() {
+  const { pathname, hash } = useLocation();
+  
+  useEffect(() => {
+    if (hash) {
+      setTimeout(() => {
+        const id = hash.replace('#', '');
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    } else {
+      window.scrollTo(0, 0);
+    }
+  }, [pathname, hash]);
+
+  return null;
+}
+
 function App() {
   // Dark Mode Hook
-  const [theme, toggleTheme] = useDarkMode();
+  const [theme] = useDarkMode();
 
   // Custom Cursor Logic
   const [cursorPosition, setCursorPosition] = useState({ x: -100, y: -100 });
@@ -50,45 +72,58 @@ function App() {
 
 
   return (
-    <div>
-      {/* Animated background, conditionally renders based on theme */}
-      <AnimatedBackground currentTheme={theme} />
-      <RainyCityBackground currentTheme={theme} />
+    <Router>
+      <ScrollHandler />
+      <div>
+        {/* Animated background, conditionally renders based on theme */}
+        <AnimatedBackground currentTheme={theme} />
+        <RainyCityBackground currentTheme={theme} />
 
-      {/* Wrapper for all page content to ensure it sits above the fixed background */}
-      <div style={{ position: 'relative', zIndex: 1 }}>
-        <Navbar
-          handleMouseEnter={handleMouseEnter}
-          handleMouseLeave={handleMouseLeave}
-          // toggleTheme={toggleTheme} 
-          // currentTheme={theme}
-        />
-        <Hero
-          handleMouseEnter={handleMouseEnter}
-          handleMouseLeave={handleMouseLeave}
-        />
-        {/* UPDATED: Passing cursor handlers to Projects */}
-        <Projects 
-           handleMouseEnter={handleMouseEnter} 
-           handleMouseLeave={handleMouseLeave}
-        /> 
-        <Contact />
-        <Footer
-          handleMouseEnter={handleMouseEnter}
-          handleMouseLeave={handleMouseLeave}
-        />
+        {/* Wrapper for all page content to ensure it sits above the fixed background */}
+        <div style={{ position: 'relative', zIndex: 1 }}>
+          <Navbar
+            handleMouseEnter={handleMouseEnter}
+            handleMouseLeave={handleMouseLeave}
+            // toggleTheme={toggleTheme} 
+            // currentTheme={theme}
+          />
+          <Routes>
+            <Route 
+              path="/" 
+              element={
+                <Home 
+                  handleMouseEnter={handleMouseEnter} 
+                  handleMouseLeave={handleMouseLeave} 
+                />
+              } 
+            />
+            <Route 
+              path="/services" 
+              element={
+                <Services 
+                  handleMouseEnter={handleMouseEnter} 
+                  handleMouseLeave={handleMouseLeave} 
+                />
+              } 
+            />
+          </Routes>
+          <Footer
+            handleMouseEnter={handleMouseEnter}
+            handleMouseLeave={handleMouseLeave}
+          />
+        </div>
+
+        {/* Custom Cursor Element */}
+        <div
+          ref={cursorRef}
+          className="custom-cursor"
+          style={{
+            left: `${cursorPosition.x}px`,
+            top: `${cursorPosition.y}px`,
+          }}
+        ></div>
       </div>
-
-      {/* Custom Cursor Element */}
-      <div
-        ref={cursorRef}
-        className="custom-cursor"
-        style={{
-          left: `${cursorPosition.x}px`,
-          top: `${cursorPosition.y}px`,
-        }}
-      ></div>
-    </div>
+    </Router>
   );
 }
 

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 
 // UPDATED: Accept viewMode and cursor handlers
-export default function ProjectCard({ project, index, viewMode, handleMouseEnter, handleMouseLeave }) {
+export default function ProjectCard({ project, viewMode, handleMouseEnter, handleMouseLeave }) {
   const [isVisible, setIsVisible] = useState(false);
   const cardWrapperRef = useRef(null);
   const cardInnerRef = useRef(null);
