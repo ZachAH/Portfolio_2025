@@ -143,6 +143,17 @@ export default function ProjectCard({ project, index, viewMode, handleMouseEnter
           </div>
         )}
 
+        {/* Status Badge */}
+        {project.status && (
+          <span
+            className={`inline-block px-3 py-1 mb-4 text-xs font-semibold uppercase rounded-full
+              ${project.status === 'In Development' ? 'bg-yellow-500 text-white' : 'bg-green-500 text-white'}
+            `}
+          >
+            {project.status}
+          </span>
+        )}
+
         <p
           className={`text-sm mb-4 ${scrollTransitionBase} ${isCSView ? 'text-teal-200 dark:text-teal-300 font-medium' : 'text-gray-300'
             } ${isVisible ? "opacity-100 translate-x-0 delay-400" : "opacity-0 -translate-x-5"

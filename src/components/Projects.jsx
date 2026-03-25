@@ -5,7 +5,7 @@ import ProjectCard from './ProjectCard';
 const projectsData = [
   {
     id: 9,
-    title: "Kettle Moraine Professional Cleaners – Website Redesign(In Development)",
+    title: "Kettle Moraine Professional Cleaners",
     description:
       "A complete modern redesign of a local cleaning company's website, focused on speed, clarity, and converting visitors into customers. Built with React, Tailwind, and Vite for top-tier performance.",
     csTitle: "Small Business Web Modernization & UX Optimization",
@@ -17,11 +17,12 @@ const projectsData = [
     technologies: ["React", "TypeScript", "Tailwind CSS", "Vite"],
     liveLink: "https://kettlemoraineprofessionalcleaners.com/",
     repoLink: "https://github.com/ZachAH/KML",
+    status: "Finished",
   },
 
   {
     id: 7,
-    title: "Upper Crust Pizza Website Redesign",
+    title: "Upper Crust Pizza",
     description:
       "A fully responsive React + Vite + Tailwind website built for a real Milwaukee-area pizzeria, featuring intuitive navigation, dynamic menu sections, and an embedded Google Map. The site includes a custom CMS admin dashboard powered by Firebase and Firestore, allowing the owner to update content, manage the menu, and make real-time changes—no code required.",
     csTitle: "Digital Transformation for Local Business Growth",
@@ -33,11 +34,29 @@ const projectsData = [
     technologies: ["React", "TailwindCss", "Typescript", "Firebase/Firestore", "Netlify"],
     liveLink: "https://uppercrustpizza.netlify.app/",
     repoLink: "https://github.com/ZachAH/UpperCrust",
+    status: "In Development",
+  },
+
+  {
+    id: 5,
+    title: "Saved & Sent",
+    description:
+      "An e-commerce site for a local Christain based apparel company, built with custom CMS features and Stripe integration.",
+    csTitle: "E-Commerce Platform with Custom CMS & Payment Integration",
+    csDescription:
+      "Built a custom e-commerce platform with an integrated CMS for easy product management and Stripe for secure payment processing. The solution streamlined operations for the client and provided a seamless shopping experience for customers.",
+    labels: ["Client Website", "Freelance Build"],
+    solutionBriefLink: "/solutions/chatterbox-triage",
+    imageUrl: "/saved&sent.png",
+    technologies: ["React", "Node.js", "Firebase", "Stripe", "Netlify", "Sanity.io"],
+    liveLink: "https://savedandsent.netlify.app/",
+    repoLink: "https://github.com/ZachAH/CCCLLC/tree/main",
+    status: "In Development",
   },
 
   {
     id: 1,
-    title: "Claw and Decay (Fullstack E-commerce)",
+    title: "Claw and Decay Clothing",
     description:
       "My fullstack e-commerce site for my clothing brand, using Node.js and Stripe for payment processing.",
     csTitle: "Scalable E-commerce Solution & Onboarding",
@@ -49,6 +68,7 @@ const projectsData = [
     technologies: ["React", "Node.js", "Firebase", "Stripe", "Netlify"],
     liveLink: "https://clawanddecay.com/",
     repoLink: "https://github.com/ZachAH/clawanddecay",
+    status: "Finished",
   },
 
   {
@@ -65,24 +85,8 @@ const projectsData = [
     technologies: ["React", "Node.js", "Tailwind CSS", "Vite"],
     liveLink: "https://zhowellportfolio.netlify.app",
     repoLink: "https://github.com/ZachAH/Portfolio_2025",
+    status: "Finished",
   },
-
-  {
-    id: 5,
-    title: "ChatterBox (AI Summarization)",
-    description:
-      "A chat app using live Firestore database and Google Gemini AI to summarize complex chat histories.",
-    csTitle: "Support Workflow Automation & Efficiency",
-    csDescription:
-      "Built a technical triage tool that uses AI to summarize lengthy customer support logs, enabling Customer Success Managers to reduce resolution time.",
-    labels: ["Prototype", "AI Demo"],
-    solutionBriefLink: "/solutions/chatterbox-triage",
-    imageUrl: "/chat.png",
-    technologies: ["React", "Firestore", "TailwindCss"],
-    liveLink: "https://chatterbots33.netlify.app/",
-    repoLink: "https://github.com/ZachAH/Chatster",
-  },
-
   {
     id: 6,
     title: "Interview Prep (Technical Readiness Tool)",
@@ -97,6 +101,7 @@ const projectsData = [
     technologies: ["React", "TailwindCss"],
     liveLink: "https://interviewhelper92.netlify.app/",
     repoLink: "https://github.com/ZachAH/Interview_Prep",
+    status: "Finished",
   },
 ];
 

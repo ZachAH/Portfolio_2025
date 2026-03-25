@@ -7,6 +7,7 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import AnimatedBackground from './components/AnimatedBackground';
 import RainyCityBackground from './components/RainyCityBackground';
+import Templates from './components/Templates';
 import useDarkMode from './hooks/useDarkMode';
 
 import './index.css';
@@ -72,6 +73,7 @@ function App() {
            handleMouseEnter={handleMouseEnter} 
            handleMouseLeave={handleMouseLeave}
         /> 
+        <Templates />
         <Contact />
         <Footer
           handleMouseEnter={handleMouseEnter}
