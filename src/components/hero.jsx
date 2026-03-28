@@ -1,140 +1,157 @@
-import React, { useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import resumePdfUrl from '../assets/ZacharyHowell_Resume.pdf';
-import userSelfieImage from '../assets/selfie.webp';
+import React from 'react';
+import { motion } from 'framer-motion';
 
-gsap.registerPlugin(ScrollTrigger);
-
-/**
- * Helper component for the "Sharpie" effect.
- * Wraps keywords in a span with an animated background stroke.
- */
-const Highlight = ({ children }) => (
-    <span className="relative inline-block px-1 mx-1 group">
-        {/* The Sharpie Stroke - Width is animated via GSAP */}
-        <span className="highlight-stroke absolute bottom-1 left-0 w-0 h-[55%] bg-tealGreen/40 dark:bg-purple-500/40 -z-10" />
-        <span className="relative font-bold text-offWhite">
-            {children}
-        </span>
-    </span>
+const SharpieUnderline = () => (
+  <svg 
+    className="absolute -bottom-2 left-0 w-full h-3 text-accent-orange/40"
+    viewBox="0 0 100 10" 
+    preserveAspectRatio="none"
+  >
+    <motion.path
+      d="M0 5 Q 25 2, 50 5 T 100 5"
+      fill="transparent"
+      stroke="currentColor"
+      strokeWidth="4"
+      strokeLinecap="round"
+      initial={{ pathLength: 0, opacity: 0 }}
+      animate={{ pathLength: 1, opacity: 1 }}
+      transition={{ delay: 1.8, duration: 1.2, ease: "easeInOut" }}
+    />
+  </svg>
 );
 
-export default function Hero() {
-    const selfieAnimationDelay = 4;
-    const bulletRefs = useRef([]);
+const LetterReveal = ({ text, delay = 0 }) => {
+  const letters = Array.from(text);
+  
+  const container = {
+    hidden: { opacity: 0 },
+    visible: (i = 1) => ({
+      opacity: 1,
+      transition: { staggerChildren: 0.04, delayChildren: delay * i },
+    }),
+  };
 
-    useEffect(() => {
-        const tl = gsap.timeline({
-            scrollTrigger: {
-                trigger: ".hero-bullets",
-                start: "top 85%",
-            }
-        });
+  const child = {
+    hidden: { 
+      opacity: 0, 
+      y: 20,
+      filter: "blur(10px)",
+      scale: 1.1
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      filter: "blur(0px)",
+      scale: 1,
+      transition: {
+        type: "spring",
+        damping: 12,
+        stiffness: 100,
+      },
+    },
+  };
 
-        // 1. Slide bullets in after a 3-second hold off
-        tl.fromTo(bulletRefs.current,
-            { opacity: 0, y: 20 },
-            {
-                opacity: 1,
-                y: 0,
-                duration: 0.8,
-                stagger: 0.2,
-                ease: "power3.out",
-                delay: 5 // <--- This holds the text entrance for 3 seconds
-            }
-        );
+  return (
+    <motion.span
+      style={{ display: "inline-block", overflow: "hidden" }}
+      variants={container}
+      initial="hidden"
+      animate="visible"
+    >
+      {letters.map((letter, index) => (
+        <motion.span
+          key={index}
+          style={{ display: "inline-block" }}
+          variants={child}
+        >
+          {letter === " " ? "\u00A0" : letter}
+        </motion.span>
+      ))}
+    </motion.span>
+  );
+};
 
-        // 2. Sharpie "Drawing" animation
-        // This targets all .highlight-stroke elements and draws them sequentially
-        tl.to(".highlight-stroke", {
-            width: "100%",
-            duration: 1.75,
-            stagger: 0.2,
-            ease: "power2.inOut",
-        }, ); // Overlap slightly with the bullet animation for smoothness
+const Hero = ({ handleMouseEnter, handleMouseLeave }) => {
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.8 } 
+    },
+  };
 
-    }, []);
+  return (
+    <section className="relative min-h-[92vh] flex flex-col items-center justify-center text-center px-6 md:px-12 overflow-hidden">
+      <div className="max-w-6xl w-full relative z-10">
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1, ease: 'easeOut', delay: 0.2 }}
+          className="mb-8"
+        >
+          <span className="inline-block px-4 py-1.5 rounded-full text-xs font-semibold tracking-widest bg-accent-orange/10 text-accent-orange border border-accent-orange/20 uppercase">
+            Available for new opportunities
+          </span>
+        </motion.div>
 
-    return (
-        <section className="flex flex-col md:flex-row items-center justify-between gap-8 px-6 py-20 md:px-12 lg:px-24 min-h-[calc(100vh-80px)]">
-            {/* Left Column (Text Content) */}
-            <div className="flex-1 max-w-2xl text-center md:text-left">
-                <header>
-                    <h1 className="text-5xl lg:text-6xl font-bold text-offWhite mb-6 leading-tight">
-                        Modern websites for real businesses.
-                    </h1>
-                </header>
-                <p className="text-lg text-offWhite mb-4" role="doc-subtitle">
-                    Hey, I'm Zach. With over 5 years of experience as a Frontend Engineer, I craft high-performance digital experiences. My toolkit focuses on React, TypeScript, and the art of seamless user interaction.
-                </p>
+        <h1 
+          className="text-7xl md:text-9xl lg:text-[10rem] font-bold tracking-tighter mb-10 leading-[0.85] text-text-primary select-none"
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+        >
+          <LetterReveal text="Building" delay={0.4} /><br />
+          <span className="relative inline-block">
+            <span className="text-gradient">Digital</span>
+            <SharpieUnderline />
+          </span><br />
+          <LetterReveal text="Brilliance." delay={1.2} />
+        </h1>
 
-                <ul className="hero-bullets text-lg text-offWhite mb-8 space-y-5 max-w-xl list-none">
-                    <li ref={el => (bulletRefs.current[0] = el)}>
-                        • Modernizing legacy codebases into <Highlight>high-performance applications</Highlight> that rank and convert.
-                    </li>
+        <motion.p
+          variants={itemVariants}
+          initial="hidden"
+          animate="visible"
+          className="text-xl md:text-2xl lg:text-3xl text-text-secondary max-w-3xl mx-auto mb-14 font-medium leading-relaxed"
+        >
+          I design and develop premium, high-performance web applications that bridge the gap between imagination and execution.
+        </motion.p>
 
-                    <li ref={el => (bulletRefs.current[1] = el)}>
-                        • <Highlight>End-to-end delivery:</Highlight> Architecting everything from initial system design to automated deployment.
-                    </li>
+        <motion.div 
+          variants={itemVariants} 
+          initial="hidden"
+          animate="visible"
+          className="flex flex-col sm:flex-row items-center justify-center gap-6"
+        >
+          <a
+            href="#projects"
+            className="group relative px-10 py-5 bg-obsidian-950 text-white dark:bg-white dark:text-obsidian-950 rounded-full font-bold overflow-hidden transition-all hover:scale-105 active:scale-95 shadow-premium"
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+          >
+            <span className="relative z-10">View My Work</span>
+            <div className="absolute inset-0 bg-sunset-gradient opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
+          </a>
+          <a
+            href="#contact"
+            className="px-10 py-5 glass text-text-primary border border-obsidian-700/20 rounded-full font-bold hover:bg-silver-100 transition-all hover:shadow-md active:scale-95"
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+          >
+            Let's Talk
+          </a>
+        </motion.div>
+      </div>
 
-                    <li ref={el => (bulletRefs.current[2] = el)}>
-                        • Building <Highlight>scalable, type-safe architectures</Highlight> using TypeScript to ensure long-term maintainability.
-                    </li>
+      {/* Decorative ambient background highlight */}
+      <motion.div 
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 0.2, scale: 1 }}
+        transition={{ duration: 2, ease: 'easeOut' }}
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70vw] h-[70vw] -z-10 blur-[130px] bg-sunset-gradient rounded-full pointer-events-none" 
+      />
+    </section>
+  );
+};
 
-                    <li ref={el => (bulletRefs.current[3] = el)}>
-                        • Crafting <Highlight>fluid, accessible user interfaces</Highlight> with a focus on motion and clean UX.
-                    </li>
-
-                    <li ref={el => (bulletRefs.current[4] = el)}>
-                        • A <Highlight>trusted partner</Highlight> for businesses, providing technical strategy and transparent communication.
-                    </li>
-                </ul>
-
-                {/* --- BUTTONS CONTAINER --- */}
-                <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-                    <a
-                        href={resumePdfUrl}
-                        download="Zachary Howell - Resume.pdf"
-                        aria-label="Download Zachary Howell's resume as PDF"
-                        className="inline-block text-center bg-transparent font-medium py-3 px-6 rounded border-2 
-                                   transition-colors duration-300 text-offWhite border-offWhite 
-                                   hover:text-tealGreen hover:border-tealGreen
-                                   dark:text-offWhite dark:border-purple-500 
-                                   dark:hover:text-purple-300 dark:hover:border-purple-400"
-                    >
-                        Download Resume
-                    </a>
-                    <Link
-                        to="/services"
-                        className="inline-block text-center bg-tealGreen text-gray-900 font-bold py-3 px-6 rounded border-2 border-tealGreen
-                                   transition-colors duration-300 shadow-lg shadow-tealGreen/20
-                                   hover:bg-transparent hover:text-tealGreen
-                                   dark:bg-purple-600 dark:text-offWhite dark:border-purple-600 dark:shadow-purple-500/20
-                                   dark:hover:bg-transparent dark:hover:text-purple-400"
-                    >
-                        Hire Me & Templates
-                    </Link>
-                </div>
-            </div>
-
-            {/* Right Column (Animated Selfie and Optional Quote) */}
-            <div className="flex-shrink-0 mt-12 md:mt-0 md:ml-12 lg:ml-20 flex flex-col items-center md:items-start">
-                <img
-                    src={userSelfieImage}
-                    alt="Zachary Howell"
-                    className="w-48 h-80 md:w-56 md:h-96 rounded-lg object-cover object-center mb-6 selfie-awaiting-animation animate-selfie-light-up border-2 border-transparent dark:border-offWhite/20 shadow-lg"
-                    style={{ animationDelay: `${selfieAnimationDelay}s` }}
-                />
-                <div className="p-4 rounded-lg max-w-xs w-full text-center md:text-left shadow-md 
-                               bg-black/60 backdrop-blur-sm text-offWhite 
-                               dark:bg-transparent dark:backdrop-blur-none dark:shadow-none">
-                    <p className="text-sm italic">
-                        "90% building, 10% Googling — we’ve all been there."
-                    </p>
-                </div>
-            </div>
-        </section>
-    );
-}
+export default Hero;

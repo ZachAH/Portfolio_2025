@@ -1,44 +1,50 @@
 import React from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { FiSun, FiMoon } from 'react-icons/fi';
 import useDarkMode from '../hooks/useDarkMode';
-import { BsToggleOn, BsToggleOff } from 'react-icons/bs';
 
-export default function ThemeToggle({ handleMouseEnter, handleMouseLeave }) {
+const ThemeToggle = ({ handleMouseEnter, handleMouseLeave }) => {
   const [theme, toggleTheme] = useDarkMode();
 
   return (
     <button
       onClick={toggleTheme}
-      className={`
-        interactive-element 
-        p-2 rounded-full 
-        border-2 border-transparent ${/* Base border, transparent by default */''}
-        focus:outline-none focus:ring-2 
-        transition-colors duration-200
-
-        ${/* Light Mode Styles */''}
-        text-tealGreen ${/* Icon color in light mode (for BsToggleOn) */''}
-        hover:bg-gray-200 
-        focus:ring-tealGreen
-
-        ${/* Dark Mode Styles */''}
-        dark:bg-black 
-        dark:border-purple-500 
-        dark:hover:bg-gray-800 ${/* Or dark:hover:bg-purple-900/50 for a subtle purple hover */''}
-        dark:focus:ring-purple-500
-      `}
-      aria-label={theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode'}
+      className="relative flex items-center justify-center w-14 h-7 rounded-full bg-obsidian-800/10 dark:bg-obsidian-700/30 border border-obsidian-200/20 dark:border-obsidian-500/20 transition-all duration-300 outline-none"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
+      aria-label={theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode'}
     >
-      {theme === 'light' ? (
-        // Light Mode is active: Show "Switch is ON"
-        // Icon color here will be controlled by the button's text color in light mode
-        <BsToggleOn size={28} /> 
-      ) : (
-        // Dark Mode is active: Show "Switch is OFF"
-        // Icon color here will be controlled by the button's text color in dark mode
-        <BsToggleOff size={28} className="text-purple-400" /> // Explicitly set purple icon for dark mode "off" state
-      )}
+      <div className="absolute inset-0 flex items-center justify-between px-1.5 pointer-events-none">
+        <FiSun className={`text-[10px] ${theme === 'light' ? 'text-accent-orange' : 'text-text-secondary/40'}`} />
+        <FiMoon className={`text-[10px] ${theme === 'dark' ? 'text-accent-orange' : 'text-text-secondary/40'}`} />
+      </div>
+      
+      <motion.div
+        animate={{ 
+          x: theme === 'light' ? -14 : 14,
+          backgroundColor: theme === 'light' ? '#f97316' : '#f97316' 
+        }}
+        transition={{ 
+          type: "spring", 
+          stiffness: 500, 
+          damping: 30 
+        }}
+        className="z-10 w-5 h-5 rounded-full shadow-lg shadow-accent-orange/20 flex items-center justify-center text-[10px] text-white"
+      >
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={theme}
+            initial={{ opacity: 0, scale: 0.5, rotate: -45 }}
+            animate={{ opacity: 1, scale: 1, rotate: 0 }}
+            exit={{ opacity: 0, scale: 0.5, rotate: 45 }}
+            transition={{ duration: 0.2 }}
+          >
+            {theme === 'light' ? <FiSun /> : <FiMoon />}
+          </motion.div>
+        </AnimatePresence>
+      </motion.div>
     </button>
   );
-}
+};
+
+export default ThemeToggle;

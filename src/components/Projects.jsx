@@ -1,160 +1,127 @@
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 import ProjectCard from './ProjectCard';
 
-// Project Data - Reframed for dual-persona view
 const projectsData = [
   {
     id: 9,
     title: "Kettle Moraine Professional Cleaners",
-    description:
-      "A complete modern redesign of a local cleaning company's website, focused on speed, clarity, and converting visitors into customers. Built with React, Tailwind, and Vite for top-tier performance.",
-    csTitle: "Small Business Web Modernization & UX Optimization",
-    csDescription:
-      "Transformed a legacy small-business website into a high-performing, mobile-first platform. Implemented a fully modern React architecture, responsive UI components, optimized hero sections, and a clean service navigation system. Focused on improving trust, readability, and user flow to boost customer contact rates.",
-    labels: ["Client Website", "Freelance Build", "Business Redesign"],
-    solutionBriefLink: "/solutions/kml-cleaners",
-    imageUrl: "/KMPC.webp",
-    technologies: ["React", "TypeScript", "Tailwind CSS", "Vite"],
-    liveLink: "https://kettlemoraineprofessionalcleaners.com/",
-    repoLink: "https://github.com/ZachAH/KML",
-    status: "Finished",
+    category: "Small Business Web Modernization",
+    description: "A complete modern redesign of a local cleaning company's website, focused on speed, clarity, and converting visitors into customers. Built with React, Tailwind, and Vite for top-tier performance.",
+    csDescription: "Transformed a legacy small-business website into a high-performing, mobile-first platform. Implemented a fully modern React architecture, responsive UI components, optimized hero sections, and a clean service navigation system.",
+    image: "/KMPC.webp",
+    link: "https://kettlemoraineprofessionalcleaners.com/",
+    tags: ["React", "TypeScript", "Tailwind CSS", "Vite"]
   },
-
   {
     id: 7,
     title: "Upper Crust Pizza",
-    description:
-      "A fully responsive React + Vite + Tailwind website built for a real Milwaukee-area pizzeria, featuring intuitive navigation, dynamic menu sections, and an embedded Google Map. The site includes a custom CMS admin dashboard powered by Firebase and Firestore, allowing the owner to update content, manage the menu, and make real-time changes—no code required.",
-    csTitle: "Digital Transformation for Local Business Growth",
-    csDescription:
-      "Designed and launched a modern digital storefront to increase online visibility, improve ordering convenience, and drive repeat customers. Implemented responsive UI, clear menu browsing paths, and optimized load speeds — enhancing customer engagement and supporting the client’s marketing efforts.",
-    labels: ["Client Website", "Freelance Build", "Business Redesign"],
-    solutionBriefLink: "/solutions/restaurant-digital-presence",
-    imageUrl: "/pizza.webp",
-    technologies: ["React", "TailwindCss", "Typescript", "Firebase/Firestore", "Netlify"],
-    liveLink: "https://uppercrustpizza.netlify.app/",
-    repoLink: "https://github.com/ZachAH/UpperCrust",
-    status: "In Development",
+    category: "Digital Transformation",
+    description: "A fully responsive React + Vite + Tailwind website built for a real Milwaukee-area pizzeria, featuring intuitive navigation, dynamic menu sections, and an embedded Google Map. Includes a custom CMS admin dashboard.",
+    csDescription: "Designed and launched a modern digital storefront to increase online visibility, improve ordering convenience, and drive repeat customers. Implemented responsive UI and optimized load speeds.",
+    image: "/pizza.webp",
+    link: "https://uppercrustpizza.netlify.app/",
+    tags: ["React", "TailwindCss", "Typescript", "Firebase"]
   },
-
   {
     id: 5,
     title: "Saved & Sent",
-    description:
-      "An e-commerce site for a local Christain based apparel company, built with custom CMS features and Stripe integration.",
-    csTitle: "E-Commerce Platform with Custom CMS & Payment Integration",
-    csDescription:
-      "Built a custom e-commerce platform with an integrated CMS for easy product management and Stripe for secure payment processing. The solution streamlined operations for the client and provided a seamless shopping experience for customers.",
-    labels: ["Client Website", "Freelance Build"],
-    solutionBriefLink: "/solutions/chatterbox-triage",
-    imageUrl: "/saved&sent.png",
-    technologies: ["React", "Node.js", "Firebase", "Stripe", "Netlify", "Sanity.io"],
-    liveLink: "https://savedandsent.netlify.app/",
-    repoLink: "https://github.com/ZachAH/CCCLLC/tree/main",
-    status: "In Development",
+    category: "E-Commerce Platform",
+    description: "An e-commerce site for a local Christian based apparel company, built with custom CMS features and Stripe integration.",
+    csDescription: "Built a custom e-commerce platform with an integrated CMS for easy product management and Stripe for secure payment processing. The solution streamlined operations and provided a seamless shopping experience.",
+    image: "/saved&sent.png",
+    link: "https://savedandsent.netlify.app/",
+    tags: ["React", "Node.js", "Firebase", "Stripe"]
   },
-
   {
     id: 1,
     title: "Claw and Decay Clothing",
-    description:
-      "My fullstack e-commerce site for my clothing brand, using Node.js and Stripe for payment processing.",
-    csTitle: "Scalable E-commerce Solution & Onboarding",
-    csDescription:
-      "Engineered and deployed an integrated e-commerce platform. Success was measured by optimizing checkout flows and creating support documentation for efficient CS team handoff.",
-    labels: ["Client Website", "Freelance Build", "Business Redesign"],
-    solutionBriefLink: "/solutions/clawanddecay",
-    imageUrl: "/CAD.webp",
-    technologies: ["React", "Node.js", "Firebase", "Stripe", "Netlify"],
-    liveLink: "https://clawanddecay.com/",
-    repoLink: "https://github.com/ZachAH/clawanddecay",
-    status: "Finished",
+    category: "Scalable E-commerce",
+    description: "My fullstack e-commerce site for my clothing brand, using Node.js and Stripe for payment processing.",
+    csDescription: "Engineered and deployed an integrated e-commerce platform. Optimized checkout flows and created support documentation for efficient CS team handoff.",
+    image: "/CAD.webp",
+    link: "https://clawanddecay.com/",
+    tags: ["React", "Node.js", "Firebase", "Stripe"]
   },
-
   {
     id: 2,
-    title: "Portfolio 2025 (React/Tailwind)",
-    description:
-      "An updated portfolio built with modern performance in mind (Vite, React, Tailwind).",
-    csTitle: "Internal Tool: Dynamic Persona Management",
-    csDescription:
-      "Developed architecture that dynamically serves content based on user type (DEV vs. CS Manager), demonstrating an ability to segment and tailor technical information.",
-    labels: ["Brand Transformation"],
-    solutionBriefLink: "/solutions/portfolio-persona",
-    imageUrl: "/portfolio25.webp",
-    technologies: ["React", "Node.js", "Tailwind CSS", "Vite"],
-    liveLink: "https://zhowellportfolio.netlify.app",
-    repoLink: "https://github.com/ZachAH/Portfolio_2025",
-    status: "Finished",
+    title: "Portfolio 2025",
+    category: "Internal Tool",
+    description: "An updated portfolio built with modern performance in mind (Vite, React, Tailwind).",
+    csDescription: "Developed architecture that dynamically serves content based on user type (DEV vs. CS Manager), demonstrating an ability to segment and tailor technical information.",
+    image: "/portfolio25.webp",
+    link: "https://zhowellportfolio.netlify.app",
+    tags: ["React", "Node.js", "Tailwind CSS", "Vite"]
   },
   {
     id: 6,
-    title: "Interview Prep (Technical Readiness Tool)",
-    description:
-      "An application built to study and prepare for a wide range of interview questions.",
-    csTitle: "Standardized Technical Team Onboarding",
-    csDescription:
-      "Created an application to standardize and measure the readiness of new technical specialists, reducing training overhead and improving consistency.",
-    labels: ["Developer Tool", "Training Utility"],
-    solutionBriefLink: "/solutions/onboarding-readiness",
-    imageUrl: "/interview.png",
-    technologies: ["React", "TailwindCss"],
-    liveLink: "https://interviewhelper92.netlify.app/",
-    repoLink: "https://github.com/ZachAH/Interview_Prep",
-    status: "Finished",
-  },
+    title: "Interview Prep",
+    category: "Technical Readiness Tool",
+    description: "An application built to study and prepare for a wide range of interview questions.",
+    csDescription: "Created an application to standardize and measure the readiness of new technical specialists, reducing training overhead and improving consistency.",
+    image: "/interview.png",
+    link: "https://interviewhelper92.netlify.app/",
+    tags: ["React", "TailwindCss"]
+  }
 ];
 
-export default function Projects({ handleMouseEnter, handleMouseLeave }) {
-  // Default to Developer as primary audience
+const Projects = ({ handleMouseEnter, handleMouseLeave }) => {
   const [viewMode, setViewMode] = useState('DEV');
 
-  const buttonClass = (mode) =>
-    `px-6 py-2 rounded-full font-semibold transition-all duration-300 
-    transform hover:scale-105 shadow-sm border
-    ${viewMode === mode
-      ? 'bg-teal-600 text-white border-teal-600 dark:bg-teal-500 dark:border-teal-500'
-      : 'bg-gray-200 text-gray-800 border-gray-300 hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-600 dark:hover:bg-gray-600'
-    }`;
-
   return (
-    <section id="projects" className="py-20 px-6 bg-transparent dark:bg-transparent">
-      <div className="container mx-auto">
-        {/* Section heading */}
-        <h2 className="text-3xl lg:text-4xl font-bold text-center text-offWhite dark:text-offWhite mb-2">
-          Client Work & Freelance Builds
-        </h2>
-        <p className="text-center text-gray-400 mb-8">
-          View my work from different professional lenses:
-        </p>
-
-        {/* Role Switcher */}
-        <div className="flex justify-center gap-4 mb-14">
-          <button
-            onClick={() => setViewMode('DEV')}
-            className={buttonClass('DEV')}
+    <section id="projects" className="py-32 px-6 md:px-12 lg:px-24">
+      <div className="max-w-7xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+          className="mb-20 text-center"
+        >
+          <span className="text-sm font-bold tracking-widest text-accent-orange uppercase mb-4 inline-block">Professional Highlights</span>
+          <h2 className="text-5xl md:text-7xl font-bold tracking-tight mb-8 text-text-primary uppercase"
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
           >
-            Technical Developer 🛠️
-          </button>
+            Client <span className="text-gradient">Work</span>.
+          </h2>
+          <p className="text-xl md:text-2xl text-text-secondary max-w-2xl mx-auto leading-relaxed mb-12">
+            View my work through different professional lenses:
+          </p>
 
-          <button
-            onClick={() => setViewMode('CS')}
-            className={buttonClass('CS')}
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-          >
-            Customer Success 🤝
-          </button>
-        </div>
+          <div className="flex justify-center gap-4">
+            <button
+              onClick={() => setViewMode('DEV')}
+              className={`px-8 py-3 rounded-full text-sm font-bold transition-all duration-300 ${
+                viewMode === 'DEV'
+                ? 'bg-sunset-gradient text-white shadow-lg shadow-accent-red/20 scale-105'
+                : 'glass text-text-secondary hover:text-text-primary'
+              }`}
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+            >
+              Technical Developer 🛠️
+            </button>
+            <button
+              onClick={() => setViewMode('CS')}
+              className={`px-8 py-3 rounded-full text-sm font-bold transition-all duration-300 ${
+                viewMode === 'CS'
+                ? 'bg-sunset-gradient text-white shadow-lg shadow-accent-red/20 scale-105'
+                : 'glass text-text-secondary hover:text-text-primary'
+              }`}
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+            >
+              Customer Success 🤝
+            </button>
+          </div>
+        </motion.div>
 
-        {/* Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
           {projectsData.map((project, index) => (
-            <ProjectCard
-              key={project.id}
-              project={project}
+            <ProjectCard 
+              key={project.id} 
+              project={project} 
               index={index}
               viewMode={viewMode}
               handleMouseEnter={handleMouseEnter}
@@ -165,4 +132,6 @@ export default function Projects({ handleMouseEnter, handleMouseLeave }) {
       </div>
     </section>
   );
-}
+};
+
+export default Projects;

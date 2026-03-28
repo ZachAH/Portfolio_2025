@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { AnimatePresence, motion } from 'framer-motion';
 
 import Navbar from './components/navbar';
 import Footer from './components/Footer';
 import AnimatedBackground from './components/AnimatedBackground';
-import RainyCityBackground from './components/RainyCityBackground';
 import useDarkMode from './hooks/useDarkMode';
 
 import Home from './pages/Home';
@@ -32,97 +32,120 @@ function ScrollHandler() {
   return null;
 }
 
-function App() {
-  // Dark Mode Hook
-  const [theme] = useDarkMode();
-
-  // Custom Cursor Logic
-  const [cursorPosition, setCursorPosition] = useState({ x: -100, y: -100 });
-  const cursorRef = useRef(null);
+function Cursor() {
+  const [position, setPosition] = useState({ x: -100, y: -100 });
+  const [isHovering, setIsHovering] = useState(false);
+  const [isActive, setIsActive] = useState(false);
 
   useEffect(() => {
-    const updateCursor = (e) => {
-      setCursorPosition({ x: e.clientX, y: e.clientY });
-    };
-    window.addEventListener('mousemove', updateCursor);
+    const handleMouseMove = (e) => setPosition({ x: e.clientX, y: e.clientY });
+    const handleMouseDown = () => setIsActive(true);
+    const handleMouseUp = () => setIsActive(false);
 
-    // Cleanup listener on component unmount
+    const handleMouseEnter = () => setIsHovering(true);
+    const handleMouseLeave = () => setIsHovering(false);
+
+    window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener('mousedown', handleMouseDown);
+    window.addEventListener('mouseup', handleMouseUp);
+
+    // Initial check for interactive elements
+    document.querySelectorAll('.interactive-element, a, button').forEach(el => {
+      el.addEventListener('mouseenter', handleMouseEnter);
+      el.addEventListener('mouseleave', handleMouseLeave);
+    });
+
     return () => {
-      window.removeEventListener('mousemove', updateCursor);
+      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('mousedown', handleMouseDown);
+      window.removeEventListener('mouseup', handleMouseUp);
     };
-  }, []); 
-
-  // Handlers for custom cursor hover effect (to be passed to components)
-  const handleMouseEnter = () => {
-    if (cursorRef.current) {
-      cursorRef.current.classList.add('custom-cursor--hover');
-    }
-  };
-
-  const handleMouseLeave = () => {
-    if (cursorRef.current) {
-      cursorRef.current.classList.remove('custom-cursor--hover');
-    }
-  };
-
-  // Log the theme for debugging purposes
-  useEffect(() => {
-    console.log("App.jsx current theme:", theme);
-  }, [theme]);
-
+  }, []);
 
   return (
-    <Router>
+    <div className={`pointer-events-none fixed inset-0 z-[10000] ${isHovering ? 'custom-cursor--hover' : ''}`}>
+      <motion.div
+        className="custom-cursor"
+        animate={{ x: position.x - 4, y: position.y - 4, scale: isActive ? 0.8 : 1 }}
+        transition={{ type: 'spring', damping: 30, stiffness: 450, mass: 0.5 }}
+      />
+      <motion.div
+        className="custom-cursor-ring"
+        animate={{ 
+          x: position.x - (isHovering ? 25 : 16), 
+          y: position.y - (isHovering ? 25 : 16),
+          scale: isHovering ? 1.2 : isActive ? 1.1 : 1 
+        }}
+        transition={{ type: 'spring', damping: 25, stiffness: 250, mass: 0.8 }}
+      />
+    </div>
+  );
+}
+
+function PageWrapper({ children }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 15 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -15 }}
+      transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+function AppContent() {
+  const [theme] = useDarkMode();
+  const location = useLocation();
+
+  // Handlers for child components
+  const [isHovering, setIsHovering] = useState(false);
+  const handleMouseEnter = () => setIsHovering(true);
+  const handleMouseLeave = () => setIsHovering(false);
+
+  return (
+    <div className={`min-h-screen ${theme === 'dark' ? 'dark bg-obsidian-950 text-white' : 'bg-white text-obsidian-950'}`}>
       <ScrollHandler />
-      <div>
-        {/* Animated background, conditionally renders based on theme */}
-        <AnimatedBackground currentTheme={theme} />
-        <RainyCityBackground currentTheme={theme} />
-
-        {/* Wrapper for all page content to ensure it sits above the fixed background */}
-        <div style={{ position: 'relative', zIndex: 1 }}>
-          <Navbar
-            handleMouseEnter={handleMouseEnter}
-            handleMouseLeave={handleMouseLeave}
-            // toggleTheme={toggleTheme} 
-            // currentTheme={theme}
-          />
-          <Routes>
-            <Route 
-              path="/" 
-              element={
-                <Home 
-                  handleMouseEnter={handleMouseEnter} 
-                  handleMouseLeave={handleMouseLeave} 
-                />
-              } 
-            />
-            <Route 
-              path="/services" 
-              element={
-                <Services 
-                  handleMouseEnter={handleMouseEnter} 
-                  handleMouseLeave={handleMouseLeave} 
-                />
-              } 
-            />
-          </Routes>
-          <Footer
-            handleMouseEnter={handleMouseEnter}
-            handleMouseLeave={handleMouseLeave}
-          />
-        </div>
-
-        {/* Custom Cursor Element */}
-        <div
-          ref={cursorRef}
-          className="custom-cursor"
-          style={{
-            left: `${cursorPosition.x}px`,
-            top: `${cursorPosition.y}px`,
-          }}
-        ></div>
+      <AnimatedBackground currentTheme={theme} />
+      <Cursor />
+      
+      <div className="relative z-10 flex flex-col min-h-screen">
+        <Navbar handleMouseEnter={handleMouseEnter} handleMouseLeave={handleMouseLeave} />
+        
+        <main className="flex-grow">
+          <AnimatePresence mode="wait">
+            <Routes location={location} key={location.pathname}>
+              <Route 
+                path="/" 
+                element={
+                  <PageWrapper>
+                    <Home handleMouseEnter={handleMouseEnter} handleMouseLeave={handleMouseLeave} />
+                  </PageWrapper>
+                } 
+              />
+              <Route 
+                path="/services" 
+                element={
+                  <PageWrapper>
+                    <Services handleMouseEnter={handleMouseEnter} handleMouseLeave={handleMouseLeave} />
+                  </PageWrapper>
+                } 
+              />
+            </Routes>
+          </AnimatePresence>
+        </main>
+        
+        <Footer handleMouseEnter={handleMouseEnter} handleMouseLeave={handleMouseLeave} />
       </div>
+    </div>
+  );
+}
+
+function App() {
+  return (
+    <Router>
+      <AppContent />
     </Router>
   );
 }

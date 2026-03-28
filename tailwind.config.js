@@ -8,25 +8,37 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        'sans': ['system-ui', 'Avenir', 'Helvetica', 'Arial', 'sans-serif'], // Your default sans-serif
-        // 'dotgothic': ['"DotGothic16"', 'sans-serif'], // Remove or keep if you want it as an option
-        // 'learning-curve': ["'Learning Curve Pro'", 'cursive'], // Remove or keep
-        'canarias': ["'Canarias'", 'sans-serif'], // Add your new 'Canarias' font
+        'sans': ['Inter', 'system-ui', 'Avenir', 'Helvetica', 'Arial', 'sans-serif'],
+        'canarias': ["'Canarias'", 'sans-serif'],
       },
       colors: {
-        metallicGold: '#D4AF37',
-        black: '#000000',
-        tealGreen: '#5FB49C',
-        indigo: '#414288',
-        offWhite: '#F0EDEE',
-      },
-      keyframes: { // If you have the neon flicker keyframes here
-        neonFlickerOn: {
-          // ... your keyframes ...
+        obsidian: {
+          950: '#050505',
+          900: '#101010',
+          800: '#1a1a1a',
+          700: '#262626',
+        },
+        accent: {
+          orange: '#f97316',
+          red: '#ef4444',
+          blue: '#1d4ed8',
+        },
+        silver: {
+          50: '#f9f9fb',
+          100: '#f5f5f7',
+          200: '#e5e5e7',
+          300: '#d2d2d7',
         }
       },
-      animation: { // If you have the neon flicker animation here
-        'neon-flicker': 'neonFlickerOn 4s ease-in-out forwards',
+      backgroundImage: {
+        'sunset-gradient': 'linear-gradient(to right, #f97316, #ef4444)',
+      },
+      boxShadow: {
+        'premium': '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
+        'premium-hover': '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
+      },
+      backdropBlur: {
+        'xs': '2px',
       }
     },
   },
