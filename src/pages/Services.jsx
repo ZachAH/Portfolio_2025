@@ -4,6 +4,7 @@ import SaaSTemplate from '../components/templates/SaaSTemplate';
 import ECommerceTemplate from '../components/templates/ECommerceTemplate';
 import AgencyTemplate from '../components/templates/AgencyTemplate';
 import ConstructionTemplate from '../components/templates/ConstructionTemplate';
+import DigitalSolutionsImg from '../assets/digital_solutions.png';
 import freelancguide from '../assets/freelance_price_guide.pdf';
 
 const Services = ({ handleMouseEnter, handleMouseLeave }) => {
@@ -147,8 +148,13 @@ const Services = ({ handleMouseEnter, handleMouseLeave }) => {
                         <div className="h-2 w-32 bg-accent-orange/40 rounded-full" />
                         <div className="h-2 w-48 bg-text-secondary/20 rounded-full" />
                       </div>
-                      <div className="h-40 w-full bg-obsidian-950/20 rounded-2xl flex items-center justify-center">
-                        <span className="text-xs font-bold text-accent-orange uppercase tracking-widest">Digital Solutions</span>
+                      <div className="h-40 w-full overflow-hidden rounded-2xl flex items-center justify-center relative group/img">
+                        <img 
+                          src={DigitalSolutionsImg} 
+                          alt="Digital Solutions" 
+                          className="w-full h-full object-cover transition-transform duration-700 group-hover/img:scale-110"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-obsidian-950/40 to-transparent opacity-0 group-hover/img:opacity-100 transition-opacity duration-500" />
                       </div>
                       <button className="w-full py-4 bg-sunset-gradient text-white rounded-2xl font-bold text-sm shadow-lg shadow-accent-red/20">
                          Get Started Today
