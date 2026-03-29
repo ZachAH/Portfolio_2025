@@ -96,7 +96,7 @@ const Hero = ({ handleMouseEnter, handleMouseLeave }) => {
         </motion.div>
 
         <h1 
-          className="text-7xl md:text-9xl lg:text-[10rem] font-bold tracking-tighter mb-10 leading-[0.85] text-text-primary select-none"
+          className="text-5xl xs:text-6xl sm:text-7xl md:text-9xl lg:text-[10rem] font-bold tracking-tighter mb-10 leading-[0.85] text-text-primary select-none"
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         >

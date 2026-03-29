@@ -28,7 +28,7 @@ const ProjectCard = ({ project, index, viewMode, handleMouseEnter, handleMouseLe
         <div className="absolute -bottom-1/2 -right-1/2 w-full h-full bg-accent-orange/20 blur-[60px] opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
       </div>
 
-      <div className="p-10 flex flex-col flex-grow">
+      <div className="p-6 sm:p-10 flex flex-col flex-grow">
         <div className="flex items-center gap-3 mb-6">
           <span className="text-xs font-bold uppercase tracking-widest text-accent-orange">{project.category}</span>
           <span className="w-1 h-1 rounded-full bg-obsidian-700/30" />
@@ -43,7 +43,7 @@ const ProjectCard = ({ project, index, viewMode, handleMouseEnter, handleMouseLe
           {project.title}
         </h3>
         
-        <div className="relative flex-grow mb-8 overflow-hidden min-h-[100px]">
+        <div className="relative flex-grow mb-6 overflow-hidden min-h-[80px] sm:min-h-[100px]">
           <AnimatePresence mode="wait">
             <motion.p
               key={viewMode}

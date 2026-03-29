@@ -89,10 +89,10 @@ const Projects = ({ handleMouseEnter, handleMouseLeave }) => {
             View my work through different professional lenses:
           </p>
 
-          <div className="flex justify-center gap-4">
+          <div className="flex flex-col sm:flex-row justify-center gap-4">
             <button
               onClick={() => setViewMode('DEV')}
-              className={`px-8 py-3 rounded-full text-sm font-bold transition-all duration-300 ${
+              className={`px-8 py-3 rounded-full text-sm font-bold transition-all duration-300 w-full sm:w-auto ${
                 viewMode === 'DEV'
                 ? 'bg-sunset-gradient text-white shadow-lg shadow-accent-red/20 scale-105'
                 : 'glass text-text-secondary hover:text-text-primary'
@@ -104,7 +104,7 @@ const Projects = ({ handleMouseEnter, handleMouseLeave }) => {
             </button>
             <button
               onClick={() => setViewMode('CS')}
-              className={`px-8 py-3 rounded-full text-sm font-bold transition-all duration-300 ${
+              className={`px-8 py-3 rounded-full text-sm font-bold transition-all duration-300 w-full sm:w-auto ${
                 viewMode === 'CS'
                 ? 'bg-sunset-gradient text-white shadow-lg shadow-accent-red/20 scale-105'
                 : 'glass text-text-secondary hover:text-text-primary'

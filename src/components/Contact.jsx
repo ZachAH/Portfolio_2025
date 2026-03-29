@@ -13,7 +13,7 @@ const Contact = ({ handleMouseEnter, handleMouseLeave }) => {
           className="text-center mb-20"
         >
           <span className="text-sm font-bold tracking-widest text-accent-orange uppercase mb-4 inline-block">Collaboration</span>
-          <h2 className="text-5xl md:text-7xl font-bold tracking-tight mb-8 text-text-primary"
+          <h2 className="text-4xl xs:text-5xl md:text-7xl font-bold tracking-tight mb-8 text-text-primary uppercase"
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
           >
@@ -24,13 +24,13 @@ const Contact = ({ handleMouseEnter, handleMouseLeave }) => {
           </p>
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, scale: 0.98 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
-          className="glass-card rounded-[3rem] p-10 md:p-16 shadow-premium-hover overflow-hidden relative"
-        >
+          <motion.div
+            initial={{ opacity: 0, scale: 0.98 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
+            className="glass-card rounded-[2.5rem] p-8 sm:p-10 md:p-16 shadow-premium-hover overflow-hidden relative"
+          >
           <form className="grid grid-cols-1 md:grid-cols-2 gap-10 relative z-10">
             <div className="flex flex-col gap-3">
               <label className="text-xs font-bold tracking-widest text-accent-orange uppercase ml-1">Your Name</label>
