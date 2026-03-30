@@ -112,7 +112,7 @@ const Projects = ({ handleMouseEnter, handleMouseLeave }) => {
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
             >
-              Customer Success 🤝
+              Client Success 🤝
             </button>
           </div>
         </motion.div>
