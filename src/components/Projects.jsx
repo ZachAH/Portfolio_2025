@@ -45,23 +45,23 @@ const projectsData = [
   },
   {
     id: 2,
-    title: "Portfolio 2025",
-    category: "Internal Tool",
-    description: "An updated portfolio built with modern performance in mind (Vite, React, Tailwind).",
-    csDescription: "Developed architecture that dynamically serves content based on user type (DEV vs. CS Manager), demonstrating an ability to segment and tailor technical information.",
-    image: "/portfolio25.webp",
-    link: "https://zhowellportfolio.netlify.app",
-    tags: ["React", "Node.js", "Tailwind CSS", "Vite"]
+    title: "TradeForge — Futuristic Local Business Suite",
+    category: "Commercial SaaS Template",
+    description: "A premium, high-performance web architecture tailored for local buisnesses, featuring a dynamic 'Futuristic-to-Professional' theme toggle and GSAP-powered animations.",
+    csDescription: "Developed a custom-engineered 'Theme Engine' with GSAP-powered animations and dynamic CSS variable injection, enabling a seamless 'Futuristic-to-Professional' aesthetic toggle for end-users.",
+    image: "/saas_template.png", // Update to your new screenshot
+    link: "https://futuristiclocal.netlify.app/", // Use your live demo link here
+    tags: ["React", "TypeScript", "GSAP", "Tailwind CSS v4"]
   },
   {
     id: 6,
-    title: "Interview Prep",
-    category: "Technical Readiness Tool",
-    description: "An application built to study and prepare for a wide range of interview questions.",
-    csDescription: "Created an application to standardize and measure the readiness of new technical specialists, reducing training overhead and improving consistency.",
-    image: "/interview.png",
-    link: "https://interviewhelper92.netlify.app/",
-    tags: ["React", "TailwindCss"]
+    title: "TradeForge — Business Suite",
+    category: "Premium Web Template",
+    description: "A high-performance, futuristic landing page template designed specifically for local service businesses and contractors.",
+    csDescription: "Engineered a conversion-focused architecture featuring a dynamic theme system, custom-built UI components, and optimized mobile performance to help local tradespeople capture more leads.",
+    image: "/construction_template.png",
+    link: "https://tradestemplatezh.netlify.app/",
+    tags: ["React", "TypeScript", "Tailwind CSS", "GSAP"]
   }
 ];
 
