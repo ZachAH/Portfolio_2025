@@ -5,7 +5,7 @@ import ECommerceTemplate from '../components/templates/ECommerceTemplate';
 import AgencyTemplate from '../components/templates/AgencyTemplate';
 import ConstructionTemplate from '../components/templates/ConstructionTemplate';
 import DigitalSolutionsImg from '../assets/digital_solutions.png';
-import freelancguide from '../assets/freelance_price_guide.pdf';
+//import freelancguide from '../assets/freelance_price_guide.pdf';
 
 const Services = ({ handleMouseEnter, handleMouseLeave }) => {
   const containerVariants = {
