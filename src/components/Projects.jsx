@@ -57,8 +57,8 @@ const projectsData = [
     id: 6,
     title: "TradeForge — Business Suite",
     category: "Premium Web Template",
-    description: "A high-performance, futuristic landing page template designed specifically for local service businesses and contractors.",
-    csDescription: "Engineered a conversion-focused architecture featuring a dynamic theme system, custom-built UI components, and optimized mobile performance to help local tradespeople capture more leads.",
+    description: "A high-performance, landing page template designed specifically for local trades.",
+    csDescription: "Engineered a high-performance conversion engine for local service providers, featuring a mobile-first architecture and schema markup integration that boosts local SEO visibility. Every component is modularized for 100% brand scalability, ensuring zero layout shift during theme transitions.",
     image: "/construction_template.png",
     link: "https://tradestemplatezh.netlify.app/",
     tags: ["React", "TypeScript", "Tailwind CSS", "GSAP"]
