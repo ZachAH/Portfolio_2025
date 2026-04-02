@@ -45,7 +45,7 @@ const projectsData = [
   },
   {
     id: 2,
-    title: "TradeForge — Futuristic Local Business Suite",
+    title: "Futuristic Local Business Template",
     category: "Commercial SaaS Template",
     description: "A premium, high-performance web architecture tailored for local buisnesses, featuring a dynamic 'Futuristic-to-Professional' theme toggle and GSAP-powered animations.",
     csDescription: "Developed a custom-engineered 'Theme Engine' with GSAP-powered animations and dynamic CSS variable injection, enabling a seamless 'Futuristic-to-Professional' aesthetic toggle for end-users.",
@@ -55,7 +55,7 @@ const projectsData = [
   },
   {
     id: 6,
-    title: "TradeForge — Business Suite",
+    title: "Contractor & Trades Template",
     category: "Premium Web Template",
     description: "A high-performance, landing page template designed specifically for local trades.",
     csDescription: "Engineered a high-performance conversion engine for local service providers, featuring a mobile-first architecture and schema markup integration that boosts local SEO visibility. Every component is modularized for 100% brand scalability, ensuring zero layout shift during theme transitions.",
