@@ -14,7 +14,7 @@ export default function AgencyTemplate({ handleMouseEnter, handleMouseLeave }) {
           className="object-cover w-full h-full transform group-hover:scale-105 transition-transform duration-700 ease-out"
         />
         <div className="absolute top-4 right-4 bg-tealGreen dark:bg-purple-500 text-gray-900 px-3 py-1 text-xs font-bold rounded-full uppercase tracking-wide shadow-lg">
-          $39
+          IN DEVELOPMENT
         </div>
       </div>
       
