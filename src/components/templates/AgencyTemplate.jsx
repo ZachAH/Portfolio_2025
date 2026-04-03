@@ -2,6 +2,8 @@ import React from 'react';
 
 export default function PremiumBusinessTemplate({ handleMouseEnter, handleMouseLeave }) {
   const templateURL = "https://premiumbuissnesstemplate.netlify.app/";
+  // Updated to your specific Gumroad product link
+  const gumroadURL = "https://ettaflare.gumroad.com/l/ArtisanFoundation?_gl=1*k1ycwd*_ga*MjQ5MjAwNzAuMTc3NTIzNTczNA..*_ga_6LJN6D94N6*czE3NzUyNDY2NTgkbzQkZzEkdDE3NzUyNDg0NzQkajQzJGwwJGgw"; 
 
   return (
     <div 
@@ -52,8 +54,10 @@ export default function PremiumBusinessTemplate({ handleMouseEnter, handleMouseL
             Preview
           </a>
           
+          {/* UPDATED: Gumroad Buy Button */}
           <a 
-            href={templateURL} 
+            href={gumroadURL} 
+            data-gumroad-overlay-checkout="true"
             target="_blank" 
             rel="noopener noreferrer"
             className="flex-1 border-2 border-[#616B59] text-[#616B59] font-black py-3 px-6 rounded-xl hover:bg-[#616B59] hover:text-white transition-all duration-300 text-center uppercase tracking-widest text-sm"

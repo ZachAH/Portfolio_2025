@@ -2,6 +2,8 @@ import React from 'react';
 
 export default function ECommerceTemplate({ handleMouseEnter, handleMouseLeave }) {
   const templateURL = "https://ecommercetemplatezh.netlify.app/";
+  // Updated to point to your Maison E-Commerce Gumroad link
+  const gumroadURL = "https://ettaflare.gumroad.com/l/ecommercetemplate?_gl=1*1vp7i7f*_ga*MjQ5MjAwNzAuMTc3NTIzNTczNA..*_ga_6LJN6D94N6*czE3NzUyNDY2NTgkbzQkZzEkdDE3NzUyNDk0NjAkajQwJGwwJGgw";
 
   return (
     <div 
@@ -52,8 +54,10 @@ export default function ECommerceTemplate({ handleMouseEnter, handleMouseLeave }
             Preview
           </a>
           
+          {/* UPDATED: Gumroad Overlay Button */}
           <a 
-            href={templateURL} 
+            href={gumroadURL} 
+            data-gumroad-overlay-checkout="true"
             target="_blank" 
             rel="noopener noreferrer"
             className="flex-1 border-2 border-[#D19A8E] text-[#D19A8E] font-black py-3 px-6 rounded-xl hover:bg-[#D19A8E] hover:text-white transition-all duration-300 text-center uppercase tracking-widest text-sm"

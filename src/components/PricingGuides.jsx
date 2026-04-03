@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import ReactGA from 'react-ga4'; // Ensure you've run: npm install react-ga4
+import ReactGA from 'react-ga4';
 
-// PDF Imports from your PriceGuides asset folder
+// PDF Imports
 import templateGuide from '../../src/assets/PriceGuides/Template_Price_Guide.pdf';
 import growthPlans from '../../src/assets/PriceGuides/Growth_Plans.pdf';
 import freelanceGuide from '../../src/assets/PriceGuides/freelance_price_guide.pdf';
@@ -13,7 +13,6 @@ const PricingCard = ({ title, price, description, features, accent, isPopular })
     initial={{ opacity: 0, y: 20 }}
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
-    /* Removed overflow-hidden to prevent the badge from being clipped */
     className={`relative p-8 rounded-3xl border transition-all duration-300 hover:shadow-premium flex flex-col h-full ${
       isPopular 
         ? 'border-accent-orange bg-white dark:bg-obsidian-900/40 shadow-xl' 
@@ -68,7 +67,6 @@ const PricingGuides = () => {
     growth: { file: growthPlans, label: 'Growth & Partnership Plans' }
   };
 
-  // Analytics Event Tracker
   const trackDownload = (label) => {
     ReactGA.event({
       category: "Conversion",
@@ -84,9 +82,28 @@ const PricingGuides = () => {
       { title: "The Co-Pilot", price: "$950/mo", description: "A dedicated full-stack partner for high-traffic or E-commerce brands.", features: ["Includes Navigator Plan", "10 Expert Hours / month", "Strategy Sync Calls", "Direct Slack/Text Access"], accent: "text-purple-500" }
     ],
     templates: [
-      { title: "Professional Base", price: "$650", description: "Perfect for local trades and service pros looking for a high-end foundation.", features: ["48-Hour Launch", "Mobile Responsive", "SEO Meta-Data Setup", "Domain & SSL Setup"], accent: "text-blue-500" },
-      { title: "The Tech Starter", price: "$850", description: "Engineered for startups needing high-end UI and interactive elements.", features: ["Framer Motion Effects", "3-Theme Switcher Included", "Vite/React Architecture", "Full Code Ownership"], accent: "text-accent-orange", isPopular: true },
-      { title: "Full Commerce", price: "$1,850+", description: "A secure revenue machine. Requires a 7-day window for financial compliance.", features: ["Stripe Integration", "Product Catalog", "Inventory Dashboard", "Secure Merchant Setup"], accent: "text-purple-500" }
+      { 
+        title: "The 48h Sprint", 
+        price: "$650", 
+        description: "Perfect for local trades and service pros. I'll take your chosen foundation and get your brand live in 2 business days.", 
+        features: ["Includes Source Code", "Full Brand Customization", "Domain & SSL Setup", "48-Hour Rapid Launch"], 
+        accent: "text-blue-500" 
+      },
+      { 
+        title: "Modern Edge", 
+        price: "$850", 
+        description: "A premium deployment for brands needing high-end UI, complex motion, and a unique visual identity.", 
+        features: ["Includes Elite Source Code", "GSAP & Motion setup", "Advanced Theme Swaps", "SEO & Meta-Data Setup", "72-Hour Launch Window"], 
+        accent: "text-accent-orange", 
+        isPopular: true 
+      },
+      { 
+        title: "Commerce Launch", 
+        price: "$1,850+", 
+        description: "A secure revenue machine. I'll deploy your full shop with functional cart and inventory logic.", 
+        features: ["Includes Maison Source Code", "Stripe & Payment Setup", "Product Catalog Upload", "7-Day Compliance Window"], 
+        accent: "text-purple-500" 
+      }
     ],
     custom: [
       { title: "Business Site", price: "$1,500+", description: "1-of-1 custom build designed for your specific brand identity.", features: ["3-6 Custom Pages", "UI/UX Flow Design", "React/Tailwind Stack", "Performance Optimized"], accent: "text-gray-500 dark:text-silver-400" },
@@ -104,7 +121,6 @@ const PricingGuides = () => {
           </h2>
           
           <div className="flex flex-col items-center gap-8">
-            {/* Tab Navigation */}
             <div className="flex flex-wrap justify-center gap-2 p-1.5 bg-gray-100 dark:bg-white/5 backdrop-blur-md rounded-full w-fit border border-black/5 dark:border-white/10">
               {['growth', 'templates', 'custom'].map((tab) => (
                 <button
@@ -114,30 +130,35 @@ const PricingGuides = () => {
                     activeTab === tab ? 'bg-white dark:bg-white dark:text-obsidian-950 shadow-md' : 'text-gray-500 dark:text-gray-400 hover:text-accent-orange'
                   }`}
                 >
-                  {tab === 'growth' ? 'Partnership Plans' : tab === 'templates' ? 'Pre-Made Templates' : 'Custom Builds'}
+                  {tab === 'growth' ? 'Partnership Plans' : tab === 'templates' ? 'Template Launch' : 'Custom Builds'}
                 </button>
               ))}
             </div>
 
-            {/* Template Demo Link */}
             <AnimatePresence mode="wait">
               {activeTab === 'templates' && (
                 <motion.div
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -10 }}
+                  className="max-w-2xl"
                 >
+                  <p className="text-gray-600 dark:text-gray-400 text-sm mb-4 leading-relaxed">
+                    Choose an industry-leading foundation from my collection and I will personally handle the 
+                    deployment, content integration, and domain setup. Every launch includes 
+                    full ownership of the source code and a professional, hand-polished result tailored 
+                    to your specific brand package.
+                  </p>
                   <Link 
-                    to="/services" 
-                    className="text-accent-orange font-bold text-sm hover:underline flex items-center gap-2"
+                    to="/templates" 
+                    className="text-accent-orange font-bold text-sm hover:underline flex items-center justify-center gap-2"
                   >
-                    View Template Demos on Services Page →
+                    Browse Available Template Foundations →
                   </Link>
                 </motion.div>
               )}
             </AnimatePresence>
 
-            {/* Dynamic Download Button with GA4 Tracking */}
             <motion.a
               key={activeTab}
               initial={{ opacity: 0, y: 10 }}
@@ -150,12 +171,11 @@ const PricingGuides = () => {
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a2 2 0 002 2h12a2 2 0 002-2v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
               </svg>
-              Download Full {activeTab === 'templates' ? 'Templates' : activeTab === 'growth' ? 'Partnership' : 'Custom'} Guide (PDF)
+              Download Full {activeTab === 'templates' ? 'Launch' : activeTab === 'growth' ? 'Partnership' : 'Custom'} Guide (PDF)
             </motion.a>
           </div>
         </div>
 
-        {/* Pricing Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <AnimatePresence mode="wait">
             <motion.div 
@@ -173,7 +193,6 @@ const PricingGuides = () => {
           </AnimatePresence>
         </div>
 
-        {/* The Zach Howell Advantage */}
         <motion.div 
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -183,7 +202,7 @@ const PricingGuides = () => {
             <span>⚡</span> The Zach Howell Advantage
           </h4>
           <p className="text-gray-600 dark:text-gray-400 leading-relaxed italic text-sm sm:text-base">
-            "I build with modern frameworks like React and TailwindCSS, meaning I am significantly faster than developers using legacy builders. An 'hour' of my time usually covers what takes other agencies three—you're paying for rapid, professional execution."
+            "I build with modern frameworks like React and TailwindCSS, meaning I am significantly faster than developers using legacy builders. An 'hour' of my time usually covers what takes other agencies three—you're paying for rapid, professional execution on a world-class foundation."
           </p>
         </motion.div>
       </div>

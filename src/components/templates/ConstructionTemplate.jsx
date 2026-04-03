@@ -2,6 +2,8 @@ import React from 'react';
 
 export default function ConstructionTemplate({ handleMouseEnter, handleMouseLeave }) {
   const templateURL = "https://tradestemplatezh.netlify.app/";
+  // Updated to point to your specific Trades template Gumroad link
+  const gumroadURL = "https://ettaflare.gumroad.com/l/ironclad-trades?_gl=1*ea34qh*_ga*MjQ5MjAwNzAuMTc3NTIzNTczNA..*_ga_6LJN6D94N6*czE3NzUyNDY2NTgkbzQkZzEkdDE3NzUyNDk0NDAkajYwJGwwJGgw";
 
   return (
     <div 
@@ -52,8 +54,10 @@ export default function ConstructionTemplate({ handleMouseEnter, handleMouseLeav
             Preview
           </a>
           
+          {/* UPDATED: Gumroad Overlay Button */}
           <a 
-            href={templateURL} 
+            href={gumroadURL} 
+            data-gumroad-overlay-checkout="true"
             target="_blank" 
             rel="noopener noreferrer"
             className="flex-1 border-2 border-amber-600 dark:border-amber-500 text-amber-600 dark:text-amber-400 font-black py-3 px-6 rounded-xl hover:bg-amber-600 dark:hover:bg-amber-500 hover:text-white dark:hover:text-black transition-all duration-300 text-center uppercase tracking-widest text-sm"

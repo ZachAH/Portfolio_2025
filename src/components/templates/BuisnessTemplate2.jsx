@@ -2,6 +2,8 @@ import React from 'react';
 
 export default function BusinessTemplate2({ handleMouseEnter, handleMouseLeave }) {
   const templateURL = "https://buissnesstemp2.netlify.app/";
+  // Updated to point to your Premium Service & Wellness Gumroad link
+  const gumroadURL = "https://ettaflare.gumroad.com/l/serviceandwellnesstemplate?_gl=1*1l2kfx6*_ga*MjQ5MjAwNzAuMTc3NTIzNTczNA..*_ga_6LJN6D94N6*czE3NzUyNDY2NTgkbzQkZzEkdDE3NzUyNDkzMTYkajU0JGwwJGgw";
 
   return (
     <div 
@@ -52,8 +54,10 @@ export default function BusinessTemplate2({ handleMouseEnter, handleMouseLeave }
             Preview
           </a>
           
+          {/* UPDATED: Gumroad Overlay Button */}
           <a 
-            href={templateURL} 
+            href={gumroadURL} 
+            data-gumroad-overlay-checkout="true"
             target="_blank" 
             rel="noopener noreferrer"
             className="flex-1 border-2 border-[#4F5748] text-[#4F5748] font-black py-3 px-6 rounded-xl hover:bg-[#4F5748] hover:text-white transition-all duration-300 text-center uppercase tracking-widest text-sm"
