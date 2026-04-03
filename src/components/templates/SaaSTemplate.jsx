@@ -25,7 +25,7 @@ export default function FuturisticSaaSTemplate({ handleMouseEnter, handleMouseLe
           </div>
           {/* Price Badge - New Addition */}
           <div className="bg-zinc-800/80 backdrop-blur-md border border-zinc-700 text-purple-400 px-4 py-1.5 text-[10px] font-black rounded-full uppercase tracking-widest">
-            $59 - Source Code
+            $79 - Source Code
           </div>
         </div>
       </div>
@@ -57,7 +57,7 @@ export default function FuturisticSaaSTemplate({ handleMouseEnter, handleMouseLe
             rel="noopener noreferrer"
             className="flex-1 border-2 border-purple-500/80 text-purple-400 font-black py-3 px-6 rounded-xl hover:bg-purple-500 hover:text-black transition-all duration-300 text-center uppercase tracking-widest text-sm"
           >
-            Live Preview
+            Preview
           </a>
           
           <a 
@@ -66,7 +66,7 @@ export default function FuturisticSaaSTemplate({ handleMouseEnter, handleMouseLe
             rel="noopener noreferrer"
             className="flex-1 border-2 border-purple-500/80 text-purple-400 font-black py-3 px-6 rounded-xl hover:bg-purple-500 hover:text-black transition-all duration-300 text-center uppercase tracking-widest text-sm"
           >
-            Get Template
+            Get CODE
           </a>
         </div>
       </div>

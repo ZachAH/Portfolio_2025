@@ -4,8 +4,8 @@ import SaaSTemplate from '../components/templates/SaaSTemplate';
 import ECommerceTemplate from '../components/templates/ECommerceTemplate';
 import AgencyTemplate from '../components/templates/AgencyTemplate';
 import ConstructionTemplate from '../components/templates/ConstructionTemplate';
+import BusinessTemplate2 from '../components/templates/BuisnessTemplate2';
 import DigitalSolutionsImg from '../assets/digital_solutions.png';
-//import freelancguide from '../assets/freelance_price_guide.pdf';
 
 const Services = ({ handleMouseEnter, handleMouseLeave }) => {
   const containerVariants = {
@@ -182,11 +182,13 @@ const Services = ({ handleMouseEnter, handleMouseLeave }) => {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 pb-32">
+          {/* Grid updated to 3 columns on large screens, 2 on medium */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 pb-32">
             <SaaSTemplate handleMouseEnter={handleMouseEnter} handleMouseLeave={handleMouseLeave} />
             <ECommerceTemplate handleMouseEnter={handleMouseEnter} handleMouseLeave={handleMouseLeave} />
             <AgencyTemplate handleMouseEnter={handleMouseEnter} handleMouseLeave={handleMouseLeave} />
             <ConstructionTemplate handleMouseEnter={handleMouseEnter} handleMouseLeave={handleMouseLeave} />
+            <BusinessTemplate2 handleMouseEnter={handleMouseEnter} handleMouseLeave={handleMouseLeave} />
           </div>
         </div>
       </div>

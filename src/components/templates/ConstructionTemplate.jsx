@@ -56,7 +56,7 @@ export default function ConstructionTemplate({ handleMouseEnter, handleMouseLeav
             rel="noopener noreferrer"
             className="flex-1 border-2 border-amber-500/80 text-amber-400 font-black py-3 px-6 rounded-xl hover:bg-amber-500 hover:text-black transition-all duration-300 text-center uppercase tracking-widest text-sm"
           >
-            Purchase
+            GET CODE
           </a>
         </div>
       </div>
