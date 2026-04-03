@@ -32,12 +32,12 @@ const Navbar = ({ handleMouseEnter, handleMouseLeave }) => {
     };
   }, [isOpen]);
 
-  // Updated Links
+  // Updated Links: Added Templates after Services
   const navLinks = [
     { name: 'Home', path: '/' },
     { name: 'Services', path: '/services' },
-    { name: 'Pricing', path: '/pricing' }, // Clean URL
-    { name: 'Projects', path: '/#projects' },
+    { name: 'Templates', path: '/templates' },
+    { name: 'Pricing', path: '/pricing' },
     { name: 'Contact', path: '/#contact' },
   ];
 

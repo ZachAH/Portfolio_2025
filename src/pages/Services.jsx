@@ -1,10 +1,5 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import SaaSTemplate from '../components/templates/SaaSTemplate';
-import ECommerceTemplate from '../components/templates/ECommerceTemplate';
-import AgencyTemplate from '../components/templates/AgencyTemplate';
-import ConstructionTemplate from '../components/templates/ConstructionTemplate';
-import BusinessTemplate2 from '../components/templates/BuisnessTemplate2';
 import DigitalSolutionsImg from '../assets/digital_solutions.jpg';
 
 const Services = ({ handleMouseEnter, handleMouseLeave }) => {
@@ -165,32 +160,6 @@ const Services = ({ handleMouseEnter, handleMouseLeave }) => {
             </div>
           </div>
         </motion.div>
-
-        {/* Templates Store Section */}
-        <div id="templates" className="pt-32 border-t border-obsidian-700/10">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-20"
-          >
-            <h2 className="heading-section mb-6 text-text-primary">
-              Premium <span className="text-gradient">Templates</span> Store
-            </h2>
-            <p className="text-xl md:text-2xl text-text-secondary max-w-2xl mx-auto font-medium">
-              Start your next major project immediately with these production-ready React layouts.
-            </p>
-          </motion.div>
-
-          {/* Grid updated to 3 columns on large screens, 2 on medium */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 pb-32">
-            <SaaSTemplate handleMouseEnter={handleMouseEnter} handleMouseLeave={handleMouseLeave} />
-            <ECommerceTemplate handleMouseEnter={handleMouseEnter} handleMouseLeave={handleMouseLeave} />
-            <AgencyTemplate handleMouseEnter={handleMouseEnter} handleMouseLeave={handleMouseLeave} />
-            <ConstructionTemplate handleMouseEnter={handleMouseEnter} handleMouseLeave={handleMouseLeave} />
-            <BusinessTemplate2 handleMouseEnter={handleMouseEnter} handleMouseLeave={handleMouseLeave} />
-          </div>
-        </div>
       </div>
     </section>
   );

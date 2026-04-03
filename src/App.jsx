@@ -11,6 +11,7 @@ import useDarkMode from './hooks/useDarkMode';
 import Home from './pages/Home';
 import Services from './pages/Services';
 import Pricing from './pages/Pricing';
+import Templates from './pages/Templates'; // Ensure this file exists in your pages folder
 import './index.css';
 
 // Initialize GA4 with your Measurement ID
@@ -138,6 +139,15 @@ function AppContent() {
                 element={
                   <PageWrapper>
                     <Services handleMouseEnter={handleMouseEnter} handleMouseLeave={handleMouseLeave} />
+                  </PageWrapper>
+                }
+              />
+              {/* New Templates Route Added Below */}
+              <Route
+                path="/templates"
+                element={
+                  <PageWrapper>
+                    <Templates handleMouseEnter={handleMouseEnter} handleMouseLeave={handleMouseLeave} />
                   </PageWrapper>
                 }
               />
