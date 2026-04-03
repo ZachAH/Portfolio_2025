@@ -7,47 +7,58 @@ import templateGuide from '../../src/assets/PriceGuides/Template_Price_Guide.pdf
 import growthPlans from '../../src/assets/PriceGuides/Growth_Plans.pdf';
 import freelanceGuide from '../../src/assets/PriceGuides/freelance_price_guide.pdf';
 
-const PricingCard = ({ title, price, description, features, accent, isPopular }) => (
-  <motion.div
-    initial={{ opacity: 0, y: 20 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true }}
-    className={`relative p-8 rounded-3xl border transition-all duration-300 hover:shadow-premium flex flex-col h-full ${
-      isPopular 
-        ? 'border-accent-orange bg-white dark:bg-obsidian-900/40 shadow-xl' 
-        : 'border-obsidian-700/10 dark:border-obsidian-700/20 bg-gray-50/50 dark:bg-white/5 backdrop-blur-md'
-    }`}
-  >
-    {isPopular && (
-      <span className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-accent-orange text-white text-xs font-bold rounded-full uppercase tracking-widest z-20">
-        Most Popular
-      </span>
-    )}
-    <h3 className="text-2xl font-bold text-obsidian-950 dark:text-white mb-2">{title}</h3>
-    <div className="flex items-baseline gap-1 mb-4">
-      <span className="text-4xl font-bold text-obsidian-950 dark:text-white">{price}</span>
-      {price.includes('/') && <span className="text-gray-500 dark:text-gray-400 text-sm font-medium">/month</span>}
-    </div>
-    <p className="text-gray-600 dark:text-gray-400 text-sm mb-8 leading-relaxed">{description}</p>
-    <ul className="space-y-4 mb-10 flex-grow">
-      {features.map((feature, i) => (
-        <li key={i} className="flex items-start gap-3 text-sm text-obsidian-900 dark:text-gray-200">
-          <svg className={`w-5 h-5 ${accent} shrink-0`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-          </svg>
-          {feature}
-        </li>
-      ))}
-    </ul>
-    <button className={`w-full py-4 rounded-full font-bold transition-all active:scale-95 shadow-md ${
-      isPopular 
-        ? 'bg-accent-orange text-white hover:bg-accent-orange/90' 
-        : 'bg-obsidian-950 text-white dark:bg-white dark:text-obsidian-950 hover:opacity-90'
-    }`}>
-      Get Started
-    </button>
-  </motion.div>
-);
+const PricingCard = ({ title, price, description, features, accent, isPopular, theme }) => (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      /* Removed overflow-hidden from here so the badge can 'breathe' */
+      className={`relative p-8 rounded-3xl border transition-all duration-300 hover:shadow-premium flex flex-col h-full ${
+        isPopular 
+          ? 'border-accent-orange bg-white dark:bg-obsidian-900/40 shadow-xl' 
+          : 'border-obsidian-700/10 dark:border-obsidian-700/20 bg-gray-50/50 dark:bg-white/5 backdrop-blur-md'
+      }`}
+    >
+      {isPopular && (
+        <motion.span 
+          initial={{ y: 10, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.2 }}
+          /* Increased z-index and ensured it sits above the border */
+          className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-accent-orange text-white text-xs font-bold rounded-full uppercase tracking-widest z-50 shadow-lg"
+        >
+          Most Popular 
+        </motion.span>
+      )}
+      
+      {/* Content stays the same */}
+      <h3 className="text-2xl font-bold text-obsidian-950 dark:text-white mb-2">{title} [cite: 48, 57, 63, 68]</h3>
+      <div className="flex items-baseline gap-1 mb-4">
+        <span className="text-4xl font-bold text-obsidian-950 dark:text-white">{price} [cite: 48, 57, 63, 68]</span>
+        {price.includes('/') && <span className="text-gray-500 dark:text-gray-400 text-sm font-medium">/month</span>}
+      </div>
+      <p className="text-gray-600 dark:text-gray-400 text-sm mb-8 leading-relaxed">{description} [cite: 48, 58, 64, 69]</p>
+      
+      <ul className="space-y-4 mb-10 flex-grow">
+        {features.map((feature, i) => (
+          <li key={i} className="flex items-start gap-3 text-sm text-obsidian-900 dark:text-gray-200">
+            <svg className={`w-5 h-5 ${accent} shrink-0`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+            </svg>
+            {feature} [cite: 59, 60, 61, 62, 66, 67, 71, 72, 73]
+          </li>
+        ))}
+      </ul>
+      
+      <button className={`w-full py-4 rounded-full font-bold transition-all active:scale-95 shadow-md ${
+        isPopular 
+          ? 'bg-accent-orange text-white hover:bg-accent-orange/90' 
+          : 'bg-obsidian-950 text-white dark:bg-white dark:text-obsidian-950 hover:opacity-90'
+      }`}>
+        Get Started
+      </button>
+    </motion.div>
+  );
 
 const PricingGuides = () => {
   const [activeTab, setActiveTab] = useState('growth');
