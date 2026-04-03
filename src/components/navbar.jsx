@@ -17,12 +17,10 @@ const Navbar = ({ handleMouseEnter, handleMouseLeave }) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close menu when route changes
   useEffect(() => {
     setIsOpen(false);
   }, [location]);
 
-  // Prevent scroll when mobile menu is open
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
@@ -34,9 +32,11 @@ const Navbar = ({ handleMouseEnter, handleMouseLeave }) => {
     };
   }, [isOpen]);
 
+  // Updated Links
   const navLinks = [
     { name: 'Home', path: '/' },
     { name: 'Services', path: '/services' },
+    { name: 'Pricing', path: '/pricing' }, // Clean URL
     { name: 'Projects', path: '/#projects' },
     { name: 'Contact', path: '/#contact' },
   ];
@@ -57,7 +57,7 @@ const Navbar = ({ handleMouseEnter, handleMouseLeave }) => {
     >
       <div 
         className={`flex items-center justify-between sm:justify-center gap-4 sm:gap-8 px-5 sm:px-8 py-3 rounded-full pointer-events-auto transition-all duration-500 glass w-[90%] sm:w-auto ${
-          scrolled ? 'shadow-premium-hover scale-95' : 'bg-transparent shadow-none border-transparent'
+          scrolled ? 'shadow-premium-hover scale-95 bg-obsidian-900/40' : 'bg-transparent shadow-none border-transparent'
         }`}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
@@ -93,7 +93,6 @@ const Navbar = ({ handleMouseEnter, handleMouseLeave }) => {
             <ThemeToggle handleMouseEnter={handleMouseEnter} handleMouseLeave={handleMouseLeave} />
           </div>
 
-          {/* Mobile Menu Toggle */}
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="md:hidden p-2 text-text-primary hover:text-accent-orange transition-colors"
@@ -104,11 +103,9 @@ const Navbar = ({ handleMouseEnter, handleMouseLeave }) => {
         </div>
       </div>
 
-      {/* Mobile Menu Overlay */}
       <AnimatePresence>
         {isOpen && (
           <>
-            {/* Backdrop */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -117,7 +114,6 @@ const Navbar = ({ handleMouseEnter, handleMouseLeave }) => {
               className="fixed inset-0 bg-obsidian-950/20 backdrop-blur-sm z-[-1] md:hidden pointer-events-auto"
             />
             
-            {/* Drawer */}
             <motion.div
               initial={{ x: '100%' }}
               animate={{ x: 0 }}
@@ -166,11 +162,11 @@ const Navbar = ({ handleMouseEnter, handleMouseLeave }) => {
               >
                 <div>
                   <span className="text-xs font-semibold text-text-secondary uppercase tracking-widest block mb-4">Appearance</span>
-                  <ThemeToggle handleMouseEnter={handleMouseEnter} handleMouseLeave={handleMouseLeave} />
+                  <ThemeToggle handleMouseEnter={handleMouseEnter} handleMouseLeave={handleMouseEnter} />
                 </div>
                 
                 <div className="flex items-center gap-4 text-text-secondary">
-                  <span className="text-xs font-medium">© 2025 Zach Howell</span>
+                  <span className="text-xs font-medium">© 2026 Zach Howell</span>
                 </div>
               </motion.div>
             </motion.div>

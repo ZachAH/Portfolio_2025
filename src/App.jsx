@@ -9,12 +9,12 @@ import useDarkMode from './hooks/useDarkMode';
 
 import Home from './pages/Home';
 import Services from './pages/Services';
-
+import Pricing from './pages/Pricing';
 import './index.css';
 
 function ScrollHandler() {
   const { pathname, hash } = useLocation();
-  
+
   useEffect(() => {
     if (hash) {
       setTimeout(() => {
@@ -71,10 +71,10 @@ function Cursor() {
       />
       <motion.div
         className="custom-cursor-ring"
-        animate={{ 
-          x: position.x - (isHovering ? 25 : 16), 
+        animate={{
+          x: position.x - (isHovering ? 25 : 16),
           y: position.y - (isHovering ? 25 : 16),
-          scale: isHovering ? 1.2 : isActive ? 1.1 : 1 
+          scale: isHovering ? 1.2 : isActive ? 1.1 : 1
         }}
         transition={{ type: 'spring', damping: 25, stiffness: 250, mass: 0.8 }}
       />
@@ -109,33 +109,42 @@ function AppContent() {
       <ScrollHandler />
       <AnimatedBackground currentTheme={theme} />
       <Cursor />
-      
+
       <div className="relative z-10 flex flex-col min-h-screen">
         <Navbar handleMouseEnter={handleMouseEnter} handleMouseLeave={handleMouseLeave} />
-        
+
         <main className="flex-grow">
           <AnimatePresence mode="wait">
             <Routes location={location} key={location.pathname}>
-              <Route 
-                path="/" 
+              <Route
+                path="/"
                 element={
                   <PageWrapper>
                     <Home handleMouseEnter={handleMouseEnter} handleMouseLeave={handleMouseLeave} />
                   </PageWrapper>
-                } 
+                }
               />
-              <Route 
-                path="/services" 
+              <Route
+                path="/services"
                 element={
                   <PageWrapper>
                     <Services handleMouseEnter={handleMouseEnter} handleMouseLeave={handleMouseLeave} />
                   </PageWrapper>
-                } 
+                }
+              />
+              {/* New Pricing Route */}
+              <Route
+                path="/pricing"
+                element={
+                  <PageWrapper>
+                    <Pricing handleMouseEnter={handleMouseEnter} handleMouseLeave={handleMouseLeave} />
+                  </PageWrapper>
+                }
               />
             </Routes>
           </AnimatePresence>
         </main>
-        
+
         <Footer handleMouseEnter={handleMouseEnter} handleMouseLeave={handleMouseLeave} />
       </div>
     </div>
