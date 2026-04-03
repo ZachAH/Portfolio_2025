@@ -5,7 +5,7 @@ import ECommerceTemplate from '../components/templates/ECommerceTemplate';
 import AgencyTemplate from '../components/templates/AgencyTemplate';
 import ConstructionTemplate from '../components/templates/ConstructionTemplate';
 import BusinessTemplate2 from '../components/templates/BuisnessTemplate2';
-import DigitalSolutionsImg from '../assets/digital_solutions.png';
+import DigitalSolutionsImg from '../assets/digital_solutions.jpg';
 
 const Services = ({ handleMouseEnter, handleMouseLeave }) => {
   const containerVariants = {

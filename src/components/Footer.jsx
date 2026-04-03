@@ -8,7 +8,7 @@ const Footer = ({ handleMouseEnter, handleMouseLeave }) => {
 
   const socialLinks = [
     { icon: <FaGithub />, href: "https://github.com/ZachAH", label: "GitHub" },
-    { icon: <FaLinkedin />, href: "https://linkedin.com/in/zachary-howell-85106a147", label: "LinkedIn" },
+    { icon: <FaLinkedin />, href: "https://www.linkedin.com/in/zach-howell-189118210/", label: "LinkedIn" },
     { icon: <FaEnvelope />, href: "mailto:zacharywd91@yahoo.com", label: "Email" }
   ];
 
