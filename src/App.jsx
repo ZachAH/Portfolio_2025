@@ -1,6 +1,7 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
+import ReactGA from 'react-ga4'; // Import GA4
 
 import Navbar from './components/navbar';
 import Footer from './components/Footer';
@@ -12,10 +13,14 @@ import Services from './pages/Services';
 import Pricing from './pages/Pricing';
 import './index.css';
 
+// Initialize GA4 with your Measurement ID
+ReactGA.initialize("G-N46QPWGTK8");
+
 function ScrollHandler() {
   const { pathname, hash } = useLocation();
 
   useEffect(() => {
+    // 1. Handle Smooth Scrolling for Hashes
     if (hash) {
       setTimeout(() => {
         const id = hash.replace('#', '');
@@ -27,6 +32,10 @@ function ScrollHandler() {
     } else {
       window.scrollTo(0, 0);
     }
+
+    // 2. Track Page View in Analytics whenever path changes
+    ReactGA.send({ hitType: "pageview", page: pathname + hash });
+    
   }, [pathname, hash]);
 
   return null;
@@ -41,7 +50,6 @@ function Cursor() {
     const handleMouseMove = (e) => setPosition({ x: e.clientX, y: e.clientY });
     const handleMouseDown = () => setIsActive(true);
     const handleMouseUp = () => setIsActive(false);
-
     const handleMouseEnter = () => setIsHovering(true);
     const handleMouseLeave = () => setIsHovering(false);
 
@@ -49,12 +57,14 @@ function Cursor() {
     window.addEventListener('mousedown', handleMouseDown);
     window.addEventListener('mouseup', handleMouseUp);
 
-    // Initial check for interactive elements
-    document.querySelectorAll('.interactive-element, a, button').forEach(el => {
-      el.addEventListener('mouseenter', handleMouseEnter);
-      el.addEventListener('mouseleave', handleMouseLeave);
-    });
+    const refreshSelectors = () => {
+      document.querySelectorAll('.interactive-element, a, button').forEach(el => {
+        el.addEventListener('mouseenter', handleMouseEnter);
+        el.addEventListener('mouseleave', handleMouseLeave);
+      });
+    };
 
+    refreshSelectors();
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('mousedown', handleMouseDown);
@@ -99,7 +109,6 @@ function AppContent() {
   const [theme] = useDarkMode();
   const location = useLocation();
 
-  // Handlers for child components
   const [isHovering, setIsHovering] = useState(false);
   const handleMouseEnter = () => setIsHovering(true);
   const handleMouseLeave = () => setIsHovering(false);
@@ -132,7 +141,6 @@ function AppContent() {
                   </PageWrapper>
                 }
               />
-              {/* New Pricing Route */}
               <Route
                 path="/pricing"
                 element={

@@ -1,64 +1,63 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import ReactGA from 'react-ga4'; // Ensure you've run: npm install react-ga4
 
 // PDF Imports from your PriceGuides asset folder
 import templateGuide from '../../src/assets/PriceGuides/Template_Price_Guide.pdf';
 import growthPlans from '../../src/assets/PriceGuides/Growth_Plans.pdf';
 import freelanceGuide from '../../src/assets/PriceGuides/freelance_price_guide.pdf';
 
-const PricingCard = ({ title, price, description, features, accent, isPopular, theme }) => (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      /* Removed overflow-hidden from here so the badge can 'breathe' */
-      className={`relative p-8 rounded-3xl border transition-all duration-300 hover:shadow-premium flex flex-col h-full ${
-        isPopular 
-          ? 'border-accent-orange bg-white dark:bg-obsidian-900/40 shadow-xl' 
-          : 'border-obsidian-700/10 dark:border-obsidian-700/20 bg-gray-50/50 dark:bg-white/5 backdrop-blur-md'
-      }`}
-    >
-      {isPopular && (
-        <motion.span 
-          initial={{ y: 10, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.2 }}
-          /* Increased z-index and ensured it sits above the border */
-          className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-accent-orange text-white text-xs font-bold rounded-full uppercase tracking-widest z-50 shadow-lg"
-        >
-          Most Popular 
-        </motion.span>
-      )}
-      
-      {/* Content stays the same */}
-      <h3 className="text-2xl font-bold text-obsidian-950 dark:text-white mb-2">{title} [cite: 48, 57, 63, 68]</h3>
-      <div className="flex items-baseline gap-1 mb-4">
-        <span className="text-4xl font-bold text-obsidian-950 dark:text-white">{price} [cite: 48, 57, 63, 68]</span>
-        {price.includes('/') && <span className="text-gray-500 dark:text-gray-400 text-sm font-medium">/month</span>}
-      </div>
-      <p className="text-gray-600 dark:text-gray-400 text-sm mb-8 leading-relaxed">{description} [cite: 48, 58, 64, 69]</p>
-      
-      <ul className="space-y-4 mb-10 flex-grow">
-        {features.map((feature, i) => (
-          <li key={i} className="flex items-start gap-3 text-sm text-obsidian-900 dark:text-gray-200">
-            <svg className={`w-5 h-5 ${accent} shrink-0`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-            </svg>
-            {feature} [cite: 59, 60, 61, 62, 66, 67, 71, 72, 73]
-          </li>
-        ))}
-      </ul>
-      
-      <button className={`w-full py-4 rounded-full font-bold transition-all active:scale-95 shadow-md ${
-        isPopular 
-          ? 'bg-accent-orange text-white hover:bg-accent-orange/90' 
-          : 'bg-obsidian-950 text-white dark:bg-white dark:text-obsidian-950 hover:opacity-90'
-      }`}>
-        Get Started
-      </button>
-    </motion.div>
-  );
+const PricingCard = ({ title, price, description, features, accent, isPopular }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    /* Removed overflow-hidden to prevent the badge from being clipped */
+    className={`relative p-8 rounded-3xl border transition-all duration-300 hover:shadow-premium flex flex-col h-full ${
+      isPopular 
+        ? 'border-accent-orange bg-white dark:bg-obsidian-900/40 shadow-xl' 
+        : 'border-obsidian-700/10 dark:border-obsidian-700/20 bg-gray-50/50 dark:bg-white/5 backdrop-blur-md'
+    }`}
+  >
+    {isPopular && (
+      <motion.span 
+        initial={{ y: 10, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ delay: 0.2 }}
+        className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-accent-orange text-white text-xs font-bold rounded-full uppercase tracking-widest z-50 shadow-lg"
+      >
+        Most Popular 
+      </motion.span>
+    )}
+    
+    <h3 className="text-2xl font-bold text-obsidian-950 dark:text-white mb-2">{title}</h3>
+    <div className="flex items-baseline gap-1 mb-4">
+      <span className="text-4xl font-bold text-obsidian-950 dark:text-white">{price}</span>
+      {price.includes('/') && <span className="text-gray-500 dark:text-gray-400 text-sm font-medium">/month</span>}
+    </div>
+    <p className="text-gray-600 dark:text-gray-400 text-sm mb-8 leading-relaxed">{description}</p>
+    
+    <ul className="space-y-4 mb-10 flex-grow">
+      {features.map((feature, i) => (
+        <li key={i} className="flex items-start gap-3 text-sm text-obsidian-900 dark:text-gray-200">
+          <svg className={`w-5 h-5 ${accent} shrink-0`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+          </svg>
+          {feature}
+        </li>
+      ))}
+    </ul>
+    
+    <button className={`w-full py-4 rounded-full font-bold transition-all active:scale-95 shadow-md ${
+      isPopular 
+        ? 'bg-accent-orange text-white hover:bg-accent-orange/90' 
+        : 'bg-obsidian-950 text-white dark:bg-white dark:text-obsidian-950 hover:opacity-90'
+    }`}>
+      Get Started
+    </button>
+  </motion.div>
+);
 
 const PricingGuides = () => {
   const [activeTab, setActiveTab] = useState('growth');
@@ -67,6 +66,15 @@ const PricingGuides = () => {
     templates: { file: templateGuide, label: 'Template Pricing Guide' },
     custom: { file: freelanceGuide, label: 'Custom Project Guide' },
     growth: { file: growthPlans, label: 'Growth & Partnership Plans' }
+  };
+
+  // Analytics Event Tracker
+  const trackDownload = (label) => {
+    ReactGA.event({
+      category: "Conversion",
+      action: "PDF Download",
+      label: label,
+    });
   };
 
   const content = {
@@ -96,33 +104,22 @@ const PricingGuides = () => {
           </h2>
           
           <div className="flex flex-col items-center gap-8">
+            {/* Tab Navigation */}
             <div className="flex flex-wrap justify-center gap-2 p-1.5 bg-gray-100 dark:bg-white/5 backdrop-blur-md rounded-full w-fit border border-black/5 dark:border-white/10">
-              <button
-                onClick={() => setActiveTab('growth')}
-                className={`px-4 sm:px-6 py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all uppercase tracking-widest ${
-                  activeTab === 'growth' ? 'bg-white dark:bg-white dark:text-obsidian-950 shadow-md' : 'text-gray-500 dark:text-gray-400 hover:text-accent-orange'
-                }`}
-              >
-                Partnership Plans
-              </button>
-              <button
-                onClick={() => setActiveTab('templates')}
-                className={`px-4 sm:px-6 py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all uppercase tracking-widest ${
-                  activeTab === 'templates' ? 'bg-white dark:bg-white dark:text-obsidian-950 shadow-md' : 'text-gray-500 dark:text-gray-400 hover:text-accent-orange'
-                }`}
-              >
-                Pre-Made Templates
-              </button>
-              <button
-                onClick={() => setActiveTab('custom')}
-                className={`px-4 sm:px-6 py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all uppercase tracking-widest ${
-                  activeTab === 'custom' ? 'bg-white dark:bg-white dark:text-obsidian-950 shadow-md' : 'text-gray-500 dark:text-gray-400 hover:text-accent-orange'
-                }`}
-              >
-                Custom Builds
-              </button>
+              {['growth', 'templates', 'custom'].map((tab) => (
+                <button
+                  key={tab}
+                  onClick={() => setActiveTab(tab)}
+                  className={`px-4 sm:px-6 py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all uppercase tracking-widest ${
+                    activeTab === tab ? 'bg-white dark:bg-white dark:text-obsidian-950 shadow-md' : 'text-gray-500 dark:text-gray-400 hover:text-accent-orange'
+                  }`}
+                >
+                  {tab === 'growth' ? 'Partnership Plans' : tab === 'templates' ? 'Pre-Made Templates' : 'Custom Builds'}
+                </button>
+              ))}
             </div>
 
+            {/* Template Demo Link */}
             <AnimatePresence mode="wait">
               {activeTab === 'templates' && (
                 <motion.div
@@ -140,12 +137,14 @@ const PricingGuides = () => {
               )}
             </AnimatePresence>
 
+            {/* Dynamic Download Button with GA4 Tracking */}
             <motion.a
               key={activeTab}
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               href={downloadLinks[activeTab].file}
               download={downloadLinks[activeTab].label}
+              onClick={() => trackDownload(downloadLinks[activeTab].label)}
               className="flex items-center gap-2 px-8 py-4 bg-accent-orange/10 dark:bg-accent-orange/10 text-accent-orange border border-accent-orange/20 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-accent-orange hover:text-white transition-all shadow-lg active:scale-95"
             >
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -156,7 +155,8 @@ const PricingGuides = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 overflow-hidden">
+        {/* Pricing Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <AnimatePresence mode="wait">
             <motion.div 
               key={activeTab}
@@ -173,6 +173,7 @@ const PricingGuides = () => {
           </AnimatePresence>
         </div>
 
+        {/* The Zach Howell Advantage */}
         <motion.div 
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
