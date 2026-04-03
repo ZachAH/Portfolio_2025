@@ -1,55 +1,72 @@
 import React from 'react';
 
-export default function SaaSTemplate({ handleMouseEnter, handleMouseLeave }) {
+export default function FuturisticSaaSTemplate({ handleMouseEnter, handleMouseLeave }) {
+  const templateURL = "https://futuristiclocal.netlify.app/";
+
   return (
     <div 
-      className="interactive-element bg-gray-900/40 backdrop-blur-sm border border-gray-700/50 rounded-2xl overflow-hidden hover:border-tealGreen dark:hover:border-purple-400 transition-all duration-300 group"
+      className="interactive-element bg-zinc-900/50 backdrop-blur-md border border-zinc-800 rounded-3xl overflow-hidden hover:border-purple-500/50 transition-all duration-500 group shadow-2xl"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <div className="relative h-64 w-full overflow-hidden bg-gray-800">
+      {/* Header Image Section */}
+      <div className="relative h-72 w-full overflow-hidden bg-zinc-950 border-b border-zinc-800">
         <img 
           src="/saas_template.png" 
-          alt="SaaS Dashboard Template Mockup"
-          className="object-cover w-full h-full transform group-hover:scale-105 transition-transform duration-700 ease-out"
+          alt="Futuristic Multi-Theme Template Mockup"
+          className="object-cover w-full h-full transform group-hover:scale-105 transition-transform duration-1000 ease-out opacity-80 group-hover:opacity-100"
         />
-        <div className="absolute top-4 right-4 bg-tealGreen dark:bg-purple-500 text-gray-900 px-3 py-1 text-xs font-bold rounded-full uppercase tracking-wide shadow-lg">
-          $59 - Source Code
+        
+        {/* Floating Badges Container */}
+        <div className="absolute top-6 right-6 flex flex-col items-end gap-2">
+          {/* Theme Badge */}
+          <div className="bg-purple-600 text-white px-4 py-1.5 text-[10px] font-black rounded-full uppercase tracking-widest shadow-[0_0_20px_rgba(147,51,234,0.5)]">
+            3 Themes Included
+          </div>
+          {/* Price Badge - New Addition */}
+          <div className="bg-zinc-800/80 backdrop-blur-md border border-zinc-700 text-purple-400 px-4 py-1.5 text-[10px] font-black rounded-full uppercase tracking-widest">
+            $59 - Source Code
+          </div>
         </div>
       </div>
       
-      <div className="p-8">
-        <h3 className="text-2xl font-bold text-offWhite mb-2 font-canarias group-hover:text-tealGreen dark:group-hover:text-purple-400 transition-colors duration-300">
-          Futuristic Buisness Template
+      {/* Content Section */}
+      <div className="p-10">
+        <h3 className="text-4xl font-bold text-white mb-4 tracking-tight group-hover:text-purple-400 transition-colors duration-300">
+          Futuristic SaaS Layout
         </h3>
-        <p className="text-gray-400 mb-6 text-sm leading-relaxed">
-          A premium, dark-themed React template. Includes custom animations for your buisness along with a streamlined futuristic layout.
+        
+        <p className="text-zinc-400 mb-8 text-base leading-relaxed font-medium">
+          The ultimate high-performance starter kit. This "Ink Edition" template comes packed with a dynamic **Interactive Theme Switcher**, allowing you to toggle between three distinct professional aesthetics (Ink, Pour, and Velvet) with a single click. Designed for forward-thinking brands, it features ultra-smooth Framer Motion animations, a custom grid-overlay system, and specialized layouts for portfolios, artists, or boutique agencies.
         </p>
         
-        <div className="flex flex-wrap gap-2 mb-8">
-          <span className="text-xs px-2 py-1 rounded-md bg-gray-800 text-gray-300 border border-gray-700">React</span>
-          <span className="text-xs px-2 py-1 rounded-md bg-gray-800 text-gray-300 border border-gray-700">Tailwind</span>
-          <span className="text-xs px-2 py-1 rounded-md bg-gray-800 text-gray-300 border border-gray-700">Chart.js</span>
+        {/* Tech Tags */}
+        <div className="flex flex-wrap gap-2 mb-10">
+          {['Multi-Theme', 'React', 'Tailwind', 'Framer Motion'].map((tech) => (
+            <span key={tech} className="text-[10px] uppercase tracking-widest px-3 py-1 rounded-md bg-zinc-800/50 text-zinc-300 border border-zinc-700 group-hover:border-purple-500/30 transition-colors duration-500">
+              {tech}
+            </span>
+          ))}
         </div>
         
-{/* Action Buttons - Matching the screenshot outline style */}
-<div className="flex gap-5">
+        {/* Action Buttons */}
+        <div className="flex gap-5">
           <a 
-            href="https://futuristiclocal.netlify.app/" 
+            href={templateURL} 
             target="_blank" 
             rel="noopener noreferrer"
-            className="flex-1 bg-tealGreen dark:bg-purple-600 text-gray-900 dark:text-offWhite font-bold py-2 px-4 rounded-lg hover:bg-teal-400 dark:hover:bg-purple-500 transition-colors shadow-lg shadow-tealGreen/20 dark:shadow-purple-500/20"
+            className="flex-1 border-2 border-purple-500/80 text-purple-400 font-black py-3 px-6 rounded-xl hover:bg-purple-500 hover:text-black transition-all duration-300 text-center uppercase tracking-widest text-sm"
           >
-            Preview
+            Live Preview
           </a>
           
           <a 
-            href="https://futuristiclocal.netlify.app/" 
+            href={templateURL} 
             target="_blank" 
             rel="noopener noreferrer"
-            className="flex-1 border border-tealGreen dark:border-purple-600 text-tealGreen dark:text-purple-400 font-bold py-2 px-4 rounded-lg hover:bg-tealGreen/10 dark:hover:bg-purple-600/10 transition-colors"
+            className="flex-1 border-2 border-purple-500/80 text-purple-400 font-black py-3 px-6 rounded-xl hover:bg-purple-500 hover:text-black transition-all duration-300 text-center uppercase tracking-widest text-sm"
           >
-            Purchase
+            Get Template
           </a>
         </div>
       </div>
