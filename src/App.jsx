@@ -14,7 +14,7 @@ import Pricing from './pages/Pricing';
 import './index.css';
 
 // Initialize GA4 with your Measurement ID
-ReactGA.initialize("G-N46QPWGTK8");
+ReactGA.initialize(import.meta.env.VITE_GA_ID);
 
 function ScrollHandler() {
   const { pathname, hash } = useLocation();
