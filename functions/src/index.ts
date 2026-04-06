@@ -32,8 +32,7 @@ export const sendOnboardingEmail = onDocumentCreated(
               <p><strong>Config:</strong> ${data.layoutToggle}</p>
               <p style="color: #f59e0b;"><strong>Premium Delta:</strong> $${totalDelta}</p>
               <p style="font-size: 12px; color: #71717a; margin-top: 30px;">
-                  I am spinning up your environment now. If you added premium configuration additions expect a stripe invoice shortly. Thank you so much for your business,
-                  I am so excited to work with you and bring your vision to life. If you have any questions or want to chat about the project, just hit reply on this email or give me a call 262-341-7181. Talk soon!
+                  Thank you so much for your business, I am so excited to work with you and bring your vision to life. If you added premium configuration additions expect a stripe invoice shortly. If you have any questions or want to chat about the project, just hit reply on this email or give me a call 262-341-7181. Talk soon!
               </p>
           </div>
         `,

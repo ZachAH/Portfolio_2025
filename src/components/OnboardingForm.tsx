@@ -91,7 +91,7 @@ const STEPS: Step[] = [
             },
             { id: 'targetAudience', label: 'Who is your ideal customer?', placeholder: 'e.g., Tattoo enthusiasts in New Berlin.', type: 'text' },
             { id: 'coreServices', label: 'Top 3 Services/Products', placeholder: 'e.g., Custom Tattoos, Piercings...', type: 'textarea' },
-            
+
             /* --- THEME #2 DNA --- */
             {
                 id: 'theme2Header',
@@ -283,7 +283,7 @@ export default function OnboardingForm() {
     };
 
     const handleNext = () => {
-        if (!validateStep()) return; 
+        if (!validateStep()) return;
         if (currentStep < STEPS.length - 1) setCurrentStep(s => s + 1);
     };
 
@@ -298,7 +298,7 @@ export default function OnboardingForm() {
             alert("Please check the Agreement to begin.");
             return;
         }
-    
+
         setIsSubmitting(true);
         try {
             // FIX: Explicitly type 'sum' as number for TS overload match
@@ -312,8 +312,8 @@ export default function OnboardingForm() {
                 type: '48h_sprint',
                 submittedAt: serverTimestamp()
             });
-            
-            localStorage.removeItem('onboarding_draft'); 
+
+            localStorage.removeItem('onboarding_draft');
             setIsComplete(true);
         } catch (error: any) {
             alert(`Submission failed: ${error.message}`);
@@ -327,8 +327,14 @@ export default function OnboardingForm() {
             <div className="max-w-2xl mx-auto py-20 px-6 text-center">
                 <motion.div initial={{ scale: 0.9, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} className="p-12 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-3xl shadow-2xl">
                     <div className="w-20 h-20 bg-green-500/10 text-green-500 rounded-full flex items-center justify-center mx-auto mb-8 text-4xl">⚡</div>
-                    <h2 className="text-4xl font-black uppercase tracking-tighter mb-4">Clock Started.</h2>
-                    <p className="text-zinc-500 mb-8 leading-relaxed">Zach is spinning up your environment now.</p>
+                    <h2 className="text-4xl font-black uppercase tracking-tighter mb-4">Clock Started. Thank you so much for your order being a small buisness it means the world to me!</h2>
+                    <p className="text-zinc-500 mb-2 leading-relaxed">I will be starting on your project shortly.</p>
+
+                    {/* SPAM FOLDER SAFEGUARD */}
+                    <p className="text-zinc-400 text-[11px] mb-8 italic">
+                        Please check your <strong className="text-zinc-300">Spam folder</strong> for your confirmation if it is not in your primary mailbox within the next 2 minutes.
+                    </p>
+
                     {activeAddons.length > 0 && (
                         <div className="bg-amber-500/10 text-amber-600 p-6 rounded-2xl mb-8 border border-amber-500/20 text-left shadow-sm">
                             <p className="text-[10px] uppercase tracking-widest font-black mb-3 text-amber-500">Premium Choices Detected</p>
@@ -337,10 +343,13 @@ export default function OnboardingForm() {
                                     <li key={i} className="flex justify-between font-bold"><span>• {addon.name}</span><span>+${addon.price}</span></li>
                                 ))}
                             </ul>
-                            <p className="mt-4 pt-4 border-t border-amber-500/20 text-[10px] italic">Zach will email a manual Stripe link for these additions shortly.</p>
+                            <p className="mt-4 pt-4 border-t border-amber-500/20 text-[10px] italic">I will email a manual Stripe link for these additions shortly.</p>
                         </div>
                     )}
-                    <Link to="/" className="px-8 py-4 bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 rounded-xl font-bold uppercase text-xs">Return to Dashboard</Link>
+
+                    <Link to="/" className="inline-block px-8 py-4 bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 rounded-xl font-bold uppercase text-[10px] tracking-widest hover:scale-105 transition-transform">
+                        Return to Dashboard
+                    </Link>
                 </motion.div>
             </div>
         );
@@ -348,7 +357,7 @@ export default function OnboardingForm() {
 
     return (
         <div ref={formRef} className="max-w-5xl mx-auto p-6 md:p-10 bg-white dark:bg-zinc-950/50 backdrop-blur-2xl border border-zinc-200 dark:border-zinc-800 rounded-3xl shadow-2xl mt-10 mb-10">
-            
+
             <div className="opacity-0 absolute -top-96 left-0 h-0 w-0 overflow-hidden pointer-events-none" aria-hidden="true">
                 <input type="text" name="faxNumber" autoComplete="off" tabIndex={-1} value={formData.faxNumber || ''} onChange={(e) => handleInputChange('faxNumber', e.target.value)} />
             </div>
