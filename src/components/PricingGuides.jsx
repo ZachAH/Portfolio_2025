@@ -8,7 +8,7 @@ import templateGuide from '../../src/assets/PriceGuides/Template_Price_Guide.pdf
 import growthPlans from '../../src/assets/PriceGuides/Growth_Plans.pdf';
 import freelanceGuide from '../../src/assets/PriceGuides/freelance_price_guide.pdf';
 
-const PricingCard = ({ title, price, description, features, accent, isPopular }) => (
+const PricingCard = ({ title, price, description, features, accent, isPopular, link, stripeUrl }) => (
   <motion.div
     initial={{ opacity: 0, y: 20 }}
     whileInView={{ opacity: 1, y: 0 }}
@@ -48,18 +48,37 @@ const PricingCard = ({ title, price, description, features, accent, isPopular })
       ))}
     </ul>
     
-    <button className={`w-full py-4 rounded-full font-bold transition-all active:scale-95 shadow-md ${
-      isPopular 
-        ? 'bg-accent-orange text-white hover:bg-accent-orange/90' 
-        : 'bg-obsidian-950 text-white dark:bg-white dark:text-obsidian-950 hover:opacity-90'
-    }`}>
-      Get Started
-    </button>
+    {/* LOGIC: Use direct anchor tag for Stripe Links, or Link for internal routing */}
+    {stripeUrl ? (
+      <a 
+        href={stripeUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={`w-full py-4 rounded-full font-bold transition-all active:scale-95 shadow-md text-center block ${
+          isPopular 
+            ? 'bg-accent-orange text-white hover:bg-accent-orange/90' 
+            : 'bg-obsidian-950 text-white dark:bg-white dark:text-obsidian-950 hover:opacity-90'
+        }`}
+      >
+        Get Started
+      </a>
+    ) : (
+      <Link 
+        to={link || "/contact"} 
+        className={`w-full py-4 rounded-full font-bold transition-all active:scale-95 shadow-md text-center block ${
+          isPopular 
+            ? 'bg-accent-orange text-white hover:bg-accent-orange/90' 
+            : 'bg-obsidian-950 text-white dark:bg-white dark:text-obsidian-950 hover:opacity-90'
+        }`}
+      >
+        Get Started
+      </Link>
+    )}
   </motion.div>
 );
 
 const PricingGuides = () => {
-  const [activeTab, setActiveTab] = useState('growth');
+  const [activeTab, setActiveTab] = useState('templates');
 
   const downloadLinks = {
     templates: { file: templateGuide, label: 'Template Pricing Guide' },
@@ -77,9 +96,9 @@ const PricingGuides = () => {
 
   const content = {
     growth: [
-      { title: "The Pilot", price: "$150/mo", description: "Peace of mind for business owners who want their site 'always on'.", features: ["24/7 Uptime Monitor", "Hosting & DNS Management", "Security Patching", "1 Expert Hour / month"], accent: "text-blue-500" },
-      { title: "The Navigator", price: "$450/mo", description: "Active scaling for brands that need regular feature updates and SEO.", features: ["Includes Pilot Plan", "4 Expert Hours / month", "Monthly SEO Health Audit", "Priority 24h Support"], accent: "text-accent-orange", isPopular: true },
-      { title: "The Co-Pilot", price: "$950/mo", description: "A dedicated full-stack partner for high-traffic or E-commerce brands.", features: ["Includes Navigator Plan", "10 Expert Hours / month", "Strategy Sync Calls", "Direct Slack/Text Access"], accent: "text-purple-500" }
+      { title: "The Pilot", price: "$150/mo", description: "Peace of mind for business owners who want their site 'always on'.", features: ["24/7 Uptime Monitor", "Hosting & DNS Management", "Security Patching", "1 Expert Hour / month"], accent: "text-blue-500", link: "/contact" },
+      { title: "The Navigator", price: "$450/mo", description: "Active scaling for brands that need regular feature updates and SEO.", features: ["Includes Pilot Plan", "4 Expert Hours / month", "Monthly SEO Health Audit", "Priority 24h Support"], accent: "text-accent-orange", isPopular: true, link: "/contact" },
+      { title: "The Co-Pilot", price: "$950/mo", description: "A dedicated full-stack partner for high-traffic or E-commerce brands.", features: ["Includes Navigator Plan", "10 Expert Hours / month", "Strategy Sync Calls", "Direct Slack/Text Access"], accent: "text-purple-500", link: "/contact" }
     ],
     templates: [
       { 
@@ -87,7 +106,8 @@ const PricingGuides = () => {
         price: "$650", 
         description: "Perfect for local trades and service pros. I'll take your chosen foundation and get your brand live in 2 business days.", 
         features: ["Includes Source Code", "Full Brand Customization", "Domain & SSL Setup", "48-Hour Rapid Launch"], 
-        accent: "text-blue-500" 
+        accent: "text-blue-500",
+        stripeUrl: import.meta.env.VITE_STRIPE_SPRINT_URL 
       },
       { 
         title: "Modern Edge", 
@@ -95,20 +115,22 @@ const PricingGuides = () => {
         description: "A premium deployment for brands needing high-end UI, complex motion, and a unique visual identity.", 
         features: ["Includes Elite Source Code", "GSAP & Motion setup", "Advanced Theme Swaps", "SEO & Meta-Data Setup", "72-Hour Launch Window"], 
         accent: "text-accent-orange", 
-        isPopular: true 
+        isPopular: true,
+        link: "/contact" 
       },
       { 
         title: "Commerce Launch", 
         price: "$1,850+", 
         description: "A secure revenue machine. I'll deploy your full shop with functional cart and inventory logic.", 
         features: ["Includes Maison Source Code", "Stripe & Payment Setup", "Product Catalog Upload", "7-Day Compliance Window"], 
-        accent: "text-purple-500" 
+        accent: "text-purple-500",
+        link: "/contact"
       }
     ],
     custom: [
-      { title: "Business Site", price: "$1,500+", description: "1-of-1 custom build designed for your specific brand identity.", features: ["3-6 Custom Pages", "UI/UX Flow Design", "React/Tailwind Stack", "Performance Optimized"], accent: "text-gray-500 dark:text-silver-400" },
-      { title: "Dynamic + CMS", price: "$3,500+", description: "Advanced builds with a custom Admin Dashboard via Firebase/Firestore.", features: ["Everything in Business", "Secure Admin Portal", "Real-Time Content Updates", "Asset Management"], accent: "text-accent-orange", isPopular: true },
-      { title: "Enterprise App", price: "$6,000+", description: "Full-scale web applications with complex logic and deep integrations.", features: ["Custom API Logic", "Complex Integrations", "Scalable Architecture", "Extended Support"], accent: "text-emerald-500" }
+      { title: "Business Site", price: "$1,500+", description: "1-of-1 custom build designed for your specific brand identity.", features: ["3-6 Custom Pages", "UI/UX Flow Design", "React/Tailwind Stack", "Performance Optimized"], accent: "text-gray-500 dark:text-silver-400", link: "/contact" },
+      { title: "Dynamic + CMS", price: "$3,500+", description: "Advanced builds with a custom Admin Dashboard via Firebase/Firestore.", features: ["Everything in Business", "Secure Admin Portal", "Real-Time Content Updates", "Asset Management"], accent: "text-accent-orange", isPopular: true, link: "/contact" },
+      { title: "Enterprise App", price: "$6,000+", description: "Full-scale web applications with complex logic and deep integrations.", features: ["Custom API Logic", "Complex Integrations", "Scalable Architecture", "Extended Support"], accent: "text-emerald-500", link: "/contact" }
     ]
   };
 

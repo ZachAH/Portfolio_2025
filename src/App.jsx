@@ -1,27 +1,44 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
-import ReactGA from 'react-ga4'; // Import GA4
+import ReactGA from 'react-ga4';
 
 import Navbar from './components/navbar';
 import Footer from './components/Footer';
 import AnimatedBackground from './components/AnimatedBackground';
+import OnboardingForm from './components/OnboardingForm';
 import useDarkMode from './hooks/useDarkMode';
 
 import Home from './pages/Home';
 import Services from './pages/Services';
 import Pricing from './pages/Pricing';
-import Templates from './pages/Templates'; // Ensure this file exists in your pages folder
+import Templates from './pages/Templates'; 
 import './index.css';
 
 // Initialize GA4 with your Measurement ID
 ReactGA.initialize(import.meta.env.VITE_GA_ID);
 
+/**
+ * SECURITY: OnboardingGuard
+ * Prevents access to the onboarding form unless a session_id is present in the URL.
+ */
+function OnboardingGuard({ children }) {
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+  const sessionId = queryParams.get('session_id');
+
+  // If no session_id is found, redirect them back to pricing to start the process
+  if (!sessionId) {
+    return <Navigate to="/pricing" replace />;
+  }
+
+  return children;
+}
+
 function ScrollHandler() {
   const { pathname, hash } = useLocation();
 
   useEffect(() => {
-    // 1. Handle Smooth Scrolling for Hashes
     if (hash) {
       setTimeout(() => {
         const id = hash.replace('#', '');
@@ -33,10 +50,7 @@ function ScrollHandler() {
     } else {
       window.scrollTo(0, 0);
     }
-
-    // 2. Track Page View in Analytics whenever path changes
     ReactGA.send({ hitType: "pageview", page: pathname + hash });
-    
   }, [pathname, hash]);
 
   return null;
@@ -114,6 +128,9 @@ function AppContent() {
   const handleMouseEnter = () => setIsHovering(true);
   const handleMouseLeave = () => setIsHovering(false);
 
+  // Determine if we are on the onboarding page to hide Nav/Footer
+  const isOnboarding = location.pathname === '/launch-onboarding';
+
   return (
     <div className={`min-h-screen ${theme === 'dark' ? 'dark bg-obsidian-950 text-white' : 'bg-white text-obsidian-950'}`}>
       <ScrollHandler />
@@ -121,7 +138,10 @@ function AppContent() {
       <Cursor />
 
       <div className="relative z-10 flex flex-col min-h-screen">
-        <Navbar handleMouseEnter={handleMouseEnter} handleMouseLeave={handleMouseLeave} />
+        {/* Navbar is hidden during onboarding to prevent exit from the funnel */}
+        {!isOnboarding && (
+          <Navbar handleMouseEnter={handleMouseEnter} handleMouseLeave={handleMouseLeave} />
+        )}
 
         <main className="flex-grow">
           <AnimatePresence mode="wait">
@@ -142,7 +162,6 @@ function AppContent() {
                   </PageWrapper>
                 }
               />
-              {/* New Templates Route Added Below */}
               <Route
                 path="/templates"
                 element={
@@ -159,11 +178,28 @@ function AppContent() {
                   </PageWrapper>
                 }
               />
+              
+              {/* Secure Onboarding Route */}
+              <Route
+                path="/launch-onboarding"
+                element={
+                  <OnboardingGuard>
+                    <PageWrapper>
+                      <main className="min-h-screen flex items-center justify-center p-4">
+                        <OnboardingForm />
+                      </main>
+                    </PageWrapper>
+                  </OnboardingGuard>
+                }
+              />
             </Routes>
           </AnimatePresence>
         </main>
 
-        <Footer handleMouseEnter={handleMouseEnter} handleMouseLeave={handleMouseLeave} />
+        {/* Footer is hidden during onboarding */}
+        {!isOnboarding && (
+          <Footer handleMouseEnter={handleMouseEnter} handleMouseLeave={handleMouseLeave} />
+        )}
       </div>
     </div>
   );
