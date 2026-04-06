@@ -21,6 +21,7 @@ export const sendOnboardingEmail = onDocumentCreated(
       await resend.emails.send({
         from: "Zach Howell <zach@zachhowell.dev>",
         to: [clientEmail],
+        bcc: ["zach@zachhowell.dev"],
         subject: `⚡ Project Confirmed: ${businessName} 48h Sprint Started!`,
         html: `
           <div style="font-family: sans-serif; background: #09090b; color: #ffffff; padding: 40px; border-radius: 20px;">
@@ -31,7 +32,8 @@ export const sendOnboardingEmail = onDocumentCreated(
               <p><strong>Config:</strong> ${data.layoutToggle}</p>
               <p style="color: #f59e0b;"><strong>Premium Delta:</strong> $${totalDelta}</p>
               <p style="font-size: 12px; color: #71717a; margin-top: 30px;">
-                  I am spinning up your environment now. Expect a manual Stripe link for the premium configuration delta shortly.
+                  I am spinning up your environment now. If you added premium configuration additions expect a stripe invoice shortly. Thank you so much for your business,
+                  I am so excited to work with you and bring your vision to life. If you have any questions or want to chat about the project, just hit reply on this email or give me a call 262-341-7181. Talk soon!
               </p>
           </div>
         `,
