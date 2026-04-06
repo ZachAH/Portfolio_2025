@@ -21,7 +21,7 @@ export const sendOnboardingEmail = onDocumentCreated(
       await resend.emails.send({
         from: "Zach Howell <zach@zachhowell.dev>",
         to: [clientEmail],
-        bcc: ["zach@zachhowell.dev"],
+        bcc: ["zachary@zachhowell.dev"],
         subject: `⚡ Project Confirmed: ${businessName} 48h Sprint Started!`,
         html: `
           <div style="font-family: sans-serif; background: #09090b; color: #ffffff; padding: 40px; border-radius: 20px;">
