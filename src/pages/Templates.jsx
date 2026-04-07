@@ -8,28 +8,71 @@ import BusinessTemplate2 from '../components/templates/BuisnessTemplate2';
 
 const Templates = ({ handleMouseEnter, handleMouseLeave }) => {
   return (
-    <section className="min-h-screen py-32 px-6 md:px-12 lg:px-24">
+    // Hardened for Light Mode: Added white bg and zinc text
+    <section className="min-h-screen py-32 px-6 md:px-12 lg:px-24 bg-white dark:bg-transparent">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-center mb-20"
+          className="text-center mb-24"
         >
-          <h2 className="heading-section mb-6 text-text-primary text-4xl md:text-6xl font-bold">
-            Premium <span className="text-gradient">Templates</span> Store
+          <span className="text-sm font-black tracking-[0.3em] text-accent-orange uppercase mb-4 inline-block">Velocity as a Service</span>
+          <h2 className="text-5xl md:text-7xl font-bold tracking-tighter mb-8 text-zinc-900 dark:text-white uppercase leading-[0.9]">
+            The 48-Hour <span className="text-gradient">Sprint</span>.
           </h2>
-          <p className="text-xl md:text-2xl text-text-secondary max-w-2xl mx-auto font-medium">
-            Start your next major project immediately with these production-ready React layouts.
+          <p className="text-xl md:text-2xl text-zinc-600 dark:text-text-secondary max-w-3xl mx-auto font-medium leading-relaxed">
+            I don’t believe in months-long development cycles. Choose a foundation below, and I’ll have your brand live, optimized, and secure in <span className="text-zinc-900 dark:text-white font-bold">48 hours or less.</span>
           </p>
         </motion.div>
 
+        {/* Grid Container */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 pb-32">
-          <SaaSTemplate handleMouseEnter={handleMouseEnter} handleMouseLeave={handleMouseLeave} />
-          <ECommerceTemplate handleMouseEnter={handleMouseEnter} handleMouseLeave={handleMouseLeave} />
-          <AgencyTemplate handleMouseEnter={handleMouseEnter} handleMouseLeave={handleMouseLeave} />
-          <ConstructionTemplate handleMouseEnter={handleMouseEnter} handleMouseLeave={handleMouseLeave} />
-          <BusinessTemplate2 handleMouseEnter={handleMouseEnter} handleMouseLeave={handleMouseLeave} />
+          
+          {/* SPRINT TEMPLATES */}
+          <SaaSTemplate 
+            sprintReady={true} 
+            handleMouseEnter={handleMouseEnter} 
+            handleMouseLeave={handleMouseLeave} 
+          />
+          
+          {/* E-COMMERCE (EXCLUDED FROM SPRINT) */}
+          <ECommerceTemplate 
+            sprintReady={false} 
+            handleMouseEnter={handleMouseEnter} 
+            handleMouseLeave={handleMouseLeave} 
+          />
+          
+          <AgencyTemplate 
+            sprintReady={true} 
+            handleMouseEnter={handleMouseEnter} 
+            handleMouseLeave={handleMouseLeave} 
+          />
+          
+          <ConstructionTemplate 
+            sprintReady={true} 
+            handleMouseEnter={handleMouseEnter} 
+            handleMouseLeave={handleMouseLeave} 
+          />
+          
+          <BusinessTemplate2 
+            sprintReady={true} 
+            handleMouseEnter={handleMouseEnter} 
+            handleMouseLeave={handleMouseLeave} 
+          />
         </div>
+
+        {/* Closing Sales Hook */}
+        <motion.div 
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          className="p-12 rounded-[3rem] border border-zinc-200 dark:border-obsidian-800 bg-zinc-50 dark:bg-obsidian-900/40 text-center"
+        >
+          <h3 className="text-2xl font-bold text-zinc-900 dark:text-white mb-4 uppercase tracking-tight">Need something completely custom?</h3>
+          <p className="text-zinc-600 dark:text-text-secondary mb-8 font-medium">I also build from the ground up for complex enterprise requirements.</p>
+          <a href="/#contact" className="inline-block px-12 py-5 bg-sunset-gradient text-white rounded-2xl font-black text-sm uppercase tracking-widest shadow-xl shadow-accent-red/20 hover:scale-105 transition-transform">
+            Start a Custom Build
+          </a>
+        </motion.div>
       </div>
     </section>
   );

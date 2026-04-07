@@ -1,6 +1,7 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
-export default function EliteBusinessSuite({ handleMouseEnter, handleMouseLeave }) {
+export default function EliteBusinessSuite({ sprintReady, handleMouseEnter, handleMouseLeave }) {
   const templateURL = "https://futuristiclocal.netlify.app/";
   // Updated to point to your Modern Business Elite Gumroad link
   const gumroadURL = "https://ettaflare.gumroad.com/l/modernsuitetemplate?_gl=1*c3push*_ga*MjQ5MjAwNzAuMTc3NTIzNTczNA..*_ga_6LJN6D94N6*czE3NzUyNDY2NTgkbzQkZzEkdDE3NzUyNDk2NjkkajYwJGwwJGgw";
@@ -13,6 +14,23 @@ export default function EliteBusinessSuite({ handleMouseEnter, handleMouseLeave 
     >
       {/* Header Image Section */}
       <div className="relative h-72 w-full overflow-hidden bg-zinc-100 dark:bg-zinc-950 border-b border-zinc-200 dark:border-zinc-800">
+
+              {sprintReady && (
+                <motion.div 
+                  initial={{ opacity: 0, x: -10 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  className="absolute top-6 left-6 z-20"
+                >
+                  <div className="flex items-center gap-2 px-3 py-1.5 bg-white/90 dark:bg-zinc-900/80 backdrop-blur-md border border-green-500/30 rounded-full shadow-lg">
+                    <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
+                    <span className="text-[10px] font-black uppercase tracking-[0.2em] text-green-700 dark:text-green-400">
+                      48h Sprint Ready
+                    </span>
+                  </div>
+                </motion.div>
+              )}
+      
+
         <img 
           src="/saas_template.png" 
           alt="Modern Business Suite Elite Edition Mockup"

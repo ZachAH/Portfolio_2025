@@ -1,6 +1,7 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
-export default function PremiumBusinessTemplate({ handleMouseEnter, handleMouseLeave }) {
+export default function PremiumBusinessTemplate({ sprintReady, handleMouseEnter, handleMouseLeave }) {
   const templateURL = "https://premiumbuissnesstemplate.netlify.app/";
   // Updated to your specific Gumroad product link
   const gumroadURL = "https://ettaflare.gumroad.com/l/ArtisanFoundation?_gl=1*k1ycwd*_ga*MjQ5MjAwNzAuMTc3NTIzNTczNA..*_ga_6LJN6D94N6*czE3NzUyNDY2NTgkbzQkZzEkdDE3NzUyNDg0NzQkajQzJGwwJGgw"; 
@@ -13,6 +14,24 @@ export default function PremiumBusinessTemplate({ handleMouseEnter, handleMouseL
     >
       {/* Header Image Section */}
       <div className="relative h-72 w-full overflow-hidden bg-zinc-100 dark:bg-zinc-950 border-b border-zinc-200 dark:border-zinc-800">
+
+        {/* --- ADD THIS: SPRINT BADGE (Top Left) --- */}
+        {sprintReady && (
+          <motion.div 
+            initial={{ opacity: 0, x: -10 }}
+            animate={{ opacity: 1, x: 0 }}
+            className="absolute top-6 left-6 z-20"
+          >
+            <div className="flex items-center gap-2 px-3 py-1.5 bg-white/90 dark:bg-zinc-900/80 backdrop-blur-md border border-green-500/30 rounded-full shadow-lg">
+              <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
+              <span className="text-[10px] font-black uppercase tracking-[0.2em] text-green-700 dark:text-green-400">
+                48h Sprint Ready
+              </span>
+            </div>
+          </motion.div>
+        )}
+        {/* --- END SPRINT BADGE --- */}
+
         <img 
           src="/buisness_modern.png" 
           alt="Premium Business Template Mockup"
