@@ -94,7 +94,7 @@ export default function ConstructionTemplate({ sprintReady, handleMouseEnter, ha
               Buy Source Code
             </a>
           </div>
-        </div>  
+        </div>
       </div>
     </div>
   );

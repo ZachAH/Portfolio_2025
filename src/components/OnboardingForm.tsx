@@ -464,7 +464,7 @@ export default function OnboardingForm() {
             <div className="max-w-2xl mx-auto py-20 px-6 text-center">
                 <motion.div initial={{ scale: 0.9, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} className="p-12 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-3xl shadow-2xl">
                     <div className="w-20 h-20 bg-green-500/10 text-green-500 rounded-full flex items-center justify-center mx-auto mb-8 text-4xl">⚡</div>
-                    <h2 className="text-5xl font-black uppercase tracking-tighter mb-2 bg-gradient-to-b from-zinc-900 to-zinc-600 dark:from-white dark:to-zinc-500 bg-clip-text text-transparent">Clock Started.</h2>
+                    <h2 className="text-5xl font-black uppercase tracking-tighter mb-2 bg-gradient-to-b from-zinc-900 to-zinc-600 dark:from-white dark:to-zinc-600 dark:text-zinc-300 bg-clip-text text-transparent">Clock Started.</h2>
                     <p className="text-xl font-bold text-zinc-800 dark:text-zinc-200 mb-8 max-w-md mx-auto">Thank you for your business. I'm officially moving your build into development.</p>
 
                     {activeAddons.length > 0 && (
@@ -510,7 +510,7 @@ export default function OnboardingForm() {
 
                         if (field.type === 'tos_box') return (
                             <div key={field.id} className="mb-6">
-                                <label className="text-[10px] uppercase tracking-[0.2em] text-zinc-500 font-bold mb-2 block">{field.label}</label>
+                                <label className="text-[10px] uppercase tracking-[0.2em] text-zinc-600 dark:text-zinc-300 font-bold mb-2 block">{field.label}</label>
                                 <div className="h-32 overflow-y-auto p-4 bg-zinc-50 dark:bg-zinc-900/50 border border-zinc-200 dark:border-zinc-800 rounded-xl text-[10px] text-zinc-400 leading-relaxed font-medium">
                                     <pre className="whitespace-pre-wrap font-sans">{TOS_TEXT}</pre>
                                 </div>
@@ -526,7 +526,7 @@ export default function OnboardingForm() {
 
                         return (
                             <div key={field.id} className="flex flex-col gap-2 mb-4">
-                                {field.type !== 'checkbox' && <label className="text-[10px] uppercase tracking-[0.2em] text-zinc-500 font-bold ml-1">{field.label}</label>}
+                                {field.type !== 'checkbox' && <label className="text-[10px] uppercase tracking-[0.2em] text-zinc-600 dark:text-zinc-300 font-bold ml-1">{field.label}</label>}
                                 {field.type === 'textarea' ? (
                                     <textarea value={formData[field.id] || ''} onChange={(e) => handleInputChange(field.id, e.target.value)} className="w-full bg-zinc-50 dark:bg-zinc-900/50 border border-zinc-200 dark:border-zinc-800 rounded-xl p-4 text-zinc-900 dark:text-white h-32 outline-none focus:border-zinc-400 transition-colors" placeholder={field.placeholder} />
                                 ) : field.type === 'select' ? (
@@ -558,7 +558,7 @@ export default function OnboardingForm() {
                     })}
 
                     <div className="flex gap-4 mt-8 pt-8 border-t border-zinc-200 dark:border-zinc-800/50">
-                        {currentStep > 0 && <button onClick={() => setCurrentStep(s => s - 1)} className="px-8 py-4 rounded-xl border border-zinc-200 dark:border-zinc-800 text-zinc-500 font-bold text-xs uppercase hover:bg-zinc-100 dark:hover:bg-zinc-800">Back</button>}
+                        {currentStep > 0 && <button onClick={() => setCurrentStep(s => s - 1)} className="px-8 py-4 rounded-xl border border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-300 font-bold text-xs uppercase hover:bg-zinc-100 dark:hover:bg-zinc-800">Back</button>}
                         <button disabled={isSubmitting} onClick={currentStep === activeSteps.length - 1 ? handleSubmit : handleNext} className="flex-1 px-8 py-4 text-white rounded-xl font-black text-xs uppercase shadow-lg active:scale-95 disabled:opacity-50 transition-all" style={{ backgroundColor: accentColor }}>
                             {isSubmitting ? 'Securing Data...' : currentStep === activeSteps.length - 1 ? 'Start Project' : 'Continue'}
                         </button>
@@ -573,7 +573,7 @@ export default function OnboardingForm() {
                                 </svg>
                             </div>
                             <div>
-                                <p className="text-[10px] uppercase tracking-[0.3em] text-zinc-500 font-black">Direct Support</p>
+                                <p className="text-[10px] uppercase tracking-[0.3em] text-zinc-600 dark:text-zinc-300 font-black">Direct Support</p>
                                 <h4 className="text-zinc-200 font-bold">Onboarding Questions?</h4>
                             </div>
                         </div>
@@ -602,7 +602,7 @@ export default function OnboardingForm() {
                                     <img src={`/${formData.templateId}.png`} className="w-full h-full object-cover" alt="Preview" />
                                 </div>
                                 <div className="p-4 bg-zinc-900/40 rounded-xl border border-white/5 space-y-3 font-bold">
-                                    <p className="text-[10px] text-zinc-500 uppercase tracking-widest font-black mb-2">Build Summary</p>
+                                    <p className="text-[10px] text-zinc-600 dark:text-zinc-300 uppercase tracking-widest font-black mb-2">Build Summary</p>
                                     <div className="flex justify-between items-center"><span className="text-[10px] text-zinc-400 uppercase">Package</span><span className="text-xs text-amber-500 font-black uppercase">{formData.packageType}</span></div>
                                     <div className="flex justify-between items-center border-t border-white/5 pt-2"><span className="text-[10px] text-zinc-400 uppercase">Business</span><span className="text-xs text-zinc-200">{formData.businessName || 'TBD'}</span></div>
                                     {formData.packageType === 'commerce' && <div className="p-3 bg-purple-500/10 border border-purple-500/20 rounded-lg text-[10px] text-purple-400 font-bold italic">Commerce Strategy active.</div>}
