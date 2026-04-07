@@ -20,15 +20,22 @@ ReactGA.initialize(import.meta.env.VITE_GA_ID);
 
 /**
  * SECURITY: OnboardingGuard
- * Prevents access to the onboarding form unless a session_id is present in the URL.
+ * UPDATED: Now allows access if session_id OR package is present.
+ * Also allows bypass on localhost for easier development.
  */
 function OnboardingGuard({ children }) {
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
+  
   const sessionId = queryParams.get('session_id');
+  const packageType = queryParams.get('package');
+  
+  // Development Bypass: Allow access on localhost without params
+  const isDev = window.location.hostname === 'localhost';
 
-  // If no session_id is found, redirect them back to pricing to start the process
-  if (!sessionId) {
+  // If no entry key is found, redirect to pricing
+  if (!sessionId && !packageType && !isDev) {
+    console.warn("Access Denied: Missing session_id or package parameter.");
     return <Navigate to="/pricing" replace />;
   }
 
@@ -138,7 +145,6 @@ function AppContent() {
       <Cursor />
 
       <div className="relative z-10 flex flex-col min-h-screen">
-        {/* Navbar is hidden during onboarding to prevent exit from the funnel */}
         {!isOnboarding && (
           <Navbar handleMouseEnter={handleMouseEnter} handleMouseLeave={handleMouseLeave} />
         )}
@@ -179,7 +185,6 @@ function AppContent() {
                 }
               />
               
-              {/* Secure Onboarding Route */}
               <Route
                 path="/launch-onboarding"
                 element={
@@ -196,7 +201,6 @@ function AppContent() {
           </AnimatePresence>
         </main>
 
-        {/* Footer is hidden during onboarding */}
         {!isOnboarding && (
           <Footer handleMouseEnter={handleMouseEnter} handleMouseLeave={handleMouseLeave} />
         )}

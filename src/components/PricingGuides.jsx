@@ -106,7 +106,8 @@ const PricingGuides = () => {
         price: "$650", 
         description: "Perfect for local trades and service pros. I'll take your chosen foundation and get your brand live in 2 business days.", 
         features: ["Includes Source Code", "Full Brand Customization", "Domain & SSL Setup", "48-Hour Rapid Launch"], 
-        accent: "text-blue-500",
+        accent: "text-accent-orange",
+        isPopular: true,
         stripeUrl: import.meta.env.VITE_STRIPE_SPRINT_URL 
       },
       { 
@@ -114,17 +115,16 @@ const PricingGuides = () => {
         price: "$850", 
         description: "A premium deployment for brands needing high-end UI, complex motion, and a unique visual identity.", 
         features: ["Includes Elite Source Code", "GSAP & Motion setup", "Advanced Theme Swaps", "SEO & Meta-Data Setup", "72-Hour Launch Window"], 
-        accent: "text-accent-orange", 
-        isPopular: true,
-        link: "/contact" 
-      },
+        accent: "text-accent-blue", 
+        stripeUrl: import.meta.env.VITE_STRIPE_MODERN_URL
+      },  
       { 
         title: "Commerce Launch", 
         price: "$1,850+", 
         description: "A secure revenue machine. I'll deploy your full shop with functional cart and inventory logic.", 
         features: ["Includes Maison Source Code", "Stripe & Payment Setup", "Product Catalog Upload", "7-Day Compliance Window"], 
         accent: "text-purple-500",
-        link: "/contact"
+        stripeUrl: import.meta.env.VITE_STRIPE_COMMERCE_URL
       }
     ],
     custom: [
