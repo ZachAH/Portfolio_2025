@@ -4,10 +4,10 @@ import { motion } from 'framer-motion';
 export default function PremiumBusinessTemplate({ sprintReady, handleMouseEnter, handleMouseLeave }) {
   const templateURL = "https://premiumbuissnesstemplate.netlify.app/";
   // Updated to your specific Gumroad product link
-  const gumroadURL = "https://ettaflare.gumroad.com/l/ArtisanFoundation?_gl=1*k1ycwd*_ga*MjQ5MjAwNzAuMTc3NTIzNTczNA..*_ga_6LJN6D94N6*czE3NzUyNDY2NTgkbzQkZzEkdDE3NzUyNDg0NzQkajQzJGwwJGgw"; 
+  const gumroadURL = "https://ettaflare.gumroad.com/l/ArtisanFoundation?_gl=1*k1ycwd*_ga*MjQ5MjAwNzAuMTc3NTIzNTczNA..*_ga_6LJN6D94N6*czE3NzUyNDY2NTgkbzQkZzEkdDE3NzUyNDg0NzQkajQzJGwwJGgw";
 
   return (
-    <div 
+    <div
       className="interactive-element bg-white dark:bg-zinc-900/50 backdrop-blur-md border border-zinc-200 dark:border-zinc-800 rounded-3xl overflow-hidden hover:border-[#616B59]/50 transition-all duration-500 group shadow-xl dark:shadow-2xl"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
@@ -15,9 +15,8 @@ export default function PremiumBusinessTemplate({ sprintReady, handleMouseEnter,
       {/* Header Image Section */}
       <div className="relative h-72 w-full overflow-hidden bg-zinc-100 dark:bg-zinc-950 border-b border-zinc-200 dark:border-zinc-800">
 
-        {/* --- ADD THIS: SPRINT BADGE (Top Left) --- */}
         {sprintReady && (
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: -10 }}
             animate={{ opacity: 1, x: 0 }}
             className="absolute top-6 left-6 z-20"
@@ -30,10 +29,9 @@ export default function PremiumBusinessTemplate({ sprintReady, handleMouseEnter,
             </div>
           </motion.div>
         )}
-        {/* --- END SPRINT BADGE --- */}
 
-        <img 
-          src="/buisness_modern.png" 
+        <img
+          src="/buisness_modern.png"
           alt="Premium Business Template Mockup"
           className="object-cover w-full h-full transform group-hover:scale-105 transition-transform duration-1000 ease-out opacity-90 dark:opacity-80 group-hover:opacity-100"
         />
@@ -42,17 +40,17 @@ export default function PremiumBusinessTemplate({ sprintReady, handleMouseEnter,
           $59 - Source Code
         </div>
       </div>
-      
+
       {/* Content Section */}
       <div className="p-10">
         <h3 className="text-4xl font-bold text-zinc-900 dark:text-white mb-4 tracking-tight group-hover:text-[#616B59] transition-colors duration-300">
           Premium Business
         </h3>
-        
+
         <p className="text-zinc-600 dark:text-zinc-400 mb-8 text-base leading-relaxed font-medium">
           Elevate your brand with a sophisticated, clean foundation. This isn't just a layout; it's a high-end digital experience designed for modern businesses that prioritize design and clarity. Featuring an architectural feel with organic textures, every pixel of this React template is 100% customizable and tailored for premium scaling.
         </p>
-        
+
         {/* Tech Tags - Adaptive Zinc/Sage */}
         <div className="flex flex-wrap gap-2 mb-10">
           {['React', 'Vite', 'TypeScript', 'Tailwind'].map((tech) => (
@@ -61,30 +59,41 @@ export default function PremiumBusinessTemplate({ sprintReady, handleMouseEnter,
             </span>
           ))}
         </div>
-        
-        {/* Action Buttons */}
-        <div className="flex gap-5">
-          <a 
-            href={templateURL} 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="flex-1 border-2 border-[#616B59] text-[#616B59] font-black py-3 px-6 rounded-xl hover:bg-[#616B59] hover:text-white transition-all duration-300 text-center uppercase tracking-widest text-sm"
+
+        {/* Action Buttons - Re-engineered for Service Conversion */}
+        <div className="flex flex-col gap-4 mt-auto">
+
+          {/* PRIMARY CTA: The Service Hook */}
+          <a
+            href="/pricing"
+            className="w-full bg-sunset-gradient text-white font-black py-4 px-6 rounded-xl hover:scale-[1.02] active:scale-95 transition-all duration-300 text-center uppercase tracking-widest text-xs shadow-lg shadow-accent-red/20"
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
           >
-            Preview
+            {sprintReady ? "🚀 Launch This Site in 48h" : "💎 Elite Build (7-Day Scale)"}
           </a>
-          
-          {/* UPDATED: Gumroad Buy Button */}
-          <a 
-            href={gumroadURL} 
-            data-gumroad-overlay-checkout="true"
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="flex-1 border-2 border-[#616B59] text-[#616B59] font-black py-3 px-6 rounded-xl hover:bg-[#616B59] hover:text-white transition-all duration-300 text-center uppercase tracking-widest text-sm"
-          >
-            Get Code
-          </a>
-        </div>
-      </div>
+
+          {/* SECONDARY CTAs: Code & Preview */}
+          <div className="flex gap-4">
+            <a
+              href={templateURL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-1 border border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 font-bold py-3 rounded-xl hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-all text-center uppercase tracking-tighter text-[10px]"
+            >
+              Live Preview
+            </a>
+
+            <a
+              href={gumroadURL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-1 border border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 font-bold py-3 rounded-xl hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-all text-center uppercase tracking-tighter text-[10px]"
+            >
+              Buy Source Code
+            </a>
+          </div>
+        </div>      </div>
     </div>
   );
 }

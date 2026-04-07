@@ -61,28 +61,40 @@ export default function ConstructionTemplate({ sprintReady, handleMouseEnter, ha
           ))}
         </div>
 
-        {/* Action Buttons */}
-        <div className="flex gap-5">
+        {/* Action Buttons - Re-engineered for Service Conversion */}
+        <div className="flex flex-col gap-4 mt-auto">
+
+          {/* PRIMARY CTA: The Service Hook */}
           <a
-            href={templateURL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex-1 border-2 border-amber-600 dark:border-amber-500 text-amber-600 dark:text-amber-400 font-black py-3 px-6 rounded-xl hover:bg-amber-600 dark:hover:bg-amber-500 hover:text-white dark:hover:text-black transition-all duration-300 text-center uppercase tracking-widest text-sm"
+            href="/pricing"
+            className="w-full bg-sunset-gradient text-white font-black py-4 px-6 rounded-xl hover:scale-[1.02] active:scale-95 transition-all duration-300 text-center uppercase tracking-widest text-xs shadow-lg shadow-accent-red/20"
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
           >
-            Preview
+            {sprintReady ? "🚀 Launch This Site in 48h" : "💎 Elite Build (7-Day Scale)"}
           </a>
 
-          {/* UPDATED: Gumroad Overlay Button */}
-          <a
-            href={gumroadURL}
-            data-gumroad-overlay-checkout="true"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex-1 border-2 border-amber-600 dark:border-amber-500 text-amber-600 dark:text-amber-400 font-black py-3 px-6 rounded-xl hover:bg-amber-600 dark:hover:bg-amber-500 hover:text-white dark:hover:text-black transition-all duration-300 text-center uppercase tracking-widest text-sm"
-          >
-            GET CODE
-          </a>
-        </div>
+          {/* SECONDARY CTAs: Code & Preview */}
+          <div className="flex gap-4">
+            <a
+              href={templateURL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-1 border border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 font-bold py-3 rounded-xl hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-all text-center uppercase tracking-tighter text-[10px]"
+            >
+              Live Preview
+            </a>
+
+            <a
+              href={gumroadURL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-1 border border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 font-bold py-3 rounded-xl hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-all text-center uppercase tracking-tighter text-[10px]"
+            >
+              Buy Source Code
+            </a>
+          </div>
+        </div>  
       </div>
     </div>
   );
