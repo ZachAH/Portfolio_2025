@@ -154,32 +154,116 @@ const STEPS: Step[] = [
                     { value: 'transfer', label: 'I want to move from Wix/Squarespace' }
                 ]
             },
-            { id: 'domainChoice', label: 'Primary Domain Choice', placeholder: 'e.g., yourbrand.com', type: 'text' },
+            {
+                id: 'tldPreference',
+                label: 'Extension Preference (TLD)',
+                type: 'select',
+                options: [
+                    { value: 'com_only', label: 'Strictly .com only' },
+                    { value: 'flexible', label: 'Flexible (.com, .net, .org, .co, etc.)' }
+                ]
+            },
+            /* --- PRIMARY DOMAIN --- */
+            {
+                id: 'primaryDomainStrategy',
+                label: 'Primary Domain (Option 1)',
+                type: 'select',
+                options: [
+                    { value: 'zach_chooses', label: 'I trust Zach to pick the best available' },
+                    { value: 'user_chooses', label: 'I want to provide the domain name' }
+                ]
+            },
+            {
+                id: 'domainChoice',
+                label: 'Primary Domain Choice',
+                placeholder: 'e.g., brand.com',
+                type: 'text',
+                condition: (data: any) => data.primaryDomainStrategy === 'user_chooses'
+            },
+            /* --- SECONDARY DOMAIN --- */
+            {
+                id: 'secondaryDomainStrategy',
+                label: 'Secondary Domain (Option 2)',
+                type: 'select',
+                options: [
+                    { value: 'zach_chooses', label: 'Zach chooses a matching backup' },
+                    { value: 'user_chooses', label: 'I want to provide the backup name' }
+                ]
+            },
+            {
+                id: 'secondaryDomainName',
+                label: 'Secondary Domain Choice',
+                placeholder: 'e.g., thebrand.com',
+                type: 'text',
+                condition: (data: any) => data.secondaryDomainStrategy === 'user_chooses'
+            },
+            /* --- THIRD DOMAIN --- */
+            {
+                id: 'thirdDomainStrategy',
+                label: 'Third Domain (Option 3)',
+                type: 'select',
+                options: [
+                    { value: 'zach_chooses', label: 'Zach chooses a matching backup' },
+                    { value: 'user_chooses', label: 'I want to provide the backup name' }
+                ]
+            },
+            {
+                id: 'thirdDomainName',
+                label: 'Third Domain Choice',
+                placeholder: 'e.g., brand-official.com',
+                type: 'text',
+                condition: (data: any) => data.thirdDomainStrategy === 'user_chooses'
+            },
+            /* --- DISCRETION NOTICE --- */
+            {
+                id: 'domainDiscretionNotice',
+                label: '⚖️ Domain Availability Fallback',
+                type: 'header',
+                label_text: 'In the event that all three choices above are unavailable or prohibitively expensive, you agree to let Zach use his professional discretion to select the best alternative to keep your 48-hour sprint on track.'
+            },
             { id: 'emailAddress', label: 'Primary Contact Email', type: 'email' },
             { id: 'phoneForAuth', label: 'Recovery Phone (2FA)', type: 'tel' }
         ]
     },
     {
         id: 'conversion',
-        label: 'Lead Capture Logic',
+        label: 'Business Info & Lead Logic',
         fields: [
-            { id: 'mainFormHeader', label: '📱 Primary Theme: Contact Form', type: 'header' },
+            /* --- SEO DETAIL BLOCK --- */
             {
-                id: 'contactGoal', label: 'Form Goal', type: 'select',
-                options: [{ value: 'leads', label: 'General Inquiries' }, { value: 'quotes', label: 'Project Quotes' }]
+                id: 'seoExplainer',
+                label: '🚀 Local SEO Power-Up',
+                type: 'header',
+                label_text: 'Google ranks businesses higher when their Name, Address, and Phone (NAP) are consistent across the web. By providing this now, I can bake "Local SEO" into your site’s metadata from day one, helping you climb the rankings and appear in the "Google Map Pack" much faster.'
             },
-            { id: 'formFields', label: 'Required Fields', placeholder: 'e.g., Name, Email, Phone, Project Details...', type: 'textarea' },
-            { id: 'formSuccess', label: 'Confirmation Message', placeholder: 'e.g., Thanks! We will be in touch shortly.', type: 'text' },
 
-            /* --- THEME #2 FORM --- */
-            { id: 'theme2FormHeader', label: '✨ Theme #2: Contact Form', type: 'header', condition: (data: any) => data.layoutToggle === 'double' || data.layoutToggle === 'triple' },
-            { id: 'theme2FormFields', label: 'Theme #2 Required Fields', type: 'textarea', condition: (data: any) => data.layoutToggle === 'double' || data.layoutToggle === 'triple' },
-            { id: 'theme2FormSuccess', label: 'Theme #2 Confirmation Message', type: 'text', condition: (data: any) => data.layoutToggle === 'double' || data.layoutToggle === 'triple' },
-
-            /* --- THEME #3 FORM --- */
-            { id: 'theme3FormHeader', label: '🔥 Theme #3: Contact Form', type: 'header', condition: (data: any) => data.layoutToggle === 'triple' },
-            { id: 'theme3FormFields', label: 'Theme #3 Required Fields', type: 'textarea', condition: (data: any) => data.layoutToggle === 'triple' },
-            { id: 'theme3FormSuccess', label: 'Theme #3 Confirmation Message', type: 'text', condition: (data: any) => data.layoutToggle === 'triple' }
+            /* --- CORE BUSINESS IDENTITY (NAP) --- */
+            {
+                id: 'napHeader',
+                label: '🏢 Official Business Identity',
+                type: 'header',
+                label_text: 'Ensure this matches your Google Business Profile or social media exactly.'
+            },
+            { id: 'publicEmail', label: 'Public Business Email', placeholder: 'hello@yourbrand.com', type: 'email' },
+            { id: 'publicPhone', label: 'Business Phone Number', placeholder: '262-555-0123', type: 'tel' },
+            { id: 'publicAddress', label: 'Physical Address (or Service Area)', placeholder: '123 Main St, New Berlin, WI or "Greater Milwaukee Area"', type: 'text' },
+            { id: 'businessHours', label: 'Hours of Operation', placeholder: 'e.g., Mon-Fri: 9am-5pm, Sat: 10am-2pm', type: 'text' },
+            {
+                id: 'mapToggle',
+                label: 'Google Maps Integration',
+                type: 'select',
+                options: [
+                    { value: 'no', label: 'No map needed' },
+                    { value: 'yes', label: 'Yes, embed a styled map (+$25)' }
+                ]
+            },
+            {
+                id: 'mapNotice',
+                label: '💳 Map Integration Fee',
+                type: 'header',
+                label_text: 'Dynamic Map integration requires custom API configuration and styling. A $25 addon fee will be added to your secondary invoice.',
+                condition: (data: any) => data.mapToggle === 'yes'
+            }
         ]
     },
     {
@@ -255,6 +339,8 @@ export default function OnboardingForm() {
         if (formData.templateId === 'saas_template') list.push({ name: 'Modern Business Elite Deployment', price: 20 });
         if (formData.layoutToggle === 'double') list.push({ name: 'Dual-View Configuration', price: 100 });
         if (formData.layoutToggle === 'triple') list.push({ name: 'Elite-Tier Triple Layout Configuration', price: 150 });
+        if (formData.mapToggle === 'yes') list.push({ name: 'Google Maps API Integration', price: 25 });
+
         return list;
     };
 
@@ -301,7 +387,6 @@ export default function OnboardingForm() {
 
         setIsSubmitting(true);
         try {
-            // FIX: Explicitly type 'sum' as number for TS overload match
             const totalDelta = activeAddons.reduce((sum: number, item) => sum + item.price, 0);
 
             await addDoc(collection(db, "Projects"), {
@@ -322,17 +407,27 @@ export default function OnboardingForm() {
         }
     };
 
+    // ── SUCCESS RENDER ──────────────────────────────────────
     if (isComplete) {
         return (
             <div className="max-w-2xl mx-auto py-20 px-6 text-center">
                 <motion.div initial={{ scale: 0.9, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} className="p-12 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-3xl shadow-2xl">
                     <div className="w-20 h-20 bg-green-500/10 text-green-500 rounded-full flex items-center justify-center mx-auto mb-8 text-4xl">⚡</div>
-                    <h2 className="text-4xl font-black uppercase tracking-tighter mb-4">Clock Started. Thank you so much for your order being a small buisness it means the world to me!</h2>
+
+                    {/* ENHANCED HEADING FORMATTING */}
+                    <div className="mb-6">
+                        <h2 className="text-5xl font-black uppercase tracking-tighter mb-2 bg-gradient-to-b from-zinc-900 to-zinc-600 dark:from-white dark:to-zinc-500 bg-clip-text text-transparent">
+                            Clock Started.
+                        </h2>
+                        <p className="text-xl font-bold text-zinc-800 dark:text-zinc-200 leading-tight tracking-tight max-w-md mx-auto">
+                            Thank you so much for your order! Being a small business, it means the world to me.
+                        </p>
+                    </div>
+
                     <p className="text-zinc-500 mb-2 leading-relaxed">I will be starting on your project shortly.</p>
 
-                    {/* SPAM FOLDER SAFEGUARD */}
                     <p className="text-zinc-400 text-[11px] mb-8 italic">
-                        Please check your <strong className="text-zinc-300">Spam folder</strong> for your confirmation if it is not in your primary mailbox within the next 2 minutes.
+                        Please check your <strong className="text-zinc-300">Spam folder</strong> for your confirmation if it is not in your mailbox within 2 minutes.
                     </p>
 
                     {activeAddons.length > 0 && (
@@ -355,6 +450,7 @@ export default function OnboardingForm() {
         );
     }
 
+    // ── MAIN FORM RENDER ─────────────────────────────────────
     return (
         <div ref={formRef} className="max-w-5xl mx-auto p-6 md:p-10 bg-white dark:bg-zinc-950/50 backdrop-blur-2xl border border-zinc-200 dark:border-zinc-800 rounded-3xl shadow-2xl mt-10 mb-10">
 
@@ -414,8 +510,38 @@ export default function OnboardingForm() {
                             {isSubmitting ? 'Securing Lead Data...' : currentStep === STEPS.length - 1 ? 'Start 48h Sprint' : 'Continue'}
                         </button>
                     </div>
+
+                    {/* PERSISTENT SUPPORT FOOTER */}
+                    <div className="mt-12 p-8 bg-zinc-900/40 border border-zinc-800/60 rounded-3xl group transition-all hover:border-zinc-700/60">
+                        <div className="flex items-center gap-4 mb-4">
+                            {/* Subtle Icon Circle */}
+                            <div className="w-10 h-10 rounded-full bg-zinc-800 flex items-center justify-center text-zinc-400 group-hover:text-zinc-200 transition-colors">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <p className="text-[10px] uppercase tracking-[0.3em] text-zinc-500 font-black">Direct Support</p>
+                                <h4 className="text-zinc-200 font-bold">Onboarding Questions?</h4>
+                            </div>
+                        </div>
+
+                        <p className="text-sm text-zinc-400 leading-relaxed mb-6">
+                            If you run into any issues while filling this out, feel free to reach out to my direct line.
+                        </p>
+
+                        {/* Clickable Phone Action */}
+                        <a
+                            href="tel:2623417181"
+                            className="inline-flex items-center gap-3 px-5 py-3 bg-zinc-800/50 rounded-xl text-white font-black text-sm tracking-tight hover:bg-zinc-700 transition-all border border-zinc-700/50"
+                        >
+                            <span className="w-2 h-2 rounded-full animate-pulse" style={{ backgroundColor: accentColor }}></span>
+                            262-341-7181
+                        </a>
+                    </div>
                 </div>
 
+                {/* PREVIEW SIDEBAR */}
                 <div className="lg:sticky lg:top-10">
                     <AnimatePresence mode="wait">
                         {formData.templateId ? (
