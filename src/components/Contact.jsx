@@ -1,8 +1,36 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import selfieImg from '../assets/selfie.webp';
 
 const Contact = ({ handleMouseEnter, handleMouseLeave }) => {
+  const [status, setStatus] = useState("IDLE"); // IDLE, SENDING, SUCCESS, ERROR
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus("SENDING");
+    
+    const form = e.target;
+    const data = new FormData(form);
+    
+    try {
+      const response = await fetch("https://formspree.io/f/mzdkwpka", {
+        method: "POST",
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (response.ok) {
+        setStatus("SUCCESS");
+        form.reset();
+      } else {
+        setStatus("ERROR");
+      }
+    } catch (error) {
+      console.error("Form submission error:", error);
+      setStatus("ERROR");
+    }
+  };
+
   return (
     <section id="contact" className="py-32 px-6 md:px-12 lg:px-24 bg-silver-50 dark:bg-obsidian-900/40">
       <div className="max-w-7xl mx-auto">
@@ -78,10 +106,12 @@ const Contact = ({ handleMouseEnter, handleMouseLeave }) => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="lg:col-span-7 glass-card rounded-[3rem] p-10 md:p-16 shadow-premium-hover overflow-hidden relative border border-obsidian-700/10"
           >
-            <form className="grid grid-cols-1 md:grid-cols-2 gap-8 relative z-10">
+            <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-8 relative z-10">
               <div className="flex flex-col gap-3">
                 <label className="text-[10px] font-black tracking-[0.2em] text-accent-orange uppercase ml-1">Full Name</label>
                 <input 
+                  name="name"
+                  required
                   type="text" 
                   placeholder="Your Name Here"
                   className="w-full px-6 py-5 rounded-2xl bg-white dark:bg-obsidian-950 border border-obsidian-700/10 focus:border-accent-orange outline-none transition-all duration-300 placeholder:text-text-secondary/20 font-medium"
@@ -92,6 +122,8 @@ const Contact = ({ handleMouseEnter, handleMouseLeave }) => {
               <div className="flex flex-col gap-3">
                 <label className="text-[10px] font-black tracking-[0.2em] text-accent-orange uppercase ml-1">Email Address</label>
                 <input 
+                  name="email"
+                  required
                   type="email" 
                   placeholder="Your Email Here"
                   className="w-full px-6 py-5 rounded-2xl bg-white dark:bg-obsidian-950 border border-obsidian-700/10 focus:border-accent-orange outline-none transition-all duration-300 placeholder:text-text-secondary/20 font-medium"
@@ -102,6 +134,8 @@ const Contact = ({ handleMouseEnter, handleMouseLeave }) => {
               <div className="md:col-span-2 flex flex-col gap-3">
                 <label className="text-[10px] font-black tracking-[0.2em] text-accent-orange uppercase ml-1">Your Vision</label>
                 <textarea 
+                  name="vision"
+                  required
                   rows="6" 
                   placeholder="Describe the project that's going to change your business..."
                   className="w-full px-6 py-5 rounded-[2rem] bg-white dark:bg-obsidian-950 border border-obsidian-700/10 focus:border-accent-orange outline-none transition-all duration-300 resize-none placeholder:text-text-secondary/20 font-medium"
@@ -112,13 +146,29 @@ const Contact = ({ handleMouseEnter, handleMouseLeave }) => {
               <div className="md:col-span-2 text-center mt-8">
                 <button
                   type="submit"
-                  className="group relative px-16 py-6 bg-sunset-gradient text-white rounded-2xl font-black text-sm uppercase tracking-widest shadow-2xl shadow-accent-red/20 hover:scale-[1.02] active:scale-95 transition-all duration-500 overflow-hidden"
+                  disabled={status === "SENDING"}
+                  className="group relative px-16 py-6 bg-sunset-gradient text-white rounded-2xl font-black text-sm uppercase tracking-widest shadow-2xl shadow-accent-red/20 hover:scale-[1.02] active:scale-95 transition-all duration-500 overflow-hidden disabled:opacity-50"
                   onMouseEnter={handleMouseEnter}
                   onMouseLeave={handleMouseLeave}
                 >
-                  <span className="relative z-10">Initialize Project</span>
+                  <span className="relative z-10">
+                    {status === "IDLE" && "Initialize Project"}
+                    {status === "SENDING" && "Transmitting..."}
+                    {status === "SUCCESS" && "Vision Received!"}
+                    {status === "ERROR" && "Connect Error"}
+                  </span>
                   <div className="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-500"></div>
                 </button>
+
+                {status === "SUCCESS" && (
+                  <motion.p 
+                    initial={{ opacity: 0, y: 10 }} 
+                    animate={{ opacity: 1, y: 0 }} 
+                    className="mt-6 text-xs font-black text-green-500 uppercase tracking-[0.3em] animate-pulse"
+                  >
+                    Check your inbox shortly, Zach is on it.
+                  </motion.p>
+                )}
               </div>
             </form>
             
