@@ -77,7 +77,7 @@ export const sendOnboardingEmail = onDocumentCreated(
                       <h3 style="font-size: 12px; text-transform: uppercase; letter-spacing: 2px; color: #fff; margin-bottom: 12px;">What Happens Next?</h3>
                       <ul style="padding: 0; margin: 0; list-style: none; color: #71717a; font-size: 13px; line-height: 1.6;">
                           <li style="margin-bottom: 10px;">⚡ <strong>Development Phase:</strong> I am currently setting up your hosting and core architecture.</li>
-                          <li style="margin-bottom: 10px;">📧 <strong>Asset Check:</strong> Ensure all high-res logos/photos are sent to <strong>zachary@zachhowell.dev</strong> or the easiest way is to reply to this email with them..</li>
+                          <li style="margin-bottom: 10px;">📧 <strong>Asset Check:</strong> Ensure all high-res logos/photos are sent to <strong>zachary@zachhowell.dev</strong> or the easiest way is to reply to this email with them.</li>
                           <li>💳 <strong>Billing:</strong> If you selected premium add-ons, look for a separate Stripe invoice shortly.</li>
                       </ul>
                   </div>

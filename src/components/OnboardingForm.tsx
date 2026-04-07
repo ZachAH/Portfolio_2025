@@ -24,6 +24,15 @@ interface Step {
     fields: Field[];
 }
 
+const TOS_TEXT = `
+1. THE 48-HOUR CLOCK: The development window begins ONLY once all high-resolution assets (logos, photos, copy) are received. Delays in asset delivery pause the sprint clock.
+2. DOMAIN DISCRETION: If your 3 domain choices are unavailable or exceed standard registration costs, Zach Howell reserves the right to select the closest available alternative to maintain project momentum.
+3. SECONDARY INVOICING: Add-ons selected (e.g., Multi-View Layouts, Google Maps) are billed via a secondary Stripe invoice. Work on these features is finalized only after payment.
+4. WHITE-GLOVE SETUP: Zach Howell is not responsible for ongoing hosting/domain renewal costs after the 48-hour hand-off.
+5. REFUND POLICY: Due to the rapid nature of the sprint, all payments are non-refundable once development has commenced.
+6. GOVERNING LAW: These terms are governed by the laws of the State of Wisconsin.
+`;
+
 // ── CONFIGURATION ─────────────────────────────────────────
 const STEPS: Step[] = [
     {
@@ -274,7 +283,7 @@ const STEPS: Step[] = [
                 id: 'qualityAlert',
                 label: '⚠️ Quality Alert: Email is King',
                 type: 'header',
-                label_text: 'Texting photos compresses files, which can make your professional site look blurry. Please email high-res assets directly to zach@zachhowell.dev.'
+                label_text: 'Texting photos compresses files, which can make your professional site look blurry. Please email high-res assets directly to zachary@zachhowell.dev.'
             },
             {
                 id: 'assetMethod',
@@ -294,8 +303,18 @@ const STEPS: Step[] = [
         id: 'launch',
         label: 'Launch Sequence',
         fields: [
-            { id: 'agreement', label: 'Sprint Agreement', type: 'checkbox', label_text: 'The 48h clock starts once all high-res assets are received.' },
-            { id: 'onboardingFeedback', label: 'Process Feedback', placeholder: 'What was hard or easy about this onboarding? Help me make this better!', type: 'textarea' },
+            {
+                id: 'tosBox',
+                label: '📜 Sprint Terms of Service',
+                type: 'tos_box'
+            },
+            {
+                id: 'agreement',
+                label: 'Sprint Agreement',
+                type: 'checkbox',
+                label_text: 'I have read and agree to the 48h Sprint Terms, including asset delivery and refund policies.'
+            },
+            { id: 'onboardingFeedback', label: 'Process Feedback', placeholder: 'What was hard or easy about this onboarding?', type: 'textarea' },
             { id: 'notes', label: 'Final Notes', type: 'textarea' }
         ]
     }
@@ -470,6 +489,17 @@ export default function OnboardingForm() {
 
                     {STEPS[currentStep].fields.map((field: Field) => {
                         if (field.condition && !field.condition(formData)) return null;
+
+                        if (field.type === 'tos_box') return (
+                            <div key={field.id} className="mb-6">
+                                <label className="text-[10px] uppercase tracking-[0.2em] text-zinc-500 font-bold ml-1 mb-2 block">{field.label}</label>
+                                <div className="h-32 overflow-y-auto p-4 bg-zinc-50 dark:bg-zinc-900/50 border border-zinc-200 dark:border-zinc-800 rounded-xl text-[10px] text-zinc-400 leading-relaxed font-medium">
+                                    <pre className="whitespace-pre-wrap font-sans">
+                                        {TOS_TEXT}
+                                    </pre>
+                                </div>
+                            </div>
+                        );
 
                         if (field.type === 'header') return (
                             <div key={field.id} className="pt-8 mb-6">
