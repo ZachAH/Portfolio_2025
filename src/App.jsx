@@ -5,6 +5,7 @@ import ReactGA from 'react-ga4';
 
 import Navbar from './components/navbar';
 import Footer from './components/Footer';
+import About from './pages/About';
 import AnimatedBackground from './components/AnimatedBackground';
 import OnboardingForm from './components/OnboardingForm';
 import useDarkMode from './hooks/useDarkMode';
@@ -12,7 +13,7 @@ import useDarkMode from './hooks/useDarkMode';
 import Home from './pages/Home';
 import Services from './pages/Services';
 import Pricing from './pages/Pricing';
-import Templates from './pages/Templates'; 
+import Templates from './pages/Templates';
 import './index.css';
 
 // Initialize GA4 with your Measurement ID
@@ -26,10 +27,10 @@ ReactGA.initialize(import.meta.env.VITE_GA_ID);
 function OnboardingGuard({ children }) {
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
-  
+
   const sessionId = queryParams.get('session_id');
   const packageType = queryParams.get('package');
-  
+
   // Development Bypass: Allow access on localhost without params
   const isDev = window.location.hostname === 'localhost';
 
@@ -169,6 +170,14 @@ function AppContent() {
                 }
               />
               <Route
+                path="/about"
+                element={
+                  <PageWrapper>
+                    <About handleMouseEnter={handleMouseEnter} handleMouseLeave={handleMouseLeave} />
+                  </PageWrapper>
+                }
+              />
+              <Route
                 path="/templates"
                 element={
                   <PageWrapper>
@@ -184,7 +193,7 @@ function AppContent() {
                   </PageWrapper>
                 }
               />
-              
+
               <Route
                 path="/launch-onboarding"
                 element={

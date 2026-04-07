@@ -221,7 +221,7 @@ const PricingGuides = () => {
           className="mt-20 p-8 bg-gray-50 dark:bg-white/5 rounded-3xl border border-accent-orange/20 text-center max-w-4xl mx-auto shadow-sm"
         >
           <h4 className="text-xl font-bold text-obsidian-950 dark:text-white mb-3 flex items-center justify-center gap-2">
-            <span>⚡</span> The Zach Howell Advantage
+            <span>⚡</span> The Advantage of Working With Me
           </h4>
           <p className="text-gray-600 dark:text-gray-400 leading-relaxed italic text-sm sm:text-base">
             "I build with modern frameworks like React and TailwindCSS, meaning I am significantly faster than developers using legacy builders. An 'hour' of my time usually covers what takes other agencies three—you're paying for rapid, professional execution on a world-class foundation."

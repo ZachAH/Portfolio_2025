@@ -57,7 +57,7 @@ const Services = ({ handleMouseEnter, handleMouseLeave }) => {
   ];
 
   return (
-    <section className="min-h-screen py-32 px-6 md:px-12 lg:px-24">
+    <section className="min-h-screen py-32 px-6 md:px-12 lg:px-24 bg-white dark:bg-transparent">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -65,14 +65,14 @@ const Services = ({ handleMouseEnter, handleMouseLeave }) => {
           transition={{ duration: 1 }}
           className="text-center mb-24"
         >
-          <span className="text-sm font-bold tracking-widest text-accent-orange uppercase mb-4 inline-block">Professional Expertise</span>
-          <h1 className="heading-hero mb-8 text-text-primary"
+          <span className="text-sm font-black tracking-[0.3em] text-accent-orange uppercase mb-4 inline-block">Professional Expertise</span>
+          <h1 className="heading-hero mb-8 text-zinc-900 dark:text-white uppercase"
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
           >
             Start to <span className="text-gradient">Finish</span>.
           </h1>
-          <p className="text-xl md:text-2xl text-text-secondary max-w-3xl mx-auto font-medium">
+          <p className="text-xl md:text-2xl text-zinc-600 dark:text-text-secondary max-w-3xl mx-auto font-medium leading-relaxed">
             I don’t just write code. I manage the entire lifecycle—from domain registration and development to SEO optimization and global deployment.
           </p>
         </motion.div>
@@ -88,18 +88,24 @@ const Services = ({ handleMouseEnter, handleMouseLeave }) => {
             <motion.div
               key={index}
               variants={itemVariants}
-              className="glass-card p-10 rounded-[3rem] flex flex-col group hover:shadow-premium-hover transition-all duration-500 hover:-translate-y-2 active:scale-95 border-b-2 border-transparent hover:border-accent-orange/20"
+              // Added border-zinc-200 and bg-white for light mode contrast
+              className="group relative flex flex-col p-10 rounded-[3rem] bg-white dark:bg-obsidian-900/40 border border-zinc-200 dark:border-obsidian-800 shadow-sm hover:shadow-premium-hover transition-all duration-500 hover:-translate-y-2 active:scale-95 border-b-2 border-b-transparent hover:border-b-accent-orange/40"
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
             >
-              <div className="w-14 h-14 rounded-2xl bg-white dark:bg-obsidian-950 flex items-center justify-center text-accent-orange mb-8 shadow-sm group-hover:scale-110 transition-transform duration-500 border border-obsidian-700/10">
+              {/* Icon Container with light mode shadow/border */}
+              <div className="w-14 h-14 rounded-2xl bg-zinc-50 dark:bg-obsidian-950 flex items-center justify-center text-accent-orange mb-8 shadow-sm group-hover:scale-110 transition-transform duration-500 border border-zinc-200 dark:border-obsidian-700/10">
                 {service.icon}
               </div>
-              <h3 className="text-xl md:text-2xl font-bold mb-4 tracking-tight group-hover:text-accent-orange transition-colors duration-300 pointer-events-none">{service.title}</h3>
-              <p className="text-text-secondary text-sm mb-8 leading-relaxed font-medium flex-grow pointer-events-none">{service.description}</p>
+              <h3 className="text-xl md:text-2xl font-bold mb-4 tracking-tight text-zinc-900 dark:text-white group-hover:text-accent-orange transition-colors duration-300 pointer-events-none">
+                {service.title}
+              </h3>
+              <p className="text-zinc-600 dark:text-text-secondary text-sm mb-8 leading-relaxed font-medium flex-grow pointer-events-none">
+                {service.description}
+              </p>
               <div className="flex flex-wrap gap-2">
                 {service.tags.map((tag, i) => (
-                  <span key={i} className="text-[10px] uppercase font-bold tracking-widest text-text-secondary/60 bg-obsidian-700/5 px-2 py-1 rounded">
+                  <span key={i} className="text-[10px] uppercase font-black tracking-widest text-zinc-500 dark:text-text-secondary/60 bg-zinc-100 dark:bg-obsidian-700/5 border border-zinc-200 dark:border-transparent px-2 py-1 rounded-full">
                     {tag}
                   </span>
                 ))}
@@ -108,24 +114,24 @@ const Services = ({ handleMouseEnter, handleMouseLeave }) => {
           ))}
         </motion.div>
 
-        {/* Global Strategy Section */}
+        {/* Global Strategy Section - High Contrast Fix */}
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="glass-card p-12 md:p-20 rounded-[3.5rem] mb-32 relative overflow-hidden"
+          className="bg-white dark:bg-obsidian-900/40 border border-zinc-200 dark:border-obsidian-800 p-12 md:p-20 rounded-[3.5rem] mb-32 relative shadow-sm overflow-hidden"
         >
           <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight text-text-primary">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6 tracking-tighter text-zinc-900 dark:text-white leading-[0.9] uppercase">
                 Every detail, <span className="text-gradient">handled</span>.
               </h2>
-              <p className="text-xl text-text-secondary font-medium leading-relaxed mb-8">
+              <p className="text-xl text-zinc-600 dark:text-text-secondary font-medium leading-relaxed mb-8">
                 I provide a complete white-glove service. You bring the vision, and I handle the technical complexity from domain purchase to global scale. 
               </p>
               <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {["Domain Acquisition", "SEO Strategy", "WCAG Compliance", "CI/CD Management", "SSL Security", "Cloud Hosting"].map((item, i) => (
-                  <li key={i} className="flex items-center gap-3 text-text-primary font-bold">
+                  <li key={i} className="flex items-center gap-3 text-zinc-900 dark:text-white font-bold text-sm uppercase tracking-tight">
                     <div className="w-5 h-5 rounded-full bg-accent-orange/20 flex items-center justify-center">
                       <svg className="w-3 h-3 text-accent-orange" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>
                     </div>
@@ -134,14 +140,16 @@ const Services = ({ handleMouseEnter, handleMouseLeave }) => {
                 ))}
               </ul>
             </div>
+
             <div className="flex justify-center">
               <div className="relative">
                 <div className="w-64 h-64 md:w-80 md:h-80 rounded-[3rem] bg-sunset-gradient opacity-10 blur-[60px] absolute inset-0 animate-pulse" />
-                <div className="relative glass p-8 rounded-[3rem] border border-obsidian-700/10 shadow-premium">
+                {/* Fixed internal card for light mode */}
+                <div className="relative bg-white dark:bg-obsidian-950 p-8 rounded-[3rem] border border-zinc-200 dark:border-obsidian-700/10 shadow-premium">
                    <div className="flex flex-col gap-6">
                       <div className="space-y-2">
                         <div className="h-2 w-32 bg-accent-orange/40 rounded-full" />
-                        <div className="h-2 w-48 bg-text-secondary/20 rounded-full" />
+                        <div className="h-2 w-48 bg-zinc-200 dark:bg-text-secondary/20 rounded-full" />
                       </div>
                       <div className="h-40 w-full overflow-hidden rounded-2xl flex items-center justify-center relative group/img">
                         <img 
@@ -149,9 +157,9 @@ const Services = ({ handleMouseEnter, handleMouseLeave }) => {
                           alt="Digital Solutions" 
                           className="w-full h-full object-cover transition-transform duration-700 group-hover/img:scale-110"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-obsidian-950/40 to-transparent opacity-0 group-hover/img:opacity-100 transition-opacity duration-500" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-zinc-900/40 dark:from-obsidian-950/40 to-transparent opacity-0 group-hover/img:opacity-100 transition-opacity duration-500" />
                       </div>
-                      <button className="w-full py-4 bg-sunset-gradient text-white rounded-2xl font-bold text-sm shadow-lg shadow-accent-red/20">
+                      <button className="w-full py-4 bg-sunset-gradient text-white rounded-2xl font-black text-xs uppercase tracking-widest shadow-lg shadow-accent-red/20 hover:scale-[1.02] active:scale-95 transition-transform">
                          Get Started Today
                       </button>
                    </div>

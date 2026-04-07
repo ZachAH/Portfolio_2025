@@ -17,6 +17,7 @@ const projectsData = [
     id: 7,
     title: "Upper Crust Pizza",
     category: "Digital Transformation",
+    isDevelopment: true,
     description: "A fully responsive React + Vite + Tailwind website built for a real Milwaukee-area pizzeria, featuring intuitive navigation, dynamic menu sections, and an embedded Google Map. Includes a custom CMS admin dashboard.",
     csDescription: "Designed and launched a modern digital storefront to increase online visibility, improve ordering convenience, and drive repeat customers. Implemented responsive UI and optimized load speeds.",
     image: "/pizza.webp",
@@ -27,6 +28,7 @@ const projectsData = [
     id: 5,
     title: "Saved & Sent",
     category: "E-Commerce Platform",
+    isDevelopment: true,
     description: "An e-commerce site for a local Christian based apparel company, built with custom CMS features and Stripe integration.",
     csDescription: "Built a custom e-commerce platform with an integrated CMS for easy product management and Stripe for secure payment processing. The solution streamlined operations and provided a seamless shopping experience.",
     image: "/saved&sent.png",
@@ -86,9 +88,8 @@ const Projects = ({ handleMouseEnter, handleMouseLeave }) => {
             Client <span className="text-gradient">Work</span>.
           </h2>
           <p className="text-xl md:text-2xl text-text-secondary max-w-2xl mx-auto leading-relaxed mb-12">
-            View my work through different professional lenses:
+            View Some of my most recent work for clients across a variety of industries. Through different lenses of technical development and client success.
           </p>
-
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <button
               onClick={() => setViewMode('DEV')}

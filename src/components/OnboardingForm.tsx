@@ -308,7 +308,7 @@ const STEPS: Step[] = [
                 id: 'qualityAlert',
                 label: '⚠️ Quality Alert: Email is King',
                 type: 'header',
-                label_text: 'Please email high-res assets directly to zach@zachhowell.dev. SMS compression can make your site look blurry. This is the recommended method to ensure your visuals look crisp and professional on launch day.'
+                label_text: 'Please email high-res assets directly to zachary@zachhowell.dev. SMS compression can make your site look blurry. This is the recommended method to ensure your visuals look crisp and professional on launch day.'
             },
             {
                 id: 'assetMethod',

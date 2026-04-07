@@ -35,13 +35,14 @@ const Navbar = ({ handleMouseEnter, handleMouseLeave }) => {
   // Updated Links: Added Templates after Services
   const navLinks = [
     { name: 'Home', path: '/' },
+    { name: 'About', path: '/about' },
     { name: 'Services', path: '/services' },
     { name: 'Templates', path: '/templates' },
     { name: 'Pricing', path: '/pricing' },
-    { name: 'Contact', path: '/#contact' },
   ];
 
   const isActive = (path) => {
+    if (!path) return false;
     if (path.startsWith('/#')) {
       return location.pathname === '/' && location.hash === path.substring(1);
     }
@@ -62,10 +63,6 @@ const Navbar = ({ handleMouseEnter, handleMouseLeave }) => {
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
-        <Link to="/" className="text-xl font-bold tracking-tighter flex items-center group">
-          <span className="w-8 h-8 rounded-lg bg-sunset-gradient flex items-center justify-center mr-2 text-white text-xs">ZH</span>
-          <span className="hidden xs:inline group-hover:text-accent-orange transition-colors whitespace-nowrap">Zach Howell</span>
-        </Link>
 
         {/* Desktop Links */}
         <div className="hidden md:flex items-center gap-6">
