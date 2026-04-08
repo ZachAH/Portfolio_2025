@@ -13,30 +13,29 @@ const PricingCard = ({ title, price, description, features, accent, isPopular, l
     initial={{ opacity: 0, y: 20 }}
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
-    className={`relative p-8 rounded-3xl border transition-all duration-300 hover:shadow-premium flex flex-col h-full ${
-      isPopular 
-        ? 'border-accent-orange bg-white dark:bg-obsidian-900/40 shadow-xl' 
-        : 'border-obsidian-700/10 dark:border-obsidian-700/20 bg-gray-50/50 dark:bg-white/5 backdrop-blur-md'
-    }`}
+    className={`relative p-8 rounded-3xl border transition-all duration-300 hover:shadow-premium flex flex-col h-full ${isPopular
+      ? 'border-accent-orange bg-white dark:bg-obsidian-900/40 shadow-xl'
+      : 'border-obsidian-700/10 dark:border-obsidian-700/20 bg-gray-50/50 dark:bg-white/5 backdrop-blur-md'
+      }`}
   >
     {isPopular && (
-      <motion.span 
+      <motion.span
         initial={{ y: 10, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 0.2 }}
         className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-accent-orange text-white text-xs font-bold rounded-full uppercase tracking-widest z-50 shadow-lg"
       >
-        Most Popular 
+        Most Popular
       </motion.span>
     )}
-    
+
     <h3 className="text-2xl font-bold text-obsidian-950 dark:text-white mb-2">{title}</h3>
     <div className="flex items-baseline gap-1 mb-4">
       <span className="text-4xl font-bold text-obsidian-950 dark:text-white">{price}</span>
       {price.includes('/') && <span className="text-gray-500 dark:text-gray-400 text-sm font-medium">/month</span>}
     </div>
     <p className="text-gray-600 dark:text-gray-400 text-sm mb-8 leading-relaxed">{description}</p>
-    
+
     <ul className="space-y-4 mb-10 flex-grow">
       {features.map((feature, i) => (
         <li key={i} className="flex items-start gap-3 text-sm text-obsidian-900 dark:text-gray-200">
@@ -47,29 +46,27 @@ const PricingCard = ({ title, price, description, features, accent, isPopular, l
         </li>
       ))}
     </ul>
-    
+
     {/* LOGIC: Use direct anchor tag for Stripe Links, or Link for internal routing */}
     {stripeUrl ? (
-      <a 
+      <a
         href={stripeUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className={`w-full py-4 rounded-full font-bold transition-all active:scale-95 shadow-md text-center block ${
-          isPopular 
-            ? 'bg-accent-orange text-white hover:bg-accent-orange/90' 
-            : 'bg-obsidian-950 text-white dark:bg-white dark:text-obsidian-950 hover:opacity-90'
-        }`}
+        className={`w-full py-4 rounded-full font-bold transition-all active:scale-95 shadow-md text-center block ${isPopular
+          ? 'bg-accent-orange text-white hover:bg-accent-orange/90'
+          : 'bg-obsidian-950 text-white dark:bg-white dark:text-obsidian-950 hover:opacity-90'
+          }`}
       >
         Get Started
       </a>
     ) : (
-      <Link 
-        to={link || "/contact"} 
-        className={`w-full py-4 rounded-full font-bold transition-all active:scale-95 shadow-md text-center block ${
-          isPopular 
-            ? 'bg-accent-orange text-white hover:bg-accent-orange/90' 
-            : 'bg-obsidian-950 text-white dark:bg-white dark:text-obsidian-950 hover:opacity-90'
-        }`}
+      <Link
+        to={link || "/contact"}
+        className={`w-full py-4 rounded-full font-bold transition-all active:scale-95 shadow-md text-center block ${isPopular
+          ? 'bg-accent-orange text-white hover:bg-accent-orange/90'
+          : 'bg-obsidian-950 text-white dark:bg-white dark:text-obsidian-950 hover:opacity-90'
+          }`}
       >
         Get Started
       </Link>
@@ -101,28 +98,37 @@ const PricingGuides = () => {
       { title: "The Co-Pilot", price: "$950/mo", description: "A dedicated full-stack partner for high-traffic or E-commerce brands.", features: ["Includes Navigator Plan", "10 Expert Hours / month", "Strategy Sync Calls", "Direct Slack/Text Access"], accent: "text-purple-500", link: "/contact" }
     ],
     templates: [
-      { 
-        title: "The 48h Sprint", 
-        price: "$650", 
-        description: "Perfect for local trades and service pros. I'll take your chosen foundation and get your brand live in 2 business days.", 
-        features: ["Includes Source Code", "Full Brand Customization", "Domain & SSL Setup", "48-Hour Rapid Launch"], 
+      {
+        title: "The 48h Sprint",
+        price: "$700",
+        description: "Velocity as a Service. I take your selected foundation and transform it into a high-performance, live brand in exactly 48 hours.",
+        features: ["Full Source Code Ownership",
+          "Brand DNA & Asset Integration",
+          "White-Glove Infrastructure Setup",
+          "2-Day Deployment Guaranteed",
+          "Local SEO Metadata Injection"],
         accent: "text-accent-orange",
         isPopular: true,
-        stripeUrl: import.meta.env.VITE_STRIPE_SPRINT_URL 
+        stripeUrl: import.meta.env.VITE_STRIPE_SPRINT_URL
       },
-      { 
-        title: "Modern Edge", 
-        price: "$850", 
-        description: "A premium deployment for brands needing high-end UI, complex motion, and a unique visual identity.", 
-        features: ["Includes Elite Source Code", "GSAP & Motion setup", "Advanced Theme Swaps", "SEO & Meta-Data Setup", "72-Hour Launch Window"], 
-        accent: "text-accent-blue", 
+      {
+        title: "Modern Edge",
+        price: "$900",
+        description: "For brands that need to command attention. High-impact UI paired with complex motion logic to establish immediate market authority.",
+        features: ["Elite Source Code Access",
+          "Aggressive GSAP Motion Engine",
+          "GA4 & Search Console Infrastructure", // The analytical power-up
+          "Technical SEO & Core Web Vitals Audit", // Beyond just metadata
+          "Advanced Brand DNA Sculpting",
+          "72-Hour Precision Launch"],
+        accent: "text-accent-blue",
         stripeUrl: import.meta.env.VITE_STRIPE_MODERN_URL
-      },  
-      { 
-        title: "Commerce Launch", 
-        price: "$1,850+", 
-        description: "A secure revenue machine. I'll deploy your full shop with functional cart and inventory logic.", 
-        features: ["Includes Maison Source Code", "Stripe & Payment Setup", "Product Catalog Upload", "7-Day Compliance Window"], 
+      },
+      {
+        title: "Commerce Launch",
+        price: "$1,900",
+        description: "A secure revenue machine. I'll deploy your full shop with functional cart and inventory logic.",
+        features: ["Includes Maison Source Code", "Stripe & Payment Setup", "Product Catalog Upload", "7-Day Compliance Window"],
         accent: "text-purple-500",
         stripeUrl: import.meta.env.VITE_STRIPE_COMMERCE_URL
       }
@@ -141,16 +147,15 @@ const PricingGuides = () => {
           <h2 className="text-4xl md:text-6xl font-bold tracking-tighter text-obsidian-950 dark:text-white mb-6">
             Pricing & <span className="text-gradient">Partnership</span>
           </h2>
-          
+
           <div className="flex flex-col items-center gap-8">
             <div className="flex flex-wrap justify-center gap-2 p-1.5 bg-gray-100 dark:bg-white/5 backdrop-blur-md rounded-full w-fit border border-black/5 dark:border-white/10">
               {['growth', 'templates', 'custom'].map((tab) => (
                 <button
                   key={tab}
                   onClick={() => setActiveTab(tab)}
-                  className={`px-4 sm:px-6 py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all uppercase tracking-widest ${
-                    activeTab === tab ? 'bg-white dark:bg-white dark:text-obsidian-950 shadow-md' : 'text-gray-500 dark:text-gray-400 hover:text-accent-orange'
-                  }`}
+                  className={`px-4 sm:px-6 py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all uppercase tracking-widest ${activeTab === tab ? 'bg-white dark:bg-white dark:text-obsidian-950 shadow-md' : 'text-gray-500 dark:text-gray-400 hover:text-accent-orange'
+                    }`}
                 >
                   {tab === 'growth' ? 'Partnership Plans' : tab === 'templates' ? 'Template Launch' : 'Custom Builds'}
                 </button>
@@ -166,13 +171,13 @@ const PricingGuides = () => {
                   className="max-w-2xl"
                 >
                   <p className="text-gray-600 dark:text-gray-400 text-sm mb-4 leading-relaxed">
-                    Choose an industry-leading foundation from my collection and I will personally handle the 
-                    deployment, content integration, and domain setup. Every launch includes 
-                    full ownership of the source code and a professional, hand-polished result tailored 
+                    Choose an industry-leading foundation from my collection and I will personally handle the
+                    deployment, content integration, and domain setup. Every launch includes
+                    full ownership of the source code and a professional, hand-polished result tailored
                     to your specific brand package.
                   </p>
-                  <Link 
-                    to="/templates" 
+                  <Link
+                    to="/templates"
                     className="text-accent-orange font-bold text-sm hover:underline flex items-center justify-center gap-2"
                   >
                     Browse Available Template Foundations →
@@ -200,7 +205,7 @@ const PricingGuides = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <AnimatePresence mode="wait">
-            <motion.div 
+            <motion.div
               key={activeTab}
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
@@ -215,7 +220,7 @@ const PricingGuides = () => {
           </AnimatePresence>
         </div>
 
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           className="mt-20 p-8 bg-gray-50 dark:bg-white/5 rounded-3xl border border-accent-orange/20 text-center max-w-4xl mx-auto shadow-sm"
