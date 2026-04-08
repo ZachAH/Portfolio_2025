@@ -1,7 +1,3 @@
-// Add a new template by appending an object to this array.
-// Required: id, title, description, image, alt, price, accent, techs, templateURL, gumroadURL.
-// Optional: sprintReady, priceTextDark, secondaryBadge, ctaOverride.
-
 const templates = [
   {
     id: 'modern-business-elite',
@@ -10,13 +6,12 @@ const templates = [
       'The ultimate high-performance starter suite for high-end modern brands. This Elite Edition features a sophisticated GSAP animation engine and a dynamic masonry portfolio grid. Toggle between three distinct professional aesthetics—Ink, Pour, and Velvet—with a centralized theme engine designed for rapid, agency-grade deployments.',
     image: '/saas_template.webp',
     alt: 'Modern Business Suite Elite Edition Mockup',
-    price: '$79 - Source Code',
+    price: '$69 - Source Code',
     accent: '#9333EA', // purple-600
     techs: ['GSAP', 'React', 'TypeScript', 'Tailwind'],
     templateURL: 'https://futuristiclocal.netlify.app/',
-    gumroadURL:
-      'https://ettaflare.gumroad.com/l/modernsuitetemplate?_gl=1*c3push*_ga*MjQ5MjAwNzAuMTc3NTIzNTczNA..*_ga_6LJN6D94N6*czE3NzUyNDY2NTgkbzQkZzEkdDE3NzUyNDk2NjkkajYwJGwwJGgw',
-    sprintReady: true,
+    gumroadURL: 'https://ettaflare.gumroad.com/l/modernsuitetemplate',
+    badgeType: 'authority', // High-end, agency-grade
     secondaryBadge: '3 Themes Included',
   },
   {
@@ -30,10 +25,8 @@ const templates = [
     accent: '#D19A8E',
     techs: ['React', 'Vite', 'TypeScript', 'Tailwind'],
     templateURL: 'https://ecommercetemplatezh.netlify.app/',
-    gumroadURL:
-      'https://ettaflare.gumroad.com/l/ecommercetemplate?_gl=1*1vp7i7f*_ga*MjQ5MjAwNzAuMTc3NTIzNTczNA..*_ga_6LJN6D94N6*czE3NzUyNDY2NTgkbzQkZzEkdDE3NzUyNDk0NjAkajQwJGwwJGgw',
-    sprintReady: false,
-    ctaOverride: '💎 Launch This Brand (7-Day Scale)',
+    gumroadURL: 'https://ettaflare.gumroad.com/l/ecommercetemplate',
+    badgeType: 'conversion', // Focused on selling/commerce
   },
   {
     id: 'premium-business',
@@ -42,13 +35,12 @@ const templates = [
       "Elevate your brand with a sophisticated, clean foundation. This isn't just a layout; it's a high-end digital experience designed for modern businesses that prioritize design and clarity. Featuring an architectural feel with organic textures, every pixel of this React template is 100% customizable and tailored for premium scaling.",
     image: '/buisness_modern.webp',
     alt: 'Premium Business Template Mockup',
-    price: '$59 - Source Code',
+    price: '$69 - Source Code',
     accent: '#616B59',
     techs: ['React', 'Vite', 'TypeScript', 'Tailwind'],
     templateURL: 'https://premiumbuissnesstemplate.netlify.app/',
-    gumroadURL:
-      'https://ettaflare.gumroad.com/l/ArtisanFoundation?_gl=1*k1ycwd*_ga*MjQ5MjAwNzAuMTc3NTIzNTczNA..*_ga_6LJN6D94N6*czE3NzUyNDY2NTgkbzQkZzEkdDE3NzUyNDg0NzQkajQzJGwwJGgw',
-    sprintReady: true,
+    gumroadURL: 'https://ettaflare.gumroad.com/l/ArtisanFoundation',
+    badgeType: 'authority', // Sophisticated/Architectural
   },
   {
     id: 'trades-scalable',
@@ -57,29 +49,83 @@ const templates = [
       'Dominate your local map. Stop losing leads to outdated, slow-loading sites. This template is a high-conversion engine designed specifically for the trades. Featuring a bold, professional layout that commands respect, it’s optimized for local SEO out of the box. Every pixel is 100% adjustable to fit your brand’s DNA.',
     image: '/construction_template.webp',
     alt: 'Construction & Contractor Trades Template Mockup',
-    price: '$59 - Source Code',
+    price: '$69 - Source Code',
     accent: '#FBBF24', // amber-400
-    priceTextDark: true, // use black text on the price badge
+    priceTextDark: true,
     techs: ['React', 'Tailwind', 'Framer Motion'],
     templateURL: 'https://tradestemplatezh.netlify.app/',
-    gumroadURL:
-      'https://ettaflare.gumroad.com/l/ironclad-trades?_gl=1*ea34qh*_ga*MjQ5MjAwNzAuMTc3NTIzNTczNA..*_ga_6LJN6D94N6*czE3NzUyNDY2NTgkbzQkZzEkdDE3NzUyNDk0NDAkajYwJGwwJGgw',
-    sprintReady: true,
+    gumroadURL: 'https://ettaflare.gumroad.com/l/ironclad-trades',
+    badgeType: 'performance', // Local SEO/Speed focus
   },
   {
     id: 'universal-business',
     title: 'Universal Business',
     description:
-      'A modern, high-conversion foundation designed for professional services and personal brands. While styled with an organic wellness aesthetic, this template is built to be a universal "plug-and-play" engine for any business. It features ultra-clean typography, a focused lead-gen layout, and a high-legibility design that builds immediate trust with any demographic. 100% adjustable and built to scale.',
+      'A modern, high-conversion foundation designed for professional services and personal brands. While styled with an organic wellness aesthetic, this template is built to be a universal "plug-and-play" engine for any business. It features ultra-clean typography, a focused lead-gen layout, and a high-legibility design that builds immediate trust.',
     image: '/buisness_template2.webp',
     alt: 'Clean Corporate Business Template Mockup',
-    price: '$59 - Source Code',
+    price: '$69 - Source Code',
     accent: '#4F5748',
     techs: ['React', 'Vite', 'Tailwind', 'Universal Layout'],
     templateURL: 'https://buissnesstemp2.netlify.app/',
-    gumroadURL:
-      'https://ettaflare.gumroad.com/l/serviceandwellnesstemplate?_gl=1*1l2kfx6*_ga*MjQ5MjAwNzAuMTc3NTIzNTczNA..*_ga_6LJN6D94N6*czE3NzUyNDY2NTgkbzQkZzEkdDE3NzUyNDkzMTYkajU0JGwwJGgw',
-    sprintReady: true,
+    gumroadURL: 'https://ettaflare.gumroad.com/l/serviceandwellnesstemplate',
+    badgeType: 'sprint', // Plug-and-play/Ready to go
+  },
+  {
+    id: 'saas-obsidian',
+    title: 'SaaS Obsidian',
+    description:
+      'The elite "Silicon Valley" dark mode starter for AI and SaaS startups. This high-performance suite features a sophisticated bento-grid layout, glassmorphism surfaces, and precision-engineered GSAP animations. Includes a custom interactive pricing engine and code previews.',
+    image: '/obsidian_template.webp',
+    alt: 'SaaS Obsidian AI Template Mockup',
+    price: '$89 - Source Code',
+    accent: '#9333EA', // purple-600
+    techs: ['React', 'GSAP', 'Framer Motion', 'Tailwind'],
+    templateURL: 'https://sasstemplateobsidian.netlify.app/',
+    gumroadURL: 'https://ettaflare.gumroad.com/l/obsidiantemplate',
+    badgeType: 'authority', // Elite/Silicon Valley vibe
+  },
+  {
+    id: 'the-foundry',
+    title: 'The Foundry',
+    description:
+      'A heavy-duty, "over-engineered" React suite for manufacturing, logistics, and B2B firms. Featuring animated stats gauges, SVG technical drawing effects, and a high-conversion RFQ engine designed to command authority in the industrial space.',
+    image: '/foundry_template.webp',
+    alt: 'The Foundry Industrial B2B Template Mockup',
+    price: '$69 - Source Code',
+    accent: '#F97316', // orange-500
+    techs: ['React', 'Vite', 'Tailwind', 'SVG Animations'],
+    templateURL: 'https://industrialtemplate.netlify.app/',
+    gumroadURL: 'https://ettaflare.gumroad.com/l/industrialtemplate',
+    badgeType: 'sprint', // Focused on the RFQ lead-gen engine
+  },
+  {
+    id: 'brutalist-creative',
+    title: 'Brutalist Creative',
+    description:
+      'Break the rules with the "Burtalist" starter suite. This raw, anti-design template is built for streetwear brands, record labels, and creative rebels who want to stand out. 100% unapologetic and built for high impact.',
+    image: '/brutalist_template.webp',
+    alt: 'Brutalist Creative Anti-Design Template Mockup',
+    price: '$69 - Source Code',
+    accent: '#f43f5e', // rose-500
+    techs: ['React', 'GSAP', 'Tailwind', 'Glitch UI'],
+    templateURL: 'https://brutalisttemplate.netlify.app/',
+    gumroadURL: 'https://ettaflare.gumroad.com/l/brutalisttemplate',
+    badgeType: 'authority',
+  },
+  {
+    id: 'the-storyteller',
+    title: 'The Storyteller',
+    description:
+      'An immersive "Noir-Journalism" suite designed for long-form content, investigative podcasts, and digital magazines. Includes cinematic scroll-linked reveals and a distraction-free reading engine.',
+    image: '/storyteller_template.webp',
+    alt: 'The Storyteller Narrative Editorial Template Mockup',
+    price: '$69 - Source Code',
+    accent: '#3F3F46', // zinc-700
+    techs: ['React', 'Framer Motion', 'GSAP', 'Editorial UI'],
+    templateURL: 'https://storytellertemplate.netlify.app/',
+    gumroadURL: 'https://ettaflare.gumroad.com/l/storytellertemplate',
+    badgeType: 'sprint', // Quick narrative launch
   },
 ];
 

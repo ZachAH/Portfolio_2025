@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { db } from '../firebase';
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 import { Link, useLocation } from 'react-router-dom';
+import templates from '../data/templates';
 
 // ── TYPES ─────────────────────────────────────────────────
 type Addon = { name: string; price: number };
@@ -55,27 +56,30 @@ const STEPS: Step[] = [
                 ]
             },
             /* --- TEMPLATES FOR SPRINT & MODERN EDGE --- */
+            // --- Inside your STEPS array ---
+
             {
                 id: 'templateId',
                 label: 'Choose Your Foundation',
                 type: 'select',
-                condition: (data: any) => data.packageType !== 'commerce', // Show for standard tiers
-                options: [
-                    { value: 'buisness_modern', label: 'Universal Business (Standard)' },
-                    { value: 'buisness_template2', label: 'Clean Corporate (Standard)' },
-                    { value: 'construction_template', label: 'The Contractor (Standard)' },
-                    { value: 'saas_template', label: 'Modern Business Elite (+$20 Fee)' }
-                ]
+                condition: (data: any) => data.packageType !== 'commerce',
+                // 🔥 DYNAMIC: Filter for everything EXCEPT ecommerce
+                options: templates
+                    .filter(t => t.badgeType !== 'conversion')
+                    .map(t => ({
+                        value: t.id,
+                        label: `${t.title} ${t.id === 'saas-obsidian' ? '(+$20 Fee)' : ''}`
+                    }))
             },
-            /* --- TEMPLATE FOR COMMERCE ONLY --- */
             {
-                id: 'templateId', // Keep same ID so preview works
+                id: 'templateId',
                 label: 'E-Commerce Foundation',
                 type: 'select',
-                condition: (data: any) => data.packageType === 'commerce', // Only show for commerce
-                options: [
-                    { value: 'ecommerce_template', label: 'Maison E-Comm (Elite Foundation - Included)' }
-                ]
+                condition: (data: any) => data.packageType === 'commerce',
+                // 🔥 DYNAMIC: Filter for ONLY ecommerce
+                options: templates
+                    .filter(t => t.badgeType === 'conversion')
+                    .map(t => ({ value: t.id, label: `${t.title} (Elite Foundation)` }))
             },
             {
                 id: 'layoutToggle',

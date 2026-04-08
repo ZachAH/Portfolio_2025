@@ -1,8 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-// Convert "#RRGGBB" -> "rgba(r,g,b,a)" so we can drive Tailwind arbitrary
-// values via CSS variables and still get translucent borders/tags.
 function hexToRgba(hex, alpha = 1) {
   const clean = hex.replace('#', '');
   const r = parseInt(clean.slice(0, 2), 16);
@@ -10,6 +8,22 @@ function hexToRgba(hex, alpha = 1) {
   const b = parseInt(clean.slice(4, 6), 16);
   return `rgba(${r}, ${g}, ${b}, ${alpha})`;
 }
+
+// 💡 SALES ENGINE: Defined for your two core paths
+const BADGE_CONFIGS = {
+  sprint: {
+    label: '48-Hour Deploy',
+    classes: 'border-green-500/30 text-green-700 dark:text-green-400',
+    dot: 'bg-green-500',
+    cta: '🚀 Deploy My Site in 48h',
+  },
+  conversion: {
+    label: 'Conversion Optimized',
+    classes: 'border-rose-500/30 text-rose-700 dark:text-rose-400',
+    dot: 'bg-rose-500',
+    cta: '📈 Boost Your Sales',
+  },
+};
 
 export default function TemplateCard({
   template,
@@ -27,13 +41,14 @@ export default function TemplateCard({
     techs = [],
     templateURL,
     gumroadURL,
-    sprintReady = false,
+    badgeType = 'sprint', // Defaulting to sprint if not specified
     secondaryBadge,
     ctaOverride,
   } = template;
 
-  // CSS variables let arbitrary Tailwind classes (which must be static
-  // strings at build time) reference per-template accent colors.
+  // Fallback to sprint if the badgeType isn't found in the two options
+  const config = BADGE_CONFIGS[badgeType] || BADGE_CONFIGS.sprint;
+
   const styleVars = {
     '--tpl-accent': accent,
     '--tpl-accent-50': hexToRgba(accent, 0.5),
@@ -49,41 +64,31 @@ export default function TemplateCard({
     >
       {/* Header Image Section */}
       <div className="relative h-72 w-full overflow-hidden bg-zinc-100 dark:bg-zinc-950 border-b border-zinc-200 dark:border-zinc-800">
-        {sprintReady ? (
-          <motion.div
-            initial={{ opacity: 0, x: -10 }}
-            animate={{ opacity: 1, x: 0 }}
-            className="absolute top-6 left-6 z-20"
+        
+        {/* Dynamic Value Badge - Positioned Bottom Right */}
+        <div className="absolute bottom-6 right-6 z-20">
+          <motion.div 
+            initial={{ opacity: 0, y: 10 }} 
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
           >
-            <div className="flex items-center gap-2 px-3 py-1.5 bg-white/90 dark:bg-zinc-900/80 backdrop-blur-md border border-green-500/30 rounded-full shadow-lg">
-              <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
-              <span className="text-[10px] font-black uppercase tracking-[0.2em] text-green-700 dark:text-green-400">
-                48h Sprint Ready
+            <div className={`flex items-center gap-2 px-3 py-1.5 bg-white/95 dark:bg-zinc-900/90 backdrop-blur-md border rounded-full shadow-lg ${config.classes}`}>
+              <span className={`w-1.5 h-1.5 rounded-full animate-pulse ${config.dot}`} />
+              <span className="text-[10px] font-black uppercase tracking-[0.15em]">
+                {config.label}
               </span>
             </div>
           </motion.div>
-        ) : (
-          <div className="absolute bottom-6 right-6 z-20">
-            <div className="flex items-center gap-2 px-4 py-2 bg-obsidian-950/80 backdrop-blur-md border border-accent-orange/30 rounded-full shadow-2xl">
-              <span className="w-2 h-2 rounded-full bg-accent-orange animate-pulse" />
-              <span className="text-[10px] font-black uppercase tracking-[0.2em] text-accent-orange">
-                Elite Build (7-Day Scale)
-              </span>
-            </div>
-          </div>
-        )}
+        </div>
 
         <img
           src={image}
           alt={alt}
           loading="lazy"
-          decoding="async"
-          width="1600"
-          height="1000"
           className="object-cover w-full h-full transform group-hover:scale-105 transition-transform duration-1000 ease-out opacity-90 dark:opacity-80 group-hover:opacity-100"
         />
 
-        {/* Floating Badges */}
+        {/* Floating Pricing/Secondary Badges - Kept Top Right */}
         <div className="absolute top-6 right-6 flex flex-col items-end gap-2">
           {secondaryBadge && (
             <div
@@ -134,11 +139,7 @@ export default function TemplateCard({
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
           >
-            {ctaOverride
-              ? ctaOverride
-              : sprintReady
-              ? '🚀 Launch This Site in 48h'
-              : '💎 Elite Build (7-Day Scale)'}
+            {ctaOverride ? ctaOverride : config.cta}
           </a>
 
           <div className="flex gap-4">
