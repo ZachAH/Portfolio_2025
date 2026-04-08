@@ -54,9 +54,6 @@ const AnimatedBackground = ({ currentTheme }) => {
         />
       )}
 
-      {/* Subtle noise texture overlay for a premium feel */}
-      <div className="absolute inset-0 opacity-[0.035] pointer-events-none mix-blend-overlay bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
-      
       {/* Light mode base soft gradient */}
       {currentTheme === 'light' && (
         <div className="absolute inset-0 bg-gradient-to-tr from-silver-100 via-white to-silver-200 opacity-60" />

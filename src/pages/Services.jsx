@@ -1,6 +1,19 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import DigitalSolutionsImg from '../assets/digital_solutions.jpg';
+import DigitalSolutionsImg from '../assets/digital_solutions.webp';
+import Seo from '../components/Seo';
+import { servicesSchema, breadcrumb } from '../utils/structuredData';
+
+const servicesJsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    servicesSchema,
+    breadcrumb([
+      { name: 'Home', path: '/' },
+      { name: 'Services', path: '/services' },
+    ]),
+  ],
+};
 
 const Services = ({ handleMouseEnter, handleMouseLeave }) => {
   const containerVariants = {
@@ -58,6 +71,13 @@ const Services = ({ handleMouseEnter, handleMouseLeave }) => {
 
   return (
     <section className="min-h-screen py-32 px-6 md:px-12 lg:px-24 bg-white dark:bg-transparent">
+      <Seo
+        title="Web Development Services | React, SEO & Performance — Zach Howell"
+        description="Full-cycle freelance web development: custom React builds, e-commerce, SEO, Core Web Vitals optimization, accessibility, hosting and domain setup. Hire a senior full-stack engineer for your next project."
+        path="/services"
+        keywords="React development services, freelance developer services, SEO optimization, Core Web Vitals, web accessibility, WCAG, custom web development, full-stack engineer for hire"
+        jsonLd={servicesJsonLd}
+      />
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -152,9 +172,11 @@ const Services = ({ handleMouseEnter, handleMouseLeave }) => {
                         <div className="h-2 w-48 bg-zinc-200 dark:bg-text-secondary/20 rounded-full" />
                       </div>
                       <div className="h-40 w-full overflow-hidden rounded-2xl flex items-center justify-center relative group/img">
-                        <img 
-                          src={DigitalSolutionsImg} 
-                          alt="Digital Solutions" 
+                        <img
+                          src={DigitalSolutionsImg}
+                          alt="Custom React web development and digital solutions illustration"
+                          loading="lazy"
+                          decoding="async"
                           className="w-full h-full object-cover transition-transform duration-700 group-hover/img:scale-110"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-zinc-900/40 dark:from-obsidian-950/40 to-transparent opacity-0 group-hover/img:opacity-100 transition-opacity duration-500" />

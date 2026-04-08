@@ -1,23 +1,32 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import ReactGA from 'react-ga4';
 
 import Navbar from './components/navbar';
 import Footer from './components/Footer';
-import About from './pages/About';
 import AnimatedBackground from './components/AnimatedBackground';
-import OnboardingForm from './components/OnboardingForm';
 import useDarkMode from './hooks/useDarkMode';
-
-import Home from './pages/Home';
-import Services from './pages/Services';
-import Pricing from './pages/Pricing';
-import Templates from './pages/Templates';
 import './index.css';
 
-// Initialize GA4 with your Measurement ID
-ReactGA.initialize(import.meta.env.VITE_GA_ID);
+// Route-level code splitting — each page ships in its own chunk so the
+// initial JS payload (and thus LCP / TBT) is much smaller.
+const Home = lazy(() => import('./pages/Home'));
+const Services = lazy(() => import('./pages/Services'));
+const About = lazy(() => import('./pages/About'));
+const Templates = lazy(() => import('./pages/Templates'));
+const Pricing = lazy(() => import('./pages/Pricing'));
+const OnboardingForm = lazy(() => import('./components/OnboardingForm'));
+
+// Initialize GA4 with your Measurement ID — defer slightly so it doesn't
+// compete with first paint / hydration.
+if (import.meta.env.VITE_GA_ID) {
+  if (typeof window !== 'undefined' && 'requestIdleCallback' in window) {
+    window.requestIdleCallback(() => ReactGA.initialize(import.meta.env.VITE_GA_ID));
+  } else {
+    setTimeout(() => ReactGA.initialize(import.meta.env.VITE_GA_ID), 1500);
+  }
+}
 
 /**
  * SECURITY: OnboardingGuard
@@ -152,6 +161,7 @@ function AppContent() {
 
         <main className="flex-grow">
           <AnimatePresence mode="wait">
+            <Suspense fallback={<div className="min-h-screen" aria-hidden="true" />}>
             <Routes location={location} key={location.pathname}>
               <Route
                 path="/"
@@ -207,6 +217,7 @@ function AppContent() {
                 }
               />
             </Routes>
+            </Suspense>
           </AnimatePresence>
         </main>
 

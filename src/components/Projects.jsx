@@ -31,7 +31,7 @@ const projectsData = [
     isDevelopment: true,
     description: "An e-commerce site for a local Christian based apparel company, built with custom CMS features and Stripe integration.",
     csDescription: "Built a custom e-commerce platform with an integrated CMS for easy product management and Stripe for secure payment processing. The solution streamlined operations and provided a seamless shopping experience.",
-    image: "/saved&sent.png",
+    image: "/saved&sent.webp",
     link: "https://savedandsent.netlify.app/",
     tags: ["React", "Node.js", "Firebase", "Stripe"]
   },
@@ -51,7 +51,7 @@ const projectsData = [
     category: "Commercial SaaS Template",
     description: "A premium, high-performance web architecture tailored for local buisnesses, featuring a dynamic 'Futuristic-to-Professional' theme toggle and GSAP-powered animations.",
     csDescription: "Developed a custom-engineered 'Theme Engine' with GSAP-powered animations and dynamic CSS variable injection, enabling a seamless 'Futuristic-to-Professional' aesthetic toggle for end-users.",
-    image: "/saas_template.png", // Update to your new screenshot
+    image: "/saas_template.webp", // Update to your new screenshot
     link: "https://futuristiclocal.netlify.app/", // Use your live demo link here
     tags: ["React", "TypeScript", "GSAP", "Tailwind CSS v4"]
   },
@@ -61,7 +61,7 @@ const projectsData = [
     category: "Premium Web Template",
     description: "A high-performance, landing page template designed specifically for local trades.",
     csDescription: "Engineered a high-performance conversion engine for local service providers, featuring a mobile-first architecture and schema markup integration that boosts local SEO visibility. Every component is modularized for 100% brand scalability, ensuring zero layout shift during theme transitions.",
-    image: "/construction_template.png",
+    image: "/construction_template.webp",
     link: "https://tradestemplatezh.netlify.app/",
     tags: ["React", "TypeScript", "Tailwind CSS", "GSAP"]
   }

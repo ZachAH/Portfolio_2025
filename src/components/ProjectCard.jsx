@@ -34,7 +34,11 @@ const ProjectCard = ({ project, index, viewMode, handleMouseEnter, handleMouseLe
 
         <img
           src={project.image}
-          alt={project.title}
+          alt={`${project.title} — ${project.category} project screenshot`}
+          loading="lazy"
+          decoding="async"
+          width="1280"
+          height="800"
           className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
         />
         

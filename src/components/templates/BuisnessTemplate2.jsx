@@ -32,8 +32,12 @@ export default function BusinessTemplate2({ sprintReady, handleMouseEnter, handl
 
 
         <img
-          src="/buisness_template2.png"
-          alt="Business Template 2 Mockup"
+          src="/buisness_template2.webp"
+          alt="Clean Corporate Business Template Mockup"
+          loading="lazy"
+          decoding="async"
+          width="1600"
+          height="1000"
           className="object-cover w-full h-full transform group-hover:scale-105 transition-transform duration-1000 ease-out opacity-90 dark:opacity-80 group-hover:opacity-100"
         />
         {/* Floating Price Tag */}

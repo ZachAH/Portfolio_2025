@@ -27,8 +27,12 @@ export default function ECommerceTemplate({ sprintReady, handleMouseEnter, handl
         )}
 
         <img
-          src="/ecommerce_template.png"
+          src="/ecommerce_template.webp"
           alt="Refined Essentials E-Commerce Template Mockup"
+          loading="lazy"
+          decoding="async"
+          width="1600"
+          height="1000"
           className="object-cover w-full h-full transform group-hover:scale-105 transition-transform duration-1000 ease-out opacity-90 dark:opacity-80 group-hover:opacity-100"
         />
         {/* Floating Price Tag - Terracotta Accent */}

@@ -53,7 +53,7 @@ const LetterReveal = ({ text, delay = 0 }) => {
 
   return (
     <motion.span
-      style={{ display: "inline-block", overflow: "hidden" }}
+      style={{ display: "inline-block", paddingBottom: "0.15em" }}
       variants={container}
       initial="hidden"
       animate="visible"

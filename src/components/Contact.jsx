@@ -69,9 +69,11 @@ const Contact = ({ handleMouseEnter, handleMouseLeave }) => {
               <div className="absolute -inset-1 bg-sunset-gradient rounded-[3.5rem] blur opacity-20 group-hover:opacity-40 transition duration-1000"></div>
               
               <div className="relative w-72 h-96 md:w-80 md:h-[450px] overflow-hidden rounded-[3.5rem] border border-obsidian-700/20 glass">
-                <img 
-                  src={selfieImg} 
-                  alt="Zach Howell" 
+                <img
+                  src={selfieImg}
+                  alt="Zach Howell — freelance full-stack web developer based in New Berlin, Wisconsin"
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000 ease-in-out scale-105 hover:scale-100"
                 />
               </div>

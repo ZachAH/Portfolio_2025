@@ -1,5 +1,18 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import Seo from '../components/Seo';
+import { personSchema, breadcrumb } from '../utils/structuredData';
+
+const aboutJsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    personSchema,
+    breadcrumb([
+      { name: 'Home', path: '/' },
+      { name: 'About', path: '/about' },
+    ]),
+  ],
+};
 
 const About = ({ handleMouseEnter, handleMouseLeave }) => {
 
@@ -18,6 +31,13 @@ const About = ({ handleMouseEnter, handleMouseLeave }) => {
 
   return (
     <section id="about" className="py-32 px-6 md:px-12 lg:px-24 bg-white dark:bg-obsidian-950 relative overflow-hidden">
+      <Seo
+        title="About Zach Howell | Senior Full-Stack Developer in New Berlin, WI"
+        description="Meet Zach Howell — a senior full-stack software engineer with 6+ years of experience building React websites, e-commerce stores and conversion-driven web apps. Based in New Berlin, Wisconsin."
+        path="/about"
+        keywords="about Zach Howell, senior React developer, Wisconsin software engineer, full-stack developer New Berlin, freelance engineer bio"
+        jsonLd={aboutJsonLd}
+      />
       {/* Decorative Background Element */}
       <div className="absolute top-0 left-0 w-full h-1 bg-sunset-gradient opacity-20" />
 
@@ -32,10 +52,10 @@ const About = ({ handleMouseEnter, handleMouseLeave }) => {
             transition={{ duration: 0.8 }}
           >
             <span className="text-sm font-black tracking-[0.3em] text-accent-orange uppercase mb-6 block">The Architect</span>
-            <h2 className="text-5xl md:text-6xl font-bold tracking-tighter mb-8 text-text-primary uppercase leading-[0.9]">
+            <h1 className="text-5xl md:text-6xl font-bold tracking-tighter mb-8 text-text-primary uppercase leading-[0.9]">
               Real Code. <br />
               <span className="text-gradient">Real Stakes.</span>
-            </h2>
+            </h1>
 
             <div className="space-y-6 text-lg text-text-secondary font-medium leading-relaxed">
               <p>

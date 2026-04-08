@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /launch-onboarding
+
+Sitemap: https://zachhowell.dev/sitemap.xml

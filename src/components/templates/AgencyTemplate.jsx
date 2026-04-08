@@ -31,8 +31,12 @@ export default function PremiumBusinessTemplate({ sprintReady, handleMouseEnter,
         )}
 
         <img
-          src="/buisness_modern.png"
+          src="/buisness_modern.webp"
           alt="Premium Business Template Mockup"
+          loading="lazy"
+          decoding="async"
+          width="1600"
+          height="1000"
           className="object-cover w-full h-full transform group-hover:scale-105 transition-transform duration-1000 ease-out opacity-90 dark:opacity-80 group-hover:opacity-100"
         />
         {/* Floating Price Tag */}
