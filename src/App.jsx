@@ -17,6 +17,7 @@ const About = lazy(() => import('./pages/About'));
 const Templates = lazy(() => import('./pages/Templates'));
 const Pricing = lazy(() => import('./pages/Pricing'));
 const OnboardingForm = lazy(() => import('./components/OnboardingForm'));
+const DiscoveryForm = lazy(() => import('./components/DiscoveryForm'));
 
 // Initialize GA4 with your Measurement ID — defer slightly so it doesn't
 // compete with first paint / hydration.
@@ -206,6 +207,15 @@ function AppContent() {
                 element={
                   <PageWrapper>
                     <Pricing handleMouseEnter={handleMouseEnter} handleMouseLeave={handleMouseLeave} />
+                  </PageWrapper>
+                }
+              />
+
+              <Route
+                path="/custom-discovery"
+                element={
+                  <PageWrapper>
+                    <DiscoveryForm />
                   </PageWrapper>
                 }
               />

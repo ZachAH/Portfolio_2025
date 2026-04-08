@@ -24,6 +24,126 @@ export const sendOnboardingEmail = onDocumentCreated(
     const resend = new Resend(process.env.RESEND_API_KEY);
     const data = snapshot.data();
 
+    // ── BRANCH: Custom Build Discovery Inquiry ───────────────
+    // The DiscoveryForm writes into the same Projects collection but
+    // tags the doc with type === 'custom_inquiry'. These need a totally
+    // different email (lead notification + client confirmation) since
+    // they have no template, addons, or sprint clock.
+    if (data.type === "custom_inquiry") {
+      const inqEmail = data.email || data.emailAddress || "";
+      const inqName = data.fullName || "there";
+      const inqBusiness = data.businessName || "(no business name)";
+      const inqProjectType = data.projectType || "Not specified";
+      const inqBudget = data.budgetRange || "Not specified";
+      const inqTimeline = data.timeline || "Not specified";
+      const inqStage = data.businessStage || "Not specified";
+      const inqVision = data.visionPitch || "(none provided)";
+      const inqMustHaves = data.mustHaves || "(none provided)";
+      const inqInspiration = data.inspiration || "(none provided)";
+      const inqAudience = data.audience || "(none provided)";
+      const inqAssets = data.hasAssets || "Not specified";
+      const inqCallPref = data.callPreference || "Not specified";
+      const inqAvailability = data.callAvailability || "(none provided)";
+      const inqExtras = data.anythingElse || "(none provided)";
+      const inqPhone = data.phone || "Not provided";
+
+      try {
+        // 1. Lead notification → me
+        await resend.emails.send({
+          from: "Zach Howell <zachary@zachhowell.dev>",
+          to: ["zachary@zachhowell.dev"],
+          replyTo: inqEmail,
+          subject: `🛠 New Custom Build Inquiry: ${inqBusiness}`,
+          html: `
+            <div style="font-family: 'Inter', Helvetica, Arial, sans-serif; background-color: #050505; color: #fafafa; padding: 60px 20px;">
+              <div style="max-width: 640px; margin: 0 auto; background: #09090b; border: 1px solid #27272a; border-radius: 24px; overflow: hidden;">
+                <div style="padding: 40px;">
+                  <div style="display: inline-block; padding: 8px 16px; background: #FF6B35; border-radius: 99px; font-size: 10px; font-weight: 900; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 24px;">Custom Build Lead</div>
+                  <h1 style="font-size: 32px; font-weight: 900; line-height: 1; text-transform: uppercase; letter-spacing: -1px; margin: 0 0 8px 0;">${inqBusiness}</h1>
+                  <p style="font-size: 14px; color: #a1a1aa; margin: 0 0 24px 0;">From <strong style="color:#fff;">${inqName}</strong> · <a href="mailto:${inqEmail}" style="color:#FF6B35;">${inqEmail}</a> · ${inqPhone}</p>
+
+                  <div style="background: #121214; border-radius: 16px; padding: 24px; border: 1px solid #1c1c1f; margin-bottom: 24px;">
+                    <table style="width: 100%; border-collapse: collapse;">
+                      <tr><td style="padding: 6px 0; font-size: 11px; text-transform: uppercase; color: #52525b; font-weight: 800;">Project Type</td><td style="padding: 6px 0; font-size: 13px; text-align: right; color: #fff;">${inqProjectType}</td></tr>
+                      <tr><td style="padding: 6px 0; font-size: 11px; text-transform: uppercase; color: #52525b; font-weight: 800;">Budget</td><td style="padding: 6px 0; font-size: 13px; text-align: right; color: #fff;">${inqBudget}</td></tr>
+                      <tr><td style="padding: 6px 0; font-size: 11px; text-transform: uppercase; color: #52525b; font-weight: 800;">Timeline</td><td style="padding: 6px 0; font-size: 13px; text-align: right; color: #fff;">${inqTimeline}</td></tr>
+                      <tr><td style="padding: 6px 0; font-size: 11px; text-transform: uppercase; color: #52525b; font-weight: 800;">Business Stage</td><td style="padding: 6px 0; font-size: 13px; text-align: right; color: #fff;">${inqStage}</td></tr>
+                      <tr><td style="padding: 6px 0; font-size: 11px; text-transform: uppercase; color: #52525b; font-weight: 800;">Has Assets</td><td style="padding: 6px 0; font-size: 13px; text-align: right; color: #fff;">${inqAssets}</td></tr>
+                      <tr><td style="padding: 6px 0; font-size: 11px; text-transform: uppercase; color: #52525b; font-weight: 800;">Call Preference</td><td style="padding: 6px 0; font-size: 13px; text-align: right; color: #fff;">${inqCallPref}</td></tr>
+                    </table>
+                  </div>
+
+                  <h3 style="font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: #FF6B35; margin: 24px 0 8px 0;">The Vision</h3>
+                  <p style="font-size: 13px; color: #d4d4d8; line-height: 1.6; margin: 0 0 16px 0; white-space: pre-wrap;">${inqVision}</p>
+
+                  <h3 style="font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: #FF6B35; margin: 24px 0 8px 0;">Must-Haves</h3>
+                  <p style="font-size: 13px; color: #d4d4d8; line-height: 1.6; margin: 0 0 16px 0; white-space: pre-wrap;">${inqMustHaves}</p>
+
+                  <h3 style="font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: #FF6B35; margin: 24px 0 8px 0;">Audience</h3>
+                  <p style="font-size: 13px; color: #d4d4d8; line-height: 1.6; margin: 0 0 16px 0;">${inqAudience}</p>
+
+                  <h3 style="font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: #FF6B35; margin: 24px 0 8px 0;">Inspiration</h3>
+                  <p style="font-size: 13px; color: #d4d4d8; line-height: 1.6; margin: 0 0 16px 0; white-space: pre-wrap;">${inqInspiration}</p>
+
+                  <h3 style="font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: #FF6B35; margin: 24px 0 8px 0;">Availability</h3>
+                  <p style="font-size: 13px; color: #d4d4d8; line-height: 1.6; margin: 0 0 16px 0; white-space: pre-wrap;">${inqAvailability}</p>
+
+                  <h3 style="font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: #FF6B35; margin: 24px 0 8px 0;">Anything Else</h3>
+                  <p style="font-size: 13px; color: #d4d4d8; line-height: 1.6; margin: 0 0 24px 0; white-space: pre-wrap;">${inqExtras}</p>
+                </div>
+              </div>
+            </div>
+          `,
+        });
+
+        // 2. Confirmation → client (only if we have a valid-looking email)
+        if (inqEmail && inqEmail.includes("@")) {
+          await resend.emails.send({
+            from: "Zach Howell <zachary@zachhowell.dev>",
+            to: [inqEmail],
+            bcc: ["zachary@zachhowell.dev"],
+            subject: `Discovery received — let's build ${inqBusiness}`,
+            html: `
+              <div style="font-family: 'Inter', Helvetica, Arial, sans-serif; background-color: #050505; color: #fafafa; padding: 60px 20px; text-align: center;">
+                <div style="max-width: 600px; margin: 0 auto; background: #09090b; border: 1px solid #27272a; border-radius: 24px; overflow: hidden;">
+                  <div style="padding: 48px 40px 24px 40px;">
+                    <div style="display: inline-block; padding: 8px 16px; background: #FF6B35; border-radius: 99px; font-size: 10px; font-weight: 900; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 24px;">Discovery Received</div>
+                    <h1 style="font-size: 38px; font-weight: 900; line-height: 0.95; text-transform: uppercase; letter-spacing: -1.5px; margin: 0 0 16px 0;">Got it,<br/>${inqName}.</h1>
+                    <p style="font-size: 15px; color: #a1a1aa; line-height: 1.6;">Thanks for taking the time to share your vision for <strong style="color:#fff;">${inqBusiness}</strong>. I've received your discovery details and they're sitting in my inbox.</p>
+                  </div>
+
+                  <div style="padding: 0 40px 24px 40px; text-align: left;">
+                    <div style="background: #121214; border-radius: 16px; padding: 24px; border: 1px solid #1c1c1f;">
+                      <h3 style="font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: #FF6B35; margin: 0 0 16px 0;">What Happens Next</h3>
+                      <ul style="padding: 0 0 0 18px; margin: 0; color: #a1a1aa; font-size: 13px; line-height: 1.7;">
+                        <li style="margin-bottom: 8px;"><strong style="color:#fff;">Within 24 hours:</strong> I'll personally review your vision and reply.</li>
+                        <li style="margin-bottom: 8px;"><strong style="color:#fff;">Schedule a call:</strong> We'll lock in a 30-min ${inqCallPref === "teams" ? "Microsoft Teams" : inqCallPref === "phone" ? "phone" : "Zoom"} call to dig in.</li>
+                        <li><strong style="color:#fff;">Tailored proposal:</strong> After the call, I'll send fixed pricing and a clear timeline.</li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div style="padding: 24px 40px 40px 40px; text-align: center;">
+                    <p style="font-size: 12px; color: #71717a; margin: 0 0 8px 0; font-style: italic;">No commitments, no pressure. Discovery is always free.</p>
+                  </div>
+
+                  <div style="padding: 24px 40px; border-top: 1px solid #1c1c1f; background: #0c0c0e; text-align: center;">
+                    <p style="font-size: 12px; color: #52525b; margin: 0;">
+                      Need to reach me sooner? <strong style="color: #a1a1aa;">262-341-7181</strong>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            `,
+          });
+        }
+        console.log(`Custom inquiry email flow complete for ${inqEmail}`);
+      } catch (error) {
+        console.error("Failed to send custom inquiry email:", error);
+      }
+      return; // ⛔ Skip the sprint email path below
+    }
+
     // Mapping fields to ensure no "undefined"
     const clientEmail = data.emailAddress || "";
     const clientName = data.businessName || "Partner"; 

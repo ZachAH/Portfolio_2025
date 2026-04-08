@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import TemplateCard from '../components/templates/TemplateCard';
 import templates from '../data/templates';
 import Seo from '../components/Seo';
@@ -99,17 +100,28 @@ const Templates = ({ handleMouseEnter, handleMouseLeave }) => {
           </div>
         </div>
 
-        {/* Closing Sales Hook */}
-        <motion.div 
+        {/* Closing Sales Hook → Custom Discovery */}
+        <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           className="p-12 rounded-[3rem] border border-zinc-200 dark:border-obsidian-800 bg-zinc-50 dark:bg-obsidian-900/40 text-center"
         >
-          <h3 className="text-2xl font-bold text-zinc-900 dark:text-white mb-4 uppercase tracking-tight">Need something completely custom?</h3>
-          <p className="text-zinc-600 dark:text-text-secondary mb-8 font-medium">For complex enterprise logic or unique API integrations, let's talk custom.</p>
-          <a href="/#contact" className="inline-block px-12 py-5 bg-sunset-gradient text-white rounded-2xl font-black text-sm uppercase tracking-widest shadow-xl shadow-accent-red/20 hover:scale-105 transition-transform">
-            Start a Custom Build
-          </a>
+          <span className="text-xs font-black tracking-[0.3em] text-accent-orange uppercase mb-4 inline-block">
+            Want Something Custom?
+          </span>
+          <h3 className="text-3xl md:text-4xl font-bold text-zinc-900 dark:text-white mb-4 uppercase tracking-tight">
+            None of these fit your vision?
+          </h3>
+          <p className="text-zinc-600 dark:text-text-secondary mb-8 font-medium max-w-2xl mx-auto">
+            Skip the templates entirely. Kick off the discovery phase for a fully custom build —
+            tell me your vision and we'll lock in a Zoom or Teams call to scope it together.
+          </p>
+          <Link
+            to="/custom-discovery"
+            className="inline-block px-12 py-5 bg-sunset-gradient text-white rounded-2xl font-black text-sm uppercase tracking-widest shadow-xl shadow-accent-red/20 hover:scale-105 transition-transform"
+          >
+            Start Discovery →
+          </Link>
         </motion.div>
       </div>
     </section>
