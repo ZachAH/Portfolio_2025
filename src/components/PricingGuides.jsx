@@ -128,7 +128,11 @@ const PricingGuides = () => {
         title: "Commerce Launch",
         price: "$1,900",
         description: "A secure revenue machine. I'll deploy your full shop with functional cart and inventory logic.",
-        features: ["Includes Maison Source Code", "Stripe & Payment Setup", "Product Catalog Upload", "7-Day Compliance Window"],
+        features: ["Choice of Elite E-Com Foundation",
+          "Strategic Inventory & SKU Setup",
+          "Secure Stripe Merchant Integration",
+          "Conversion-First Checkout Flow",
+          "7-Day Post-Launch Support Window"],
         accent: "text-purple-500",
         stripeUrl: import.meta.env.VITE_STRIPE_COMMERCE_URL
       }
