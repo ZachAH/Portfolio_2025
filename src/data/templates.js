@@ -127,6 +127,20 @@ const templates = [
     gumroadURL: 'https://ettaflare.gumroad.com/l/storytellertemplate',
     badgeType: 'sprint', // Quick narrative launch
   },
+  {
+    id: 'ironclad-ecom',
+    title: 'Salty. // Ironclad E-Com',
+    description:
+      'A raw, high-impact "Brutalist" commerce engine built for streetwear brands and record labels. Designed to command attention with aggressive typography, 2px solid industrial borders, and a high-performance GSAP animation engine. Features a tactical slide-out cart and a conversion-optimized checkout flow.',
+    image: '/ironclad_template.webp', // Ensure this file is in your public folder
+    alt: 'Salty. Ironclad Brutalist E-Commerce Template Mockup',
+    price: '$120 - Source Code',
+    accent: '#f43f5e', // High-alert rose-500
+    techs: ['React', 'GSAP', 'Tailwind', 'Framer Motion'],
+    templateURL: 'https://brutalistecommerce.netlify.app/',
+    gumroadURL: 'https://ettaflare.gumroad.com/l/brutalistE-Commerce',
+    badgeType: 'conversion', // Correctly categorizes this into the eCommerce section
+  },
 ];
 
 export default templates;
