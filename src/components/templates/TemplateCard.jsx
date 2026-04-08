@@ -1,0 +1,166 @@
+import React from 'react';
+import { motion } from 'framer-motion';
+
+// Convert "#RRGGBB" -> "rgba(r,g,b,a)" so we can drive Tailwind arbitrary
+// values via CSS variables and still get translucent borders/tags.
+function hexToRgba(hex, alpha = 1) {
+  const clean = hex.replace('#', '');
+  const r = parseInt(clean.slice(0, 2), 16);
+  const g = parseInt(clean.slice(2, 4), 16);
+  const b = parseInt(clean.slice(4, 6), 16);
+  return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+}
+
+export default function TemplateCard({
+  template,
+  handleMouseEnter,
+  handleMouseLeave,
+}) {
+  const {
+    title,
+    description,
+    image,
+    alt,
+    price,
+    accent,
+    priceTextDark = false,
+    techs = [],
+    templateURL,
+    gumroadURL,
+    sprintReady = false,
+    secondaryBadge,
+    ctaOverride,
+  } = template;
+
+  // CSS variables let arbitrary Tailwind classes (which must be static
+  // strings at build time) reference per-template accent colors.
+  const styleVars = {
+    '--tpl-accent': accent,
+    '--tpl-accent-50': hexToRgba(accent, 0.5),
+    '--tpl-accent-30': hexToRgba(accent, 0.3),
+  };
+
+  return (
+    <div
+      className="interactive-element bg-white dark:bg-zinc-900/50 backdrop-blur-md border border-zinc-200 dark:border-zinc-800 rounded-3xl overflow-hidden hover:border-[color:var(--tpl-accent-50)] transition-all duration-500 group shadow-xl dark:shadow-2xl"
+      style={styleVars}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
+      {/* Header Image Section */}
+      <div className="relative h-72 w-full overflow-hidden bg-zinc-100 dark:bg-zinc-950 border-b border-zinc-200 dark:border-zinc-800">
+        {sprintReady ? (
+          <motion.div
+            initial={{ opacity: 0, x: -10 }}
+            animate={{ opacity: 1, x: 0 }}
+            className="absolute top-6 left-6 z-20"
+          >
+            <div className="flex items-center gap-2 px-3 py-1.5 bg-white/90 dark:bg-zinc-900/80 backdrop-blur-md border border-green-500/30 rounded-full shadow-lg">
+              <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
+              <span className="text-[10px] font-black uppercase tracking-[0.2em] text-green-700 dark:text-green-400">
+                48h Sprint Ready
+              </span>
+            </div>
+          </motion.div>
+        ) : (
+          <div className="absolute bottom-6 right-6 z-20">
+            <div className="flex items-center gap-2 px-4 py-2 bg-obsidian-950/80 backdrop-blur-md border border-accent-orange/30 rounded-full shadow-2xl">
+              <span className="w-2 h-2 rounded-full bg-accent-orange animate-pulse" />
+              <span className="text-[10px] font-black uppercase tracking-[0.2em] text-accent-orange">
+                Elite Build (7-Day Scale)
+              </span>
+            </div>
+          </div>
+        )}
+
+        <img
+          src={image}
+          alt={alt}
+          loading="lazy"
+          decoding="async"
+          width="1600"
+          height="1000"
+          className="object-cover w-full h-full transform group-hover:scale-105 transition-transform duration-1000 ease-out opacity-90 dark:opacity-80 group-hover:opacity-100"
+        />
+
+        {/* Floating Badges */}
+        <div className="absolute top-6 right-6 flex flex-col items-end gap-2">
+          {secondaryBadge && (
+            <div
+              className="text-white px-4 py-1.5 text-[10px] font-black rounded-full uppercase tracking-widest shadow-lg"
+              style={{ backgroundColor: 'var(--tpl-accent)' }}
+            >
+              {secondaryBadge}
+            </div>
+          )}
+          <div
+            className={`px-4 py-1.5 text-xs font-black rounded-full uppercase tracking-widest shadow-lg ${
+              priceTextDark ? 'text-black' : 'text-white'
+            }`}
+            style={{ backgroundColor: 'var(--tpl-accent)' }}
+          >
+            {price}
+          </div>
+        </div>
+      </div>
+
+      {/* Content Section */}
+      <div className="p-10">
+        <h3 className="text-4xl font-bold text-zinc-900 dark:text-white mb-4 tracking-tight group-hover:text-[color:var(--tpl-accent)] transition-colors duration-300">
+          {title}
+        </h3>
+
+        <p className="text-zinc-600 dark:text-zinc-400 mb-8 text-base leading-relaxed font-medium">
+          {description}
+        </p>
+
+        {/* Tech Tags */}
+        <div className="flex flex-wrap gap-2 mb-10">
+          {techs.map((tech) => (
+            <span
+              key={tech}
+              className="text-[10px] uppercase tracking-widest px-3 py-1 rounded-md bg-zinc-100 dark:bg-zinc-800/50 text-zinc-600 dark:text-zinc-300 border border-zinc-200 dark:border-zinc-700 group-hover:border-[color:var(--tpl-accent-30)] transition-colors duration-500"
+            >
+              {tech}
+            </span>
+          ))}
+        </div>
+
+        {/* Action Buttons */}
+        <div className="flex flex-col gap-4 mt-auto">
+          <a
+            href="/pricing"
+            className="w-full bg-sunset-gradient text-white font-black py-4 px-6 rounded-xl hover:scale-[1.02] active:scale-95 transition-all duration-300 text-center uppercase tracking-widest text-xs shadow-lg shadow-accent-red/20"
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+          >
+            {ctaOverride
+              ? ctaOverride
+              : sprintReady
+              ? '🚀 Launch This Site in 48h'
+              : '💎 Elite Build (7-Day Scale)'}
+          </a>
+
+          <div className="flex gap-4">
+            <a
+              href={templateURL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-1 border border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 font-bold py-3 rounded-xl hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-all text-center uppercase tracking-tighter text-[10px]"
+            >
+              Live Preview
+            </a>
+            <a
+              href={gumroadURL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-1 border border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 font-bold py-3 rounded-xl hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-all text-center uppercase tracking-tighter text-[10px]"
+            >
+              Buy Source Code
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}

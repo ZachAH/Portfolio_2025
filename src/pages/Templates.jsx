@@ -1,10 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import SaaSTemplate from '../components/templates/SaaSTemplate';
-import ECommerceTemplate from '../components/templates/ECommerceTemplate';
-import AgencyTemplate from '../components/templates/AgencyTemplate';
-import ConstructionTemplate from '../components/templates/ConstructionTemplate';
-import BusinessTemplate2 from '../components/templates/BuisnessTemplate2';
+import TemplateCard from '../components/templates/TemplateCard';
+import templates from '../data/templates';
 import Seo from '../components/Seo';
 import { breadcrumb } from '../utils/structuredData';
 
@@ -49,38 +46,14 @@ const Templates = ({ handleMouseEnter, handleMouseLeave }) => {
 
         {/* Grid Container */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 pb-32">
-          
-          {/* SPRINT TEMPLATES */}
-          <SaaSTemplate 
-            sprintReady={true} 
-            handleMouseEnter={handleMouseEnter} 
-            handleMouseLeave={handleMouseLeave} 
-          />
-          
-          {/* E-COMMERCE (EXCLUDED FROM SPRINT) */}
-          <ECommerceTemplate 
-            sprintReady={false} 
-            handleMouseEnter={handleMouseEnter} 
-            handleMouseLeave={handleMouseLeave} 
-          />
-          
-          <AgencyTemplate 
-            sprintReady={true} 
-            handleMouseEnter={handleMouseEnter} 
-            handleMouseLeave={handleMouseLeave} 
-          />
-          
-          <ConstructionTemplate 
-            sprintReady={true} 
-            handleMouseEnter={handleMouseEnter} 
-            handleMouseLeave={handleMouseLeave} 
-          />
-          
-          <BusinessTemplate2 
-            sprintReady={true} 
-            handleMouseEnter={handleMouseEnter} 
-            handleMouseLeave={handleMouseLeave} 
-          />
+          {templates.map((template) => (
+            <TemplateCard
+              key={template.id}
+              template={template}
+              handleMouseEnter={handleMouseEnter}
+              handleMouseLeave={handleMouseLeave}
+            />
+          ))}
         </div>
 
         {/* Closing Sales Hook */}
