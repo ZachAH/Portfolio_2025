@@ -1,4 +1,4 @@
-import React, { useState, useEffect, lazy, Suspense } from 'react';
+import React, { useState, useEffect, useRef, lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import ReactGA from 'react-ga4';
@@ -74,12 +74,18 @@ function ScrollHandler() {
 }
 
 function Cursor() {
+  const dotRef = useRef(null);
   const [position, setPosition] = useState({ x: -100, y: -100 });
   const [isHovering, setIsHovering] = useState(false);
   const [isActive, setIsActive] = useState(false);
 
   useEffect(() => {
-    const handleMouseMove = (e) => setPosition({ x: e.clientX, y: e.clientY });
+    const handleMouseMove = (e) => {
+      if (dotRef.current) {
+        dotRef.current.style.transform = `translate3d(${e.clientX - 4}px, ${e.clientY - 4}px, 0)`;
+      }
+      setPosition({ x: e.clientX, y: e.clientY });
+    };
     const handleMouseDown = () => setIsActive(true);
     const handleMouseUp = () => setIsActive(false);
     const handleMouseEnter = () => setIsHovering(true);
@@ -106,10 +112,10 @@ function Cursor() {
 
   return (
     <div className={`pointer-events-none fixed inset-0 z-[10000] ${isHovering ? 'custom-cursor--hover' : ''}`}>
-      <motion.div
+      <div
+        ref={dotRef}
         className="custom-cursor"
-        animate={{ x: position.x - 4, y: position.y - 4, scale: isActive ? 0.8 : 1 }}
-        transition={{ type: 'spring', damping: 30, stiffness: 450, mass: 0.5 }}
+        style={{ transform: `scale(${isActive ? 0.8 : 1})` }}
       />
       <motion.div
         className="custom-cursor-ring"
@@ -118,7 +124,7 @@ function Cursor() {
           y: position.y - (isHovering ? 25 : 16),
           scale: isHovering ? 1.2 : isActive ? 1.1 : 1
         }}
-        transition={{ type: 'spring', damping: 25, stiffness: 250, mass: 0.8 }}
+        transition={{ type: 'spring', damping: 20, stiffness: 500, mass: 0.4 }}
       />
     </div>
   );

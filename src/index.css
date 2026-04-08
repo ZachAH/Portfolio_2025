@@ -71,6 +71,14 @@ html.dark .glass-card {
 }
 
 /* Premium Custom Cursor */
+@media (pointer: fine) {
+  html,
+  body,
+  * {
+    cursor: none !important;
+  }
+}
+
 .custom-cursor {
   position: fixed;
   top: 0;
@@ -81,7 +89,7 @@ html.dark .glass-card {
   border-radius: 50%;
   pointer-events: none;
   z-index: 9999;
-  transition: transform 0.1s ease-out;
+  will-change: transform;
 }
 
 .custom-cursor-ring {
