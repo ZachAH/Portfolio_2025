@@ -603,7 +603,15 @@ export default function OnboardingForm() {
                         {formData.templateId ? (
                             <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} className="space-y-4">
                                 <div className="rounded-2xl border border-zinc-200 dark:border-zinc-800 overflow-hidden shadow-2xl bg-zinc-100 dark:bg-zinc-900 aspect-video">
-                                    <img src={`/${formData.templateId}.png`} className="w-full h-full object-cover" alt="Preview" />
+                                    <img
+                                        src={templates.find(t => t.id === formData.templateId)?.image || `/${formData.templateId}.webp`}
+                                        className="w-full h-full object-cover"
+                                        alt="Preview"
+                                        onError={(e) => {
+                                            // Fallback if the image still fails
+                                            e.currentTarget.src = "/placeholder.webp";
+                                        }}
+                                    />
                                 </div>
                                 <div className="p-4 bg-zinc-900/40 rounded-xl border border-white/5 space-y-3 font-bold">
                                     <p className="text-[10px] text-zinc-600 dark:text-zinc-300 uppercase tracking-widest font-black mb-2">Build Summary</p>
