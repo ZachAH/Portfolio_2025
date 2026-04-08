@@ -37,7 +37,7 @@ const Navbar = ({ handleMouseEnter, handleMouseLeave }) => {
     { name: 'Home', path: '/' },
     { name: 'About', path: '/about' },
     { name: 'Services', path: '/services' },
-    { name: 'Templates', path: '/templates' },
+    { name: 'Template Store', path: '/templates' },
     { name: 'Pricing', path: '/pricing' },
   ];
 
