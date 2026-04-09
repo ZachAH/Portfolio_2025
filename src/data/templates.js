@@ -1,7 +1,22 @@
+// ── CATEGORIES ────────────────────────────────────────────
+// `category` is purely for the /templates page filter bar.
+// It is ADDITIVE to `badgeType` — OnboardingForm + TemplateCard
+// still key off `badgeType` exclusively, so nothing downstream
+// breaks when categories are added / changed.
+//
+// Valid categories (keep in sync with CATEGORY_CONFIG in
+// src/pages/Templates.jsx):
+//   business    → Business & Professional service sites
+//   trades      → Trades, local services, contractors
+//   saas        → SaaS, tech startups, dev tools
+//   industrial  → Industrial, manufacturing, B2B
+//   creative    → Creative, editorial, narrative, streetwear
+//   ecommerce   → Full commerce-ready storefronts
 const templates = [
   {
     id: 'modern-business-elite',
     title: 'Modern Business Elite',
+    category: 'business',
     description:
       'The ultimate high-performance starter suite for high-end modern brands. This Elite Edition features a sophisticated GSAP animation engine and a dynamic masonry portfolio grid. Toggle between three distinct professional aesthetics—Ink, Pour, and Velvet—with a centralized theme engine designed for rapid, agency-grade deployments.',
     image: '/saas_template.webp',
@@ -17,6 +32,7 @@ const templates = [
   {
     id: 'refined-essentials',
     title: 'Refined Essentials',
+    category: 'ecommerce',
     description:
       'Minimalist commerce for the modern era. Designed for lifestyle brands that value objects of enduring quality, this template features a massive whitespace aesthetic, immersive product grids, and a seamless slide-out cart experience. Every interaction is fueled by smooth Framer Motion transitions.',
     image: '/ecommerce_template.webp',
@@ -31,6 +47,7 @@ const templates = [
   {
     id: 'premium-business',
     title: 'Premium Business',
+    category: 'business',
     description:
       "Elevate your brand with a sophisticated, clean foundation. This isn't just a layout; it's a high-end digital experience designed for modern businesses that prioritize design and clarity. Featuring an architectural feel with organic textures, every pixel of this React template is 100% customizable and tailored for premium scaling.",
     image: '/buisness_modern.webp',
@@ -45,6 +62,7 @@ const templates = [
   {
     id: 'trades-scalable',
     title: 'Trades - Scalable',
+    category: 'trades',
     description:
       'Dominate your local map. Stop losing leads to outdated, slow-loading sites. This template is a high-conversion engine designed specifically for the trades. Featuring a bold, professional layout that commands respect, it’s optimized for local SEO out of the box. Every pixel is 100% adjustable to fit your brand’s DNA.',
     image: '/construction_template.webp',
@@ -60,6 +78,7 @@ const templates = [
   {
     id: 'universal-business',
     title: 'Universal Business',
+    category: 'business',
     description:
       'A modern, high-conversion foundation designed for professional services and personal brands. While styled with an organic wellness aesthetic, this template is built to be a universal "plug-and-play" engine for any business. It features ultra-clean typography, a focused lead-gen layout, and a high-legibility design that builds immediate trust.',
     image: '/buisness_template2.webp',
@@ -74,6 +93,7 @@ const templates = [
   {
     id: 'saas-obsidian',
     title: 'SaaS Obsidian',
+    category: 'saas',
     description:
       'The elite "Silicon Valley" dark mode starter for AI and SaaS startups. This high-performance suite features a sophisticated bento-grid layout, glassmorphism surfaces, and precision-engineered GSAP animations. Includes a custom interactive pricing engine and code previews.',
     image: '/obsidian_template.webp',
@@ -88,6 +108,7 @@ const templates = [
   {
     id: 'the-foundry',
     title: 'The Foundry',
+    category: 'industrial',
     description:
       'A heavy-duty, "over-engineered" React suite for manufacturing, logistics, and B2B firms. Featuring animated stats gauges, SVG technical drawing effects, and a high-conversion RFQ engine designed to command authority in the industrial space.',
     image: '/foundry_template.webp',
@@ -102,6 +123,7 @@ const templates = [
   {
     id: 'brutalist-creative',
     title: 'Brutalist Creative',
+    category: 'creative',
     description:
       'Break the rules with the "Burtalist" starter suite. This raw, anti-design template is built for streetwear brands, record labels, and creative rebels who want to stand out. 100% unapologetic and built for high impact.',
     image: '/brutalist_template.webp',
@@ -116,6 +138,7 @@ const templates = [
   {
     id: 'the-storyteller',
     title: 'The Storyteller',
+    category: 'creative',
     description:
       'An immersive "Noir-Journalism" suite designed for long-form content, investigative podcasts, and digital magazines. Includes cinematic scroll-linked reveals and a distraction-free reading engine.',
     image: '/storyteller_template.webp',
@@ -130,6 +153,7 @@ const templates = [
   {
     id: 'ironclad-ecom',
     title: 'Salty. // Ironclad E-Com',
+    category: 'ecommerce',
     description:
       'A raw, high-impact "Brutalist" commerce engine built for streetwear brands and record labels. Designed to command attention with aggressive typography, 2px solid industrial borders, and a high-performance GSAP animation engine. Features a tactical slide-out cart and a conversion-optimized checkout flow.',
     image: '/ironclad_template.webp', // Ensure this file is in your public folder

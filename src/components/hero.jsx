@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 const SharpieUnderline = () => (
   <svg 
@@ -84,18 +85,7 @@ const Hero = ({ handleMouseEnter, handleMouseLeave }) => {
   return (
     <section className="relative min-h-[92vh] flex flex-col items-center justify-center text-center px-6 md:px-12 overflow-hidden">
       <div className="max-w-6xl w-full relative z-10">
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, ease: 'easeOut', delay: 0.2 }}
-          className="mb-8"
-        >
-          <span className="inline-block px-4 py-1.5 rounded-full text-xs font-semibold tracking-widest bg-accent-orange/10 text-accent-orange border border-accent-orange/20 uppercase">
-            Available for new opportunities
-          </span>
-        </motion.div>
-
-        <h1 
+        <h1
           className="text-5xl xs:text-6xl sm:text-7xl md:text-9xl lg:text-[10rem] font-bold tracking-tighter mb-10 leading-[0.85] text-text-primary select-none"
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
@@ -140,6 +130,43 @@ const Hero = ({ handleMouseEnter, handleMouseLeave }) => {
           >
             Let's Talk
           </a>
+        </motion.div>
+
+        {/* Availability Pill — relocated from the top of the hero.
+            Sits under the CTAs so visitors encounter it *after* they've
+            absorbed the headline + pitch, making it feel like a reward
+            rather than a sticker. Links straight to the free discovery
+            form to convert curiosity into an actual conversation. */}
+        <motion.div
+          variants={itemVariants}
+          initial="hidden"
+          animate="visible"
+          className="mt-10 flex justify-center"
+        >
+          <Link
+            to="/custom-discovery"
+            className="group inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-green-500/10 border border-green-500/30 hover:bg-green-500/15 hover:border-green-500/50 transition-all shadow-sm hover:shadow-md active:scale-95"
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+            aria-label="Book a free 30-minute discovery call"
+          >
+            {/* Blinking green dot with halo */}
+            <span className="relative flex h-2.5 w-2.5" aria-hidden="true">
+              <span className="absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75 animate-ping" />
+              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500" />
+            </span>
+            <span className="text-[11px] sm:text-xs font-black tracking-[0.18em] uppercase text-green-700 dark:text-green-400">
+              Now Booking — Free 30&#8209;Min Discovery Call
+            </span>
+            <svg
+              className="w-3.5 h-3.5 text-green-700 dark:text-green-400 transition-transform group-hover:translate-x-1"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </Link>
         </motion.div>
       </div>
 
