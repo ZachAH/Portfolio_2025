@@ -329,6 +329,36 @@ const STEPS: Step[] = [
         ]
     },
     {
+        id: 'partnership',
+        label: 'Ongoing Partnership',
+        fields: [
+            {
+                id: 'partnershipHeader',
+                label: '🤝 Optional: Keep Me on Retainer',
+                type: 'header',
+                label_text: 'Your site launches in 48 hours — but growth doesn\'t stop there. These plans keep me in your corner for uptime, SEO, feature work, and strategy. 100% optional — skip this if you just want the one-time build.'
+            },
+            {
+                id: 'partnershipPlan',
+                label: 'Select a Partnership Plan (Optional)',
+                type: 'select',
+                options: [
+                    { value: 'none', label: 'No thanks — just the one-time build' },
+                    { value: 'pilot', label: 'The Pilot — $150/mo (Uptime, Hosting, Security, 1 Expert Hr)' },
+                    { value: 'navigator', label: 'The Navigator — $450/mo (4 Expert Hrs, SEO Audit, 24h Support)' },
+                    { value: 'copilot', label: 'The Co-Pilot — $950/mo (10 Expert Hrs, Strategy Calls, Slack Access)' }
+                ]
+            },
+            {
+                id: 'partnershipNote',
+                label: '💳 How Partnership Billing Works',
+                type: 'header',
+                label_text: 'Partnership plans are billed monthly via a separate Stripe subscription. I\'ll send you a secure subscription link after your site launches — no charge until you\'re live and happy.',
+                condition: (data: any) => data.partnershipPlan && data.partnershipPlan !== 'none'
+            }
+        ]
+    },
+    {
         id: 'launch',
         label: 'Launch Sequence',
         fields: [
@@ -448,6 +478,7 @@ export default function OnboardingForm() {
                 ...formData,
                 detected_addons: activeAddons,
                 total_addon_delta: totalDelta,
+                partnershipPlan: formData.partnershipPlan || 'none',
                 status: 'onboarding_complete',
                 projectTier: formData.packageType,
                 type: `build_${formData.packageType}`,
@@ -480,6 +511,18 @@ export default function OnboardingForm() {
                                 ))}
                             </ul>
                             <p className="mt-4 pt-4 border-t border-amber-500/20 text-[10px] italic text-center">I will email a manual Stripe invoice for these shortly.</p>
+                        </div>
+                    )}
+
+                    {formData.partnershipPlan && formData.partnershipPlan !== 'none' && (
+                        <div className="bg-purple-500/10 text-purple-500 p-6 rounded-2xl mb-8 border border-purple-500/20 text-left shadow-sm">
+                            <p className="text-[10px] uppercase tracking-widest font-black mb-3 text-purple-400">Partnership Plan Selected</p>
+                            <p className="text-sm font-bold text-purple-300">
+                                {formData.partnershipPlan === 'pilot' && 'The Pilot — $150/mo'}
+                                {formData.partnershipPlan === 'navigator' && 'The Navigator — $450/mo'}
+                                {formData.partnershipPlan === 'copilot' && 'The Co-Pilot — $950/mo'}
+                            </p>
+                            <p className="mt-3 pt-3 border-t border-purple-500/20 text-[10px] italic">I'll send your subscription link once your site is live — no charge until launch day.</p>
                         </div>
                     )}
 
