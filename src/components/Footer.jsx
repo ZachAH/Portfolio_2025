@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaGithub, FaLinkedin, FaReact, FaNodeJs, FaEnvelope } from 'react-icons/fa';
-import { SiTailwindcss, SiFramer, SiVite } from 'react-icons/si';
+import { FaGithub, FaLinkedin, FaFacebookF, FaReact, FaNodeJs, FaEnvelope, FaLock, FaShieldAlt } from 'react-icons/fa';
+import { SiTailwindcss, SiFramer, SiVite, SiStripe } from 'react-icons/si';
 
 const Footer = ({ handleMouseEnter, handleMouseLeave }) => {
   const currentYear = new Date().getFullYear();
@@ -9,7 +9,14 @@ const Footer = ({ handleMouseEnter, handleMouseLeave }) => {
   const socialLinks = [
     { icon: <FaGithub />, href: "https://github.com/ZachAH", label: "GitHub" },
     { icon: <FaLinkedin />, href: "https://www.linkedin.com/in/zach-howell-189118210/", label: "LinkedIn" },
+    { icon: <FaFacebookF />, href: "https://www.facebook.com/profile.php?id=61573480569044", label: "Facebook" },
     { icon: <FaEnvelope />, href: "mailto:zachary@zachhowell.dev", label: "Email" }
+  ];
+
+  const trustBadges = [
+    { icon: <SiStripe className="w-4 h-4" />, label: 'Stripe Checkout' },
+    { icon: <FaLock className="w-3.5 h-3.5" />, label: 'SSL Encrypted' },
+    { icon: <FaShieldAlt className="w-3.5 h-3.5" />, label: '256-Bit Security' },
   ];
 
   const techStack = [
@@ -69,6 +76,28 @@ const Footer = ({ handleMouseEnter, handleMouseLeave }) => {
             &copy; {currentYear} All Rights Reserved
           </p>
         </div>
+      </div>
+
+      {/* ── TRUST & SECURITY BADGES ─────────────────────────── */}
+      <div className="max-w-7xl mx-auto mt-12 pt-8 border-t border-obsidian-700/10 dark:border-white/5">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
+          {trustBadges.map((badge) => (
+            <div
+              key={badge.label}
+              className="flex items-center gap-2.5 px-5 py-2.5 rounded-full bg-zinc-100/80 dark:bg-white/5 border border-zinc-200 dark:border-white/10 backdrop-blur-sm"
+            >
+              <span className="text-green-600 dark:text-green-400">
+                {badge.icon}
+              </span>
+              <span className="text-[10px] font-black uppercase tracking-[0.15em] text-zinc-600 dark:text-zinc-400">
+                {badge.label}
+              </span>
+            </div>
+          ))}
+        </div>
+        <p className="text-center text-[9px] uppercase tracking-[0.2em] text-text-secondary/30 font-bold mt-6">
+          All transactions are securely processed through Stripe. Your data is never stored on our servers.
+        </p>
       </div>
     </footer>
   );
