@@ -63,7 +63,7 @@ export default function TemplateCard({
       <div className="relative h-72 w-full overflow-hidden bg-zinc-100 dark:bg-zinc-950 border-b border-zinc-200 dark:border-zinc-800">
         
         {/* Dynamic Value Badge - Positioned Bottom Right */}
-        <div className="absolute bottom-6 right-6 z-20">
+        <div className="absolute top-6 right-6 z-20">
           <motion.div 
             initial={{ opacity: 0, y: 10 }} 
             animate={{ opacity: 1, y: 0 }}

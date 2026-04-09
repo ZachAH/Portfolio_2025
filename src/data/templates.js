@@ -24,7 +24,6 @@ const templates = [
     accent: '#9333EA', // purple-600
     techs: ['GSAP', 'React', 'TypeScript', 'Tailwind'],
     templateURL: 'https://futuristiclocal.netlify.app/',
-    gumroadURL: 'https://ettaflare.gumroad.com/l/modernsuitetemplate',
     badgeType: 'authority', // High-end, agency-grade
     secondaryBadge: '3 Themes Included',
   },
@@ -39,7 +38,6 @@ const templates = [
     accent: '#D19A8E',
     techs: ['React', 'Vite', 'TypeScript', 'Tailwind'],
     templateURL: 'https://ecommercetemplatezh.netlify.app/',
-    gumroadURL: 'https://ettaflare.gumroad.com/l/ecommercetemplate',
     badgeType: 'conversion', // Focused on selling/commerce
   },
   {
@@ -53,7 +51,6 @@ const templates = [
     accent: '#616B59',
     techs: ['React', 'Vite', 'TypeScript', 'Tailwind'],
     templateURL: 'https://premiumbuissnesstemplate.netlify.app/',
-    gumroadURL: 'https://ettaflare.gumroad.com/l/ArtisanFoundation',
     badgeType: 'authority', // Sophisticated/Architectural
   },
   {
@@ -68,7 +65,6 @@ const templates = [
     priceTextDark: true,
     techs: ['React', 'Tailwind', 'Framer Motion'],
     templateURL: 'https://tradestemplatezh.netlify.app/',
-    gumroadURL: 'https://ettaflare.gumroad.com/l/ironclad-trades',
     badgeType: 'performance', // Local SEO/Speed focus
   },
   {
@@ -82,7 +78,6 @@ const templates = [
     accent: '#4F5748',
     techs: ['React', 'Vite', 'Tailwind', 'Universal Layout'],
     templateURL: 'https://buissnesstemp2.netlify.app/',
-    gumroadURL: 'https://ettaflare.gumroad.com/l/serviceandwellnesstemplate',
     badgeType: 'sprint', // Plug-and-play/Ready to go
   },
   {
@@ -96,7 +91,6 @@ const templates = [
     accent: '#9333EA', // purple-600
     techs: ['React', 'GSAP', 'Framer Motion', 'Tailwind'],
     templateURL: 'https://sasstemplateobsidian.netlify.app/',
-    gumroadURL: 'https://ettaflare.gumroad.com/l/obsidiantemplate',
     badgeType: 'authority', // Elite/Silicon Valley vibe
   },
   {
@@ -110,7 +104,6 @@ const templates = [
     accent: '#F97316', // orange-500
     techs: ['React', 'Vite', 'Tailwind', 'SVG Animations'],
     templateURL: 'https://industrialtemplate.netlify.app/',
-    gumroadURL: 'https://ettaflare.gumroad.com/l/industrialtemplate',
     badgeType: 'sprint', // Focused on the RFQ lead-gen engine
   },
   {
@@ -124,7 +117,6 @@ const templates = [
     accent: '#f43f5e', // rose-500
     techs: ['React', 'GSAP', 'Tailwind', 'Glitch UI'],
     templateURL: 'https://brutalisttemplate.netlify.app/',
-    gumroadURL: 'https://ettaflare.gumroad.com/l/brutalisttemplate',
     badgeType: 'authority',
   },
   {
@@ -138,7 +130,6 @@ const templates = [
     accent: '#3F3F46', // zinc-700
     techs: ['React', 'Framer Motion', 'GSAP', 'Editorial UI'],
     templateURL: 'https://storytellertemplate.netlify.app/',
-    gumroadURL: 'https://ettaflare.gumroad.com/l/storytellertemplate',
     badgeType: 'sprint', // Quick narrative launch
   },
   {
@@ -152,7 +143,6 @@ const templates = [
     accent: '#f43f5e', // High-alert rose-500
     techs: ['React', 'GSAP', 'Tailwind', 'Framer Motion'],
     templateURL: 'https://brutalistecommerce.netlify.app/',
-    gumroadURL: 'https://ettaflare.gumroad.com/l/brutalistE-Commerce',
     badgeType: 'conversion', // Correctly categorizes this into the eCommerce section
   },
   {
@@ -166,7 +156,6 @@ const templates = [
     accent: '#F97316', // orange-500 for a warm, appetizing vibe
     techs: ['React', 'Vite', 'Tailwind', 'GSAP'],
     templateURL: 'https://restauranttemplate01.netlify.app/',
-    gumroadURL: 'https://ettaflare.gumroad.com/l/restauranttemplate',
     badgeType: 'sprint', // Focused on driving bookings and orders
   }
 ];
