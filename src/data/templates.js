@@ -165,6 +165,21 @@ const templates = [
     gumroadURL: 'https://ettaflare.gumroad.com/l/brutalistE-Commerce',
     badgeType: 'conversion', // Correctly categorizes this into the eCommerce section
   },
+  {
+    id: 'Rusted-Fork',
+    title: 'Rusty Fork // Restaurant & Hospitality',
+    category: 'Universal Business',
+    description:
+      'A design-forward, high-velocity foundation for modern dining and hospitality. This suite features a modular menu system, mobile-first architecture, and high-impact scroll reveals engineered to convert visitors into reservations.',
+    image: '/restaurant_template.webp',
+    alt: 'Rusty Fork Restaurant Template Mockup',
+    price: '$120 - Source Code',
+    accent: '#F97316', // orange-500 for a warm, appetizing vibe
+    techs: ['React', 'Vite', 'Tailwind', 'GSAP'],
+    templateURL: 'https://restauranttemplate01.netlify.app/',
+    gumroadURL: 'https://ettaflare.gumroad.com/l/restauranttemplate',
+    badgeType: 'sprint', // Focused on driving bookings and orders
+  }
 ];
 
 export default templates;
