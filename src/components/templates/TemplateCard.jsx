@@ -40,7 +40,6 @@ export default function TemplateCard({
     priceTextDark = false,
     techs = [],
     templateURL,
-    gumroadURL,
     badgeType = 'sprint', // Defaulting to sprint if not specified
     secondaryBadge,
     ctaOverride,
@@ -98,14 +97,6 @@ export default function TemplateCard({
               {secondaryBadge}
             </div>
           )}
-          <div
-            className={`px-4 py-1.5 text-xs font-black rounded-full uppercase tracking-widest shadow-lg ${
-              priceTextDark ? 'text-black' : 'text-white'
-            }`}
-            style={{ backgroundColor: 'var(--tpl-accent)' }}
-          >
-            {price}
-          </div>
         </div>
       </div>
 
@@ -150,14 +141,6 @@ export default function TemplateCard({
               className="flex-1 border border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 font-bold py-3 rounded-xl hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-all text-center uppercase tracking-tighter text-[10px]"
             >
               Live Preview
-            </a>
-            <a
-              href={gumroadURL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex-1 border border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 font-bold py-3 rounded-xl hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-all text-center uppercase tracking-tighter text-[10px]"
-            >
-              Buy Source Code
             </a>
           </div>
         </div>
