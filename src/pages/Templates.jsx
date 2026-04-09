@@ -138,7 +138,7 @@ const templatesJsonLd = {
   name: 'Premium React Templates',
   url: 'https://zachhowell.dev/templates',
   description:
-    'Curated collection of premium production-ready React templates. Choose between 48-hour velocity sprints or full-scale eCommerce foundations.',
+    'Curated collection of premium production-ready React and Typescript templates. Choose between 48-hour velocity sprints or full-scale eCommerce foundations.',
   ...breadcrumb([
     { name: 'Home', path: '/' },
     { name: 'Templates', path: '/templates' },
@@ -307,7 +307,7 @@ const Templates = ({ handleMouseEnter, handleMouseLeave }) => {
             <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 border-t border-accent-orange/20">
               <p className="text-xs md:text-sm text-zinc-600 dark:text-zinc-400 italic font-medium text-center sm:text-left">
                 The $700 Sprint package is literally everything you need to be live and
-                selling. Nothing extra to buy, nothing extra to figure out.
+                selling. Nothing extra to buy, nothing extra to figure out. Remember everything and anything on these templates is fully customizable — the code is yours to keep, tweak, and extend as you see fit after launch.
               </p>
               <Link
                 to="/pricing"

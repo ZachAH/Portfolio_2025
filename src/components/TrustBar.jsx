@@ -17,7 +17,7 @@ const stats = [
   },
   {
     icon: <FaShieldAlt className="w-5 h-5" />,
-    value: '80+',
+    value: '220+',
     label: 'Projects Shipped',
     sub: 'Live In Production',
   },
