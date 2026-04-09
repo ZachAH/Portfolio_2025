@@ -1,15 +1,37 @@
 import { onDocumentCreated } from "firebase-functions/v2/firestore";
 import { Resend } from "resend";
 
-// Helper to turn tech IDs into pretty labels
+// Helper to turn tech IDs into pretty labels.
+// Keep in sync with src/data/templates.js `id` values.
 const MAP_LABELS: Record<string, string> = {
-  buisness_modern: "Universal Business",
-  buisness_template2: "Clean Corporate",
-  construction_template: "The Contractor",
-  saas_template: "Modern Business Elite",
+  // ── Sprint / Authority templates ──
+  "trades-scalable": "TradesPro // Contractor & Home Services",
+  "modern-business-elite": "Modern Business Suite // Elite Edition",
+  "Prescott-Legal": "Prescott // Law Firm & Legal Services",
+  "Rusted-Fork": "Rusty Fork // Restaurant & Hospitality",
+  "premium-business": "Premium Corporate // Business & Consulting",
+  "Aura": "Aura // Luxury Real Estate & Interiors",
+  "saas-obsidian": "Obsidian // SaaS & AI Startup",
+  "Lakeside-Wellness": "Lakeside // Medical & Wellness Practice",
+  "universal-business": "Universal Business // Starter Foundation",
+  "the-foundry": "The Foundry // Industrial & Manufacturing",
+  "Personal-Coach": "Influencer Pro // Personal Brand & Creator",
+  "brutalist-creative": "Brutalist // Creative & Streetwear",
+  "the-storyteller": "The Storyteller // Editorial & Magazine",
+  // ── E-Commerce templates ──
+  "refined-essentials": "Refined Essentials // Minimalist E-Commerce",
+  "ironclad-ecom": "Ironclad // Brutalist E-Commerce",
+  // ── Layout toggle options ──
   single: "Standard Layout",
   double: "Dual-View Config",
-  triple: "Elite-Tier Triple Layout"
+  triple: "Elite-Tier Triple Layout",
+};
+
+// Partnership plan display labels
+const PARTNERSHIP_LABELS: Record<string, string> = {
+  pilot: "The Pilot — $150/mo",
+  navigator: "The Navigator — $450/mo",
+  copilot: "The Co-Pilot — $950/mo",
 };
 
 export const sendOnboardingEmail = onDocumentCreated(
@@ -146,11 +168,13 @@ export const sendOnboardingEmail = onDocumentCreated(
 
     // Mapping fields to ensure no "undefined"
     const clientEmail = data.emailAddress || "";
-    const clientName = data.businessName || "Partner"; 
-    const templateLabel = MAP_LABELS[data.templateId] || "Custom Build";
+    const clientName = data.businessName || "Partner";
+    const templateLabel = MAP_LABELS[data.templateId] || data.templateId || "Custom Build";
     const configLabel = MAP_LABELS[data.layoutToggle] || "Standard Config";
     const totalDelta = data.total_addon_delta || 0;
-    
+    const partnershipPlan = data.partnershipPlan || "none";
+    const partnershipLabel = PARTNERSHIP_LABELS[partnershipPlan] || "";
+
     // Domain Summary (based on our previous updates)
     const domain1 = data.domainChoice || "TBD (Zach's Choice)";
 
@@ -185,6 +209,11 @@ export const sendOnboardingEmail = onDocumentCreated(
                                   <td style="padding: 8px 0; font-size: 11px; text-transform: uppercase; color: #52525b; font-weight: 800; letter-spacing: 1px;">Primary Domain</td>
                                   <td style="padding: 8px 0; font-size: 14px; text-align: right; font-weight: 600; color: #fff;">${domain1}</td>
                               </tr>
+                              ${partnershipPlan !== "none" ? `
+                              <tr style="border-top: 1px solid #27272a;">
+                                  <td style="padding: 16px 0 8px 0; font-size: 11px; text-transform: uppercase; color: #a78bfa; font-weight: 800; letter-spacing: 1px;">Partnership Plan</td>
+                                  <td style="padding: 16px 0 8px 0; font-size: 14px; text-align: right; font-weight: 700; color: #a78bfa;">${partnershipLabel}</td>
+                              </tr>` : ""}
                               <tr style="border-top: 1px solid #27272a;">
                                   <td style="padding: 16px 0 8px 0; font-size: 11px; text-transform: uppercase; color: #f59e0b; font-weight: 800; letter-spacing: 1px;">Premium Add-ons</td>
                                   <td style="padding: 16px 0 8px 0; font-size: 18px; text-align: right; font-weight: 900; color: #f59e0b;">$${totalDelta}</td>
@@ -197,8 +226,9 @@ export const sendOnboardingEmail = onDocumentCreated(
                       <h3 style="font-size: 12px; text-transform: uppercase; letter-spacing: 2px; color: #fff; margin-bottom: 12px;">What Happens Next?</h3>
                       <ul style="padding: 0; margin: 0; list-style: none; color: #71717a; font-size: 13px; line-height: 1.6;">
                           <li style="margin-bottom: 10px;">⚡ <strong>Development Phase:</strong> I am currently setting up your hosting and core architecture.</li>
-                          <li style="margin-bottom: 10px;">📧 <strong>Asset Check:</strong> Ensure all high-res logos/photos are sent to <strong>zachary@zachhowell.dev</strong> or the easiest way is to reply to this email with them.</li>
-                          <li>💳 <strong>Billing:</strong> If you selected premium add-ons, look for a separate Stripe invoice shortly.</li>
+                          <li style="margin-bottom: 10px;">📧 <strong>Asset Check:</strong> Ensure all high-res logos/photos are sent to <a href="mailto:zachary@zachhowell.dev" style="color: #FF6B35; text-decoration: none; font-weight: 600;">zachary@zachhowell.dev</a> or the easiest way is to reply to this email with them.</li>
+                          <li style="margin-bottom: 10px;">💳 <strong>Billing:</strong> If you selected premium add-ons, look for a separate Stripe invoice shortly.</li>
+                          ${partnershipPlan !== "none" ? `<li>🤝 <strong>Partnership:</strong> Your <strong style="color: #a78bfa;">${partnershipLabel}</strong> subscription link will be sent once your site is live — no charge until launch day.</li>` : ""}
                       </ul>
                   </div>
 
