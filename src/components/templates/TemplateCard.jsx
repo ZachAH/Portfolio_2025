@@ -35,9 +35,7 @@ export default function TemplateCard({
     description,
     image,
     alt,
-    price,
     accent,
-    priceTextDark = false,
     techs = [],
     templateURL,
     badgeType = 'sprint', // Defaulting to sprint if not specified
