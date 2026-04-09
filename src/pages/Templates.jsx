@@ -105,6 +105,69 @@ const CATEGORY_CONFIG = [
 // the filter bar so every visitor immediately understands that
 // buying a template package buys a fully deployed site — not
 // just a zip of source code.
+// ── FAQ ──────────────────────────────────────────────────
+// Addresses every common objection / question a buyer has
+// before pulling the trigger. Shown as an accordion above
+// the closing CTA so it catches people on the fence.
+const FAQ_ITEMS = [
+  {
+    q: 'What exactly do I get when I purchase a template package?',
+    a: 'You get a fully deployed, production-live website — not a zip file. I personally handle your domain registration, hosting setup, DNS configuration, SSL, CDN, full brand integration, local SEO metadata, and deployment. You also receive 100% ownership of the source code on launch day with zero vendor lock-in.',
+  },
+  {
+    q: 'Can I add my own images, videos, and media anywhere on the site?',
+    a: 'Absolutely. Every single element on your site is fully customizable. You can place hero videos, background footage, product photography, team headshots, drone clips — literally any media you want, anywhere you want it. During onboarding I\'ll ask for your assets and integrate them into the design.',
+  },
+  {
+    q: 'What if I don\'t have professional photos or videos yet?',
+    a: 'No problem. I can source high-quality stock imagery that matches your brand and swap it in as a starting point. Once you have your own assets ready, they can be dropped in at any time — either by me or on your own since you own the code.',
+  },
+  {
+    q: 'How customizable are these templates? Can I change colors, fonts, and layouts?',
+    a: 'Everything is customizable — colors, typography, spacing, layouts, sections, animations, copy, you name it. These aren\'t locked-down "theme builder" templates. They\'re hand-coded React applications, which means there are zero limitations on what can be changed or added.',
+  },
+  {
+    q: 'Can I add features that aren\'t shown in the live preview?',
+    a: 'Yes. The live previews are starting points. Need a booking calendar? A blog? An extra testimonials section? A video background hero? A staff directory? Just tell me during onboarding and I\'ll build it in. Larger additions may fall under the Modern Edge or Commerce tiers depending on scope.',
+  },
+  {
+    q: 'How does the 48-hour deployment actually work?',
+    a: 'Once you complete checkout, you\'ll land on a guided onboarding form where you provide your brand info, assets, and preferences. From the moment I receive your completed form, I begin the build immediately. Within 48 hours, your fully branded, live site is deployed and the domain is pointing to it.',
+  },
+  {
+    q: 'Do I own the code after launch?',
+    a: '100%. On launch day you receive full ownership of the source code. There\'s no monthly fee to keep the code, no proprietary lock-in, and no "you can only edit through our platform" restrictions. It\'s your code — forever.',
+  },
+  {
+    q: 'What about hosting and ongoing costs after launch?',
+    a: 'I set up your hosting on high-performance infrastructure (Netlify/Vercel). Most informational sites fall within free-tier hosting, so your ongoing cost is typically just the annual domain renewal (~$10–15/year). E-commerce sites may have nominal hosting or transaction fees depending on scale.',
+  },
+  {
+    q: 'Can I see a live demo before buying?',
+    a: 'Every template on this page has a "Live Preview" button that opens the fully functional demo site in a new tab. Click around, test it on your phone, resize your browser — what you see is what you get as your starting point.',
+  },
+  {
+    q: 'What if I need changes after the site is launched?',
+    a: 'Since you own the code, you can hire any developer to make changes, or I offer ongoing support and iteration packages. Small tweaks and copy updates can often be handled same-day. Reach out anytime — I don\'t disappear after launch.',
+  },
+  {
+    q: 'Are these sites mobile-friendly and SEO-optimized?',
+    a: 'Every template is built mobile-first with fully responsive layouts. SEO fundamentals are baked in from day one: semantic HTML, meta tags, Open Graph data, structured data (JSON-LD), sitemap generation, and Google Search Console setup. You\'re indexed and ranking-ready on launch day.',
+  },
+  {
+    q: 'What\'s the difference between the Sprint, Modern Edge, and Commerce packages?',
+    a: 'The $700 Sprint is a branded deployment of any non-commerce template — perfect for service businesses, portfolios, and professional sites. Modern Edge ($900) adds advanced animations, custom interactions, and multi-layout configurations. Commerce ($1,850+) includes full e-commerce infrastructure: product catalogs, cart logic, Stripe checkout, and inventory management.',
+  },
+  {
+    q: 'Can I switch templates after I\'ve already started?',
+    a: 'Yes — just let me know before the build begins or early in the process. Since the onboarding form captures your brand assets and preferences separately from the template selection, switching foundations is straightforward.',
+  },
+  {
+    q: 'Do you offer refunds?',
+    a: 'Because each build is custom-deployed and branded specifically for you, refunds aren\'t offered once the build has started. However, I work closely with you during onboarding to make sure we\'re aligned before a single line of code is written.',
+  },
+];
+
 const WHITE_GLOVE_INCLUSIONS = [
   {
     title: 'Domain Purchase',
@@ -145,8 +208,49 @@ const templatesJsonLd = {
   ]),
 };
 
+// ── FAQ ACCORDION ITEM ───────────────────────────────────
+function FaqItem({ item, isOpen, onToggle }) {
+  return (
+    <div className="border-b border-zinc-200 dark:border-zinc-800 last:border-b-0">
+      <button
+        onClick={onToggle}
+        className="w-full flex items-center justify-between gap-4 py-6 text-left group"
+      >
+        <span className="text-base md:text-lg font-bold text-zinc-900 dark:text-white pr-4 group-hover:text-accent-orange transition-colors">
+          {item.q}
+        </span>
+        <motion.span
+          animate={{ rotate: isOpen ? 45 : 0 }}
+          transition={{ duration: 0.2 }}
+          className="shrink-0 w-8 h-8 rounded-full border-2 border-zinc-300 dark:border-zinc-700 flex items-center justify-center text-zinc-500 dark:text-zinc-400 group-hover:border-accent-orange group-hover:text-accent-orange transition-colors"
+        >
+          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 5v14m7-7H5" />
+          </svg>
+        </motion.span>
+      </button>
+      <AnimatePresence initial={false}>
+        {isOpen && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+            className="overflow-hidden"
+          >
+            <p className="pb-6 text-zinc-600 dark:text-zinc-400 text-sm md:text-base leading-relaxed font-medium max-w-3xl">
+              {item.a}
+            </p>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+}
+
 const Templates = ({ handleMouseEnter, handleMouseLeave }) => {
   const [activeCategory, setActiveCategory] = useState('all');
+  const [openFaq, setOpenFaq] = useState(null);
 
   // Precompute counts per category so the chips can show badges
   // without re-filtering on every render.
@@ -518,6 +622,39 @@ const Templates = ({ handleMouseEnter, handleMouseLeave }) => {
             </motion.div>
           )}
         </AnimatePresence>
+
+        {/* ── FAQ SECTION ─────────────────────────────────────── */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mb-32"
+        >
+          <div className="text-center mb-12">
+            <span className="text-sm font-black tracking-[0.3em] text-accent-orange uppercase mb-4 inline-block">
+              Before You Buy
+            </span>
+            <h2 className="text-4xl md:text-5xl font-black text-zinc-900 dark:text-white uppercase tracking-tighter leading-[0.95]">
+              Frequently Asked{' '}
+              <span className="text-gradient">Questions</span>
+            </h2>
+            <p className="mt-4 text-base md:text-lg text-zinc-600 dark:text-zinc-400 font-medium max-w-2xl mx-auto leading-relaxed">
+              Everything you need to know before choosing your foundation.
+            </p>
+          </div>
+
+          <div className="max-w-3xl mx-auto p-6 md:p-10 rounded-[2.5rem] border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-obsidian-900/30 backdrop-blur-sm">
+            {FAQ_ITEMS.map((item, i) => (
+              <FaqItem
+                key={i}
+                item={item}
+                isOpen={openFaq === i}
+                onToggle={() => setOpenFaq(openFaq === i ? null : i)}
+              />
+            ))}
+          </div>
+        </motion.div>
 
         {/* Closing Sales Hook → Custom Discovery */}
         <motion.div
