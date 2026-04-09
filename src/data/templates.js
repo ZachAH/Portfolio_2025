@@ -157,6 +157,32 @@ const templates = [
     techs: ['React', 'Vite', 'Tailwind', 'GSAP'],
     templateURL: 'https://restauranttemplate01.netlify.app/',
     badgeType: 'sprint', // Focused on driving bookings and orders
+  },
+  {
+    id: 'Aura',
+    title: 'Aura // Luxury Real Estate & Interiors',
+    category: 'business',
+    description:
+      'A sophisticated, image-heavy suite designed for high-end property listings and interior portfolios. Featuring "Quiet Luxury" typography, and a high-conversion lead capture system optimized for local SEO.',
+    image: '/realestate_template.webp',
+    alt: 'Ethereal Estates Luxury Real Estate Template Mockup',
+    accent: '#D4AF37', // A refined "Champagne Gold" for an upscale, premium feel
+    techs: ['React', 'TypeScript', 'Tailwind', 'Framer Motion'],
+    templateURL: 'https://realestatetemplatelux.netlify.app/',
+    badgeType: 'sprint', // Positioned as a high-ticket, high-end product
+  },
+  {
+    id: 'Lakeside-Wellness',
+    title: 'Lakeside Wellness // Medical & Healthcare',
+    category: 'Universal Business',
+    description:
+      'A high-trust, clinical foundation designed for patient acquisition. This suite features prominent appointment scheduling, and a WCAG-compliant architecture. Engineered for dentists, chiropractors, and private practices in the local medical space.',
+    image: '/wellness_template.webp',
+    alt: 'Lakeside Wellness Medical & Healthcare Template Mockup',
+    accent: '#7D8C6F', // A professional Sage Green to establish immediate patient trust
+    techs: ['React', 'TypeScript', 'Tailwind', 'Accessibility'],
+    templateURL: 'https://wellnesstemplate26.netlify.app/',
+    badgeType: 'sprint', // Focused on credibility and patient conversion
   }
 ];
 
