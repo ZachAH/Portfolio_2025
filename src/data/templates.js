@@ -173,7 +173,7 @@ const templates = [
       'A design-forward, high-velocity foundation for modern dining and hospitality. This suite features a modular menu system, mobile-first architecture, and high-impact scroll reveals engineered to convert visitors into reservations.',
     image: '/restaurant_template.webp',
     alt: 'Rusty Fork Restaurant Template Mockup',
-    price: '$120 - Source Code',
+    price: '$35 - Source Code',
     accent: '#F97316', // orange-500 for a warm, appetizing vibe
     techs: ['React', 'Vite', 'Tailwind', 'GSAP'],
     templateURL: 'https://restauranttemplate01.netlify.app/',
