@@ -183,6 +183,19 @@ const templates = [
     techs: ['React', 'TypeScript', 'Tailwind', 'Accessibility'],
     templateURL: 'https://wellnesstemplate26.netlify.app/',
     badgeType: 'sprint', // Focused on credibility and patient conversion
+  },
+  {
+    id: 'Personal-Coach',
+    title: 'Personal Brand & Influencer',
+    category: 'Personal Brand',
+    description:
+      'A high-conversion engine for creators and consultants. Built to showcase authority through immersive storytelling, social proof counters, and a "Start Your Transformation" funnel. Optimized for LinkedIn lead generation and newsletter growth.',
+    image: '/coach_template.webp',
+    alt: 'Personal Brand Template Mockup',
+    accent: '#8B5CF6', // A vibrant Lavender/Violet to match the "Transformation" button
+    techs: ['React', 'Framer Motion', 'Tailwind', 'Lead-Gen'],
+    templateURL: 'https://influencertemplate.netlify.app/',
+    badgeType: 'sprint', // Focused on influence and high-ticket sales
   }
 ];
 
