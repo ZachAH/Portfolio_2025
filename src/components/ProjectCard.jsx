@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { FaMapMarkerAlt, FaQuoteLeft } from 'react-icons/fa';
 
 const ProjectCard = ({ project, index, viewMode, handleMouseEnter, handleMouseLeave }) => {
   return (
@@ -27,6 +28,18 @@ const ProjectCard = ({ project, index, viewMode, handleMouseEnter, handleMouseLe
               <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse" />
               <span className="text-[10px] font-black uppercase tracking-[0.2em] text-amber-600 dark:text-amber-500">
                 In Development
+              </span>
+            </div>
+          </div>
+        )}
+
+        {/* Location Pill — signals real local business */}
+        {project.location && (
+          <div className="absolute top-5 right-5 z-20">
+            <div className="flex items-center gap-1.5 px-3 py-1.5 bg-white/90 dark:bg-obsidian-950/70 backdrop-blur-md border border-obsidian-700/10 dark:border-white/10 rounded-full shadow-lg">
+              <FaMapMarkerAlt className="w-3 h-3 text-accent-orange" />
+              <span className="text-[10px] font-black uppercase tracking-[0.15em] text-zinc-700 dark:text-zinc-200">
+                {project.location}
               </span>
             </div>
           </div>
@@ -82,6 +95,27 @@ const ProjectCard = ({ project, index, viewMode, handleMouseEnter, handleMouseLe
             </motion.p>
           </AnimatePresence>
         </div>
+
+        {/* Testimonial — only renders when a real quote has been collected */}
+        {project.testimonial && project.testimonial.quote && (
+          <div className="mb-6 p-5 rounded-2xl bg-accent-orange/5 dark:bg-accent-orange/10 border border-accent-orange/20">
+            <FaQuoteLeft className="w-4 h-4 text-accent-orange mb-3 opacity-70" />
+            <p className="text-sm italic leading-relaxed text-zinc-700 dark:text-zinc-200 mb-3">
+              "{project.testimonial.quote}"
+            </p>
+            <div className="flex items-center gap-2">
+              <div className="h-px flex-none w-6 bg-accent-orange" />
+              <span className="text-[10px] font-black uppercase tracking-widest text-zinc-600 dark:text-zinc-400">
+                {project.testimonial.author}
+                {project.testimonial.role && (
+                  <span className="font-medium normal-case tracking-normal text-zinc-500 ml-1">
+                    — {project.testimonial.role}
+                  </span>
+                )}
+              </span>
+            </div>
+          </div>
+        )}
 
         {/* Link Section */}
         <a

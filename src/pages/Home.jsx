@@ -1,5 +1,6 @@
 import React from 'react';
 import Hero from '../components/hero';
+import TrustBar from '../components/TrustBar';
 import Projects from '../components/Projects';
 import Contact from '../components/Contact';
 import Seo from '../components/Seo';
@@ -28,7 +29,8 @@ function Home({ handleMouseEnter, handleMouseLeave }) {
         handleMouseEnter={handleMouseEnter}
         handleMouseLeave={handleMouseLeave}
       />
-      <Projects 
+      <TrustBar />
+      <Projects
         handleMouseEnter={handleMouseEnter} 
         handleMouseLeave={handleMouseLeave}
       /> 

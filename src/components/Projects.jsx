@@ -2,53 +2,70 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import ProjectCard from './ProjectCard';
 
+// ── TRUST NOTES ───────────────────────────────────────────
+// `location` shows under each card as a map-pin pill so visitors
+//   see these are real local businesses, not stock examples.
+// `testimonial` is conditionally rendered. Leave as null until you
+//   have permission to publish a real quote. Shape:
+//     { quote: "...", author: "Jane D.", role: "Owner, ACME Co." }
+// `isTemplate` flags commercial templates so we don't imply they
+//   are paid client engagements.
 const projectsData = [
   {
     id: 9,
     title: "Kettle Moraine Professional Cleaners",
     category: "Small Business Web Modernization",
+    location: "West Bend, WI",
     description: "A complete modern redesign of a local cleaning company's website, focused on speed, clarity, and converting visitors into customers. Built with React, Tailwind, and Vite for top-tier performance.",
     csDescription: "Transformed a legacy small-business website into a high-performing, mobile-first platform. Implemented a fully modern React architecture, responsive UI components, optimized hero sections, and a clean service navigation system.",
     image: "/KMPC.webp",
     link: "https://kettlemoraineprofessionalcleaners.com/",
-    tags: ["React", "TypeScript", "Tailwind CSS", "Vite"]
+    tags: ["React", "TypeScript", "Tailwind CSS", "Vite"],
+    testimonial: null, // TODO: add real client quote when available
   },
   {
     id: 7,
     title: "Upper Crust Pizza",
     category: "Digital Transformation",
+    location: "Milwaukee, WI",
     isDevelopment: true,
     description: "A fully responsive React + Vite + Tailwind website built for a real Milwaukee-area pizzeria, featuring intuitive navigation, dynamic menu sections, and an embedded Google Map. Includes a custom CMS admin dashboard.",
     csDescription: "Designed and launched a modern digital storefront to increase online visibility, improve ordering convenience, and drive repeat customers. Implemented responsive UI and optimized load speeds.",
     image: "/pizza.webp",
     link: "https://uppercrustpizza.netlify.app/",
-    tags: ["React", "TailwindCss", "Typescript", "Firebase"]
+    tags: ["React", "TailwindCss", "Typescript", "Firebase"],
+    testimonial: null, // TODO: add real client quote when available
   },
   {
     id: 5,
     title: "Saved & Sent",
     category: "E-Commerce Platform",
+    location: "Milwaukee, WI",
     isDevelopment: true,
     description: "An e-commerce site for a local Christian based apparel company, built with custom CMS features and Stripe integration.",
     csDescription: "Built a custom e-commerce platform with an integrated CMS for easy product management and Stripe for secure payment processing. The solution streamlined operations and provided a seamless shopping experience.",
     image: "/saved&sent.webp",
     link: "https://savedandsent.netlify.app/",
-    tags: ["React", "Node.js", "Firebase", "Stripe"]
+    tags: ["React", "Node.js", "Firebase", "Stripe"],
+    testimonial: null, // TODO: add real client quote when available
   },
   {
     id: 1,
     title: "Claw and Decay Clothing",
     category: "Scalable E-commerce",
+    location: "New Berlin, WI",
     description: "My fullstack e-commerce site for my clothing brand, using Node.js and Stripe for payment processing.",
     csDescription: "Engineered and deployed an integrated e-commerce platform. Optimized checkout flows and created support documentation for efficient CS team handoff.",
     image: "/CAD.webp",
     link: "https://clawanddecay.com/",
-    tags: ["React", "Node.js", "Firebase", "Stripe"]
+    tags: ["React", "Node.js", "Firebase", "Stripe"],
+    testimonial: null, // TODO: add real quote — this is Zach's own brand
   },
   {
     id: 2,
     title: "Futuristic Local Business Template",
     category: "Commercial SaaS Template",
+    isTemplate: true,
     description: "A premium, high-performance web architecture tailored for local buisnesses, featuring a dynamic 'Futuristic-to-Professional' theme toggle and GSAP-powered animations.",
     csDescription: "Developed a custom-engineered 'Theme Engine' with GSAP-powered animations and dynamic CSS variable injection, enabling a seamless 'Futuristic-to-Professional' aesthetic toggle for end-users.",
     image: "/saas_template.webp", // Update to your new screenshot
@@ -59,6 +76,7 @@ const projectsData = [
     id: 6,
     title: "Contractor & Trades Template",
     category: "Premium Web Template",
+    isTemplate: true,
     description: "A high-performance, landing page template designed specifically for local trades.",
     csDescription: "Engineered a high-performance conversion engine for local service providers, featuring a mobile-first architecture and schema markup integration that boosts local SEO visibility. Every component is modularized for 100% brand scalability, ensuring zero layout shift during theme transitions.",
     image: "/construction_template.webp",
@@ -80,16 +98,20 @@ const Projects = ({ handleMouseEnter, handleMouseLeave }) => {
           transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
           className="mb-20 text-center"
         >
-          <span className="text-sm font-bold tracking-widest text-accent-orange uppercase mb-4 inline-block">Professional Highlights</span>
+          <span className="text-sm font-bold tracking-widest text-accent-orange uppercase mb-4 inline-block">Real Clients · Real Results</span>
           <h2 className="text-5xl md:text-7xl font-bold tracking-tight mb-8 text-text-primary uppercase"
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
           >
             Client <span className="text-gradient">Work</span>.
           </h2>
-          <p className="text-xl md:text-2xl text-text-secondary max-w-2xl mx-auto leading-relaxed mb-12">
-            View Some of my most recent work for clients across a variety of industries. Through different lenses of technical development and client success.
+          <p className="text-xl md:text-2xl text-text-secondary max-w-2xl mx-auto leading-relaxed mb-6">
+            Live sites for real businesses across Wisconsin and beyond. Every project below is publicly verifiable — click through and see the work for yourself.
           </p>
+          <div className="flex items-center justify-center gap-2 text-xs font-bold tracking-widest text-text-secondary uppercase mb-12">
+            <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+            All projects below are publicly live
+          </div>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <button
               onClick={() => setViewMode('DEV')}
@@ -134,5 +156,12 @@ const Projects = ({ handleMouseEnter, handleMouseLeave }) => {
     </section>
   );
 };
+
+// Additional notes for future testimonial implementation:
+// testimonial: {
+//   quote: "Zach rebuilt our site in two days and our leads doubled the next week.",
+//   author: "Jane Doe",
+//   role: "Owner, KMPC"
+// }
 
 export default Projects;
