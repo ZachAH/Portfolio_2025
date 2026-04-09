@@ -196,6 +196,19 @@ const templates = [
     techs: ['React', 'Framer Motion', 'Tailwind', 'Lead-Gen'],
     templateURL: 'https://influencertemplate.netlify.app/',
     badgeType: 'sprint', // Focused on influence and high-ticket sales
+  },
+  {
+    id: 'Prescott-Legal',
+    title: 'Prescott & Associates // Legal & Professional',
+    category: 'Premium Business',
+    description:
+      'A heavy-hitting, authority-driven suite for law firms and professional practices. Designed with a focus on "Results-First" storytelling, case study integration, and a high-trust consultation funnel. Featuring a sophisticated UI that commands respect and drives client inquiries.',
+    image: '/legal_template.webp',
+    alt: 'Prescott Legal & Law Firm Template Mockup',
+    accent: '#C5A046', // A sophisticated Brass/Gold to represent authority and excellence
+    techs: ['React', 'Tailwind', 'SEO', 'Performance'],
+    templateURL: 'https://lawfirmtemplate.netlify.app/',
+    badgeType: 'authority', // Positioned as the top-tier professional choice
   }
 ];
 
