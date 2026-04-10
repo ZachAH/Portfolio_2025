@@ -428,6 +428,24 @@ const Templates = ({ handleMouseEnter, handleMouseLeave }) => {
           </div>
         </motion.div>
 
+        {/* ── SPRINT AVAILABILITY COUNTER ───────────────────── */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.1 }}
+          className="flex justify-center mb-10"
+        >
+          <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-amber-50 dark:bg-amber-900/10 border border-amber-500/20 shadow-sm">
+            <span className="relative flex h-2.5 w-2.5">
+              <span className="absolute inline-flex h-full w-full rounded-full bg-amber-500 opacity-75 animate-ping" />
+              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-amber-500" />
+            </span>
+            <span className="text-xs sm:text-sm font-bold text-amber-700 dark:text-amber-400">
+              Only <span className="font-black text-amber-900 dark:text-amber-300">8 2-Day Launch Spots</span> remaining this month
+            </span>
+          </div>
+        </motion.div>
+
         {/* ── CATEGORY FILTER BAR ───────────────────────────── */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}

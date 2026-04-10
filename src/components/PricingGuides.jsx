@@ -154,8 +154,7 @@ const PricingGuides = () => {
           "Aggressive GSAP Motion Engine",
           "GA4 & Search Console Infrastructure",
           "Technical SEO & Core Web Vitals Audit",
-          "Advanced Brand DNA Sculpting",
-          "72-Hour Precision Launch"],
+          "Advanced Brand DNA Sculpting"],
         notIncluded: [
           "E-commerce / payment integration",
           "Ongoing hosting (available via Growth Plans)",
@@ -245,6 +244,26 @@ const PricingGuides = () => {
             </motion.a>
           </div>
         </div>
+
+        {/* ── LAUNCH PRICING BANNER (templates tab only) ──── */}
+        <AnimatePresence>
+          {activeTab === 'templates' && (
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              className="mb-8 p-4 md:p-5 rounded-2xl bg-gradient-to-r from-accent-orange/10 via-amber-500/10 to-accent-orange/10 border border-accent-orange/25 flex flex-col sm:flex-row items-center justify-center gap-3 text-center"
+            >
+              <span className="relative flex h-2 w-2 shrink-0">
+                <span className="absolute inline-flex h-full w-full rounded-full bg-accent-orange opacity-75 animate-ping" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-accent-orange" />
+              </span>
+              <span className="text-sm font-bold text-zinc-800 dark:text-zinc-200">
+                Launch pricing — <span className="text-accent-orange font-black">$700 introductory rate</span> locks in through <span className="font-black">May 10, 2026</span>
+              </span>
+            </motion.div>
+          )}
+        </AnimatePresence>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <AnimatePresence mode="wait">
