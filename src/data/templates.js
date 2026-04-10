@@ -230,6 +230,19 @@ const templates = [
     templateURL: 'https://brutalistecommerce.netlify.app/',
     badgeType: 'conversion',
   },
+  {
+    id: 'hero-home-service',
+    title: 'Hero Service // High-Conversion Trades',
+    category: 'business',
+    description:
+      'The definitive "Trust-First" suite for plumbing, HVAC, and electrical professionals. Engineered for rapid lead generation, this template features a prominent "Emergency Service" command center, a 15-minute response guarantee engine, and localized trust signals. Built for high-volume conversion in the home services sector.',
+    image: '/hero_service_template.webp',
+    alt: 'High-conversion home service and trades website template mockup',
+    accent: '#EA580C', // orange-600 (matches your "Get My Quote" button)
+    techs: ['React', 'Vite', 'Tailwind', 'Lead-Gen Engine'],
+    templateURL: 'https://homeservicetemplatelocal.netlify.app/', // Update if different
+    badgeType: 'sprint',
+  }
 ];
 
 export default templates;
