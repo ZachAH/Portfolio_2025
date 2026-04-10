@@ -132,6 +132,41 @@ const Hero = ({ handleMouseEnter, handleMouseLeave }) => {
           </a>
         </motion.div>
 
+        {/* Templates CTA — high-urgency nudge to the template store */}
+        <motion.div
+          variants={itemVariants}
+          initial="hidden"
+          animate="visible"
+          className="mt-8 flex justify-center"
+        >
+          <Link
+            to="/templates"
+            className="group relative inline-flex items-center gap-3 px-8 py-4 bg-sunset-gradient text-white rounded-full font-bold overflow-hidden transition-all hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl"
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+          >
+            <svg
+              className="w-5 h-5 transition-transform group-hover:-rotate-12"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+            <span>Go Live in 48 Hours</span>
+            <svg
+              className="w-4 h-4 transition-transform group-hover:translate-x-1"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </Link>
+        </motion.div>
+
         {/* Availability Pill — relocated from the top of the hero.
             Sits under the CTAs so visitors encounter it *after* they've
             absorbed the headline + pitch, making it feel like a reward
