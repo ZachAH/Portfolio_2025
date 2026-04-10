@@ -70,9 +70,9 @@ const STEPS: Step[] = [
                 type: 'select',
                 disabled: true,
                 options: [
-                    { value: 'sprint', label: 'The 48h Sprint ($650)' },
-                    { value: 'modern_edge', label: 'Modern Edge ($850)' },
-                    { value: 'commerce', label: 'Commerce Launch ($1,850+)' }
+                    { value: 'sprint', label: 'The 48h Sprint ($700)' },
+                    { value: 'modern_edge', label: 'Modern Edge ($900)' },
+                    { value: 'commerce', label: 'Commerce Launch ($1,900+)' }
                 ]
             },
             /* --- TEMPLATES FOR SPRINT & MODERN EDGE --- */
@@ -147,6 +147,22 @@ const STEPS: Step[] = [
             },
             { id: 'targetAudience', label: 'Who is your ideal customer?', placeholder: 'e.g., Tattoo enthusiasts in New Berlin.', type: 'text' },
             { id: 'coreServices', label: 'Top 3 Services/Products', placeholder: 'e.g., Custom Tattoos, Piercings...', type: 'textarea' },
+            {
+                id: 'colorPreference',
+                label: 'Brand Colors (if any)',
+                placeholder: 'e.g., Black & gold, Navy & white, or "I trust Zach to pick"',
+                type: 'text'
+            },
+            {
+                id: 'themePreference',
+                label: 'Overall Vibe',
+                type: 'select',
+                options: [
+                    { value: 'dark', label: 'Dark & Bold' },
+                    { value: 'light', label: 'Light & Clean' },
+                    { value: 'zach_picks', label: 'I trust Zach to decide based on my brand' }
+                ]
+            },
             {
                 id: 'competitorInspo',
                 label: 'Inspiration / Competitor Sites',
@@ -307,6 +323,48 @@ const STEPS: Step[] = [
             { id: 'publicAddress', label: 'Physical Address / Service Area', placeholder: '123 Main St, New Berlin, WI or Service Area', type: 'text' },
             { id: 'businessHours', label: 'Hours of Operation', placeholder: 'e.g., Mon-Fri: 9-5', type: 'text' },
             {
+                id: 'socialHeader',
+                label: '🔗 Social Media & Online Presence',
+                type: 'header',
+                label_text: 'I\'ll link these in your site footer/header and use them for Schema markup to boost your local SEO.'
+            },
+            { id: 'socialFacebook', label: 'Facebook Page URL (Optional)', placeholder: 'https://facebook.com/yourbusiness', type: 'text' },
+            { id: 'socialInstagram', label: 'Instagram Handle (Optional)', placeholder: '@yourbusiness', type: 'text' },
+            { id: 'socialLinkedin', label: 'LinkedIn URL (Optional)', placeholder: 'https://linkedin.com/in/you', type: 'text' },
+            { id: 'socialOther', label: 'Other Socials (Optional)', placeholder: 'TikTok, YouTube, Yelp, etc.', type: 'text' },
+            {
+                id: 'ctaHeader',
+                label: '🎯 Call-to-Action Strategy',
+                type: 'header',
+                label_text: 'What should visitors DO when they land on your site? This determines button text, form placement, and overall conversion flow.'
+            },
+            {
+                id: 'primaryCTA',
+                label: 'Primary Call-to-Action',
+                type: 'select',
+                options: [
+                    { value: 'call', label: 'Call my business phone' },
+                    { value: 'form', label: 'Fill out a contact/quote form' },
+                    { value: 'book', label: 'Book an appointment (link to booking tool)' },
+                    { value: 'email', label: 'Send me an email' },
+                    { value: 'visit', label: 'Visit my physical location' },
+                    { value: 'zach_decides', label: 'I trust Zach to pick the best strategy' }
+                ]
+            },
+            {
+                id: 'bookingUrl',
+                label: 'Booking Tool URL',
+                placeholder: 'e.g., calendly.com/you or your scheduling link',
+                type: 'text',
+                condition: (data: any) => data.primaryCTA === 'book'
+            },
+            {
+                id: 'existingWebsite',
+                label: 'Existing Website URL (if any)',
+                placeholder: 'https://your-current-site.com or leave blank',
+                type: 'text'
+            },
+            {
                 id: 'mapToggle',
                 label: 'Google Maps Integration',
                 type: 'select',
@@ -345,7 +403,42 @@ const STEPS: Step[] = [
                     { value: 'text', label: 'Text/iMessage (Low Quality)' }
                 ]
             },
-            { id: 'assetInput', label: 'Link or Handle', type: 'text', condition: (data: any) => data.assetMethod !== 'email' && data.assetMethod !== 'text' }
+            { id: 'assetInput', label: 'Link or Handle', type: 'text', condition: (data: any) => data.assetMethod !== 'email' && data.assetMethod !== 'text' },
+            {
+                id: 'contentHeader',
+                label: '📝 Website Copy & Content',
+                type: 'header',
+                label_text: 'If you have specific text you want on your site (hero headline, about section, service descriptions), provide it here or via email. If not, I\'ll craft professional placeholder copy based on your brand info above.'
+            },
+            {
+                id: 'copyStrategy',
+                label: 'Website Copy Strategy',
+                type: 'select',
+                options: [
+                    { value: 'provide', label: 'I will provide my own copy via email' },
+                    { value: 'zach_writes', label: 'Zach writes professional placeholder copy' },
+                    { value: 'partial', label: 'I\'ll send what I have — Zach fills in the gaps' }
+                ]
+            },
+            { id: 'heroHeadline', label: 'Preferred Hero Headline (Optional)', placeholder: 'e.g., "Precision Plumbing for Southeast Wisconsin" or leave blank', type: 'text' },
+            { id: 'aboutContent', label: 'About Section Notes (Optional)', placeholder: 'Key facts about your business, founding story, mission, years in business, etc.', type: 'textarea' },
+            {
+                id: 'reviewHeader',
+                label: '📞 Review Phase Communication',
+                type: 'header',
+                label_text: 'During Hours 24-36, I\'ll send you a live preview link for feedback. How do you want to communicate revisions?'
+            },
+            {
+                id: 'reviewMethod',
+                label: 'Preferred Review Method',
+                type: 'select',
+                options: [
+                    { value: 'email', label: 'Email (zachary@zachhowell.dev)' },
+                    { value: 'text', label: 'Text / iMessage' },
+                    { value: 'call', label: 'Quick phone call' },
+                    { value: 'any', label: 'Whatever is fastest' }
+                ]
+            }
         ]
     },
     {
