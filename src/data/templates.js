@@ -242,6 +242,19 @@ const templates = [
     techs: ['React', 'Vite', 'Tailwind', 'Lead-Gen Engine'],
     templateURL: 'https://homeservicetemplatelocal.netlify.app/', // Update if different
     badgeType: 'sprint',
+  },
+  {
+    id: 'service-pro-clean',
+    title: 'ServicePro // Professional Lifestyle Services',
+    category: 'business',
+    description:
+      'A premium, "spotless" UI designed for luxury home services and professional lifestyle brands. This suite features a high-impact estimation engine, interactive social proof counters, and a sleek, modern aesthetic. Engineered to turn local searches into instant bookings with a focused, "60-second price" conversion path.',
+    image: '/service_pro_template.webp',
+    alt: 'Professional lifestyle service website template mockup',
+    accent: '#55ADCE', // The bright sky blue from the "See Your Price" button
+    techs: ['React', 'Vite', 'Tailwind', 'Estimation Logic'],
+    templateURL: 'https://buildservicetemplate.netlify.app/',
+    badgeType: 'sprint',
   }
 ];
 
