@@ -8,7 +8,7 @@ import templateGuide from '../../src/assets/PriceGuides/Template_Price_Guide.pdf
 import growthPlans from '../../src/assets/PriceGuides/Growth_Plans.pdf';
 import freelanceGuide from '../../src/assets/PriceGuides/freelance_price_guide.pdf';
 
-const PricingCard = ({ title, price, description, features, accent, isPopular, link, stripeUrl }) => (
+const PricingCard = ({ title, price, description, features, notIncluded, accent, isPopular, link, stripeUrl, guarantee }) => (
   <motion.div
     initial={{ opacity: 0, y: 20 }}
     whileInView={{ opacity: 1, y: 0 }}
@@ -34,9 +34,18 @@ const PricingCard = ({ title, price, description, features, accent, isPopular, l
       <span className="text-4xl font-bold text-obsidian-950 dark:text-white">{price}</span>
       {price.includes('/') && <span className="text-gray-500 dark:text-gray-400 text-sm font-medium">/month</span>}
     </div>
-    <p className="text-gray-600 dark:text-gray-400 text-sm mb-8 leading-relaxed">{description}</p>
+    <p className="text-gray-600 dark:text-gray-400 text-sm mb-6 leading-relaxed">{description}</p>
 
-    <ul className="space-y-4 mb-10 flex-grow">
+    {guarantee && (
+      <div className="mb-6 p-3 rounded-xl bg-green-50/80 dark:bg-green-900/10 border border-green-500/20 flex items-center gap-2.5">
+        <svg className="w-4 h-4 text-green-600 dark:text-green-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+        </svg>
+        <span className="text-xs font-bold text-green-700 dark:text-green-400">{guarantee}</span>
+      </div>
+    )}
+
+    <ul className="space-y-4 mb-4 flex-grow">
       {features.map((feature, i) => (
         <li key={i} className="flex items-start gap-3 text-sm text-obsidian-900 dark:text-gray-200">
           <svg className={`w-5 h-5 ${accent} shrink-0`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -47,7 +56,24 @@ const PricingCard = ({ title, price, description, features, accent, isPopular, l
       ))}
     </ul>
 
-    {/* LOGIC: Use direct anchor tag for Stripe Links, or Link for internal routing */}
+    {notIncluded && notIncluded.length > 0 && (
+      <div className="mb-8 pt-4 border-t border-gray-200 dark:border-white/10">
+        <span className="text-[10px] font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-3 block">Not included</span>
+        <ul className="space-y-2">
+          {notIncluded.map((item, i) => (
+            <li key={i} className="flex items-start gap-3 text-xs text-gray-400 dark:text-gray-500">
+              <svg className="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+              {item}
+            </li>
+          ))}
+        </ul>
+      </div>
+    )}
+
+    {!notIncluded && <div className="mb-8" />}
+
     {stripeUrl ? (
       <a
         href={stripeUrl}
@@ -58,7 +84,7 @@ const PricingCard = ({ title, price, description, features, accent, isPopular, l
           : 'bg-obsidian-950 text-white dark:bg-white dark:text-obsidian-950 hover:opacity-90'
           }`}
       >
-        Get Started
+        {isPopular ? 'Order Now' : 'Get Started'}
       </a>
     ) : (
       <Link
@@ -68,7 +94,7 @@ const PricingCard = ({ title, price, description, features, accent, isPopular, l
           : 'bg-obsidian-950 text-white dark:bg-white dark:text-obsidian-950 hover:opacity-90'
           }`}
       >
-        Get Started
+        {isPopular ? 'Start Discovery' : 'Get Started'}
       </Link>
     )}
   </motion.div>
@@ -101,12 +127,21 @@ const PricingGuides = () => {
       {
         title: "The 48h Sprint",
         price: "$700",
-        description: "Velocity as a Service. I take your selected foundation and transform it into a high-performance, live brand in exactly 48 hours.",
-        features: ["Full Source Code Ownership",
+        description: "Velocity as a Service. I take your selected foundation and transform it into a high-performance, live brand in exactly 48 hours. One fixed price — no hidden fees, no recurring charges.",
+        features: [
+          "Full Source Code Ownership — yours on day one",
           "Brand DNA & Asset Integration",
-          "White-Glove Infrastructure Setup",
+          "White-Glove DNS & Infrastructure Setup",
           "2-Day Deployment Guaranteed",
-          "Local SEO Metadata Injection"],
+          "Local SEO Metadata Injection",
+          "Google PageSpeed 90+ Score Guaranteed",
+        ],
+        notIncluded: [
+          "Custom feature development",
+          "Ongoing hosting (available via Growth Plans)",
+          "Stock photography or copywriting",
+        ],
+        guarantee: "48h deadline or double credit back — 90+ PageSpeed or full refund",
         accent: "text-accent-orange",
         isPopular: true,
         stripeUrl: import.meta.env.VITE_STRIPE_SPRINT_URL
@@ -117,10 +152,14 @@ const PricingGuides = () => {
         description: "For brands that need to command attention. High-impact UI paired with complex motion logic to establish immediate market authority.",
         features: ["Elite Source Code Access",
           "Aggressive GSAP Motion Engine",
-          "GA4 & Search Console Infrastructure", // The analytical power-up
-          "Technical SEO & Core Web Vitals Audit", // Beyond just metadata
+          "GA4 & Search Console Infrastructure",
+          "Technical SEO & Core Web Vitals Audit",
           "Advanced Brand DNA Sculpting",
           "72-Hour Precision Launch"],
+        notIncluded: [
+          "E-commerce / payment integration",
+          "Ongoing hosting (available via Growth Plans)",
+        ],
         accent: "text-accent-blue",
         stripeUrl: import.meta.env.VITE_STRIPE_MODERN_URL
       },
@@ -230,11 +269,36 @@ const PricingGuides = () => {
           className="mt-20 p-8 bg-gray-50 dark:bg-white/5 rounded-3xl border border-accent-orange/20 text-center max-w-4xl mx-auto shadow-sm"
         >
           <h4 className="text-xl font-bold text-obsidian-950 dark:text-white mb-3 flex items-center justify-center gap-2">
-            <span>⚡</span> The Advantage of Working With Me
+            Why $700 — Not $200?
           </h4>
-          <p className="text-gray-600 dark:text-gray-400 leading-relaxed italic text-sm sm:text-base">
-            "I build with modern frameworks like React and TailwindCSS, meaning I am significantly faster than developers using legacy builders. An 'hour' of my time usually covers what takes other agencies three—you're paying for rapid, professional execution on a world-class foundation."
+          <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-sm sm:text-base mb-4">
+            A $200 website uses bloated page builders with slow load times, missing metadata, and zero SEO — leaving you
+            with technical debt that costs more to fix than it did to build. The 48h Sprint delivers a hand-coded React/Typescript site
+            with professional DNS configuration, secure infrastructure, and a guaranteed 90+ PageSpeed score — the same
+            foundation agencies charge $3,000+ for.
           </p>
+          <p className="text-gray-600 dark:text-gray-400 leading-relaxed italic text-sm sm:text-base">
+            "I build with modern frameworks like React and TailwindCSS, meaning I am significantly faster than developers using
+            legacy builders. An 'hour' of my time usually covers what takes other agencies three — you're paying for rapid,
+            professional execution on a world-class foundation."
+          </p>
+        </motion.div>
+
+        {/* Scarcity / capacity signal */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          className="mt-8 text-center"
+        >
+          <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-amber-50 dark:bg-amber-900/10 border border-amber-500/20">
+            <span className="relative flex h-2 w-2">
+              <span className="absolute inline-flex h-full w-full rounded-full bg-amber-500 opacity-75 animate-ping" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-500" />
+            </span>
+            <span className="text-xs font-bold text-amber-700 dark:text-amber-400">
+              I take on a limited number of Sprint projects each month to maintain quality
+            </span>
+          </div>
         </motion.div>
       </div>
     </section>

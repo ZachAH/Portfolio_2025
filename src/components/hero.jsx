@@ -104,7 +104,7 @@ const Hero = ({ handleMouseEnter, handleMouseLeave }) => {
           animate="visible"
           className="text-xl md:text-2xl lg:text-3xl text-text-secondary max-w-3xl mx-auto mb-14 font-medium leading-relaxed"
         >
-          I design and develop premium, high-performance web applications that bridge the gap between imagination and execution.
+          From zero online presence to a professional, high-performing website — deployed and live in 48 hours. Fixed pricing, full code ownership, no surprises.
         </motion.p>
 
         <motion.div 
@@ -154,7 +154,7 @@ const Hero = ({ handleMouseEnter, handleMouseLeave }) => {
             >
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
             </svg>
-            <span>Go Live in 48 Hours</span>
+            <span>Launch Your Website in 48 Hours</span>
             <svg
               className="w-4 h-4 transition-transform group-hover:translate-x-1"
               fill="none"

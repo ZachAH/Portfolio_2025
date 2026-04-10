@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { FaMapMarkerAlt, FaClock, FaCode, FaShieldAlt } from 'react-icons/fa';
 
 // ── TRUST BAR ─────────────────────────────────────────────
@@ -51,6 +52,40 @@ const guarantees = [
   {
     title: 'Discovery Is Free',
     copy: 'No contracts or deposits until we both agree on scope and fit.',
+  },
+];
+
+const riskReversals = [
+  {
+    title: '48-Hour Deadline Guarantee',
+    copy: 'Your site goes live in 48 hours or I credit double the billable amount back to your account. No questions asked.',
+  },
+  {
+    title: '90+ PageSpeed Score',
+    copy: 'If your site doesn\'t score above 90 on Google PageSpeed Insights, I\'ll optimize it for free until it does — or full refund.',
+  },
+];
+
+const processSteps = [
+  {
+    hours: '0 – 4',
+    title: 'Onboarding',
+    description: 'Intake form, brand asset audit, and initial brief confirmation.',
+  },
+  {
+    hours: '4 – 24',
+    title: 'Development',
+    description: 'Template customization, content integration, SEO infrastructure, and DNS setup.',
+  },
+  {
+    hours: '24 – 36',
+    title: 'Review',
+    description: 'Live preview link for your feedback. Consolidated revision requests.',
+  },
+  {
+    hours: '36 – 48',
+    title: 'Deployment',
+    description: 'Domain connection, final QA, and your site goes live worldwide.',
   },
 ];
 
@@ -151,6 +186,96 @@ const TrustBar = () => {
                 </p>
               </div>
             ))}
+          </div>
+        </motion.div>
+
+        {/* ── RISK REVERSAL ─────────────────────────────────── */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6"
+        >
+          {riskReversals.map((r) => (
+            <div
+              key={r.title}
+              className="p-6 md:p-8 rounded-3xl bg-green-50/80 dark:bg-green-900/10 border border-green-500/20 flex items-start gap-4"
+            >
+              <div className="w-10 h-10 rounded-xl bg-green-500/10 text-green-600 dark:text-green-400 flex items-center justify-center shrink-0 mt-0.5">
+                <FaShieldAlt className="w-5 h-5" />
+              </div>
+              <div>
+                <h3 className="text-sm font-black uppercase tracking-wide text-text-primary mb-1">
+                  {r.title}
+                </h3>
+                <p className="text-xs md:text-sm text-text-secondary leading-relaxed font-medium">
+                  {r.copy}
+                </p>
+              </div>
+            </div>
+          ))}
+        </motion.div>
+
+        {/* ── HOW IT WORKS — 48-HOUR TIMELINE ────────────────── */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="mt-20"
+        >
+          <div className="text-center mb-12">
+            <span className="text-xs font-black tracking-[0.3em] text-accent-orange uppercase mb-4 inline-block">
+              How It Works
+            </span>
+            <h2 className="text-3xl md:text-5xl font-bold tracking-tighter text-text-primary uppercase">
+              Your 48-Hour <span className="text-gradient">Roadmap</span>
+            </h2>
+            <p className="text-base md:text-lg text-text-secondary max-w-2xl mx-auto mt-4 font-medium leading-relaxed">
+              Every hour is accounted for. Speed isn't cutting corners — it's the result of a refined,
+              specialized system built to deliver professional results on a predictable timeline.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+            {processSteps.map((step, i) => (
+              <motion.div
+                key={step.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: i * 0.1 }}
+                className="relative p-6 md:p-8 rounded-3xl bg-white dark:bg-obsidian-950/60 border border-obsidian-700/10 dark:border-white/10 backdrop-blur-md"
+              >
+                <div className="text-xs font-black tracking-[0.2em] text-accent-orange uppercase mb-3">
+                  Hour {step.hours}
+                </div>
+                <h3 className="text-lg font-bold text-text-primary mb-2">{step.title}</h3>
+                <p className="text-sm text-text-secondary leading-relaxed font-medium">
+                  {step.description}
+                </p>
+                {i < processSteps.length - 1 && (
+                  <div className="hidden md:block absolute top-1/2 -right-3 w-6 h-6 text-accent-orange/40">
+                    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </div>
+                )}
+              </motion.div>
+            ))}
+          </div>
+
+          <div className="mt-10 flex justify-center">
+            <Link
+              to="/templates"
+              className="inline-flex items-center gap-3 px-8 py-4 bg-sunset-gradient text-white rounded-full font-bold transition-all hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+              Choose Your Template & Get Started
+            </Link>
           </div>
         </motion.div>
       </div>
