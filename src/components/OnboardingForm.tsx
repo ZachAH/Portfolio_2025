@@ -29,13 +29,33 @@ interface Step {
 
 // ── LEGAL CONTENT ─────────────────────────────────────────
 const TOS_TEXT = `
-1. THE SPRINT CLOCK: The development window (48h for Sprint, 72h for Modern Edge) begins ONLY once all high-resolution assets (logos, photos, copy) are received by Zach Howell. 
-2. DOMAIN DISCRETION: If your 3 domain choices are unavailable or exceed standard registration costs, Zach Howell reserves the right to select the closest available alternative to prevent project stagnation.
-3. SECONDARY INVOICING: Add-ons selected (e.g., Multi-View Layouts, Google Maps Integration) are billed via a secondary Stripe invoice. Work on these features is finalized only after payment.
-4. WHITE-GLOVE SETUP: Zach Howell is not responsible for ongoing hosting/domain renewal costs after the 48-hour hand-off.
-5. COMMERCE COMPLIANCE: Commerce Launch includes a 7-day post-launch support window for functional adjustments and compliance checks.
-6. REFUND POLICY: Due to the rapid and labor-intensive nature of these builds, all payments are non-refundable once development has officially commenced.
-7. GOVERNING LAW: These terms are governed by the laws of the State of Wisconsin.
+1. THE SPRINT CLOCK: The development window (48h for Sprint, 72h for Modern Edge) begins ONLY once this onboarding form is fully completed AND all required high-resolution assets (logos, photos, copy, brand guidelines) have been received and confirmed by Zach Howell via email. Delays in asset delivery pause the clock — the 48/72-hour guarantee applies to active build time, not calendar time from purchase.
+
+2. DNS PROPAGATION: Domain Name System (DNS) changes can take up to 24–72 hours to propagate globally after deployment. This propagation window is controlled entirely by third-party DNS providers and internet service providers — it is outside the scope of the 48-hour delivery guarantee. Your site will be deployed and accessible via the hosting URL within the guaranteed window; worldwide domain resolution may take additional time beyond Zach Howell's control.
+
+3. THIRD-PARTY SERVICES: This engagement relies on third-party platforms including but not limited to domain registrars, hosting providers (Netlify/Vercel), CDN networks, Stripe, Google Search Console, and email providers. Zach Howell is not liable for outages, policy changes, service interruptions, delayed verifications, or account-level restrictions imposed by any third-party platform. Best-effort troubleshooting will be provided, but resolution timelines for third-party issues are not guaranteed.
+
+4. DOMAIN DISCRETION: If your domain choices are unavailable, restricted, or exceed standard registration costs (typically $10–$20/year for .com), Zach Howell will notify you and propose the closest available alternative. If no agreement is reached within 24 hours, Zach Howell reserves the right to proceed with the best available option to prevent project stagnation.
+
+5. ASSET REQUIREMENTS & CLIENT RESPONSIBILITIES: The client is solely responsible for providing all content, media, logos, copy, and brand assets. Zach Howell does not provide copywriting, professional photography, or stock imagery unless explicitly agreed upon in writing. If assets are not delivered within 7 calendar days of purchase, the project may be placed on hold and the sprint clock will not begin until assets are received.
+
+6. REVISION SCOPE: The Sprint package includes one consolidated round of revisions during the Review phase (Hours 24–36). Revision requests must be submitted together, not piecemeal. Requests that materially alter the scope, layout, or functionality beyond the original template foundation may be subject to additional charges quoted before work begins.
+
+7. SECONDARY INVOICING: Add-ons selected during onboarding (e.g., Multi-View Layouts, Google Maps Integration, additional pages) are billed via a secondary Stripe invoice. Work on add-on features begins only after payment is confirmed.
+
+8. HOSTING & ONGOING COSTS: Zach Howell is not responsible for ongoing hosting fees, domain renewal costs, SSL certificate renewals, or any recurring charges from third-party services after the project hand-off. The client will be informed of any expected recurring costs during the onboarding process.
+
+9. SITE PERFORMANCE GUARANTEE: The 90+ Google PageSpeed Insights score guarantee applies to the site as delivered at launch, tested on a standard mobile connection. Scores may vary based on the client's hosting plan, third-party scripts added post-launch, or media assets that exceed recommended file sizes. The guarantee does not cover performance degradation caused by client modifications after delivery.
+
+10. COMMERCE COMPLIANCE: Commerce Launch includes a 7-day post-launch support window for functional adjustments and compliance checks. After the 7-day window, support is available via Growth Partnership Plans.
+
+11. INTELLECTUAL PROPERTY: Upon full payment and project completion, the client receives 100% ownership of the delivered source code. Zach Howell retains the right to display the project in his portfolio unless the client requests otherwise in writing. The client is responsible for ensuring they hold proper rights/licenses to all assets, content, and media they provide.
+
+12. LIMITATION OF LIABILITY: Zach Howell's total liability for any claim arising from this engagement shall not exceed the total amount paid for the specific package purchased. Zach Howell is not liable for lost revenue, lost data, business interruption, or any indirect, incidental, or consequential damages resulting from the use or inability to use the delivered website.
+
+13. REFUND POLICY: Due to the rapid and labor-intensive nature of these builds, all payments are non-refundable once development has officially commenced (i.e., the sprint clock has started). If the project has not yet begun and no development work has been performed, a full refund may be issued at Zach Howell's discretion.
+
+14. GOVERNING LAW: These terms are governed by the laws of the State of Wisconsin. Any disputes arising from this agreement shall be resolved in the courts of Waukesha County, Wisconsin.
 `;
 
 // ── CONFIGURATION ─────────────────────────────────────────
