@@ -57,9 +57,9 @@ const Navbar = ({ handleMouseEnter, handleMouseLeave }) => {
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
       className="fixed top-0 left-0 right-0 z-[1000] flex justify-center py-4 sm:py-6 pointer-events-none"
     >
-      <div 
-        className={`flex items-center justify-between sm:justify-center gap-4 sm:gap-8 px-5 sm:px-8 py-3 rounded-full pointer-events-auto transition-all duration-500 glass w-[90%] sm:w-auto ${
-          scrolled ? 'shadow-premium-hover scale-95 bg-obsidian-900/40' : 'bg-transparent shadow-none border-transparent'
+      <div
+        className={`flex items-center justify-between sm:justify-center gap-4 sm:gap-8 px-5 sm:px-8 py-3 rounded-full pointer-events-auto transition-all duration-500 w-[90%] sm:w-auto ${
+          scrolled ? 'glass shadow-premium-hover scale-95' : 'bg-white/80 dark:bg-obsidian-950/80 backdrop-blur-xl shadow-sm sm:bg-transparent sm:dark:bg-transparent sm:backdrop-blur-none sm:shadow-none'
         }`}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}

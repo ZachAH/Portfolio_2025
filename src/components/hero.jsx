@@ -83,7 +83,7 @@ const Hero = ({ handleMouseEnter, handleMouseLeave }) => {
   };
 
   return (
-    <section className="relative min-h-[92vh] flex flex-col items-center justify-center text-center px-6 md:px-12 overflow-hidden">
+    <section className="relative min-h-[92vh] flex flex-col items-center justify-center text-center px-6 md:px-12 overflow-hidden pt-20 md:pt-0">
       <div className="max-w-6xl w-full relative z-10">
         <h1
           className="text-5xl xs:text-6xl sm:text-7xl md:text-9xl lg:text-[10rem] font-bold tracking-tighter mb-10 leading-[0.85] text-text-primary select-none"

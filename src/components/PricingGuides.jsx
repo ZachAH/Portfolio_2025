@@ -282,43 +282,60 @@ const PricingGuides = () => {
           </AnimatePresence>
         </div>
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          className="mt-20 p-8 bg-gray-50 dark:bg-white/5 rounded-3xl border border-accent-orange/20 text-center max-w-4xl mx-auto shadow-sm"
-        >
-          <h4 className="text-xl font-bold text-obsidian-950 dark:text-white mb-3 flex items-center justify-center gap-2">
-            Why $700 — Not $200?
-          </h4>
-          <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-sm sm:text-base mb-4">
-            A $200 website uses bloated page builders with slow load times, missing metadata, and zero SEO — leaving you
-            with technical debt that costs more to fix than it did to build. The 48h Sprint delivers a hand-coded React/Typescript site
-            with professional DNS configuration, secure infrastructure, and a guaranteed 90+ PageSpeed score — the same
-            foundation agencies charge $3,000+ for.
-          </p>
-          <p className="text-gray-600 dark:text-gray-400 leading-relaxed italic text-sm sm:text-base">
-            "I build with modern frameworks like React and TailwindCSS, meaning I am significantly faster than developers using
-            legacy builders. An 'hour' of my time usually covers what takes other agencies three — you're paying for rapid,
-            professional execution on a world-class foundation."
-          </p>
-        </motion.div>
+        {/* ── BOTTOM CONTEXTUAL SECTIONS (tab-aware) ──── */}
+        <AnimatePresence mode="wait">
+          {activeTab === 'growth' ? (
+            <motion.div
+              key="growth-footer"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="mt-20 p-8 bg-gray-50 dark:bg-white/5 rounded-3xl border border-accent-orange/20 text-center max-w-4xl mx-auto shadow-sm"
+            >
+              <h4 className="text-xl font-bold text-obsidian-950 dark:text-white mb-3 flex items-center justify-center gap-2">
+                The Advantage of Working With Me
+              </h4>
+              <p className="text-gray-600 dark:text-gray-400 leading-relaxed italic text-sm sm:text-base">
+                "I build with modern frameworks like React and TailwindCSS, meaning I am significantly faster than developers using
+                legacy builders. An 'hour' of my time usually covers what takes other agencies three — you're paying for rapid,
+                professional execution on a world-class foundation."
+              </p>
+            </motion.div>
+          ) : (
+            <motion.div
+              key="template-footer"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+            >
+              <div className="mt-20 p-8 bg-gray-50 dark:bg-white/5 rounded-3xl border border-accent-orange/20 text-center max-w-4xl mx-auto shadow-sm">
+                <h4 className="text-xl font-bold text-obsidian-950 dark:text-white mb-3 flex items-center justify-center gap-2">
+                  Why $700 — Not $200?
+                </h4>
+                <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-sm sm:text-base">
+                  A $200 website uses bloated page builders with slow load times, missing metadata, and zero SEO — leaving you
+                  with technical debt that costs more to fix than it did to build. The 48h Sprint delivers a hand-coded React/Typescript site
+                  with professional DNS configuration, secure infrastructure, and a guaranteed 90+ PageSpeed score — the same
+                  foundation agencies charge $3,000+ for.
+                </p>
+              </div>
 
-        {/* Scarcity / capacity signal */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          className="mt-8 text-center"
-        >
-          <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-amber-50 dark:bg-amber-900/10 border border-amber-500/20">
-            <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full rounded-full bg-amber-500 opacity-75 animate-ping" />
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-500" />
-            </span>
-            <span className="text-xs font-bold text-amber-700 dark:text-amber-400">
-              I take on a limited number of Sprint projects each month to maintain quality
-            </span>
-          </div>
-        </motion.div>
+              {activeTab === 'templates' && (
+                <div className="mt-8 text-center">
+                  <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-amber-50 dark:bg-amber-900/10 border border-amber-500/20">
+                    <span className="relative flex h-2 w-2">
+                      <span className="absolute inline-flex h-full w-full rounded-full bg-amber-500 opacity-75 animate-ping" />
+                      <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-500" />
+                    </span>
+                    <span className="text-xs font-bold text-amber-700 dark:text-amber-400">
+                      I take on a limited number of Sprint projects each month to maintain quality
+                    </span>
+                  </div>
+                </div>
+              )}
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </section>
   );
