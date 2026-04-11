@@ -392,7 +392,7 @@ const PricingGuides = () => {
                 professional execution on a world-class foundation."
               </p>
             </motion.div>
-          ) : (
+          ) : activeTab === 'templates' ? (
             <motion.div
               key="template-footer"
               initial={{ opacity: 0 }}
@@ -411,19 +411,48 @@ const PricingGuides = () => {
                 </p>
               </div>
 
-              {activeTab === 'templates' && (
-                <div className="mt-8 text-center">
-                  <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-amber-50 dark:bg-amber-900/10 border border-amber-500/20">
-                    <span className="relative flex h-2 w-2">
-                      <span className="absolute inline-flex h-full w-full rounded-full bg-amber-500 opacity-75 animate-ping" />
-                      <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-500" />
-                    </span>
-                    <span className="text-xs font-bold text-amber-700 dark:text-amber-400">
-                      I take on a limited number of Sprint projects each month to maintain quality
-                    </span>
-                  </div>
+              <div className="mt-8 text-center">
+                <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-amber-50 dark:bg-amber-900/10 border border-amber-500/20">
+                  <span className="relative flex h-2 w-2">
+                    <span className="absolute inline-flex h-full w-full rounded-full bg-amber-500 opacity-75 animate-ping" />
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-500" />
+                  </span>
+                  <span className="text-xs font-bold text-amber-700 dark:text-amber-400">
+                    I take on a limited number of Sprint projects each month to maintain quality
+                  </span>
                 </div>
-              )}
+              </div>
+            </motion.div>
+          ) : (
+            <motion.div
+              key="custom-footer"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="mt-20 max-w-4xl mx-auto"
+            >
+              <div className="p-8 bg-gray-50 dark:bg-white/5 rounded-3xl border border-accent-orange/20 text-center shadow-sm">
+                <h4 className="text-xl font-bold text-obsidian-950 dark:text-white mb-3 flex items-center justify-center gap-2">
+                  What Is a Custom Build?
+                </h4>
+                <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-sm sm:text-base mb-4">
+                  Custom builds are ground-up projects designed and developed specifically for your business — no templates, no shortcuts.
+                  We start with a discovery call to map out your goals, audience, and feature requirements, then I architect
+                  and hand-code every page from scratch using React, TypeScript, and TailwindCSS.
+                </p>
+                <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-sm sm:text-base">
+                  Whether you need a dynamic content management system, a secure admin dashboard, third-party API integrations,
+                  or a full-scale web application — custom builds give you total creative and technical control with zero compromises.
+                </p>
+              </div>
+
+              <div className="mt-8 flex flex-wrap justify-center gap-3">
+                {['1-on-1 Discovery Process', 'Fully Custom UI/UX', 'You Own Everything', 'Scalable Architecture'].map((tag) => (
+                  <span key={tag} className="px-4 py-2 rounded-full bg-accent-orange/10 border border-accent-orange/20 text-xs font-bold text-accent-orange uppercase tracking-widest">
+                    {tag}
+                  </span>
+                ))}
+              </div>
             </motion.div>
           )}
         </AnimatePresence>

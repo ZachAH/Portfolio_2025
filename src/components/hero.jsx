@@ -129,7 +129,7 @@ const Hero = ({ handleMouseEnter, handleMouseLeave }) => {
             >
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
             </svg>
-            <span>Launch Your Website in 48 Hours</span>
+            <span>Launch Your Website in 2 Days</span>
             <svg
               className="w-4 h-4 transition-transform group-hover:translate-x-1"
               fill="none"
