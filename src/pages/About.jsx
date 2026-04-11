@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Seo from '../components/Seo';
+import selfie2Img from '../assets/selfie2.webp';
 import { personSchema, breadcrumb } from '../utils/structuredData';
 
 const aboutJsonLd = {
@@ -85,15 +86,29 @@ const About = ({ handleMouseEnter, handleMouseLeave }) => {
             </div>
           </motion.div>
 
-          {/* Feature Card / Image Side */}
+          {/* Photo + Feature Card Side */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="relative"
+            className="relative flex flex-col items-center gap-10"
           >
-            <div className="glass-card rounded-[3rem] p-12 border border-obsidian-700/10 relative z-10">
+            {/* Selfie */}
+            <div className="relative group">
+              <div className="absolute -inset-1 bg-sunset-gradient rounded-[3.5rem] blur opacity-20 group-hover:opacity-40 transition duration-1000" />
+              <div className="relative w-60 h-72 md:w-72 md:h-80 overflow-hidden rounded-[3.5rem] border border-obsidian-700/10 glass">
+                <img
+                  src={selfie2Img}
+                  alt="Zach Howell — freelance full-stack web developer based in New Berlin, Wisconsin"
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000 ease-in-out scale-105 hover:scale-100"
+                />
+              </div>
+            </div>
+
+            <div className="glass-card rounded-[3rem] p-12 border border-obsidian-700/10 relative z-10 w-full">
               <h3 className="text-2xl font-bold text-text-primary mb-6 tracking-tight">Why work with me?</h3>
               <ul className="space-y-6">
                 {[
