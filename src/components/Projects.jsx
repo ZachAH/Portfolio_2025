@@ -14,7 +14,7 @@ const projectsData = [
   {
     id: 9,
     title: "Kettle Moraine Professional Cleaners",
-    category: "Small Business Web Modernization",
+    category: "Custom Business Website",
     location: "West Bend, WI",
     description: "A complete modern redesign of a local cleaning company's website, focused on speed, clarity, and converting visitors into customers. Built with React, Tailwind, and Vite for top-tier performance.",
     csDescription: "Transformed a legacy small-business website into a high-performing, mobile-first platform. Implemented a fully modern React architecture, responsive UI components, optimized hero sections, and a clean service navigation system.",
@@ -26,7 +26,7 @@ const projectsData = [
   {
     id: 7,
     title: "Upper Crust Pizza",
-    category: "Digital Transformation",
+    category: "Custom Dynamic + CMS Build",
     location: "Milwaukee, WI",
     isDevelopment: true,
     description: "A fully responsive React + Vite + Tailwind website built for a real Milwaukee-area pizzeria, featuring intuitive navigation, dynamic menu sections, and an embedded Google Map. Includes a custom CMS admin dashboard.",
@@ -39,7 +39,7 @@ const projectsData = [
   {
     id: 5,
     title: "Saved & Sent",
-    category: "E-Commerce Platform",
+    category: "Custom E-Commerce Platform",
     location: "Milwaukee, WI",
     isDevelopment: true,
     description: "An e-commerce site for a local Christian based apparel company, built with custom CMS features and Stripe integration.",
@@ -49,40 +49,6 @@ const projectsData = [
     tags: ["React", "Node.js", "Firebase", "Stripe"],
     testimonial: null, // TODO: add real client quote when available
   },
-  {
-    id: 1,
-    title: "Claw and Decay Clothing",
-    category: "Scalable E-commerce",
-    location: "New Berlin, WI",
-    description: "My fullstack e-commerce site for my clothing brand, using Node.js and Stripe for payment processing.",
-    csDescription: "Engineered and deployed an integrated e-commerce platform. Optimized checkout flows and created support documentation for efficient CS team handoff.",
-    image: "/CAD.webp",
-    link: "https://clawanddecay.com/",
-    tags: ["React", "Node.js", "Firebase", "Stripe"],
-    testimonial: null, // TODO: add real quote — this is Zach's own brand
-  },
-  {
-    id: 2,
-    title: "Futuristic Local Business Template",
-    category: "Commercial SaaS Template",
-    isTemplate: true,
-    description: "A premium, high-performance web architecture tailored for local buisnesses, featuring a dynamic 'Futuristic-to-Professional' theme toggle and GSAP-powered animations.",
-    csDescription: "Developed a custom-engineered 'Theme Engine' with GSAP-powered animations and dynamic CSS variable injection, enabling a seamless 'Futuristic-to-Professional' aesthetic toggle for end-users.",
-    image: "/saas_template.webp", // Update to your new screenshot
-    link: "https://futuristiclocal.netlify.app/", // Use your live demo link here
-    tags: ["React", "TypeScript", "GSAP", "Tailwind CSS v4"]
-  },
-  {
-    id: 6,
-    title: "Contractor & Trades Template",
-    category: "Premium Web Template",
-    isTemplate: true,
-    description: "A high-performance, landing page template designed specifically for local trades.",
-    csDescription: "Engineered a high-performance conversion engine for local service providers, featuring a mobile-first architecture and schema markup integration that boosts local SEO visibility. Every component is modularized for 100% brand scalability, ensuring zero layout shift during theme transitions.",
-    image: "/construction_template.webp",
-    link: "https://tradestemplatezh.netlify.app/",
-    tags: ["React", "TypeScript", "Tailwind CSS", "GSAP"]
-  }
 ];
 
 const Projects = ({ handleMouseEnter, handleMouseLeave }) => {
@@ -98,19 +64,19 @@ const Projects = ({ handleMouseEnter, handleMouseLeave }) => {
           transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
           className="mb-20 text-center"
         >
-          <span className="text-sm font-bold tracking-widest text-accent-orange uppercase mb-4 inline-block">Real Clients · Real Results</span>
+          <span className="text-sm font-bold tracking-widest text-accent-orange uppercase mb-4 inline-block">Wisconsin Built · Publicly Live</span>
           <h2 className="text-5xl md:text-7xl font-bold tracking-tight mb-8 text-text-primary uppercase"
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
           >
-            Client <span className="text-gradient">Work</span>.
+            Custom <span className="text-gradient">Builds</span>.
           </h2>
           <p className="text-xl md:text-2xl text-text-secondary max-w-2xl mx-auto leading-relaxed mb-6">
-            Live sites for real businesses across Wisconsin and beyond. Every project below is publicly verifiable — click through and see the work for yourself.
+            Hand-coded websites built from scratch for real Wisconsin businesses. No templates, no page builders — just clean React code, fast load times, and real results. Click through and see them live.
           </p>
           <div className="flex items-center justify-center gap-2 text-xs font-bold tracking-widest text-text-secondary uppercase mb-12">
             <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-            All projects below are publicly live
+            Every project is publicly live and verifiable. Keep in mind some of these are still in development, so you may see work-in-progress elements or placeholder content.
           </div>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <button
