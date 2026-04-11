@@ -17,6 +17,7 @@ const Footer = ({ handleMouseEnter, handleMouseLeave }) => {
     { icon: <SiStripe className="w-4 h-4" />, label: 'Stripe Checkout' },
     { icon: <FaLock className="w-3.5 h-3.5" />, label: 'SSL Encrypted' },
     { icon: <FaShieldAlt className="w-3.5 h-3.5" />, label: '256-Bit Security' },
+    { icon: <FaLock className="w-3.5 h-3.5" />, label: 'Full Ownership' },
   ];
 
   const techStack = [
@@ -96,7 +97,7 @@ const Footer = ({ handleMouseEnter, handleMouseLeave }) => {
           ))}
         </div>
         <p className="text-center text-[9px] uppercase tracking-[0.2em] text-text-secondary/30 font-bold mt-6">
-          All transactions are securely processed through Stripe. Your data is never stored on our servers.
+          All transactions are securely processed through Stripe. Your data is never stored on our servers. You own every account, credential, and line of code.
         </p>
       </div>
     </footer>

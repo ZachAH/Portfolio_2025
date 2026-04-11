@@ -204,9 +204,9 @@ const STEPS: Step[] = [
         fields: [
             {
                 id: 'setupExplainer',
-                label: '🔒 Why White Glove Setup?',
+                label: '🔒 You Own Everything — White Glove Setup',
                 type: 'header',
-                label_text: 'I ensure your hosting, domain, and security are configured to elite standards. I will email a secure master-list of credentials and instructions for any monthly fees for the domain and hosting if applicable.'
+                label_text: 'Every account I create is registered under YOUR name and YOUR email. You own the domain, the hosting, the code — everything. After launch, I will email you a secure master-list of every account, login, and credential created so you have full control from day one. I never retain access to anything unless you explicitly keep me on a Growth Plan.'
             },
             {
                 id: 'accountSetup',
@@ -217,6 +217,37 @@ const STEPS: Step[] = [
                     { value: 'existing', label: 'I already own a domain' },
                     { value: 'transfer', label: 'I want to move from Wix/Squarespace' }
                 ]
+            },
+            {
+                id: 'hostingPreference',
+                label: 'Preferred Hosting Provider',
+                type: 'select',
+                condition: (data: any) => data.accountSetup === 'create_for_me',
+                options: [
+                    { value: 'netlify', label: 'Netlify (Recommended for most sites ⭐)' },
+                    { value: 'vercel', label: 'Vercel (Great for React/Next.js)' },
+                    { value: 'zach_picks', label: 'I trust Zach to choose the best option' }
+                ]
+            },
+            {
+                id: 'domainRegistrar',
+                label: 'Preferred Domain Registrar',
+                type: 'select',
+                condition: (data: any) => data.accountSetup === 'create_for_me',
+                options: [
+                    { value: 'porkbun', label: 'Porkbun (Best value — ~$10/yr ⭐)' },
+                    { value: 'namecheap', label: 'Namecheap' },
+                    { value: 'godaddy', label: 'GoDaddy' },
+                    { value: 'cloudflare', label: 'Cloudflare Registrar' },
+                    { value: 'zach_picks', label: 'I trust Zach to choose' }
+                ]
+            },
+            {
+                id: 'ownershipReminder',
+                label: '🔑 Ownership Guarantee',
+                type: 'header',
+                label_text: 'Every domain and hosting account will be registered with YOUR email address. You will receive full admin credentials via a secure email after launch. There are no platform fees to me — you pay the registrar and hosting provider directly. I do not retain any access after handoff unless you opt into a Growth Plan.',
+                condition: (data: any) => data.accountSetup === 'create_for_me'
             },
             /* --- FIELDS FOR: Existing Domain / Transfer --- */
             {
@@ -298,7 +329,43 @@ const STEPS: Step[] = [
                 type: 'header',
                 label_text: 'In the event that all three choices above are unavailable, you agree to let Zach use his professional discretion to select the best alternative to keep your sprint on track.'
             },
-            { id: 'emailAddress', label: 'Primary Contact Email (for 2FA)', type: 'email' },
+            {
+                id: 'accountEmailStrategy',
+                label: 'Email for New Accounts (Domain, Hosting, etc.)',
+                type: 'select',
+                options: [
+                    { value: 'existing', label: 'Use my existing email' },
+                    { value: 'create_new', label: 'Create a new professional email for me (e.g., admin@mybrand.com)' }
+                ]
+            },
+            {
+                id: 'emailAddress',
+                label: 'Your Existing Email',
+                placeholder: 'you@gmail.com',
+                type: 'email',
+                condition: (data: any) => data.accountEmailStrategy === 'existing'
+            },
+            {
+                id: 'newEmailPreference',
+                label: 'Preferred New Email Address',
+                placeholder: 'e.g., admin@yourbrand.com or info@yourbrand.com',
+                type: 'text',
+                condition: (data: any) => data.accountEmailStrategy === 'create_new'
+            },
+            {
+                id: 'newEmailNotice',
+                label: '📧 Professional Email Setup',
+                type: 'header',
+                label_text: 'I\'ll set up a professional email address tied to your new domain (e.g., admin@yourbrand.com) and register all accounts under it. You\'ll receive the email login credentials in your secure master-list after launch. A personal email is still needed below for 2FA verification and as a recovery address.',
+                condition: (data: any) => data.accountEmailStrategy === 'create_new'
+            },
+            {
+                id: 'personalEmail',
+                label: 'Personal/Recovery Email (for 2FA & backup)',
+                placeholder: 'you@gmail.com',
+                type: 'email',
+                condition: (data: any) => data.accountEmailStrategy === 'create_new'
+            },
             { id: 'phoneForAuth', label: 'Recovery Phone (2FA)', type: 'tel' }
         ]
     },

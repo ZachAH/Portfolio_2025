@@ -71,6 +71,11 @@ function ScrollHandler() {
     ReactGA.send({ hitType: "pageview", page: pathname + hash });
   }, [pathname, hash]);
 
+  // Always scroll to top on initial page load / refresh
+  useEffect(() => {
+    if (!hash) window.scrollTo(0, 0);
+  }, []);
+
   return null;
 }
 

@@ -3,6 +3,7 @@ import Hero from '../components/hero';
 import TrustBar from '../components/TrustBar';
 import Projects from '../components/Projects';
 import Contact from '../components/Contact';
+import BeforeAfter from '../components/BeforeAfter';
 import Seo from '../components/Seo';
 import {
   personSchema,
@@ -30,6 +31,10 @@ function Home({ handleMouseEnter, handleMouseLeave }) {
         handleMouseLeave={handleMouseLeave}
       />
       <TrustBar />
+      <BeforeAfter
+        handleMouseEnter={handleMouseEnter}
+        handleMouseLeave={handleMouseLeave}
+      />
       <Projects
         handleMouseEnter={handleMouseEnter} 
         handleMouseLeave={handleMouseLeave}

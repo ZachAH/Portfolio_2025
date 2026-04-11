@@ -90,12 +90,12 @@ const Hero = ({ handleMouseEnter, handleMouseLeave }) => {
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         >
-          <LetterReveal text="Building" delay={0.4} /><br />
+          <LetterReveal text="Your" delay={0.4} /><br />
           <span className="relative inline-block">
-            <span className="text-gradient">Digital</span>
+            <span className="text-gradient">Website.</span>
             <SharpieUnderline />
           </span><br />
-          <LetterReveal text="Brilliance." delay={1.2} />
+          <LetterReveal text="Live Tomorrow." delay={1.2} />
         </h1>
 
         <motion.p
@@ -104,44 +104,19 @@ const Hero = ({ handleMouseEnter, handleMouseLeave }) => {
           animate="visible"
           className="text-xl md:text-2xl lg:text-3xl text-text-secondary max-w-3xl mx-auto mb-14 font-medium leading-relaxed"
         >
-          From zero online presence to a professional, high-performing website — deployed and live in 48 hours. Fixed pricing, full code ownership, no surprises.
+          62% of customers will skip your business entirely if they can't find a professional website. Get a high-performing site deployed in 48 hours — fixed pricing, you own everything, no surprises.
         </motion.p>
 
-        <motion.div 
-          variants={itemVariants} 
-          initial="hidden"
-          animate="visible"
-          className="flex flex-col sm:flex-row items-center justify-center gap-6"
-        >
-          <a
-            href="#projects"
-            className="group relative px-10 py-5 bg-obsidian-950 text-white dark:bg-white dark:text-obsidian-950 rounded-full font-bold overflow-hidden transition-all hover:scale-105 active:scale-95 shadow-premium"
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-          >
-            <span className="relative z-10">View My Work</span>
-            <div className="absolute inset-0 bg-sunset-gradient opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
-          </a>
-          <a
-            href="#contact"
-            className="px-10 py-5 glass text-text-primary border border-obsidian-700/20 rounded-full font-bold hover:bg-silver-100 transition-all hover:shadow-md active:scale-95"
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-          >
-            Let's Talk
-          </a>
-        </motion.div>
-
-        {/* Templates CTA — high-urgency nudge to the template store */}
+        {/* Primary CTA */}
         <motion.div
           variants={itemVariants}
           initial="hidden"
           animate="visible"
-          className="mt-8 flex justify-center"
+          className="flex justify-center"
         >
           <Link
             to="/templates"
-            className="group relative inline-flex items-center gap-3 px-8 py-4 bg-sunset-gradient text-white rounded-full font-bold overflow-hidden transition-all hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl"
+            className="group relative inline-flex items-center gap-3 px-10 py-5 bg-sunset-gradient text-white text-lg rounded-full font-bold overflow-hidden transition-all hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl"
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
           >

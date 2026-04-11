@@ -42,8 +42,8 @@ const guarantees = [
     copy: 'Transparent tiers. No surprise invoices after the build starts.',
   },
   {
-    title: 'Source Code Ownership',
-    copy: 'You own 100% of the code on launch day — no vendor lock-in.',
+    title: 'You Own Everything',
+    copy: 'Code, domain, hosting, every account and credential — 100% yours on launch day. I email you a secure master-list of every login created.',
   },
   {
     title: 'Direct Access',

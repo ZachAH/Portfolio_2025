@@ -190,8 +190,8 @@ const WHITE_GLOVE_INCLUSIONS = [
     copy: 'Schema, Open Graph, sitemap, and Google Search Console baked in.',
   },
   {
-    title: 'Source Code Ownership',
-    copy: 'You keep 100% of the code on launch day. Zero vendor lock-in, ever.',
+    title: 'You Own Everything',
+    copy: 'Code, domain, hosting — every account is yours. I email you a secure master-list of all credentials after launch.',
   },
 ];
 
@@ -411,7 +411,7 @@ const Templates = ({ handleMouseEnter, handleMouseLeave }) => {
             <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 border-t border-accent-orange/20">
               <p className="text-xs md:text-sm text-zinc-600 dark:text-zinc-400 italic font-medium text-center sm:text-left">
                 The $700 Sprint package is literally everything you need to be live and
-                selling. Nothing extra to buy, nothing extra to figure out. Remember everything and anything on these templates is fully customizable — the code is yours to keep, tweak, and extend as you see fit after launch.
+                selling. Nothing extra to buy, nothing extra to figure out. You own the domain, the hosting account, and 100% of the source code — all registered under your name. After launch, I email you a secure master-list of every credential and login so you have complete control.
               </p>
               <Link
                 to="/pricing"

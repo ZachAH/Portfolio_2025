@@ -8,97 +8,186 @@ import templateGuide from '../../src/assets/PriceGuides/Template_Price_Guide.pdf
 import growthPlans from '../../src/assets/PriceGuides/Growth_Plans.pdf';
 import freelanceGuide from '../../src/assets/PriceGuides/freelance_price_guide.pdf';
 
-const PricingCard = ({ title, price, description, features, notIncluded, accent, isPopular, link, stripeUrl, guarantee }) => (
-  <motion.div
-    initial={{ opacity: 0, y: 20 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true }}
-    className={`relative p-8 rounded-3xl border transition-all duration-300 hover:shadow-premium flex flex-col h-full ${isPopular
-      ? 'border-accent-orange bg-white dark:bg-obsidian-900/40 shadow-xl'
-      : 'border-obsidian-700/10 dark:border-obsidian-700/20 bg-gray-50/50 dark:bg-white/5 backdrop-blur-md'
-      }`}
-  >
-    {isPopular && (
-      <motion.span
-        initial={{ y: 10, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ delay: 0.2 }}
-        className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-accent-orange text-white text-xs font-bold rounded-full uppercase tracking-widest z-50 shadow-lg"
+const CheckoutReadyModal = ({ isOpen, onClose, stripeUrl, title }) => (
+  <AnimatePresence>
+    {isOpen && (
+      <>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          onClick={onClose}
+          className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[9998]"
+        />
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95, y: 20 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          exit={{ opacity: 0, scale: 0.95, y: 20 }}
+          className="fixed inset-0 z-[9999] flex items-center justify-center p-4"
+        >
+          <div className="bg-white dark:bg-obsidian-950 border border-gray-200 dark:border-white/10 rounded-3xl shadow-2xl max-w-lg w-full p-8 relative">
+            <button onClick={onClose} className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 dark:hover:text-white transition-colors">
+              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
+            </button>
+
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-10 h-10 rounded-xl bg-green-500/10 flex items-center justify-center">
+                <svg className="w-5 h-5 text-green-600 dark:text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+              </div>
+              <h3 className="text-lg font-black text-obsidian-950 dark:text-white uppercase tracking-tight">Before You Check Out</h3>
+            </div>
+
+            <p className="text-sm text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
+              Here's exactly what happens after you complete your <span className="font-bold text-obsidian-950 dark:text-white">{title}</span> purchase:
+            </p>
+
+            <ol className="space-y-4 mb-6">
+              {[
+                { step: '1', title: 'Secure Stripe Checkout', desc: 'Your payment is processed through Stripe — your card data never touches my servers.' },
+                { step: '2', title: 'Secure Onboarding Portal', desc: 'You\'ll be redirected to a private onboarding page to provide your brand info, assets, and preferences.' },
+                { step: '3', title: 'Sprint Clock Starts', desc: 'Once I confirm your assets, the 48-hour build window begins immediately.' },
+                { step: '4', title: 'You Own Everything', desc: 'After launch, I\'ll email you a secure master-list of every account, login, and credential created. The domain, hosting, code — it\'s all yours.' },
+              ].map((item) => (
+                <li key={item.step} className="flex gap-3">
+                  <span className="w-6 h-6 rounded-full bg-accent-orange/10 text-accent-orange text-xs font-black flex items-center justify-center shrink-0 mt-0.5">{item.step}</span>
+                  <div>
+                    <span className="text-sm font-bold text-obsidian-950 dark:text-white">{item.title}</span>
+                    <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">{item.desc}</p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+
+            <div className="p-3 rounded-xl bg-blue-50/80 dark:bg-blue-900/10 border border-blue-500/20 mb-6">
+              <p className="text-xs text-blue-700 dark:text-blue-400 leading-relaxed">
+                <span className="font-bold">Have these ready:</span> Your logo (PNG/SVG), brand colors, business info (phone, address, hours), and any photos/copy you want on the site. Don't worry if you're missing some — you can provide them in the onboarding form.
+              </p>
+            </div>
+
+            <div className="flex gap-3">
+              <button onClick={onClose} className="px-6 py-3.5 rounded-full border border-gray-200 dark:border-white/10 text-gray-600 dark:text-gray-300 font-bold text-sm hover:bg-gray-100 dark:hover:bg-white/5 transition-colors">
+                Go Back
+              </button>
+              <a
+                href={stripeUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1 py-3.5 rounded-full bg-accent-orange text-white font-bold text-sm text-center hover:bg-accent-orange/90 active:scale-95 transition-all shadow-md flex items-center justify-center gap-2"
+              >
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
+                Proceed to Secure Checkout
+              </a>
+            </div>
+
+            <p className="text-center text-[9px] text-gray-400 dark:text-gray-500 mt-4 uppercase tracking-widest font-bold">
+              Secured by Stripe — 256-bit encryption
+            </p>
+          </div>
+        </motion.div>
+      </>
+    )}
+  </AnimatePresence>
+);
+
+const PricingCard = ({ title, price, description, features, notIncluded, accent, isPopular, link, stripeUrl, guarantee }) => {
+  const [showModal, setShowModal] = useState(false);
+
+  return (
+    <>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        className={`relative p-8 rounded-3xl border transition-all duration-300 hover:shadow-premium flex flex-col h-full ${isPopular
+          ? 'border-accent-orange bg-white dark:bg-obsidian-900/40 shadow-xl'
+          : 'border-obsidian-700/10 dark:border-obsidian-700/20 bg-gray-50/50 dark:bg-white/5 backdrop-blur-md'
+          }`}
       >
-        Most Popular
-      </motion.span>
-    )}
+        {isPopular && (
+          <motion.span
+            initial={{ y: 10, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.2 }}
+            className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-accent-orange text-white text-xs font-bold rounded-full uppercase tracking-widest z-50 shadow-lg"
+          >
+            Most Popular
+          </motion.span>
+        )}
 
-    <h3 className="text-2xl font-bold text-obsidian-950 dark:text-white mb-2">{title}</h3>
-    <div className="flex items-baseline gap-1 mb-4">
-      <span className="text-4xl font-bold text-obsidian-950 dark:text-white">{price}</span>
-      {price.includes('/') && <span className="text-gray-500 dark:text-gray-400 text-sm font-medium">/month</span>}
-    </div>
-    <p className="text-gray-600 dark:text-gray-400 text-sm mb-6 leading-relaxed">{description}</p>
+        <h3 className="text-2xl font-bold text-obsidian-950 dark:text-white mb-2">{title}</h3>
+        <div className="flex items-baseline gap-1 mb-4">
+          <span className="text-4xl font-bold text-obsidian-950 dark:text-white">{price}</span>
+          {price.includes('/') && <span className="text-gray-500 dark:text-gray-400 text-sm font-medium">/month</span>}
+        </div>
+        <p className="text-gray-600 dark:text-gray-400 text-sm mb-6 leading-relaxed">{description}</p>
 
-    {guarantee && (
-      <div className="mb-6 p-3 rounded-xl bg-green-50/80 dark:bg-green-900/10 border border-green-500/20 flex items-center gap-2.5">
-        <svg className="w-4 h-4 text-green-600 dark:text-green-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-        </svg>
-        <span className="text-xs font-bold text-green-700 dark:text-green-400">{guarantee}</span>
-      </div>
-    )}
+        {guarantee && (
+          <div className="mb-6 p-3 rounded-xl bg-green-50/80 dark:bg-green-900/10 border border-green-500/20 flex items-center gap-2.5">
+            <svg className="w-4 h-4 text-green-600 dark:text-green-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+            </svg>
+            <span className="text-xs font-bold text-green-700 dark:text-green-400">{guarantee}</span>
+          </div>
+        )}
 
-    <ul className="space-y-4 mb-4 flex-grow">
-      {features.map((feature, i) => (
-        <li key={i} className="flex items-start gap-3 text-sm text-obsidian-900 dark:text-gray-200">
-          <svg className={`w-5 h-5 ${accent} shrink-0`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-          </svg>
-          {feature}
-        </li>
-      ))}
-    </ul>
-
-    {notIncluded && notIncluded.length > 0 && (
-      <div className="mb-8 pt-4 border-t border-gray-200 dark:border-white/10">
-        <span className="text-[10px] font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-3 block">Not included</span>
-        <ul className="space-y-2">
-          {notIncluded.map((item, i) => (
-            <li key={i} className="flex items-start gap-3 text-xs text-gray-400 dark:text-gray-500">
-              <svg className="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+        <ul className="space-y-4 mb-4 flex-grow">
+          {features.map((feature, i) => (
+            <li key={i} className="flex items-start gap-3 text-sm text-obsidian-900 dark:text-gray-200">
+              <svg className={`w-5 h-5 ${accent} shrink-0`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
               </svg>
-              {item}
+              {feature}
             </li>
           ))}
         </ul>
-      </div>
-    )}
 
-    {!notIncluded && <div className="mb-8" />}
+        {notIncluded && notIncluded.length > 0 && (
+          <div className="mb-8 pt-4 border-t border-gray-200 dark:border-white/10">
+            <span className="text-[10px] font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-3 block">Not included</span>
+            <ul className="space-y-2">
+              {notIncluded.map((item, i) => (
+                <li key={i} className="flex items-start gap-3 text-xs text-gray-400 dark:text-gray-500">
+                  <svg className="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
 
-    {stripeUrl ? (
-      <a
-        href={stripeUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        className={`w-full py-4 rounded-full font-bold transition-all active:scale-95 shadow-md text-center block ${isPopular
-          ? 'bg-accent-orange text-white hover:bg-accent-orange/90'
-          : 'bg-obsidian-950 text-white dark:bg-white dark:text-obsidian-950 hover:opacity-90'
-          }`}
-      >
-        {isPopular ? 'Order Now' : 'Get Started'}
-      </a>
-    ) : (
-      <Link
-        to={link || "/contact"}
-        className={`w-full py-4 rounded-full font-bold transition-all active:scale-95 shadow-md text-center block ${isPopular
-          ? 'bg-accent-orange text-white hover:bg-accent-orange/90'
-          : 'bg-obsidian-950 text-white dark:bg-white dark:text-obsidian-950 hover:opacity-90'
-          }`}
-      >
-        {isPopular ? 'Start Discovery' : 'Get Started'}
-      </Link>
-    )}
-  </motion.div>
-);
+        {!notIncluded && <div className="mb-8" />}
+
+        {stripeUrl ? (
+          <button
+            onClick={() => setShowModal(true)}
+            className={`w-full py-4 rounded-full font-bold transition-all active:scale-95 shadow-md text-center block ${isPopular
+              ? 'bg-accent-orange text-white hover:bg-accent-orange/90'
+              : 'bg-obsidian-950 text-white dark:bg-white dark:text-obsidian-950 hover:opacity-90'
+              }`}
+          >
+            {isPopular ? 'Order Now' : 'Get Started'}
+          </button>
+        ) : (
+          <Link
+            to={link || "/contact"}
+            className={`w-full py-4 rounded-full font-bold transition-all active:scale-95 shadow-md text-center block ${isPopular
+              ? 'bg-accent-orange text-white hover:bg-accent-orange/90'
+              : 'bg-obsidian-950 text-white dark:bg-white dark:text-obsidian-950 hover:opacity-90'
+              }`}
+          >
+            {isPopular ? 'Start Discovery' : 'Get Started'}
+          </Link>
+        )}
+      </motion.div>
+
+      {stripeUrl && <CheckoutReadyModal isOpen={showModal} onClose={() => setShowModal(false)} stripeUrl={stripeUrl} title={title} />}
+    </>
+  );
+};
 
 const PricingGuides = () => {
   const [activeTab, setActiveTab] = useState('templates');
@@ -130,8 +219,10 @@ const PricingGuides = () => {
         description: "Velocity as a Service. I take your selected foundation and transform it into a high-performance, live brand in exactly 48 hours. One fixed price — no hidden fees, no recurring charges.",
         features: [
           "Full Source Code Ownership — yours on day one",
+          "You own the domain, hosting & every account",
           "Brand DNA & Asset Integration",
           "White-Glove DNS & Infrastructure Setup",
+          "Secure credential delivery via email",
           "2-Day Deployment Guaranteed",
           "Local SEO Metadata Injection",
           "Google PageSpeed 90+ Score Guaranteed",
