@@ -95,7 +95,7 @@ const Hero = ({ handleMouseEnter, handleMouseLeave }) => {
             <span className="text-gradient">Website.</span>
             <SharpieUnderline />
           </span><br />
-          <LetterReveal text="Live Tomorrow." delay={1.2} />
+          <LetterReveal text="Live In 2 Days." delay={1.2} />
         </h1>
 
         <motion.p
