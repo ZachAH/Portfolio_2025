@@ -51,6 +51,98 @@ export const sendOnboardingEmail = onDocumentCreated(
     // tags the doc with type === 'custom_inquiry'. These need a totally
     // different email (lead notification + client confirmation) since
     // they have no template, addons, or sprint clock.
+    // ── BRANCH: Free Website Audit Request ────────────────
+    if (data.type === "website_audit") {
+      const auditEmail = data.email || "";
+      const auditName = data.name || "Someone";
+      const auditUrl = data.websiteUrl || "(no URL provided)";
+
+      try {
+        // 1. Lead notification → me
+        await resend.emails.send({
+          from: "Zach Howell <zachary@zachhowell.dev>",
+          to: ["zachary@zachhowell.dev"],
+          replyTo: auditEmail,
+          subject: `🔍 Free Audit Request: ${auditUrl}`,
+          html: `
+            <div style="font-family: 'Inter', Helvetica, Arial, sans-serif; background-color: #050505; color: #fafafa; padding: 60px 20px;">
+              <div style="max-width: 640px; margin: 0 auto; background: #09090b; border: 1px solid #27272a; border-radius: 24px; overflow: hidden;">
+                <div style="padding: 40px;">
+                  <div style="display: inline-block; padding: 8px 16px; background: #FF6B35; border-radius: 99px; font-size: 10px; font-weight: 900; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 24px;">Website Audit</div>
+                  <h1 style="font-size: 28px; font-weight: 900; line-height: 1.1; text-transform: uppercase; letter-spacing: -1px; margin: 0 0 24px 0;">New Audit Request</h1>
+
+                  <div style="background: #121214; border-radius: 16px; padding: 24px; border: 1px solid #1c1c1f; margin-bottom: 24px;">
+                    <table style="width: 100%; border-collapse: collapse;">
+                      <tr>
+                        <td style="padding: 8px 0; font-size: 11px; text-transform: uppercase; color: #52525b; font-weight: 800;">Website</td>
+                        <td style="padding: 8px 0; font-size: 14px; text-align: right;"><a href="${auditUrl}" style="color: #FF6B35; text-decoration: none; font-weight: 600;">${auditUrl}</a></td>
+                      </tr>
+                      <tr>
+                        <td style="padding: 8px 0; font-size: 11px; text-transform: uppercase; color: #52525b; font-weight: 800;">Name</td>
+                        <td style="padding: 8px 0; font-size: 14px; text-align: right; color: #fff;">${auditName}</td>
+                      </tr>
+                      <tr>
+                        <td style="padding: 8px 0; font-size: 11px; text-transform: uppercase; color: #52525b; font-weight: 800;">Email</td>
+                        <td style="padding: 8px 0; font-size: 14px; text-align: right;"><a href="mailto:${auditEmail}" style="color: #FF6B35; text-decoration: none;">${auditEmail}</a></td>
+                      </tr>
+                    </table>
+                  </div>
+
+                  <p style="font-size: 13px; color: #71717a; margin: 0;">Hit <strong style="color: #a1a1aa;">Reply</strong> to respond directly to ${auditName}.</p>
+                </div>
+              </div>
+            </div>
+          `,
+        });
+
+        // 2. Confirmation → customer
+        if (auditEmail && auditEmail.includes("@")) {
+          await resend.emails.send({
+            from: "Zach Howell <zachary@zachhowell.dev>",
+            to: [auditEmail],
+            bcc: ["zachary@zachhowell.dev"],
+            subject: `Your free website audit is on the way`,
+            html: `
+              <div style="font-family: 'Inter', Helvetica, Arial, sans-serif; background-color: #050505; color: #fafafa; padding: 60px 20px; text-align: center;">
+                <div style="max-width: 600px; margin: 0 auto; background: #09090b; border: 1px solid #27272a; border-radius: 24px; overflow: hidden;">
+                  <div style="padding: 48px 40px 24px 40px;">
+                    <div style="display: inline-block; padding: 8px 16px; background: #FF6B35; border-radius: 99px; font-size: 10px; font-weight: 900; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 24px;">Audit Received</div>
+                    <h1 style="font-size: 38px; font-weight: 900; line-height: 0.95; text-transform: uppercase; letter-spacing: -1.5px; margin: 0 0 16px 0;">Got it,<br/>${auditName}.</h1>
+                    <p style="font-size: 15px; color: #a1a1aa; line-height: 1.6;">I've received your audit request for <strong style="color:#fff;">${auditUrl}</strong> and it's in my queue.</p>
+                  </div>
+
+                  <div style="padding: 0 40px 24px 40px; text-align: left;">
+                    <div style="background: #121214; border-radius: 16px; padding: 24px; border: 1px solid #1c1c1f;">
+                      <h3 style="font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: #FF6B35; margin: 0 0 16px 0;">What I'll Review</h3>
+                      <ul style="padding: 0 0 0 18px; margin: 0; color: #a1a1aa; font-size: 13px; line-height: 1.7;">
+                        <li style="margin-bottom: 8px;"><strong style="color:#fff;">Performance & Speed:</strong> PageSpeed score, load times, and Core Web Vitals.</li>
+                        <li style="margin-bottom: 8px;"><strong style="color:#fff;">SEO Health:</strong> Meta tags, heading structure, schema markup, and indexability.</li>
+                        <li style="margin-bottom: 8px;"><strong style="color:#fff;">Mobile & Accessibility:</strong> Responsiveness, tap targets, contrast, and WCAG compliance.</li>
+                        <li style="margin-bottom: 8px;"><strong style="color:#fff;">Security:</strong> SSL enforcement, mixed content, and vulnerability flags.</li>
+                        <li><strong style="color:#fff;">Conversion Readiness:</strong> CTA placement, trust signals, and user flow.</li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div style="padding: 24px 40px 40px 40px; text-align: center;">
+                    <p style="font-size: 14px; color: #fff; font-weight: 700; margin: 0 0 4px 0;">Expect your report within 48 hours.</p>
+                    <p style="font-size: 12px; color: #71717a; margin: 0; font-style: italic;">No strings attached — if your site is already solid, I'll tell you that too.</p>
+                  </div>
+
+                </div>
+              </div>
+            `,
+          });
+        }
+
+        console.log(`Audit email flow complete for ${auditUrl}`);
+      } catch (error) {
+        console.error("Failed to send audit email:", error);
+      }
+      return;
+    }
+
+    // ── BRANCH: Custom Build Discovery Inquiry ───────────────
     if (data.type === "custom_inquiry") {
       const inqEmail = data.email || data.emailAddress || "";
       const inqName = data.fullName || "there";
