@@ -6,13 +6,19 @@ import { breadcrumb } from '../utils/structuredData';
 
 const pricingJsonLd = {
   '@context': 'https://schema.org',
-  '@type': 'PriceSpecification',
-  name: 'Web Development Pricing',
-  url: 'https://zachhowell.dev/pricing',
-  ...breadcrumb([
-    { name: 'Home', path: '/' },
-    { name: 'Pricing', path: '/pricing' },
-  ]),
+  '@graph': [
+    {
+      '@type': 'WebPage',
+      name: 'Wisconsin Web Development Pricing & Packages',
+      url: 'https://zachhowell.dev/pricing',
+      description:
+        'Transparent pricing for freelance web development packages. Custom React websites, e-commerce, SEO, and ongoing support for Wisconsin small businesses.',
+    },
+    breadcrumb([
+      { name: 'Home', path: '/' },
+      { name: 'Pricing', path: '/pricing' },
+    ]),
+  ],
 };
 
 const Pricing = ({ handleMouseEnter, handleMouseLeave }) => {
@@ -24,10 +30,10 @@ const Pricing = ({ handleMouseEnter, handleMouseLeave }) => {
       className="pt-24 pb-12" // Padding to account for the fixed Navbar
     >
       <Seo
-        title="Web Development Pricing & Packages | Zach Howell"
-        description="Transparent pricing for freelance web development. Choose from sprint, growth, and custom packages for React websites, e-commerce, SEO, and ongoing support."
+        title="Wisconsin Web Development Pricing & Packages | Affordable Small Business Websites — Zach Howell"
+        description="Transparent, affordable pricing for Wisconsin web development. Sprint, growth, and custom packages for React websites, e-commerce stores, SEO, hosting, and ongoing support. No hidden fees — serving Milwaukee, Madison, and all of WI."
         path="/pricing"
-        keywords="web development pricing, freelance developer rates, React website cost, small business website pricing, e-commerce development cost"
+        keywords="web development pricing Wisconsin, affordable website packages Milwaukee, small business website cost WI, freelance developer rates Wisconsin, React website pricing, e-commerce development cost Milwaukee, website packages Waukesha, web design quotes Madison WI"
         jsonLd={pricingJsonLd}
       />
       <PricingGuides

@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 import { db } from '../firebase';
 import Seo from '../components/Seo';
+import { breadcrumb } from '../utils/structuredData';
 
 const auditItems = [
   { icon: '⚡', title: 'Performance & Speed', desc: 'Google PageSpeed score, load times, Core Web Vitals, and render-blocking resources.' },
@@ -44,10 +45,25 @@ const Audit = ({ handleMouseEnter, handleMouseLeave }) => {
   return (
     <section className="py-32 px-6 md:px-12 lg:px-24 bg-white dark:bg-obsidian-950 relative overflow-hidden">
       <Seo
-        title="Free Website Audit | Zach Howell — Freelance Web Developer"
-        description="Get a free, no-obligation audit of your current website. I'll analyze performance, SEO, mobile responsiveness, security, and conversion readiness — then send you a personalized report."
+        title="Free Website Audit for Wisconsin Businesses | SEO, Speed & Security Review — Zach Howell"
+        description="Get a free, no-obligation website audit for your Wisconsin business. I'll analyze performance, SEO health, mobile responsiveness, security, accessibility, and conversion readiness — then send you a personalized report within 48 hours."
         path="/audit"
-        keywords="free website audit, website review, SEO audit, performance audit, Wisconsin web developer, site analysis"
+        keywords="free website audit Wisconsin, SEO audit Milwaukee, website performance review WI, small business website analysis, free site audit Waukesha, website security check Wisconsin, Core Web Vitals audit, conversion optimization review Milwaukee"
+        jsonLd={{
+          '@context': 'https://schema.org',
+          '@graph': [
+            {
+              '@type': 'WebPage',
+              name: 'Free Website Audit for Wisconsin Businesses',
+              url: 'https://zachhowell.dev/audit',
+              description: 'Request a free comprehensive website audit covering performance, SEO, mobile, security, accessibility, and conversion readiness.',
+            },
+            breadcrumb([
+              { name: 'Home', path: '/' },
+              { name: 'Free Website Audit', path: '/audit' },
+            ]),
+          ],
+        }}
       />
 
       <div className="absolute top-0 left-0 w-full h-1 bg-sunset-gradient opacity-20" />

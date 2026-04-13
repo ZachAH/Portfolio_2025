@@ -33,10 +33,10 @@ const About = ({ handleMouseEnter, handleMouseLeave }) => {
   return (
     <section id="about" className="py-32 px-6 md:px-12 lg:px-24 bg-white dark:bg-obsidian-950 relative overflow-hidden">
       <Seo
-        title="About Zach Howell | Senior Full-Stack Developer in New Berlin, WI"
-        description="Meet Zach Howell — a senior full-stack software engineer with 6+ years of experience building React websites, e-commerce stores and conversion-driven web apps. Based in New Berlin, Wisconsin."
+        title="About Zach Howell | Wisconsin Freelance Web Developer in New Berlin, WI"
+        description="Meet Zach Howell — a Wisconsin-based freelance full-stack software engineer with 6+ years of experience. I build custom React websites, e-commerce stores, and conversion-driven web apps for small businesses across Milwaukee, Waukesha County, and all of WI."
         path="/about"
-        keywords="about Zach Howell, senior React developer, Wisconsin software engineer, full-stack developer New Berlin, freelance engineer bio"
+        keywords="about Zach Howell, Wisconsin web developer, freelance developer New Berlin WI, React developer Milwaukee area, full-stack engineer Waukesha County, small business web developer Wisconsin, hire local web developer WI"
         jsonLd={aboutJsonLd}
       />
       {/* Decorative Background Element */}

@@ -1,5 +1,7 @@
 User-agent: *
 Allow: /
 Disallow: /launch-onboarding
+Disallow: /custom-discovery
 
+# Sitemap
 Sitemap: https://zachhowell.dev/sitemap.xml

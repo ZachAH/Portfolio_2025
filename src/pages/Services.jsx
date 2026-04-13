@@ -72,10 +72,10 @@ const Services = ({ handleMouseEnter, handleMouseLeave }) => {
   return (
     <section className="min-h-screen py-32 px-6 md:px-12 lg:px-24 bg-white dark:bg-transparent">
       <Seo
-        title="Web Development Services | React, SEO & Performance — Zach Howell"
-        description="Full-cycle freelance web development: custom React builds, e-commerce, SEO, Core Web Vitals optimization, accessibility, hosting and domain setup. Hire a senior full-stack engineer for your next project."
+        title="Wisconsin Web Development Services | React, SEO, Hosting & E-commerce — Zach Howell"
+        description="Full-cycle web development services for Wisconsin small businesses: custom React websites, e-commerce with Stripe, SEO & Core Web Vitals optimization, hosting, DNS management, and WCAG accessibility. Serving Milwaukee, Madison, Waukesha, and beyond."
         path="/services"
-        keywords="React development services, freelance developer services, SEO optimization, Core Web Vitals, web accessibility, WCAG, custom web development, full-stack engineer for hire"
+        keywords="web development services Wisconsin, React developer Milwaukee, custom website development Waukesha, SEO services Wisconsin, e-commerce development Milwaukee, small business web design Madison WI, web hosting Wisconsin, DNS management Milwaukee, WCAG accessibility Wisconsin, Core Web Vitals optimization"
         jsonLd={servicesJsonLd}
       />
       <div className="max-w-7xl mx-auto">

@@ -9,6 +9,7 @@ export default defineConfig({
     cssCodeSplit: true,
     sourcemap: false,
     minify: 'esbuild',
+    assetsInlineLimit: 4096, // Inline small assets (<4KB) to reduce HTTP requests
     // Split large vendor libs out of the main bundle so the initial
     // download for first paint is much smaller. Helps LCP / TBT scores.
     rollupOptions: {

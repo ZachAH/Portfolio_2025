@@ -20,10 +20,10 @@ function Home({ handleMouseEnter, handleMouseLeave }) {
   return (
     <>
       <Seo
-        title="Zach Howell | Freelance Full-Stack Web Developer in Wisconsin"
-        description="Freelance full-stack web developer with 6+ years of experience building fast, SEO-optimized React websites and e-commerce stores for small businesses. Based in New Berlin, WI — serving clients nationwide."
+        title="Wisconsin Web Developer | Custom React Websites for Small Business — Zach Howell"
+        description="Wisconsin freelance web developer building fast, SEO-optimized React websites, e-commerce stores, and custom web apps for small businesses. Serving Milwaukee, Waukesha, Madison, and all of WI. Get a free website audit today."
         path="/"
-        keywords="freelance web developer, React developer, full-stack engineer, Wisconsin web developer, New Berlin web developer, Milwaukee web designer, hire React developer, custom website development, small business website"
+        keywords="Wisconsin web developer, Milwaukee web designer, small business website Wisconsin, React developer Milwaukee, custom website development Waukesha, web design New Berlin WI, freelance developer Wisconsin, e-commerce developer Milwaukee, SEO optimization Wisconsin, affordable small business web design, website developer near me WI"
         jsonLd={homeJsonLd}
       />
       <Hero

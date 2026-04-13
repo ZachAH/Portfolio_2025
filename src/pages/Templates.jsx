@@ -286,9 +286,10 @@ const Templates = ({ handleMouseEnter, handleMouseLeave }) => {
   return (
     <section className="min-h-screen py-32 px-6 md:px-12 lg:px-24 bg-white dark:bg-transparent">
       <Seo
-        title="Premium React Templates | 48-Hour Sprints — Zach Howell"
-        description="Launch a high-performance site in 48 hours. Choose from our velocity-focused templates or full-scale eCommerce foundations."
+        title="Affordable Website Templates for Wisconsin Businesses | React & Tailwind — Zach Howell"
+        description="High-speed, SEO-optimized website templates for Wisconsin small businesses. Launch in 48 hours — choose from business, trades, SaaS, industrial, creative, and e-commerce templates built with React and Tailwind CSS."
         path="/templates"
+        keywords="website templates Wisconsin, affordable web templates Milwaukee, small business website templates WI, React templates for local business, Tailwind CSS templates, e-commerce templates Wisconsin, trades website template, manufacturing website template, fast website launch Wisconsin"
         jsonLd={templatesJsonLd}
       />
 
