@@ -85,7 +85,7 @@ const processSteps = [
   {
     hours: '36 – 48',
     title: 'Deployment',
-    description: 'Domain connection, final QA, and your site goes live worldwide.',
+    description: 'Domain connection, final QA, and your site goes live worldwide. Once live, you are emailed every credential — emails, passwords, hosting access, and source code. Full ownership is yours.',
   },
 ];
 

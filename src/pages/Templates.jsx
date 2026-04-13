@@ -442,7 +442,7 @@ const Templates = ({ handleMouseEnter, handleMouseLeave }) => {
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-amber-500" />
             </span>
             <span className="text-xs sm:text-sm font-bold text-amber-700 dark:text-amber-400">
-              Only <span className="font-black text-amber-900 dark:text-amber-300">8 2-Day Launch Spots</span> remaining this month
+              Only <span className="font-black text-amber-900 dark:text-amber-300">6 2-Day Launch Spots</span> remaining this month
             </span>
           </div>
         </motion.div>

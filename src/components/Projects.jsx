@@ -75,7 +75,6 @@ const Projects = ({ handleMouseEnter, handleMouseLeave }) => {
             Hand-coded websites built from scratch for real Wisconsin businesses. No templates, no page builders — just clean React code, fast load times, and real results. Click through and see them live.
           </p>
           <div className="flex items-center justify-center gap-2 text-xs font-bold tracking-widest text-text-secondary uppercase mb-12">
-            <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
             Every project is publicly live and verifiable. Keep in mind some of these are still in development, so you may see work-in-progress elements or placeholder content.
           </div>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
