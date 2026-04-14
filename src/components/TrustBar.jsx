@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { FaMapMarkerAlt, FaClock, FaCode, FaShieldAlt } from 'react-icons/fa';
+import { FaMapMarkerAlt, FaClock, FaCode, FaShieldAlt, FaPlay, FaPause } from 'react-icons/fa';
+import walkthroughVideo from '../assets/website_final.mp4';
 
 // ── TRUST BAR ─────────────────────────────────────────────
 // Positioned right after the hero so visitors who don't know
@@ -215,6 +216,40 @@ const TrustBar = () => {
               </div>
             </div>
           ))}
+        </motion.div>
+
+        {/* ── LAUNCH WALKTHROUGH VIDEO ───────────────────────── */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="mt-20"
+        >
+          <div className="text-center mb-10">
+            <span className="text-xs font-black tracking-[0.3em] text-accent-orange uppercase mb-4 inline-block">
+              See It In Action
+            </span>
+            <h2 className="text-3xl md:text-5xl font-bold tracking-tighter text-text-primary uppercase">
+              A Real <span className="text-gradient">Launch</span>, Start to Finish
+            </h2>
+            <p className="text-base md:text-lg text-text-secondary max-w-2xl mx-auto mt-4 font-medium leading-relaxed">
+              Watch a full walkthrough of how a site goes from kickoff to live — no cuts, no filler.
+            </p>
+          </div>
+
+          <div className="max-w-4xl mx-auto rounded-3xl overflow-hidden border border-obsidian-700/10 dark:border-white/10 shadow-premium bg-black">
+            <video
+              className="w-full aspect-video"
+              controls
+              preload="metadata"
+              playsInline
+              poster=""
+            >
+              <source src={walkthroughVideo} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
         </motion.div>
 
         {/* ── HOW IT WORKS — 48-HOUR TIMELINE ────────────────── */}
