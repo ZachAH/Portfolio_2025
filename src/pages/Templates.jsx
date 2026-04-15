@@ -156,7 +156,7 @@ const FAQ_ITEMS = [
   },
   {
     q: 'What\'s the difference between the Sprint, Modern Edge, and Commerce packages?',
-    a: 'The $700 Sprint is a branded deployment of any non-commerce template — perfect for service businesses, portfolios, and professional sites. Modern Edge ($900) adds advanced animations, custom interactions, and multi-layout configurations. Commerce ($1,850+) includes full e-commerce infrastructure: product catalogs, cart logic, Stripe checkout, and inventory management.',
+    a: 'The $1,400 Sprint is a branded deployment of any non-commerce template — perfect for service businesses, portfolios, and professional sites. Modern Edge ($2,000) adds advanced animations, custom interactions, and multi-layout configurations. Commerce ($3,200+) includes full e-commerce infrastructure: product catalogs, cart logic, Stripe checkout, and inventory management.',
   },
   {
     q: 'Can I switch templates after I\'ve already started?',
@@ -324,7 +324,7 @@ const Templates = ({ handleMouseEnter, handleMouseLeave }) => {
         {/* ── WHITE GLOVE BANNER ──────────────────────────────
             Sets the expectation up-front: buying a template
             package is a full deployment, not a zip of code.
-            Highlights that the $700 Sprint tier already
+            Highlights that the $1,400 Sprint tier already
             includes literally everything a customer needs. */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -365,7 +365,7 @@ const Templates = ({ handleMouseEnter, handleMouseLeave }) => {
                     Starts At
                   </div>
                   <div className="text-4xl md:text-5xl font-black text-zinc-900 dark:text-white tracking-tighter">
-                    $700
+                    $1,400
                   </div>
                   <div className="text-[10px] font-bold uppercase tracking-wider text-accent-orange mt-1">
                     48h Sprint Package
@@ -411,7 +411,7 @@ const Templates = ({ handleMouseEnter, handleMouseLeave }) => {
             {/* Footer CTA */}
             <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 border-t border-accent-orange/20">
               <p className="text-xs md:text-sm text-zinc-600 dark:text-zinc-400 italic font-medium text-center sm:text-left">
-                The $700 Sprint package is literally everything you need to be live and
+                The $1,400 Sprint package is literally everything you need to be live and
                 selling. Nothing extra to buy, nothing extra to figure out. You own the domain, the hosting account, and 100% of the source code — all registered under your name. After launch, I email you a secure master-list of every credential and login so you have complete control.
               </p>
               <Link

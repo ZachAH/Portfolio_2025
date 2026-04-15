@@ -215,7 +215,7 @@ const PricingGuides = () => {
     templates: [
       {
         title: "The 48h Sprint",
-        price: "$700",
+        price: "$1,400",
         description: "Velocity as a Service. I take your selected foundation and transform it into a high-performance, live brand in exactly 48 hours. One fixed price — no hidden fees, no recurring charges.",
         features: [
           "Full Source Code Ownership — yours on day one",
@@ -239,7 +239,7 @@ const PricingGuides = () => {
       },
       {
         title: "Modern Edge",
-        price: "$900",
+        price: "$2,000",
         description: "For brands that need to command attention. High-impact UI paired with complex motion logic to establish immediate market authority.",
         features: ["Elite Source Code Access",
           "Aggressive GSAP Motion Engine",
@@ -255,7 +255,7 @@ const PricingGuides = () => {
       },
       {
         title: "Commerce Launch",
-        price: "$1,900",
+        price: "$3,200",
         description: "A secure revenue machine. I'll deploy your full shop with functional cart and inventory logic.",
         features: ["Choice of Elite E-Com Foundation",
           "Strategic Inventory & SKU Setup",
@@ -352,7 +352,7 @@ const PricingGuides = () => {
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-accent-orange" />
               </span>
               <span className="text-sm font-bold text-zinc-800 dark:text-zinc-200">
-                Launch pricing — <span className="text-accent-orange font-black">$700 introductory rate</span> locks in through <span className="font-black">May 10, 2026</span>
+                Every template package includes full White-Glove deployment — <span className="text-accent-orange font-black">domain, hosting, DNS, and brand integration</span> all handled for you
               </span>
             </motion.div>
           )}
@@ -403,13 +403,13 @@ const PricingGuides = () => {
             >
               <div className="mt-20 p-8 bg-gray-50 dark:bg-white/5 rounded-3xl border border-accent-orange/20 text-center max-w-4xl mx-auto shadow-sm">
                 <h4 className="text-xl font-bold text-obsidian-950 dark:text-white mb-3 flex items-center justify-center gap-2">
-                  Why $700 — Not $200?
+                  Why $1,400 — Not $200?
                 </h4>
                 <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-sm sm:text-base">
                   A $200 website uses bloated page builders with slow load times, missing metadata, and zero SEO — leaving you
-                  with technical debt that costs more to fix than it did to build. The 48h Sprint delivers a hand-coded React/Typescript site
+                  with technical debt that costs more to fix than it did to build. The 48h Sprint delivers a hand-coded React/TypeScript site
                   with professional DNS configuration, secure infrastructure, and a guaranteed 90+ PageSpeed score — the same
-                  foundation agencies charge $3,000+ for.
+                  foundation agencies charge $5,000+ for.
                 </p>
               </div>
 

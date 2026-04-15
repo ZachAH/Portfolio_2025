@@ -70,9 +70,9 @@ const STEPS: Step[] = [
                 type: 'select',
                 disabled: true,
                 options: [
-                    { value: 'sprint', label: 'The 48h Sprint ($700)' },
-                    { value: 'modern_edge', label: 'Modern Edge ($900)' },
-                    { value: 'commerce', label: 'Commerce Launch ($1,900+)' }
+                    { value: 'sprint', label: 'The 48h Sprint ($1,400)' },
+                    { value: 'modern_edge', label: 'Modern Edge ($2,000)' },
+                    { value: 'commerce', label: 'Commerce Launch ($3,200+)' }
                 ]
             },
             /* --- TEMPLATES FOR SPRINT & MODERN EDGE --- */

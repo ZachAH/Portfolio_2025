@@ -79,7 +79,7 @@ def build_pdf():
 
     # Launch pricing banner
     banner_data = [[Paragraph(
-        '<b>Launch Pricing</b> — The $700 introductory rate locks in through <b>May 10, 2026</b>.',
+        '<b>White-Glove Deployment</b> — Every package includes domain, hosting, DNS, and full brand integration.',
         ParagraphStyle("Banner", fontName="Helvetica-Bold", fontSize=10, textColor=ORANGE, alignment=TA_CENTER)
     )]]
     banner = Table(banner_data, colWidths=[doc.width - 40])
@@ -103,9 +103,9 @@ def build_pdf():
 
     tier_data = [
         [Paragraph("<b>Package</b>", th), Paragraph("<b>Investment</b>", th), Paragraph("<b>Turnaround</b>", th), Paragraph("<b>Best For...</b>", th)],
-        [Paragraph("The 48h Sprint", td_bold), Paragraph("$700", td), Paragraph("48 Hours", td), Paragraph("Service pros and contractors needing immediate market presence.", td)],
-        [Paragraph("Modern Edge", td_bold), Paragraph("$900", td), Paragraph("72 Hours", td), Paragraph("Brands needing high-impact UI and complex motion logic.", td)],
-        [Paragraph("Commerce Launch", td_bold), Paragraph("$1,900", td), Paragraph("7 Days", td), Paragraph("Brands selling physical or digital products via Stripe.", td)],
+        [Paragraph("The 48h Sprint", td_bold), Paragraph("$1,400", td), Paragraph("48 Hours", td), Paragraph("Service pros and contractors needing immediate market presence.", td)],
+        [Paragraph("Modern Edge", td_bold), Paragraph("$2,000", td), Paragraph("72 Hours", td), Paragraph("Brands needing high-impact UI and complex motion logic.", td)],
+        [Paragraph("Commerce Launch", td_bold), Paragraph("$3,200", td), Paragraph("7 Days", td), Paragraph("Brands selling physical or digital products via Stripe.", td)],
     ]
     tier_table = Table(tier_data, colWidths=[doc.width * 0.22, doc.width * 0.18, doc.width * 0.18, doc.width * 0.42])
     tier_table.setStyle(TableStyle([
@@ -122,7 +122,7 @@ def build_pdf():
     story.append(Spacer(1, 10))
 
     # Sprint
-    story.append(Paragraph('The 48h Sprint — $700 <font color="#FF6B35">[MOST POPULAR]</font>', s_section))
+    story.append(Paragraph('The 48h Sprint — $1,400 <font color="#FF6B35">[MOST POPULAR]</font>', s_section))
     story.append(Paragraph(
         '<i>Velocity as a Service.</i> I take your selected foundation and transform it into a high-performance, '
         'live brand in exactly 48 hours. One fixed price — no hidden fees, no recurring charges.',
@@ -168,7 +168,7 @@ def build_pdf():
     # ══════════════════════════════════════════════════════════
 
     # Modern Edge
-    story.append(Paragraph("Modern Edge — $900", s_section))
+    story.append(Paragraph("Modern Edge — $2,000", s_section))
     story.append(Paragraph(
         "For brands that need to command attention. High-impact UI paired with complex motion logic "
         "to establish immediate market authority.",
@@ -186,7 +186,7 @@ def build_pdf():
     story.append(divider())
 
     # Commerce Launch
-    story.append(Paragraph("Commerce Launch — $1,900", s_section))
+    story.append(Paragraph("Commerce Launch — $3,200", s_section))
     story.append(Paragraph(
         "A secure revenue machine. I'll deploy your full shop with functional cart and inventory logic.",
         s_body
@@ -240,12 +240,12 @@ def build_pdf():
     story.append(PageBreak())
 
     story.append(Paragraph('Why a "Zach Howell" Build Is Different', s_section))
-    story.append(Paragraph("Why $700 — Not $200?", s_section_sub))
+    story.append(Paragraph("Why $1,400 — Not $200?", s_section_sub))
     story.append(Paragraph(
         'A $200 website uses bloated page builders with slow load times, missing metadata, and zero SEO — '
         'leaving you with technical debt that costs more to fix than it did to build. The 48h Sprint delivers a '
         'hand-coded React/TypeScript site with professional DNS configuration, secure infrastructure, and a '
-        'guaranteed 90+ PageSpeed score — the same foundation agencies charge $3,000+ for.',
+        'guaranteed 90+ PageSpeed score — the same foundation agencies charge $5,000+ for.',
         s_body
     ))
     for label, desc in [
