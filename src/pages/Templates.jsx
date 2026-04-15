@@ -140,7 +140,7 @@ const FAQ_ITEMS = [
   },
   {
     q: 'What about hosting and ongoing costs after launch?',
-    a: 'I set up your hosting on high-performance infrastructure (Netlify/Vercel). Most informational sites fall within free-tier hosting, so your ongoing cost is typically just the annual domain renewal (~$10–15/year). E-commerce sites may have nominal hosting or transaction fees depending on scale.',
+    a: 'Your site is deployed on Netlify and your domain is registered through Porkbun. After launch, I transfer both to your own accounts — so you have full ownership and control. Most informational sites fall within free-tier hosting, so your ongoing cost is typically just the annual domain renewal (~$10–15/year). E-commerce sites may have nominal hosting or transaction fees depending on scale.',
   },
   {
     q: 'Can I see a live demo before buying?',

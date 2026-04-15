@@ -33,7 +33,7 @@ const TOS_TEXT = `
 
 2. DNS PROPAGATION: Domain Name System (DNS) changes can take up to 24–72 hours to propagate globally after deployment. This propagation window is controlled entirely by third-party DNS providers and internet service providers — it is outside the scope of the 48-hour delivery guarantee. Your site will be deployed and accessible via the hosting URL within the guaranteed window; worldwide domain resolution may take additional time beyond Zach Howell's control.
 
-3. THIRD-PARTY SERVICES: This engagement relies on third-party platforms including but not limited to domain registrars, hosting providers (Netlify/Vercel), CDN networks, Stripe, Google Search Console, and email providers. Zach Howell is not liable for outages, policy changes, service interruptions, delayed verifications, or account-level restrictions imposed by any third-party platform. Best-effort troubleshooting will be provided, but resolution timelines for third-party issues are not guaranteed.
+3. THIRD-PARTY SERVICES: This engagement relies on third-party platforms including but not limited to Porkbun (domain registrar), Netlify (hosting & deployment), CDN networks, Stripe, Google Search Console, and email providers. Zach Howell is not liable for outages, policy changes, service interruptions, delayed verifications, or account-level restrictions imposed by any third-party platform. Best-effort troubleshooting will be provided, but resolution timelines for third-party issues are not guaranteed.
 
 4. DOMAIN DISCRETION: If your domain choices are unavailable, restricted, or exceed standard registration costs (typically $10–$20/year for .com), Zach Howell will notify you and propose the closest available alternative. If no agreement is reached within 24 hours, Zach Howell reserves the right to proceed with the best available option to prevent project stagnation.
 
@@ -204,49 +204,53 @@ const STEPS: Step[] = [
         fields: [
             {
                 id: 'setupExplainer',
-                label: '🔒 You Own Everything — White Glove Setup',
+                label: '🔒 You Own Everything — Full Ownership Handoff',
                 type: 'header',
-                label_text: 'Every account I create is registered under YOUR name and YOUR email. You own the domain, the hosting, the code — everything. After launch, I will email you a secure master-list of every account, login, and credential created so you have full control from day one. I never retain access to anything unless you explicitly keep me on a Growth Plan.'
+                label_text: 'I handle the build and deployment, then transfer full ownership to you. Here\'s how it works: (1) Domain — I purchase and configure your domain, then "push" it to your Porkbun account. You\'ll be responsible for the annual renewal (~$10–$15/yr). (2) Hosting — I deploy your site on Netlify, then transfer ownership to your Netlify dashboard. You own the production environment and billing from that point forward. No platform fees to me — you pay the providers directly.'
             },
             {
                 id: 'accountSetup',
                 label: 'Current Setup Status',
                 type: 'select',
                 options: [
-                    { value: 'create_for_me', label: 'White Glove: Create all accounts for me (Recommended ⭐)' },
+                    { value: 'create_for_me', label: 'White Glove: I need a new domain & hosting setup (Recommended ⭐)' },
                     { value: 'existing', label: 'I already own a domain' },
                     { value: 'transfer', label: 'I want to move from Wix/Squarespace' }
                 ]
             },
             {
-                id: 'hostingPreference',
-                label: 'Preferred Hosting Provider',
-                type: 'select',
-                condition: (data: any) => data.accountSetup === 'create_for_me',
-                options: [
-                    { value: 'netlify', label: 'Netlify (Recommended for most sites ⭐)' },
-                    { value: 'vercel', label: 'Vercel (Great for React/Next.js)' },
-                    { value: 'zach_picks', label: 'I trust Zach to choose the best option' }
-                ]
+                id: 'porkbunHeader',
+                label: '🌐 Step 1: Domain Ownership (Porkbun)',
+                type: 'header',
+                label_text: 'Create a free account at Porkbun.com. After launch, I will "push" your domain to your Porkbun account so you have full ownership. You\'ll then be responsible for the annual renewal (typically $10–$15/year).',
+                condition: (data: any) => data.accountSetup === 'create_for_me'
             },
             {
-                id: 'domainRegistrar',
-                label: 'Preferred Domain Registrar',
-                type: 'select',
-                condition: (data: any) => data.accountSetup === 'create_for_me',
-                options: [
-                    { value: 'porkbun', label: 'Porkbun (Best value — ~$10/yr ⭐)' },
-                    { value: 'namecheap', label: 'Namecheap' },
-                    { value: 'godaddy', label: 'GoDaddy' },
-                    { value: 'cloudflare', label: 'Cloudflare Registrar' },
-                    { value: 'zach_picks', label: 'I trust Zach to choose' }
-                ]
+                id: 'porkbunUsername',
+                label: 'Your Porkbun Username',
+                placeholder: 'e.g., johndoe123',
+                type: 'text',
+                condition: (data: any) => data.accountSetup === 'create_for_me'
+            },
+            {
+                id: 'netlifyHeader',
+                label: '🚀 Step 2: Hosting & Deployment (Netlify)',
+                type: 'header',
+                label_text: 'Create a free account at Netlify.com. After launch, I will transfer ownership of your website to your Netlify dashboard. This ensures you own the production environment and billing moving forward.',
+                condition: (data: any) => data.accountSetup === 'create_for_me'
+            },
+            {
+                id: 'netlifyEmail',
+                label: 'Email Used for Your Netlify Account',
+                placeholder: 'you@gmail.com',
+                type: 'email',
+                condition: (data: any) => data.accountSetup === 'create_for_me'
             },
             {
                 id: 'ownershipReminder',
                 label: '🔑 Ownership Guarantee',
                 type: 'header',
-                label_text: 'Every domain and hosting account will be registered with YOUR email address. You will receive full admin credentials via a secure email after launch. There are no platform fees to me — you pay the registrar and hosting provider directly. I do not retain any access after handoff unless you opt into a Growth Plan.',
+                label_text: 'After launch, your domain will be pushed to your Porkbun account and your site will be transferred to your Netlify dashboard. You will have full control of both — no platform fees to me, no retained access. I do not maintain any access after handoff unless you opt into a Growth Plan.',
                 condition: (data: any) => data.accountSetup === 'create_for_me'
             },
             /* --- FIELDS FOR: Existing Domain / Transfer --- */

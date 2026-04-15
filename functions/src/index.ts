@@ -317,8 +317,10 @@ export const sendOnboardingEmail = onDocumentCreated(
                   <div style="padding: 40px; text-align: left;">
                       <h3 style="font-size: 12px; text-transform: uppercase; letter-spacing: 2px; color: #fff; margin-bottom: 12px;">What Happens Next?</h3>
                       <ul style="padding: 0; margin: 0; list-style: none; color: #71717a; font-size: 13px; line-height: 1.6;">
-                          <li style="margin-bottom: 10px;">⚡ <strong>Development Phase:</strong> I am currently setting up your hosting and core architecture.</li>
+                          <li style="margin-bottom: 10px;">⚡ <strong>Development Phase:</strong> I am currently building and deploying your site.</li>
                           <li style="margin-bottom: 10px;">📧 <strong>Asset Check:</strong> Ensure all high-res logos/photos are sent to <a href="mailto:zachary@zachhowell.dev" style="color: #FF6B35; text-decoration: none; font-weight: 600;">zachary@zachhowell.dev</a> or the easiest way is to reply to this email with them.</li>
+                          <li style="margin-bottom: 10px;">🌐 <strong>Domain Handoff:</strong> Make sure you have a <strong style="color: #fff;">Porkbun</strong> account ready — I'll push your domain to your account after launch so you own it outright.</li>
+                          <li style="margin-bottom: 10px;">🚀 <strong>Hosting Transfer:</strong> Make sure you have a <strong style="color: #fff;">Netlify</strong> account ready — I'll transfer your live site to your dashboard so you control the production environment.</li>
                           <li style="margin-bottom: 10px;">💳 <strong>Billing:</strong> If you selected premium add-ons, look for a separate Stripe invoice shortly.</li>
                           ${partnershipPlan !== "none" ? `<li>🤝 <strong>Partnership:</strong> Your <strong style="color: #a78bfa;">${partnershipLabel}</strong> subscription link will be sent once your site is live — no charge until launch day.</li>` : ""}
                       </ul>

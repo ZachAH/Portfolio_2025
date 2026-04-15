@@ -48,7 +48,7 @@ const CheckoutReadyModal = ({ isOpen, onClose, stripeUrl, title }) => (
                 { step: '1', title: 'Secure Stripe Checkout', desc: 'Your payment is processed through Stripe — your card data never touches my servers.' },
                 { step: '2', title: 'Secure Onboarding Portal', desc: 'You\'ll be redirected to a private onboarding page to provide your brand info, assets, and preferences.' },
                 { step: '3', title: 'Sprint Clock Starts', desc: 'Once I confirm your assets, the 48-hour build window begins immediately.' },
-                { step: '4', title: 'You Own Everything', desc: 'After launch, I\'ll email you a secure master-list of every account, login, and credential created. The domain, hosting, code — it\'s all yours.' },
+                { step: '4', title: 'You Own Everything', desc: 'After launch, I\'ll push your domain to your Porkbun account and transfer your site to your Netlify dashboard. The domain, hosting, code — it\'s all yours.' },
               ].map((item) => (
                 <li key={item.step} className="flex gap-3">
                   <span className="w-6 h-6 rounded-full bg-accent-orange/10 text-accent-orange text-xs font-black flex items-center justify-center shrink-0 mt-0.5">{item.step}</span>
@@ -222,7 +222,7 @@ const PricingGuides = () => {
           "You own the domain, hosting & every account",
           "Brand DNA & Asset Integration",
           "White-Glove DNS & Infrastructure Setup",
-          "Secure credential delivery via email",
+          "Domain pushed to your Porkbun, site transferred to your Netlify",
           "2-Day Deployment Guaranteed",
           "Local SEO Metadata Injection",
           "Google PageSpeed 90+ Score Guaranteed",
@@ -267,9 +267,11 @@ const PricingGuides = () => {
       }
     ],
     custom: [
-      { title: "Business Site", price: "$1,500+", description: "1-of-1 custom build designed for your specific brand identity.", features: ["3-6 Custom Pages", "UI/UX Flow Design", "React/Tailwind Stack", "Performance Optimized"], accent: "text-gray-500 dark:text-silver-400", link: "/custom-discovery" },
-      { title: "Dynamic + CMS", price: "$3,500+", description: "Advanced builds with a custom Admin Dashboard via Firebase/Firestore.", features: ["Everything in Business", "Secure Admin Portal", "Real-Time Content Updates", "Asset Management"], accent: "text-accent-orange", isPopular: true, link: "/custom-discovery" },
-      { title: "Enterprise App", price: "$6,000+", description: "Full-scale web applications with complex logic and deep integrations.", features: ["Custom API Logic", "Complex Integrations", "Scalable Architecture", "Extended Support"], accent: "text-emerald-500", link: "/custom-discovery" }
+      { title: "Landing Page", price: "$800–$1,200", description: "High-conversion single page for lead gen, product launches, or portfolios.", features: ["Single Page Design", "Lead Gen & CTA Optimized", "React/Tailwind Stack", "Performance Optimized"], accent: "text-gray-500 dark:text-silver-400", link: "/custom-discovery" },
+      { title: "Business Site", price: "$1,500–$3,000", description: "A polished, fast online home for service providers. 3–6 custom pages.", features: ["3–6 Custom Pages", "UI/UX Flow Design", "SEO & Local Metadata", "Performance Optimized"], accent: "text-blue-500", link: "/custom-discovery" },
+      { title: "Dynamic + CMS", price: "$3,500–$6,000", description: "Advanced builds with a custom Admin Dashboard via Firebase/Firestore.", features: ["Everything in Business", "Secure Admin Portal", "Real-Time Content Updates", "Asset Management"], accent: "text-accent-orange", isPopular: true, link: "/custom-discovery" },
+      { title: "E-Commerce / Web App", price: "$5,000–$8,500+", description: "Full-scale stores or complex application logic with React/Next.js.", features: ["Custom API Logic", "Stripe Integration", "Complex Business Logic", "Scalable Architecture"], accent: "text-emerald-500", link: "/custom-discovery" },
+      { title: "Total Brand Launch", price: "$6,000–$9,000+", description: "Website, CMS, brand identity, and 3 months of dedicated support.", features: ["Full Custom Website + CMS", "Brand Identity & Logo", "3 Months Support Included", "Complete Digital Foundation"], accent: "text-purple-500", link: "/custom-discovery" }
     ]
   };
 
@@ -364,7 +366,7 @@ const PricingGuides = () => {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -20 }}
               transition={{ duration: 0.3 }}
-              className="grid grid-cols-1 md:grid-cols-3 gap-8 md:col-span-3"
+              className={`md:col-span-3 gap-8 ${content[activeTab].length > 3 ? 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3' : 'grid grid-cols-1 md:grid-cols-3'}`}
             >
               {content[activeTab].map((item, idx) => (
                 <PricingCard key={`${activeTab}-${idx}`} {...item} />
