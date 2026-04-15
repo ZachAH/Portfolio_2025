@@ -267,11 +267,11 @@ const PricingGuides = () => {
       }
     ],
     custom: [
-      { title: "Landing Page", price: "$800–$1,200", description: "High-conversion single page for lead gen, product launches, or portfolios.", features: ["Single Page Design", "Lead Gen & CTA Optimized", "React/Tailwind Stack", "Performance Optimized"], accent: "text-gray-500 dark:text-silver-400", link: "/custom-discovery" },
-      { title: "Business Site", price: "$1,500–$3,000", description: "A polished, fast online home for service providers. 3–6 custom pages.", features: ["3–6 Custom Pages", "UI/UX Flow Design", "SEO & Local Metadata", "Performance Optimized"], accent: "text-blue-500", link: "/custom-discovery" },
-      { title: "Dynamic + CMS", price: "$3,500–$6,000", description: "Advanced builds with a custom Admin Dashboard via Firebase/Firestore.", features: ["Everything in Business", "Secure Admin Portal", "Real-Time Content Updates", "Asset Management"], accent: "text-accent-orange", isPopular: true, link: "/custom-discovery" },
-      { title: "E-Commerce / Web App", price: "$5,000–$8,500+", description: "Full-scale stores or complex application logic with React/Next.js.", features: ["Custom API Logic", "Stripe Integration", "Complex Business Logic", "Scalable Architecture"], accent: "text-emerald-500", link: "/custom-discovery" },
-      { title: "Total Brand Launch", price: "$6,000–$9,000+", description: "Website, CMS, brand identity, and 3 months of dedicated support.", features: ["Full Custom Website + CMS", "Brand Identity & Logo", "3 Months Support Included", "Complete Digital Foundation"], accent: "text-purple-500", link: "/custom-discovery" }
+      { title: "Landing Page", price: "$800–$1,200", description: "High-conversion single page for lead gen, product launches, or portfolios.", features: ["Single Page Design", "Lead Gen & CTA Optimized", "React/Tailwind Stack", "Performance Optimized"], notIncluded: ["Domain, hosting & DevOps (see below)", "Stock photography or copywriting"], accent: "text-gray-500 dark:text-silver-400", link: "/custom-discovery" },
+      { title: "Business Site", price: "$1,500–$3,000", description: "A polished, fast online home for service providers. 3–6 custom pages.", features: ["3–6 Custom Pages", "UI/UX Flow Design", "SEO & Local Metadata", "Performance Optimized"], notIncluded: ["Domain, hosting & DevOps (see below)", "Stock photography or copywriting"], accent: "text-blue-500", link: "/custom-discovery" },
+      { title: "Dynamic + CMS", price: "$3,500–$6,000", description: "Advanced builds with a custom Admin Dashboard via Firebase/Firestore.", features: ["Everything in Business", "Secure Admin Portal", "Real-Time Content Updates", "Asset Management"], notIncluded: ["Domain, hosting & DevOps (see below)"], accent: "text-accent-orange", isPopular: true, link: "/custom-discovery" },
+      { title: "E-Commerce / Web App", price: "$5,000–$8,500+", description: "Full-scale stores or complex application logic with React/Next.js.", features: ["Custom API Logic", "Stripe Integration", "Complex Business Logic", "Scalable Architecture"], notIncluded: ["Domain, hosting & DevOps (see below)"], accent: "text-emerald-500", link: "/custom-discovery" },
+      { title: "Total Brand Launch", price: "$6,000–$9,000+", description: "The full package — website, CMS, brand identity, DevOps, and 3 months of dedicated support.", features: ["Full Custom Website + CMS", "Brand Identity & Logo", "Domain, Hosting & Full DevOps", "3 Months Support Included"], accent: "text-purple-500", link: "/custom-discovery" }
     ]
   };
 
@@ -433,6 +433,34 @@ const PricingGuides = () => {
               exit={{ opacity: 0 }}
               className="mt-20 max-w-4xl mx-auto"
             >
+              {/* DevOps & Launch Package callout */}
+              <div className="p-6 md:p-8 bg-gradient-to-br from-blue-50/80 to-blue-100/50 dark:from-blue-900/10 dark:to-blue-800/5 rounded-3xl border border-blue-500/20 shadow-sm mb-8">
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 rounded-xl bg-blue-500/10 flex items-center justify-center shrink-0 mt-1">
+                    <svg className="w-5 h-5 text-blue-600 dark:text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-bold text-obsidian-950 dark:text-white mb-2">DevOps & Launch Package — Quoted Separately</h4>
+                    <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-sm mb-3">
+                      The prices above cover <span className="font-bold text-obsidian-950 dark:text-white">custom code, design, and development</span>. Domain registration,
+                      hosting setup, DNS configuration, SSL, deployment, and ongoing infrastructure are scoped and quoted during our discovery call based on your project's needs.
+                    </p>
+                    <div className="flex flex-wrap gap-2">
+                      {['Domain Registration (Porkbun)', 'Hosting & CDN (Netlify)', 'DNS & SSL Config', 'Production Deployment', 'SEO Infrastructure'].map((item) => (
+                        <span key={item} className="px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/15 text-[10px] font-bold text-blue-700 dark:text-blue-400 uppercase tracking-widest">
+                          {item}
+                        </span>
+                      ))}
+                    </div>
+                    <p className="text-xs text-gray-500 dark:text-gray-500 mt-3 italic">
+                      Need everything handled end-to-end? The <span className="font-bold text-purple-600 dark:text-purple-400">Total Brand Launch</span> tier includes full DevOps as part of the package.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
               <div className="p-8 bg-gray-50 dark:bg-white/5 rounded-3xl border border-accent-orange/20 text-center shadow-sm">
                 <h4 className="text-xl font-bold text-obsidian-950 dark:text-white mb-3 flex items-center justify-center gap-2">
                   What Is a Custom Build?

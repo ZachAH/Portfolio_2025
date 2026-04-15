@@ -154,7 +154,8 @@ def build_pdf():
     story.append(t)
 
     story.append(Paragraph(
-        "Note: Final pricing depends on page count, third-party integrations (Stripe, HungerRush, etc.), and custom logic requirements.",
+        "Note: These are base prices for custom code, design, and development. DevOps, hosting, and domain setup are scoped separately (see below). "
+        "Final pricing depends on page count, third-party integrations (Stripe, HungerRush, etc.), and custom logic requirements.",
         s_note
     ))
 
@@ -187,18 +188,62 @@ def build_pdf():
     story.append(divider())
 
     # ══════════════════════════════════════════════════════════
-    # SECTION 3: Anatomy of Your Investment
+    # SECTION 3: DevOps & Launch Package
+    # ══════════════════════════════════════════════════════════
+    story.append(Paragraph("DevOps &amp; Launch Package", s_section))
+    story.append(Paragraph("Full-service infrastructure — domain to deployment. Quoted separately from the base build.", s_section_sub))
+
+    story.append(Paragraph(
+        "I handle the entire launch sequence: domain registration, hosting configuration, DNS routing, SSL, "
+        "and production deployment. After launch, I push the domain to your Porkbun account and transfer the "
+        "site to your Netlify dashboard — you own and control everything.",
+        s_body
+    ))
+
+    devops_items = [
+        ("<b>Domain Registration &amp; DNS Config ($100–$200):</b> Domain purchase via Porkbun, A-records, CNAMEs, email forwarding, www redirects — every knob handled.", s_bullet_bold_label),
+        ("<b>Hosting Setup, SSL &amp; CDN ($150–$300):</b> Production-grade Netlify hosting configured with SSL certificates and CDN for global performance.", s_bullet_bold_label),
+        ("<b>Full Production Deployment ($200–$400):</b> Code optimized, built, and pushed live. Domain connected, final QA, and worldwide resolution confirmed.", s_bullet_bold_label),
+    ]
+    for text, style in devops_items:
+        story.append(Paragraph("•  " + text, style))
+
+    story.append(Spacer(1, 6))
+    story.append(Paragraph("Typical DevOps bundle: $300 – $700 depending on project complexity.", s_highlight))
+
+    story.append(divider())
+
+    # ══════════════════════════════════════════════════════════
+    # SECTION 4: Premium Development Add-Ons
+    # ══════════════════════════════════════════════════════════
+    story.append(Paragraph("Premium Development Add-Ons", s_section))
+    story.append(Paragraph("Specialized work that elevates your project beyond the base build.", s_section_sub))
+
+    premium_addons = [
+        ("<b>Custom Animations &amp; Motion Design ($300–$800):</b> Bespoke SVG animations, GSAP motion engines, scroll-triggered reveals, and interactive micro-interactions. Not library defaults — hand-crafted for your brand.", s_bullet_bold_label),
+        ("<b>Structured Data &amp; Schema Markup ($200–$400):</b> JSON-LD schemas (LocalBusiness, FAQPage, Product, etc.) for Google rich snippets, star ratings in search results, and enhanced visibility.", s_bullet_bold_label),
+        ("<b>Developer Walkthrough &amp; Documentation ($150–$300):</b> A comprehensive project guide covering architecture, how to make common updates, and deployment instructions — so you or any future developer can maintain the site.", s_bullet_bold_label),
+        ("<b>Advanced SEO Infrastructure ($200–$500):</b> Open Graph, Twitter Cards, sitemap, robots.txt, canonical URLs, geo tags, and semantic HTML architecture for maximum crawlability.", s_bullet_bold_label),
+    ]
+    for text, style in premium_addons:
+        story.append(Paragraph("•  " + text, style))
+
+    story.append(divider())
+
+    # ══════════════════════════════════════════════════════════
+    # SECTION 5: Anatomy of Your Investment
     # ══════════════════════════════════════════════════════════
     story.append(Paragraph("The Anatomy of Your Investment", s_section))
-    story.append(Paragraph("Where your money goes (estimated breakdown for a $4k–$5k project).", s_section_sub))
+    story.append(Paragraph("Where your money goes (estimated breakdown for a ~$5k project with DevOps).", s_section_sub))
 
     breakdown = [
         ("Frontend Architecture ($1,200–$1,800)", "Custom coding with React &amp; TailwindCSS. No templates. Just lightning-fast, accessible code."),
         ("UI/UX Design ($500–$800)", "High-end layouts designed for user flow and conversions."),
-        ("Data &amp; CMS Strategy ($1,500–$2,200)", "Database architecture, secure API routes, and admin panel logic."),
+        ("Custom Animations &amp; Motion ($300–$800)", "Bespoke SVG animations, scroll reveals, and interactive micro-interactions tailored to your brand."),
+        ("SEO &amp; Schema Infrastructure ($300–$500)", "JSON-LD structured data, Open Graph, sitemap, robots.txt, and semantic HTML for search visibility."),
         ("Integrations &amp; Forms ($300–$500)", "Custom contact flows, Google Maps, and payment gateway links."),
-        ('The "Launch" Sequence ($200–$400)', "Netlify deployment, DNS/Domain routing via Porkbun, and SSL security setup."),
-        ("Optimization ($200–$400)", "SEO meta-tagging, image compression, and cross-device testing."),
+        ("DevOps &amp; Launch ($300–$700)", "Domain registration (Porkbun), Netlify hosting, DNS config, SSL, CDN, and production deployment."),
+        ("Optimization &amp; QA ($200–$400)", "Image compression, cross-device testing, Core Web Vitals tuning, and final quality assurance."),
     ]
     for label, desc in breakdown:
         story.append(Paragraph(f"•  <b>{label}:</b> {desc}", s_bullet_bold_label))
@@ -206,9 +251,9 @@ def build_pdf():
     story.append(divider())
 
     # ══════════════════════════════════════════════════════════
-    # SECTION 4: Growth Add-Ons
+    # SECTION 7: Brand & Marketing Add-Ons
     # ══════════════════════════════════════════════════════════
-    story.append(Paragraph("Growth Add-Ons", s_section))
+    story.append(Paragraph("Brand &amp; Marketing Add-Ons", s_section))
     story.append(Spacer(1, 4))
 
     addons = [
