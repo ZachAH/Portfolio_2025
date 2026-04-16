@@ -72,18 +72,24 @@ const LetterReveal = ({ text, delay = 0 }) => {
   );
 };
 
-const WisconsinOutline = () => (
-  <motion.img
-    src="/wisconsin_outline.jpg"
-    alt=""
-    aria-hidden="true"
-    className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[65vw] max-w-[720px] min-w-[320px] pointer-events-none select-none -z-10"
-    style={{ filter: "invert(1)", mixBlendMode: "screen" }}
-    initial={{ opacity: 0 }}
-    animate={{ opacity: 0.08 }}
-    transition={{ duration: 2, delay: 0.6, ease: "easeOut" }}
-  />
-);
+const WisconsinOutline = () => {
+  const isDark = typeof window !== 'undefined' && document.documentElement.classList.contains('dark');
+  return (
+    <motion.img
+      src="/wisconsin_outline.jpg"
+      alt=""
+      aria-hidden="true"
+      className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[65vw] max-w-[720px] min-w-[320px] pointer-events-none select-none -z-10"
+      style={isDark
+        ? { filter: "invert(1)", mixBlendMode: "screen" }
+        : { mixBlendMode: "multiply" }
+      }
+      initial={{ opacity: 0 }}
+      animate={{ opacity: isDark ? 0.08 : 0.12 }}
+      transition={{ duration: 2, delay: 0.6, ease: "easeOut" }}
+    />
+  );
+};
 
 const Hero = ({ handleMouseEnter, handleMouseLeave }) => {
   const itemVariants = {
