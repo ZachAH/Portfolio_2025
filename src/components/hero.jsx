@@ -72,6 +72,19 @@ const LetterReveal = ({ text, delay = 0 }) => {
   );
 };
 
+const WisconsinOutline = () => (
+  <motion.img
+    src="/wisconsin_outline.jpg"
+    alt=""
+    aria-hidden="true"
+    className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[65vw] max-w-[720px] min-w-[320px] pointer-events-none select-none -z-10"
+    style={{ filter: "invert(1)", mixBlendMode: "screen" }}
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 0.08 }}
+    transition={{ duration: 2, delay: 0.6, ease: "easeOut" }}
+  />
+);
+
 const Hero = ({ handleMouseEnter, handleMouseLeave }) => {
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -104,7 +117,7 @@ const Hero = ({ handleMouseEnter, handleMouseLeave }) => {
           animate="visible"
           className="text-xl md:text-2xl lg:text-3xl text-text-secondary max-w-3xl mx-auto mb-14 font-medium leading-relaxed"
         >
-          62% of customers will skip your business entirely if they can't find a professional website. Get a high-performing site deployed in 48 hours — fixed pricing, you own everything, no surprises.
+          Wisconsin businesses lose customers every day without a professional website. Get yours live in 48 hours — fixed pricing, you own everything, no surprises.
         </motion.p>
 
         {/* Primary CTA */}
@@ -179,6 +192,8 @@ const Hero = ({ handleMouseEnter, handleMouseLeave }) => {
           </Link>
         </motion.div>
       </div>
+
+      <WisconsinOutline />
 
       {/* Decorative ambient background highlight */}
       <motion.div 
