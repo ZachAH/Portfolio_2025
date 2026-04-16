@@ -19,7 +19,7 @@ const projectsData = [
     description: "A complete modern redesign of a local cleaning company's website, focused on speed, clarity, and converting visitors into customers. Built with React, Tailwind, and Vite for top-tier performance.",
     csDescription: "Transformed a legacy small-business website into a high-performing, mobile-first platform. Implemented a fully modern React architecture, responsive UI components, optimized hero sections, and a clean service navigation system.",
     image: "/KMPC.webp",
-    link: "https://kettlemoraineprofessionalcleaners.com/",
+    link: "https://kmpc.netlify.app/",
     tags: ["React", "TypeScript", "Tailwind CSS", "Vite"],
     testimonial: null, // TODO: add real client quote when available
   },
