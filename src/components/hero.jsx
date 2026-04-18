@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
@@ -73,19 +73,30 @@ const LetterReveal = ({ text, delay = 0 }) => {
 };
 
 const WisconsinOutline = () => {
-  const isDark = typeof window !== 'undefined' && document.documentElement.classList.contains('dark');
+  const [isDark, setIsDark] = useState(
+    typeof window !== 'undefined' && document.documentElement.classList.contains('dark')
+  );
+
+  useEffect(() => {
+    const observer = new MutationObserver(() => {
+      setIsDark(document.documentElement.classList.contains('dark'));
+    });
+    observer.observe(document.documentElement, { attributeFilter: ['class'] });
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <motion.img
       src="/wisconsin_outline.jpg"
       alt=""
       aria-hidden="true"
-      className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[65vw] max-w-[720px] min-w-[320px] pointer-events-none select-none -z-10"
+      className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[75vw] max-w-[780px] min-w-[280px] pointer-events-none select-none -z-10"
       style={isDark
-        ? { filter: "invert(1)", mixBlendMode: "screen" }
+        ? { filter: "invert(1) brightness(2)", mixBlendMode: "screen" }
         : { mixBlendMode: "multiply" }
       }
       initial={{ opacity: 0 }}
-      animate={{ opacity: isDark ? 0.08 : 0.12 }}
+      animate={{ opacity: isDark ? 0.28 : 0.15 }}
       transition={{ duration: 2, delay: 0.6, ease: "easeOut" }}
     />
   );
