@@ -32,10 +32,15 @@ const Footer = ({ handleMouseEnter, handleMouseLeave }) => {
     <footer className="py-20 px-6 md:px-12 lg:px-24 bg-white dark:bg-obsidian-950 border-t border-obsidian-700/10">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-12">
         <div className="flex flex-col items-center md:items-start text-center md:text-left">
-          <div className="text-2xl font-bold tracking-tighter mb-4 flex items-center group">
+          <a
+            href="https://www.facebook.com/profile.php?id=61573480569044"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-2xl font-bold tracking-tighter mb-4 flex items-center group hover:opacity-80 transition-opacity"
+          >
             <span className="w-8 h-8 rounded-lg bg-sunset-gradient flex items-center justify-center mr-2 text-white text-xs">ZH</span>
-            <span className="text-text-primary">Zach Howell</span>
-          </div>
+            <span className="text-text-primary">ZH Web Solutions</span>
+          </a>
           <p className="text-text-secondary text-sm max-w-xs font-medium leading-relaxed">
             Designing and developing world-class digital experiences for the modern web.
           </p>

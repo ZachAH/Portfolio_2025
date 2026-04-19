@@ -123,7 +123,7 @@ const Navbar = ({ handleMouseEnter, handleMouseLeave }) => {
               <div className="flex justify-between items-center mb-16">
                 <div className="flex items-center">
                   <span className="w-8 h-8 rounded-lg bg-sunset-gradient flex items-center justify-center mr-2 text-white text-xs">ZH</span>
-                  <span className="font-bold tracking-tighter">Zach Howell</span>
+                  <span className="font-bold tracking-tighter">ZH Web Solutions</span>
                 </div>
                 <button
                   onClick={() => setIsOpen(false)}
@@ -165,7 +165,7 @@ const Navbar = ({ handleMouseEnter, handleMouseLeave }) => {
                 </div>
                 
                 <div className="flex items-center gap-4 text-text-secondary">
-                  <span className="text-xs font-medium">© 2026 Zach Howell</span>
+                  <span className="text-xs font-medium">© 2026 ZH Web Solutions</span>
                 </div>
               </motion.div>
             </motion.div>

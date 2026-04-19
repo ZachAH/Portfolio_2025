@@ -181,7 +181,7 @@ const TrustBar = () => {
                 <span className="text-sm font-black text-text-primary ml-1">5.0</span>
               </div>
               <div className="flex items-center gap-2">
-                <span className="text-xs font-semibold text-text-secondary">2 Google Reviews</span>
+                <span className="text-xs font-semibold text-text-secondary">See my reviews</span>
                 <span className="text-xs font-bold text-blue-500 group-hover:underline flex items-center gap-1">
                   See reviews
                   <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
