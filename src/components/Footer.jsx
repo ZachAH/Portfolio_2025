@@ -38,7 +38,14 @@ const Footer = ({ handleMouseEnter, handleMouseLeave }) => {
             rel="noopener noreferrer"
             className="text-2xl font-bold tracking-tighter mb-4 flex items-center group hover:opacity-80 transition-opacity"
           >
-            <span className="w-8 h-8 rounded-lg bg-sunset-gradient flex items-center justify-center mr-2 text-white text-xs">ZH</span>
+            <span className="w-8 h-8 rounded-lg bg-sunset-gradient flex items-center justify-center mr-2 shrink-0">
+              <img
+                src="/wisconsin.svg"
+                alt="Wisconsin"
+                className="w-5 h-5 object-contain"
+                style={{ filter: 'brightness(0) invert(1)' }}
+              />
+            </span>
             <span className="text-text-primary">ZH Web Solutions</span>
           </a>
           <p className="text-text-secondary text-sm max-w-xs font-medium leading-relaxed">
