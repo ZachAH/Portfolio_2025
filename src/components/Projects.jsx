@@ -49,6 +49,31 @@ const projectsData = [
     tags: ["React", "Node.js", "Firebase", "Stripe"],
     testimonial: null, // TODO: add real client quote when available
   },
+  {
+    id: 11,
+    title: "Gutters Craft LLC",
+    category: "Custom Business Website",
+    isDevelopment: true,
+    location: "New Berlin, WI",
+    description: "A high-conversion service platform featuring a streamlined lead-generation funnel and a custom-built estimate request system for local homeowners.",
+    csDescription: "Developed a performance-focused service site with a focus on local SEO and mobile-first lead capture. Implemented custom forms and interactive service mapping to drive customer inquiries.",
+    image: "/gutterscraftllc.webp",
+    link: "https://gutterscraftllc.com/", // Update this if you have a different production/preview link
+    tags: ["React", "Tailwind CSS", "Framer Motion", "Vite"],
+    testimonial: null,
+  },
+  {
+    id: 10,
+    title: "Claw and Decay",
+    category: "Custom E-Commerce Storefront",
+    location: "Remote / National",
+    description: "The official storefront for an alternative apparel brand, prioritizing dark-mode aesthetics, high-impact visual storytelling, and smooth micro-interactions.",
+    csDescription: "Engineered a high-fidelity e-commerce experience using GSAP for sophisticated animations and Vite for near-instant load times. Focused on maintaining brand identity through custom UI components and unique product layouts.",
+    image: "/clawanddecay.webp",
+    link: "https://clawanddecay.com/",
+    tags: ["TypeScript", "GSAP", "Vite", "Tailwind CSS"],
+    testimonial: null,
+  }
 ];
 
 const Projects = ({ handleMouseEnter, handleMouseLeave }) => {
