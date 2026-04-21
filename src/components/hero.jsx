@@ -139,12 +139,12 @@ const Hero = ({ handleMouseEnter, handleMouseLeave }) => {
         >
           <Link
             to="/templates"
-            className="group relative inline-flex items-center gap-3 px-10 py-5 bg-sunset-gradient text-white text-lg rounded-full font-bold overflow-hidden transition-all hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl"
+            className="group relative inline-flex max-w-full items-center justify-center gap-2 px-5 py-3 text-sm sm:gap-3 sm:px-10 sm:py-5 sm:text-lg bg-sunset-gradient text-white rounded-full font-bold overflow-hidden transition-all hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl"
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
           >
             <svg
-              className="w-5 h-5 transition-transform group-hover:-rotate-12"
+              className="h-4 w-4 shrink-0 transition-transform group-hover:-rotate-12 sm:h-5 sm:w-5"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -152,9 +152,9 @@ const Hero = ({ handleMouseEnter, handleMouseLeave }) => {
             >
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
             </svg>
-            <span>Launch Your Website in 2 Days</span>
+            <span className="max-w-[14ch] leading-tight sm:max-w-none">Launch Your Website in 2 Days</span>
             <svg
-              className="w-4 h-4 transition-transform group-hover:translate-x-1"
+              className="h-3.5 w-3.5 shrink-0 transition-transform group-hover:translate-x-1 sm:h-4 sm:w-4"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
