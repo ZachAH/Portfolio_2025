@@ -59,11 +59,11 @@ const guarantees = [
 const riskReversals = [
   {
     title: '48-Hour Deadline Guarantee',
-    copy: 'Your site goes live in 48 hours or I credit double the billable amount back to your account. No questions asked.',
+    copy: 'If I take longer than 48 hours to go live, you get a full refund — and you keep the site. I still build it, deploy it, and hand it over. Free.',
   },
   {
-    title: '90+ PageSpeed Score',
-    copy: 'If your site doesn\'t score above 90 on Google PageSpeed Insights, I\'ll optimize it for free until it does — or full refund.',
+    title: '90+ Across All Lighthouse Audits',
+    copy: 'Your site hits 90+ on every Google Lighthouse category — Performance, Accessibility, Best Practices, and SEO — or I optimize it for free until it does.',
   },
 ];
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import DigitalSolutionsImg from '../assets/digital_solutions.webp';
+import { Link } from 'react-router-dom';
 import Seo from '../components/Seo';
 import { servicesSchema, breadcrumb } from '../utils/structuredData';
 
@@ -13,6 +13,47 @@ const servicesJsonLd = {
       { name: 'Services', path: '/services' },
     ]),
   ],
+};
+
+const LighthouseWidget = () => {
+  const scores = [
+    { label: 'Performance',    score: 98 },
+    { label: 'Accessibility',  score: 97 },
+    { label: 'Best Practices', score: 99 },
+    { label: 'SEO',            score: 100 },
+  ];
+  return (
+    <div className="w-full h-full flex flex-col justify-center gap-3 px-1 py-2">
+      <p className="text-[9px] font-black tracking-[0.2em] text-zinc-400 dark:text-text-secondary/60 uppercase">
+        Lighthouse Audit Results
+      </p>
+      {scores.map(({ label, score }, i) => (
+        <div key={label} className="flex items-center gap-2">
+          <span className="text-[9px] font-bold uppercase tracking-wide text-zinc-500 dark:text-text-secondary/80 w-[90px] shrink-0 leading-tight">
+            {label}
+          </span>
+          <div className="flex-1 h-1.5 rounded-full bg-zinc-200 dark:bg-white/10 overflow-hidden">
+            <motion.div
+              className="h-full rounded-full bg-accent-orange"
+              initial={{ width: 0 }}
+              whileInView={{ width: `${score}%` }}
+              viewport={{ once: true }}
+              transition={{ duration: 1.2, delay: i * 0.18, ease: [0.22, 1, 0.36, 1] }}
+            />
+          </div>
+          <motion.span
+            className="text-xs font-black text-accent-orange w-8 text-right tabular-nums"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: i * 0.18 + 0.9 }}
+          >
+            {score}
+          </motion.span>
+        </div>
+      ))}
+    </div>
+  );
 };
 
 const Services = ({ handleMouseEnter, handleMouseLeave }) => {
@@ -171,19 +212,15 @@ const Services = ({ handleMouseEnter, handleMouseLeave }) => {
                         <div className="h-2 w-32 bg-accent-orange/40 rounded-full" />
                         <div className="h-2 w-48 bg-zinc-200 dark:bg-text-secondary/20 rounded-full" />
                       </div>
-                      <div className="h-40 w-full overflow-hidden rounded-2xl flex items-center justify-center relative group/img">
-                        <img
-                          src={DigitalSolutionsImg}
-                          alt="Custom React web development and digital solutions illustration"
-                          loading="lazy"
-                          decoding="async"
-                          className="w-full h-full object-cover transition-transform duration-700 group-hover/img:scale-110"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-zinc-900/40 dark:from-obsidian-950/40 to-transparent opacity-0 group-hover/img:opacity-100 transition-opacity duration-500" />
+                      <div className="h-40 w-full rounded-2xl bg-zinc-50 dark:bg-obsidian-900/60 border border-zinc-100 dark:border-white/5 flex items-center justify-center px-3">
+                        <LighthouseWidget />
                       </div>
-                      <button className="w-full py-4 bg-sunset-gradient text-white rounded-2xl font-black text-xs uppercase tracking-widest shadow-lg shadow-accent-red/20 hover:scale-[1.02] active:scale-95 transition-transform">
-                         Get Started Today
-                      </button>
+                      <Link
+                        to="/templates"
+                        className="w-full py-4 bg-sunset-gradient text-white rounded-2xl font-black text-xs uppercase tracking-widest shadow-lg shadow-accent-red/20 hover:scale-[1.02] active:scale-95 transition-transform text-center block"
+                      >
+                        Get Started Today
+                      </Link>
                    </div>
                 </div>
               </div>

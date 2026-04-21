@@ -45,7 +45,7 @@ const TOS_TEXT = `
 
 8. HOSTING & ONGOING COSTS: Zach Howell is not responsible for ongoing hosting fees, domain renewal costs, SSL certificate renewals, or any recurring charges from third-party services after the project hand-off. The client will be informed of any expected recurring costs during the onboarding process.
 
-9. SITE PERFORMANCE GUARANTEE: The 90+ Google PageSpeed Insights score guarantee applies to the site as delivered at launch, tested on a standard mobile connection. Scores may vary based on the client's hosting plan, third-party scripts added post-launch, or media assets that exceed recommended file sizes. The guarantee does not cover performance degradation caused by client modifications after delivery.
+9. SITE PERFORMANCE GUARANTEE: The 90+ score guarantee across all Google Lighthouse audit categories (Performance, Accessibility, Best Practices, and SEO) applies to the site as delivered at launch, tested on a standard mobile connection. Scores may vary based on the client's hosting plan, third-party scripts added post-launch, or media assets that exceed recommended file sizes. The guarantee does not cover performance degradation caused by client modifications after delivery.
 
 10. COMMERCE COMPLIANCE: Commerce Launch includes a 7-day post-launch support window for functional adjustments and compliance checks. After the 7-day window, support is available via Growth Partnership Plans.
 

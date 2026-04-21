@@ -13,25 +13,26 @@ export default {
       },
       colors: {
         obsidian: {
-          950: '#050505',
-          900: '#101010',
-          800: '#1a1a1a',
-          700: '#262626',
+          950: '#0A1510',
+          900: '#0F1F18',
+          800: '#183028',
+          700: '#224030',
         },
         accent: {
-          orange: '#f97316',
-          red: '#ef4444',
-          blue: '#1d4ed8',
+          orange: '#FFB612',
+          red: '#183028',
+          blue: '#0077C0',
         },
         silver: {
-          50: '#f9f9fb',
-          100: '#f5f5f7',
-          200: '#e5e5e7',
-          300: '#d2d2d7',
+          50: '#f8faff',
+          100: '#EEF2FA',
+          200: '#D4E0F2',
+          300: '#A8BCDC',
         }
       },
       backgroundImage: {
-        'sunset-gradient': 'linear-gradient(to right, #f97316, #ef4444)',
+        'sunset-gradient': 'linear-gradient(to right, #003087, #FFB612)',
+        'wi-gradient-dark': 'linear-gradient(to right, #FFFFFF, #FFB612)',
       },
       boxShadow: {
         'premium': '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',

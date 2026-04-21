@@ -9,23 +9,26 @@
   line-height: 1.5;
   font-weight: 400;
   color-scheme: light dark;
-  
+
+  /* Light — Milwaukee Brewers Retro */
   --bg-primary: #ffffff;
-  --bg-secondary: #f5f5f7;
-  --text-primary: #1d1d1f;
-  --text-secondary: #86868b;
-  --accent-primary: #f97316;
-  
+  --bg-secondary: #EEF2FA;
+  --text-primary: #003087;
+  --text-secondary: #4060A8;
+  --accent-primary: #FFB612;
+
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 html.dark {
-  --bg-primary: #050505;
-  --bg-secondary: #101010;
-  --text-primary: #f5f5f7;
-  --text-secondary: #86868b;
+  /* Dark — Green Bay Packers */
+  --bg-primary: #183028;
+  --bg-secondary: #0F1F18;
+  --text-primary: #FFFFFF;
+  --text-secondary: #C8DDD5;
+  --accent-primary: #FFB612;
 }
 
 body {
@@ -38,6 +41,15 @@ body {
 /* Typography Utilities */
 .text-gradient {
   @apply bg-sunset-gradient bg-clip-text text-transparent;
+}
+
+html.dark .text-gradient {
+  @apply bg-wi-gradient-dark bg-clip-text text-transparent;
+}
+
+/* Packers dark mode: swap every sunset-gradient element to green → gold */
+html.dark .bg-sunset-gradient {
+  background-image: linear-gradient(to right, #224030, #FFB612);
 }
 
 .heading-hero {
@@ -56,7 +68,7 @@ body {
 }
 
 html.dark .glass {
-  background: rgba(10, 10, 10, 0.7);
+  background: rgba(15, 31, 24, 0.75);
 }
 
 .glass-card {
@@ -66,8 +78,8 @@ html.dark .glass {
 }
 
 html.dark .glass-card {
-  background: rgba(20, 20, 20, 0.5);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(10, 21, 16, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 /* Premium Custom Cursor */
@@ -110,8 +122,8 @@ html.dark .glass-card {
   width: 50px;
   height: 50px;
   opacity: 1;
-  border-color: #f97316;
-  background-color: rgba(249, 115, 22, 0.05);
+  border-color: #FFB612;
+  background-color: rgba(255, 182, 18, 0.05);
 }
 
 /* Smooth Scrolling */

@@ -149,7 +149,7 @@ const STEPS = [
   },
 ];
 
-const accent = '#FF6B35'; // accent-orange
+const accent = '#FFB612'; // packers/brewers gold
 
 const DiscoveryForm = () => {
   const [currentStep, setCurrentStep] = useState(0);

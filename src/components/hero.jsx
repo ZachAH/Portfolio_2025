@@ -87,16 +87,13 @@ const WisconsinOutline = () => {
 
   return (
     <motion.img
-      src="/wisconsin_outline.jpg"
+      src={isDark ? "/wisconsin_darkmode.png" : "/wisconsin_outline.jpg"}
       alt=""
       aria-hidden="true"
       className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[75vw] max-w-[780px] min-w-[280px] pointer-events-none select-none -z-10"
-      style={isDark
-        ? { filter: "invert(1) brightness(2)", mixBlendMode: "screen" }
-        : { mixBlendMode: "multiply" }
-      }
+      style={isDark ? { filter: "invert(1)" } : { mixBlendMode: "multiply" }}
       initial={{ opacity: 0 }}
-      animate={{ opacity: isDark ? 0.28 : 0.15 }}
+      animate={{ opacity: isDark ? 0.3 : 0.15 }}
       transition={{ duration: 2, delay: 0.6, ease: "easeOut" }}
     />
   );

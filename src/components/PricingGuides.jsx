@@ -179,7 +179,7 @@ const PricingCard = ({ title, price, description, features, notIncluded, accent,
               : 'bg-obsidian-950 text-white dark:bg-white dark:text-obsidian-950 hover:opacity-90'
               }`}
           >
-            {isPopular ? 'Start Discovery' : 'Get Started'}
+            {isPopular ? 'Get Started' : 'Get Started'}
           </Link>
         )}
       </motion.div>
@@ -225,14 +225,14 @@ const PricingGuides = () => {
           "Domain pushed to your Porkbun, site transferred to your Netlify",
           "2-Day Deployment Guaranteed",
           "Local SEO Metadata Injection",
-          "Google PageSpeed 90+ Score Guaranteed",
+          "90+ Across All Lighthouse Audits Guaranteed",
         ],
         notIncluded: [
           "Custom feature development",
           "Ongoing hosting (available via Growth Plans)",
           "Stock photography or copywriting",
         ],
-        guarantee: "48h deadline or double credit back — 90+ PageSpeed or full refund",
+        guarantee: "Miss the 48h deadline and you get a full refund — keep the site free. Miss 90+ Lighthouse across all audits and I fix it free.",
         accent: "text-accent-orange",
         isPopular: true,
         stripeUrl: import.meta.env.VITE_STRIPE_SPRINT_URL
@@ -408,7 +408,7 @@ const PricingGuides = () => {
                 <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-sm sm:text-base">
                   A $200 website uses bloated page builders with slow load times, missing metadata, and zero SEO — leaving you
                   with technical debt that costs more to fix than it did to build. The 48h Sprint delivers a hand-coded React/TypeScript site
-                  with professional DNS configuration, secure infrastructure, and a guaranteed 90+ PageSpeed score — the same
+                  with professional DNS configuration, secure infrastructure, and guaranteed 90+ scores across all Lighthouse audits — the same
                   foundation agencies charge $5,000+ for.
                 </p>
               </div>
