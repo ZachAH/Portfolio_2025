@@ -1,8 +1,7 @@
-import React, { useRef, useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { FaMapMarkerAlt, FaClock, FaCode, FaShieldAlt, FaPlay, FaPause } from 'react-icons/fa';
-import walkthroughVideo from '../assets/website_final.mp4';
+import { FaMapMarkerAlt, FaClock, FaCode, FaShieldAlt, FaFacebookF } from 'react-icons/fa';
 
 // ── TRUST BAR ─────────────────────────────────────────────
 // Positioned right after the hero so visitors who don't know
@@ -147,13 +146,13 @@ const TrustBar = () => {
           ))}
         </div>
 
-        {/* ── GOOGLE REVIEWS BADGE ──────────────────────────── */}
+        {/* ── REVIEW BADGES ─────────────────────────────────── */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7, delay: 0.2 }}
-          className="mb-10 flex justify-center"
+          className="mb-10 grid grid-cols-1 md:grid-cols-2 gap-4 max-w-3xl mx-auto"
         >
           <a
             href="https://share.google/HABgclhBCUanTjoW2"
@@ -191,6 +190,37 @@ const TrustBar = () => {
               </div>
             </div>
           </a>
+
+          <a
+            href="https://www.facebook.com/profile.php?id=61573480569044"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group inline-flex items-center gap-5 px-7 py-5 rounded-2xl bg-white dark:bg-obsidian-950/60 border border-obsidian-700/10 dark:border-white/10 shadow-sm hover:shadow-premium hover:-translate-y-0.5 transition-all duration-300"
+          >
+            <div className="w-9 h-9 rounded-full shrink-0 bg-[#1877F2] text-white flex items-center justify-center">
+              <FaFacebookF className="w-4 h-4" />
+            </div>
+
+            <div className="flex flex-col gap-1">
+              <div className="flex items-center gap-1.5">
+                {[...Array(5)].map((_, i) => (
+                  <svg key={i} className="w-4 h-4 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                  </svg>
+                ))}
+                <span className="text-sm font-black text-text-primary ml-1">Facebook</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="text-xs font-semibold text-text-secondary">See my reviews</span>
+                <span className="text-xs font-bold text-[#1877F2] group-hover:underline flex items-center gap-1">
+                  See reviews
+                  <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </span>
+              </div>
+            </div>
+          </a>
         </motion.div>
 
         {/* Guarantees Row */}
@@ -204,7 +234,7 @@ const TrustBar = () => {
           <div className="flex items-center gap-3 mb-8 justify-center md:justify-start">
             <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
             <span className="text-[10px] font-black uppercase tracking-[0.3em] text-text-secondary">
-              The Zach Howell Promise
+              The ZH Web Solutions Promise
             </span>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
@@ -262,40 +292,6 @@ const TrustBar = () => {
               </div>
             </div>
           ))}
-        </motion.div>
-
-        {/* ── LAUNCH WALKTHROUGH VIDEO ───────────────────────── */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="mt-20"
-        >
-          <div className="text-center mb-10">
-            <span className="text-xs font-black tracking-[0.3em] text-accent-orange uppercase mb-4 inline-block">
-              See It In Action
-            </span>
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tighter text-text-primary uppercase">
-              A Real <span className="text-gradient">Launch</span>, Start to Finish
-            </h2>
-            <p className="text-base md:text-lg text-text-secondary max-w-2xl mx-auto mt-4 font-medium leading-relaxed">
-              Watch a full walkthrough of how a site goes from kickoff to live — no cuts, no filler.
-            </p>
-          </div>
-
-          <div className="max-w-4xl mx-auto rounded-3xl overflow-hidden border border-obsidian-700/10 dark:border-white/10 shadow-premium bg-black">
-            <video
-              className="w-full aspect-video"
-              controls
-              preload="metadata"
-              playsInline
-              poster=""
-            >
-              <source src={walkthroughVideo} type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
-          </div>
         </motion.div>
 
         {/* ── HOW IT WORKS — 48-HOUR TIMELINE ────────────────── */}

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import ProjectCard from './ProjectCard';
 
@@ -78,9 +78,45 @@ const projectsData = [
 
 const Projects = ({ handleMouseEnter, handleMouseLeave }) => {
   const [viewMode, setViewMode] = useState('DEV');
+  const [isMobile, setIsMobile] = useState(false);
+  const [showAllProjects, setShowAllProjects] = useState(false);
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(max-width: 767px)');
+
+    const updateIsMobile = (event) => {
+      setIsMobile(event.matches);
+    };
+
+    setIsMobile(mediaQuery.matches);
+    mediaQuery.addEventListener('change', updateIsMobile);
+
+    return () => mediaQuery.removeEventListener('change', updateIsMobile);
+  }, []);
+
+  const initialVisibleProjects = isMobile ? 2 : 3;
+  const visibleProjects = showAllProjects
+    ? projectsData
+    : projectsData.slice(0, initialVisibleProjects);
+  const shouldShowToggle = projectsData.length > initialVisibleProjects;
+
+  const handleProjectsToggle = () => {
+    if (showAllProjects) {
+      setShowAllProjects(false);
+      sectionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      return;
+    }
+
+    setShowAllProjects(true);
+  };
 
   return (
-    <section id="projects" className="py-32 px-6 md:px-12 lg:px-24">
+    <section
+      id="projects"
+      ref={sectionRef}
+      className="py-32 px-6 md:px-12 lg:px-24"
+    >
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -131,7 +167,7 @@ const Projects = ({ handleMouseEnter, handleMouseLeave }) => {
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
-          {projectsData.map((project, index) => (
+          {visibleProjects.map((project, index) => (
             <ProjectCard 
               key={project.id} 
               project={project} 
@@ -142,6 +178,28 @@ const Projects = ({ handleMouseEnter, handleMouseLeave }) => {
             />
           ))}
         </div>
+
+        {shouldShowToggle && (
+          <div className="mt-12 flex justify-center">
+            <button
+              type="button"
+              onClick={handleProjectsToggle}
+              className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-white dark:bg-obsidian-950/60 border border-obsidian-700/10 dark:border-white/10 text-text-primary font-bold tracking-wide shadow-sm hover:shadow-premium transition-all duration-300 hover:-translate-y-0.5"
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+            >
+              {showAllProjects ? 'Show Less' : 'See More Builds'}
+              <svg
+                className={`w-4 h-4 transition-transform duration-300 ${showAllProjects ? 'rotate-180' : ''}`}
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );

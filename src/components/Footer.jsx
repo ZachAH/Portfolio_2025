@@ -1,11 +1,9 @@
 import React from 'react';
-import { motion } from 'framer-motion';
-import { FaGithub, FaLinkedin, FaFacebookF, FaReact, FaNodeJs, FaEnvelope, FaLock, FaShieldAlt } from 'react-icons/fa';
+// import { motion } from 'framer-motion';
+import { FaGithub, FaLinkedin, FaFacebookF, FaReact, FaNodeJs, FaEnvelope, FaLock, FaShieldAlt, FaMapMarkerAlt, FaUserCheck } from 'react-icons/fa';
 import { SiTailwindcss, SiFramer, SiVite, SiStripe } from 'react-icons/si';
 
 const Footer = ({ handleMouseEnter, handleMouseLeave }) => {
-  const currentYear = new Date().getFullYear();
-
   const socialLinks = [
     { icon: <FaGithub />, href: "https://github.com/ZachAH", label: "GitHub" },
     { icon: <FaLinkedin />, href: "https://www.linkedin.com/in/zach-howell-189118210/", label: "LinkedIn" },
@@ -15,8 +13,9 @@ const Footer = ({ handleMouseEnter, handleMouseLeave }) => {
 
   const trustBadges = [
     { icon: <SiStripe className="w-4 h-4" />, label: 'Stripe Checkout' },
-    { icon: <FaLock className="w-3.5 h-3.5" />, label: 'SSL Encrypted' },
-    { icon: <FaShieldAlt className="w-3.5 h-3.5" />, label: '256-Bit Security' },
+    { icon: <FaLock className="w-3.5 h-3.5" />, label: 'SSL Secured' },
+    { icon: <FaShieldAlt className="w-3.5 h-3.5" />, label: 'Encrypted Forms' },
+    { icon: <FaUserCheck className="w-3.5 h-3.5" />, label: 'Direct Developer Access' },
     { icon: <FaLock className="w-3.5 h-3.5" />, label: 'Full Ownership' },
   ];
 
@@ -48,9 +47,23 @@ const Footer = ({ handleMouseEnter, handleMouseLeave }) => {
             </span>
             <span className="text-text-primary">ZH Web Solutions</span>
           </a>
-          <p className="text-text-secondary text-sm max-w-xs font-medium leading-relaxed">
-            Designing and developing world-class digital experiences for the modern web.
-          </p>
+          <div className="space-y-3 max-w-sm">
+            <p className="text-text-secondary text-sm font-medium leading-relaxed">
+              Wisconsin-based small business building secure, high-conversion websites with direct one-on-one support.
+            </p>
+            <div className="flex flex-col gap-2 text-xs font-semibold text-text-secondary">
+              <div className="flex items-center justify-center md:justify-start gap-2">
+                <FaMapMarkerAlt className="text-accent-orange" />
+                <span>Based in New Berlin, Wisconsin</span>
+              </div>
+              <div className="flex items-center justify-center md:justify-start gap-2">
+                <FaEnvelope className="text-accent-orange" />
+                <a href="mailto:zachary@zachhowell.dev" className="hover:text-text-primary transition-colors">
+                  zachary@zachhowell.dev
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div className="flex flex-col items-center gap-8">
@@ -84,16 +97,15 @@ const Footer = ({ handleMouseEnter, handleMouseLeave }) => {
         </div>
 
         <div className="text-center md:text-right">
-          <p className="text-text-secondary text-sm font-medium mb-2">Developed with ❤️ and Precision</p>
           <p className="text-[10px] uppercase font-bold tracking-[0.2em] text-text-secondary/40">
-            &copy; {currentYear} All Rights Reserved
+            &copy; 2026 ZH Web Solutions All Rights Reserved
           </p>
         </div>
       </div>
 
       {/* ── TRUST & SECURITY BADGES ─────────────────────────── */}
       <div className="max-w-7xl mx-auto mt-12 pt-8 border-t border-obsidian-700/10 dark:border-white/5">
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
+        <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-6">
           {trustBadges.map((badge) => (
             <div
               key={badge.label}
@@ -109,7 +121,7 @@ const Footer = ({ handleMouseEnter, handleMouseLeave }) => {
           ))}
         </div>
         <p className="text-center text-[9px] uppercase tracking-[0.2em] text-text-secondary/30 font-bold mt-6">
-          All transactions are securely processed through Stripe. Your data is never stored on our servers. You own every account, credential, and line of code.
+          Secure payments through Stripe. We never sell or share your data. You own your code, domain, hosting, and every account credential from day one.
         </p>
       </div>
     </footer>

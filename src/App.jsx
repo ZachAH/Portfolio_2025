@@ -58,6 +58,17 @@ function ScrollHandler() {
   const { pathname, hash } = useLocation();
 
   useEffect(() => {
+    if (!('scrollRestoration' in window.history)) return undefined;
+
+    const previousScrollRestoration = window.history.scrollRestoration;
+    window.history.scrollRestoration = 'manual';
+
+    return () => {
+      window.history.scrollRestoration = previousScrollRestoration;
+    };
+  }, []);
+
+  useEffect(() => {
     if (hash) {
       setTimeout(() => {
         const id = hash.replace('#', '');
