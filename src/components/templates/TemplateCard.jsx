@@ -104,7 +104,7 @@ export default function TemplateCard({
           {title}
         </h3>
 
-        <p className="text-zinc-600 dark:text-zinc-400 mb-8 text-base leading-relaxed font-medium">
+        <p className="text-zinc-600 dark:text-zinc-300 mb-8 text-base leading-relaxed font-medium">
           {description}
         </p>
 

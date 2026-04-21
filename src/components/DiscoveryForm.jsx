@@ -252,7 +252,7 @@ const DiscoveryForm = () => {
           <h2 className="text-4xl font-bold tracking-tighter mb-4 text-obsidian-950 dark:text-white">
             Discovery Received.
           </h2>
-          <p className="text-gray-600 dark:text-gray-400 mb-8 leading-relaxed">
+          <p className="text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
             Thanks for the detail — I'll review your vision and email you within 24 hours
             to lock in a Zoom or Teams call so we can dig in together.
           </p>
@@ -286,7 +286,7 @@ const DiscoveryForm = () => {
           <h1 className="text-4xl md:text-6xl font-bold tracking-tighter text-obsidian-950 dark:text-white mb-6">
             Tell me about your <span className="text-gradient">vision</span>.
           </h1>
-          <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed">
             This form kicks off the discovery phase. Once submitted, I'll review your
             vision and reach out to schedule a 30-minute Zoom or Teams call so we can
             align on scope, timeline, and the right approach before any contracts.
@@ -326,7 +326,7 @@ const DiscoveryForm = () => {
                   >
                     {i + 1}
                   </div>
-                  <span className="text-[10px] uppercase tracking-widest font-bold text-gray-500 dark:text-gray-400 hidden sm:block">
+                  <span className="text-[10px] uppercase tracking-widest font-bold text-gray-500 dark:text-gray-300 hidden sm:block">
                     {s.label}
                   </span>
                 </div>
@@ -412,7 +412,7 @@ const DiscoveryForm = () => {
         </motion.div>
 
         {/* Reassurance footer */}
-        <p className="text-center text-xs text-gray-500 dark:text-gray-400 mt-8 italic max-w-xl mx-auto leading-relaxed">
+        <p className="text-center text-xs text-gray-500 dark:text-gray-300 mt-8 italic max-w-xl mx-auto leading-relaxed">
           No commitments at this stage — discovery is free. Once we hop on a call I'll send
           a tailored proposal with fixed pricing and a clear timeline.
         </p>

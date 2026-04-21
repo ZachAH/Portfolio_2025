@@ -24,12 +24,12 @@ const LighthouseWidget = () => {
   ];
   return (
     <div className="w-full h-full flex flex-col justify-center gap-3 px-1 py-2">
-      <p className="text-[9px] font-black tracking-[0.2em] text-zinc-400 dark:text-text-secondary/60 uppercase">
+      <p className="text-[9px] font-black tracking-[0.2em] text-zinc-400 dark:text-text-secondary/85 uppercase">
         Lighthouse Audit Results
       </p>
       {scores.map(({ label, score }, i) => (
         <div key={label} className="flex items-center gap-2">
-          <span className="text-[9px] font-bold uppercase tracking-wide text-zinc-500 dark:text-text-secondary/80 w-[90px] shrink-0 leading-tight">
+          <span className="text-[9px] font-bold uppercase tracking-wide text-zinc-500 dark:text-text-secondary w-[90px] shrink-0 leading-tight">
             {label}
           </span>
           <div className="flex-1 h-1.5 rounded-full bg-zinc-200 dark:bg-white/10 overflow-hidden">
@@ -133,7 +133,7 @@ const Services = ({ handleMouseEnter, handleMouseLeave }) => {
           >
             Start to <span className="text-gradient">Finish</span>.
           </h1>
-          <p className="text-xl md:text-2xl text-zinc-600 dark:text-text-secondary max-w-3xl mx-auto font-medium leading-relaxed">
+          <p className="text-xl md:text-2xl text-zinc-600 dark:text-zinc-300 max-w-3xl mx-auto font-medium leading-relaxed">
             I don’t just write code. I manage the entire lifecycle—from domain registration and development to SEO optimization and global deployment.
           </p>
         </motion.div>
@@ -161,12 +161,12 @@ const Services = ({ handleMouseEnter, handleMouseLeave }) => {
               <h3 className="text-xl md:text-2xl font-bold mb-4 tracking-tight text-zinc-900 dark:text-white group-hover:text-accent-orange transition-colors duration-300 pointer-events-none">
                 {service.title}
               </h3>
-              <p className="text-zinc-600 dark:text-text-secondary text-sm mb-8 leading-relaxed font-medium flex-grow pointer-events-none">
+              <p className="text-zinc-600 dark:text-zinc-300 text-sm mb-8 leading-relaxed font-medium flex-grow pointer-events-none">
                 {service.description}
               </p>
               <div className="flex flex-wrap gap-2">
                 {service.tags.map((tag, i) => (
-                  <span key={i} className="text-[10px] uppercase font-black tracking-widest text-zinc-500 dark:text-text-secondary/60 bg-zinc-100 dark:bg-obsidian-700/5 border border-zinc-200 dark:border-transparent px-2 py-1 rounded-full">
+                  <span key={i} className="text-[10px] uppercase font-black tracking-widest text-zinc-500 dark:text-zinc-200 bg-zinc-100 dark:bg-obsidian-700/5 border border-zinc-200 dark:border-transparent px-2 py-1 rounded-full">
                     {tag}
                   </span>
                 ))}
@@ -187,7 +187,7 @@ const Services = ({ handleMouseEnter, handleMouseLeave }) => {
               <h2 className="text-4xl md:text-5xl font-bold mb-6 tracking-tighter text-zinc-900 dark:text-white leading-[0.9] uppercase">
                 Every detail, <span className="text-gradient">handled</span>.
               </h2>
-              <p className="text-xl text-zinc-600 dark:text-text-secondary font-medium leading-relaxed mb-8">
+              <p className="text-xl text-zinc-600 dark:text-zinc-300 font-medium leading-relaxed mb-8">
                 I provide a complete white-glove service. You bring the vision, and I handle the technical complexity from domain purchase to global scale. 
               </p>
               <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">

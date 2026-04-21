@@ -48,10 +48,10 @@ const Footer = ({ handleMouseEnter, handleMouseLeave }) => {
             <span className="text-text-primary">ZH Web Solutions</span>
           </a>
           <div className="space-y-3 max-w-sm">
-            <p className="text-text-secondary text-sm font-medium leading-relaxed">
+            <p className="text-text-secondary dark:text-zinc-300 text-sm font-medium leading-relaxed">
               Wisconsin-based small business building secure, high-conversion websites with direct one-on-one support.
             </p>
-            <div className="flex flex-col gap-2 text-xs font-semibold text-text-secondary">
+            <div className="flex flex-col gap-2 text-xs font-semibold text-text-secondary dark:text-zinc-300">
               <div className="flex items-center justify-center md:justify-start gap-2">
                 <FaMapMarkerAlt className="text-accent-orange" />
                 <span>Based in New Berlin, Wisconsin</span>
@@ -85,8 +85,8 @@ const Footer = ({ handleMouseEnter, handleMouseLeave }) => {
           </div>
           
           <div className="flex items-center gap-4 py-2 px-6 glass rounded-full border border-obsidian-700/10">
-            <span className="text-[10px] font-bold uppercase tracking-widest text-text-secondary">Powered By</span>
-            <div className="flex items-center gap-3 text-text-secondary/60">
+            <span className="text-[10px] font-bold uppercase tracking-widest text-text-secondary dark:text-zinc-300">Powered By</span>
+            <div className="flex items-center gap-3 text-text-secondary/60 dark:text-zinc-300/80">
               {techStack.map((tech, i) => (
                 <div key={i} className="text-lg hover:text-accent-orange transition-colors cursor-help" title={tech.label}>
                   {tech.icon}
@@ -97,7 +97,7 @@ const Footer = ({ handleMouseEnter, handleMouseLeave }) => {
         </div>
 
         <div className="text-center md:text-right">
-          <p className="text-[10px] uppercase font-bold tracking-[0.2em] text-text-secondary/40">
+          <p className="text-[10px] uppercase font-bold tracking-[0.2em] text-text-secondary/40 dark:text-zinc-400">
             &copy; 2026 ZH Web Solutions All Rights Reserved
           </p>
         </div>
@@ -120,7 +120,7 @@ const Footer = ({ handleMouseEnter, handleMouseLeave }) => {
             </div>
           ))}
         </div>
-        <p className="text-center text-[9px] uppercase tracking-[0.2em] text-text-secondary/30 font-bold mt-6">
+        <p className="text-center text-[9px] uppercase tracking-[0.2em] text-text-secondary/30 dark:text-zinc-400 font-bold mt-6">
           Secure payments through Stripe. We never sell or share your data. You own your code, domain, hosting, and every account credential from day one.
         </p>
       </div>

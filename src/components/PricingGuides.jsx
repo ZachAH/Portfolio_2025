@@ -39,7 +39,7 @@ const CheckoutReadyModal = ({ isOpen, onClose, stripeUrl, title }) => (
               <h3 className="text-lg font-black text-obsidian-950 dark:text-white uppercase tracking-tight">Before You Check Out</h3>
             </div>
 
-            <p className="text-sm text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
+            <p className="text-sm text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
               Here's exactly what happens after you complete your <span className="font-bold text-obsidian-950 dark:text-white">{title}</span> purchase:
             </p>
 
@@ -54,7 +54,7 @@ const CheckoutReadyModal = ({ isOpen, onClose, stripeUrl, title }) => (
                   <span className="w-6 h-6 rounded-full bg-accent-orange/10 text-accent-orange text-xs font-black flex items-center justify-center shrink-0 mt-0.5">{item.step}</span>
                   <div>
                     <span className="text-sm font-bold text-obsidian-950 dark:text-white">{item.title}</span>
-                    <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">{item.desc}</p>
+                    <p className="text-xs text-gray-500 dark:text-gray-300 leading-relaxed">{item.desc}</p>
                   </div>
                 </li>
               ))}
@@ -67,7 +67,7 @@ const CheckoutReadyModal = ({ isOpen, onClose, stripeUrl, title }) => (
             </div>
 
             <div className="flex gap-3">
-              <button onClick={onClose} className="px-6 py-3.5 rounded-full border border-gray-200 dark:border-white/10 text-gray-600 dark:text-gray-300 font-bold text-sm hover:bg-gray-100 dark:hover:bg-white/5 transition-colors">
+              <button onClick={onClose} className="px-6 py-3.5 rounded-full border border-gray-200 dark:border-white/10 text-gray-600 dark:text-gray-200 font-bold text-sm hover:bg-gray-100 dark:hover:bg-white/5 transition-colors">
                 Go Back
               </button>
               <a
@@ -81,7 +81,7 @@ const CheckoutReadyModal = ({ isOpen, onClose, stripeUrl, title }) => (
               </a>
             </div>
 
-            <p className="text-center text-[9px] text-gray-400 dark:text-gray-500 mt-4 uppercase tracking-widest font-bold">
+            <p className="text-center text-[9px] text-gray-400 dark:text-gray-400 mt-4 uppercase tracking-widest font-bold">
               Secured by Stripe — 256-bit encryption
             </p>
           </div>
@@ -119,9 +119,9 @@ const PricingCard = ({ title, price, description, features, notIncluded, accent,
         <h3 className="text-2xl font-bold text-obsidian-950 dark:text-white mb-2">{title}</h3>
         <div className="flex items-baseline gap-1 mb-4">
           <span className="text-4xl font-bold text-obsidian-950 dark:text-white">{price}</span>
-          {price.includes('/') && <span className="text-gray-500 dark:text-gray-400 text-sm font-medium">/month</span>}
+          {price.includes('/') && <span className="text-gray-500 dark:text-gray-300 text-sm font-medium">/month</span>}
         </div>
-        <p className="text-gray-600 dark:text-gray-400 text-sm mb-6 leading-relaxed">{description}</p>
+        <p className="text-gray-600 dark:text-gray-300 text-sm mb-6 leading-relaxed">{description}</p>
 
         {guarantee && (
           <div className="mb-6 p-3 rounded-xl bg-green-50/80 dark:bg-green-900/10 border border-green-500/20 flex items-center gap-2.5">
@@ -145,10 +145,10 @@ const PricingCard = ({ title, price, description, features, notIncluded, accent,
 
         {notIncluded && notIncluded.length > 0 && (
           <div className="mb-8 pt-4 border-t border-gray-200 dark:border-white/10">
-            <span className="text-[10px] font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-3 block">Not included</span>
+            <span className="text-[10px] font-bold uppercase tracking-widest text-gray-400 dark:text-gray-400 mb-3 block">Not included</span>
             <ul className="space-y-2">
               {notIncluded.map((item, i) => (
-                <li key={i} className="flex items-start gap-3 text-xs text-gray-400 dark:text-gray-500">
+                <li key={i} className="flex items-start gap-3 text-xs text-gray-400 dark:text-gray-400">
                   <svg className="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                   </svg>
@@ -289,7 +289,7 @@ const PricingGuides = () => {
                 <button
                   key={tab}
                   onClick={() => setActiveTab(tab)}
-                  className={`px-4 sm:px-6 py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all uppercase tracking-widest ${activeTab === tab ? 'bg-white dark:bg-white dark:text-obsidian-950 shadow-md' : 'text-gray-500 dark:text-gray-400 hover:text-accent-orange'
+                  className={`px-4 sm:px-6 py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all uppercase tracking-widest ${activeTab === tab ? 'bg-white dark:bg-white dark:text-obsidian-950 shadow-md' : 'text-gray-500 dark:text-gray-300 hover:text-accent-orange'
                     }`}
                 >
                   {tab === 'growth' ? 'Partnership Plans' : tab === 'templates' ? 'Template Launch' : 'Custom Builds'}
@@ -305,7 +305,7 @@ const PricingGuides = () => {
                   exit={{ opacity: 0, y: -10 }}
                   className="max-w-2xl"
                 >
-                  <p className="text-gray-600 dark:text-gray-400 text-sm mb-4 leading-relaxed">
+                  <p className="text-gray-600 dark:text-gray-300 text-sm mb-4 leading-relaxed">
                     Choose an industry-leading foundation from my collection and I will personally handle the
                     deployment, content integration, and domain setup. Every launch includes
                     full ownership of the source code and a professional, hand-polished result tailored
@@ -388,7 +388,7 @@ const PricingGuides = () => {
               <h4 className="text-xl font-bold text-obsidian-950 dark:text-white mb-3 flex items-center justify-center gap-2">
                 The Advantage of Working With Me
               </h4>
-              <p className="text-gray-600 dark:text-gray-400 leading-relaxed italic text-sm sm:text-base">
+              <p className="text-gray-600 dark:text-gray-300 leading-relaxed italic text-sm sm:text-base">
                 "I build with modern frameworks like React and TailwindCSS, meaning I am significantly faster than developers using
                 legacy builders. An 'hour' of my time usually covers what takes other agencies three — you're paying for rapid,
                 professional execution on a world-class foundation."
@@ -405,7 +405,7 @@ const PricingGuides = () => {
                 <h4 className="text-xl font-bold text-obsidian-950 dark:text-white mb-3 flex items-center justify-center gap-2">
                   Why $1,400 — Not $200?
                 </h4>
-                <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-sm sm:text-base">
+                <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-sm sm:text-base">
                   A $200 website uses bloated page builders with slow load times, missing metadata, and zero SEO — leaving you
                   with technical debt that costs more to fix than it did to build. The 48h Sprint delivers a hand-coded React/TypeScript site
                   with professional DNS configuration, secure infrastructure, and guaranteed 90+ scores across all Lighthouse audits — the same
@@ -443,7 +443,7 @@ const PricingGuides = () => {
                   </div>
                   <div>
                     <h4 className="text-lg font-bold text-obsidian-950 dark:text-white mb-2">DevOps & Launch Package — Quoted Separately</h4>
-                    <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-sm mb-3">
+                    <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-sm mb-3">
                       The prices above cover <span className="font-bold text-obsidian-950 dark:text-white">custom code, design, and development</span>. Domain registration,
                       hosting setup, DNS configuration, SSL, deployment, and ongoing infrastructure are scoped and quoted during our discovery call based on your project's needs.
                     </p>
@@ -454,7 +454,7 @@ const PricingGuides = () => {
                         </span>
                       ))}
                     </div>
-                    <p className="text-xs text-gray-500 dark:text-gray-500 mt-3 italic">
+                    <p className="text-xs text-gray-500 dark:text-gray-400 mt-3 italic">
                       Need everything handled end-to-end? The <span className="font-bold text-purple-600 dark:text-purple-400">Total Brand Launch</span> tier includes full DevOps as part of the package.
                     </p>
                   </div>
@@ -465,12 +465,12 @@ const PricingGuides = () => {
                 <h4 className="text-xl font-bold text-obsidian-950 dark:text-white mb-3 flex items-center justify-center gap-2">
                   What Is a Custom Build?
                 </h4>
-                <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-sm sm:text-base mb-4">
+                <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-sm sm:text-base mb-4">
                   Custom builds are ground-up projects designed and developed specifically for your business — no templates, no shortcuts.
                   We start with a discovery call to map out your goals, audience, and feature requirements, then I architect
                   and hand-code every page from scratch using React, TypeScript, and TailwindCSS.
                 </p>
-                <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-sm sm:text-base">
+                <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-sm sm:text-base">
                   Whether you need a dynamic content management system, a secure admin dashboard, third-party API integrations,
                   or a full-scale web application — custom builds give you total creative and technical control with zero compromises.
                 </p>

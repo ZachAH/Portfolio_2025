@@ -132,10 +132,10 @@ const Projects = ({ handleMouseEnter, handleMouseLeave }) => {
           >
             Custom <span className="text-gradient">Builds</span>.
           </h2>
-          <p className="text-xl md:text-2xl text-text-secondary max-w-2xl mx-auto leading-relaxed mb-6">
+          <p className="text-xl md:text-2xl text-text-secondary dark:text-zinc-300 max-w-2xl mx-auto leading-relaxed mb-6">
             Hand-coded websites built from scratch for real Wisconsin businesses. No templates, no page builders — just clean React code, fast load times, and real results. Click through and see them live.
           </p>
-          <div className="flex items-center justify-center gap-2 text-xs font-bold tracking-widest text-text-secondary uppercase mb-12">
+          <div className="flex items-center justify-center gap-2 text-xs font-bold tracking-widest text-text-secondary dark:text-zinc-300 uppercase mb-12">
             Every project is publicly live and verifiable. Keep in mind some of these are still in development, so you may see work-in-progress elements or placeholder content.
           </div>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
@@ -144,7 +144,7 @@ const Projects = ({ handleMouseEnter, handleMouseLeave }) => {
               className={`px-8 py-3 rounded-full text-sm font-bold transition-all duration-300 w-full sm:w-auto ${
                 viewMode === 'DEV'
                 ? 'bg-sunset-gradient text-white shadow-lg shadow-accent-red/20 scale-105'
-                : 'glass text-text-secondary hover:text-text-primary'
+                : 'glass text-text-secondary dark:text-zinc-300 hover:text-text-primary dark:hover:text-white'
               }`}
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
@@ -156,7 +156,7 @@ const Projects = ({ handleMouseEnter, handleMouseLeave }) => {
               className={`px-8 py-3 rounded-full text-sm font-bold transition-all duration-300 w-full sm:w-auto ${
                 viewMode === 'CS'
                 ? 'bg-sunset-gradient text-white shadow-lg shadow-accent-red/20 scale-105'
-                : 'glass text-text-secondary hover:text-text-primary'
+                : 'glass text-text-secondary dark:text-zinc-300 hover:text-text-primary dark:hover:text-white'
               }`}
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}

@@ -222,7 +222,7 @@ function FaqItem({ item, isOpen, onToggle }) {
         <motion.span
           animate={{ rotate: isOpen ? 45 : 0 }}
           transition={{ duration: 0.2 }}
-          className="shrink-0 w-8 h-8 rounded-full border-2 border-zinc-300 dark:border-zinc-700 flex items-center justify-center text-zinc-500 dark:text-zinc-400 group-hover:border-accent-orange group-hover:text-accent-orange transition-colors"
+          className="shrink-0 w-8 h-8 rounded-full border-2 border-zinc-300 dark:border-zinc-700 flex items-center justify-center text-zinc-500 dark:text-zinc-300 group-hover:border-accent-orange group-hover:text-accent-orange transition-colors"
         >
           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 5v14m7-7H5" />
@@ -238,7 +238,7 @@ function FaqItem({ item, isOpen, onToggle }) {
             transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
             className="overflow-hidden"
           >
-            <p className="pb-6 text-zinc-600 dark:text-zinc-400 text-sm md:text-base leading-relaxed font-medium max-w-3xl">
+            <p className="pb-6 text-zinc-600 dark:text-zinc-300 text-sm md:text-base leading-relaxed font-medium max-w-3xl">
               {item.a}
             </p>
           </motion.div>
@@ -351,7 +351,7 @@ const Templates = ({ handleMouseEnter, handleMouseLeave }) => {
                   <br />
                   <span className="text-gradient">Everything Included.</span>
                 </h2>
-                <p className="mt-4 text-base md:text-lg text-zinc-600 dark:text-zinc-400 font-medium max-w-2xl leading-relaxed">
+                <p className="mt-4 text-base md:text-lg text-zinc-600 dark:text-zinc-300 font-medium max-w-2xl leading-relaxed">
                   Buying a template package isn't just buying code. I personally handle
                   the domain, hosting, DNS, deployment, and brand integration — you get a
                   fully-live website, not a zip file and a "good luck."
@@ -361,7 +361,7 @@ const Templates = ({ handleMouseEnter, handleMouseLeave }) => {
               {/* Starting-price badge */}
               <div className="shrink-0 text-center md:text-right">
                 <div className="inline-block p-6 rounded-3xl bg-white dark:bg-obsidian-950/60 border border-accent-orange/30 shadow-xl">
-                  <div className="text-[10px] font-black uppercase tracking-widest text-zinc-500 dark:text-zinc-400 mb-1">
+                  <div className="text-[10px] font-black uppercase tracking-widest text-zinc-500 dark:text-zinc-300 mb-1">
                     Starts At
                   </div>
                   <div className="text-4xl md:text-5xl font-black text-zinc-900 dark:text-white tracking-tighter">
@@ -400,7 +400,7 @@ const Templates = ({ handleMouseEnter, handleMouseLeave }) => {
                     <h3 className="text-sm font-black uppercase tracking-wide text-zinc-900 dark:text-white mb-1">
                       {item.title}
                     </h3>
-                    <p className="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                    <p className="text-xs text-zinc-600 dark:text-zinc-300 leading-relaxed">
                       {item.copy}
                     </p>
                   </div>
@@ -410,7 +410,7 @@ const Templates = ({ handleMouseEnter, handleMouseLeave }) => {
 
             {/* Footer CTA */}
             <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 border-t border-accent-orange/20">
-              <p className="text-xs md:text-sm text-zinc-600 dark:text-zinc-400 italic font-medium text-center sm:text-left">
+              <p className="text-xs md:text-sm text-zinc-600 dark:text-zinc-300 italic font-medium text-center sm:text-left">
                 The $1,400 Sprint package is literally everything you need to be live and
                 selling. Nothing extra to buy, nothing extra to figure out. You own the domain, the hosting account, and 100% of the source code — all registered under your name. After launch, I email you a secure master-list of every credential and login so you have complete control.
               </p>
@@ -467,7 +467,7 @@ const Templates = ({ handleMouseEnter, handleMouseLeave }) => {
                   className={`relative px-4 sm:px-5 py-2.5 rounded-full text-[10px] sm:text-xs font-black tracking-[0.15em] uppercase transition-all ${
                     isActive
                       ? 'bg-white dark:bg-white text-zinc-900 dark:text-zinc-900 shadow-lg'
-                      : 'text-zinc-500 dark:text-zinc-400 hover:text-accent-orange'
+                      : 'text-zinc-500 dark:text-zinc-300 hover:text-accent-orange'
                   }`}
                   aria-pressed={isActive}
                 >
@@ -477,7 +477,7 @@ const Templates = ({ handleMouseEnter, handleMouseLeave }) => {
                     className={`ml-2 inline-flex items-center justify-center min-w-[1.25rem] h-5 px-1.5 text-[9px] rounded-full ${
                       isActive
                         ? 'bg-accent-orange text-white'
-                        : 'bg-zinc-200 dark:bg-white/10 text-zinc-600 dark:text-zinc-400'
+                        : 'bg-zinc-200 dark:bg-white/10 text-zinc-600 dark:text-zinc-300'
                     }`}
                   >
                     {count}
@@ -495,7 +495,7 @@ const Templates = ({ handleMouseEnter, handleMouseLeave }) => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -5 }}
               transition={{ duration: 0.25 }}
-              className="text-center text-sm text-zinc-500 dark:text-zinc-400 italic font-medium mt-6 max-w-2xl mx-auto"
+              className="text-center text-sm text-zinc-500 dark:text-zinc-300 italic font-medium mt-6 max-w-2xl mx-auto"
             >
               {activeConfig?.tagline}
             </motion.p>
@@ -658,7 +658,7 @@ const Templates = ({ handleMouseEnter, handleMouseLeave }) => {
               Frequently Asked{' '}
               <span className="text-gradient">Questions</span>
             </h2>
-            <p className="mt-4 text-base md:text-lg text-zinc-600 dark:text-zinc-400 font-medium max-w-2xl mx-auto leading-relaxed">
+            <p className="mt-4 text-base md:text-lg text-zinc-600 dark:text-zinc-300 font-medium max-w-2xl mx-auto leading-relaxed">
               Everything you need to know before choosing your foundation.
             </p>
           </div>

@@ -90,10 +90,10 @@ const WisconsinOutline = () => {
       src={isDark ? "/wisconsin_darkmode.png" : "/wisconsin_outline.jpg"}
       alt=""
       aria-hidden="true"
-      className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[75vw] max-w-[780px] min-w-[280px] pointer-events-none select-none -z-10"
+      className={`absolute left-1/2 top-[46%] -translate-x-1/2 -translate-y-1/2 ${isDark ? 'w-[68vw] max-w-[720px]' : 'w-[75vw] max-w-[780px]'} min-w-[280px] pointer-events-none select-none -z-10`}
       style={isDark ? { filter: "invert(1)" } : { mixBlendMode: "multiply" }}
       initial={{ opacity: 0 }}
-      animate={{ opacity: isDark ? 0.3 : 0.15 }}
+      animate={{ opacity: isDark ? 0.38 : 0.15 }}
       transition={{ duration: 2, delay: 0.6, ease: "easeOut" }}
     />
   );
@@ -113,25 +113,21 @@ const Hero = ({ handleMouseEnter, handleMouseLeave }) => {
     <section className="relative min-h-[92vh] flex flex-col items-center justify-center text-center px-6 md:px-12 overflow-hidden pt-20 md:pt-0">
       <div className="max-w-6xl w-full relative z-10">
         <h1
-          className="text-5xl xs:text-6xl sm:text-7xl md:text-9xl lg:text-[10rem] font-bold tracking-tighter mb-10 leading-[0.85] text-text-primary select-none"
+          className="text-4xl xs:text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tighter mb-10 leading-[0.92] text-text-primary select-none max-w-6xl mx-auto"
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         >
-          <LetterReveal text="Your" delay={0.4} /><br />
-          <span className="relative inline-block">
-            <span className="text-gradient">Website.</span>
-            <SharpieUnderline />
-          </span><br />
-          <LetterReveal text="Live In 2 Days." delay={1.2} />
+          Wisconsin-Built Websites That Actually Show Up on Google
+          <span className="text-gradient"> — and Turn Visitors Into Customers</span>
         </h1>
 
         <motion.p
           variants={itemVariants}
           initial="hidden"
           animate="visible"
-          className="text-xl md:text-2xl lg:text-3xl text-text-secondary max-w-3xl mx-auto mb-14 font-medium leading-relaxed"
+          className="text-lg md:text-xl lg:text-2xl text-text-secondary dark:text-zinc-300 max-w-5xl mx-auto mb-14 font-medium leading-relaxed"
         >
-          Wisconsin businesses lose customers every day without a professional website. Get yours live in 48 hours — fixed pricing, you own everything, no surprises.
+          I design and build blazing-fast websites for Wisconsin small businesses — manufacturing shops, service firms, and local retailers — using modern code that ranks, loads in under 2 seconds, and converts.
         </motion.p>
 
         {/* Primary CTA */}
@@ -182,7 +178,7 @@ const Hero = ({ handleMouseEnter, handleMouseLeave }) => {
         >
           <Link
             to="/custom-discovery"
-            className="group inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-green-500/10 border border-green-500/30 hover:bg-green-500/15 hover:border-green-500/50 transition-all shadow-sm hover:shadow-md active:scale-95"
+            className="group inline-flex items-center gap-3 text-green-700 dark:text-green-400 hover:text-green-600 dark:hover:text-green-300 transition-colors"
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
             aria-label="Book a free 30-minute discovery call"
@@ -192,11 +188,11 @@ const Hero = ({ handleMouseEnter, handleMouseLeave }) => {
               <span className="absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75 animate-ping" />
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500" />
             </span>
-            <span className="text-[11px] sm:text-xs font-black tracking-[0.18em] uppercase text-green-700 dark:text-green-400">
+            <span className="text-[11px] sm:text-xs font-black tracking-[0.18em] uppercase">
               Now Booking — Free 30&#8209;Min Discovery Call
             </span>
             <svg
-              className="w-3.5 h-3.5 text-green-700 dark:text-green-400 transition-transform group-hover:translate-x-1"
+              className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -204,6 +200,23 @@ const Hero = ({ handleMouseEnter, handleMouseLeave }) => {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
           </Link>
+        </motion.div>
+
+        <motion.div
+          variants={itemVariants}
+          initial="hidden"
+          animate="visible"
+          className="mt-10 flex justify-center"
+        >
+          <a
+            href="#projects"
+            className="group inline-flex items-center gap-2 text-sm md:text-base font-semibold text-text-secondary dark:text-zinc-300 hover:text-accent-orange transition-colors"
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+          >
+            <span>See My Recent Work</span>
+            <span className="transition-transform group-hover:translate-x-1" aria-hidden="true">→</span>
+          </a>
         </motion.div>
       </div>
 

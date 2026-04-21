@@ -69,7 +69,7 @@ const ProjectCard = ({ project, index, viewMode, handleMouseEnter, handleMouseLe
           <span className="w-1 h-1 rounded-full bg-zinc-300 dark:bg-obsidian-700/30" />
           <div className="flex gap-2 flex-wrap">
             {project.tags.slice(0, 3).map((tag, i) => (
-              <span key={i} className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-zinc-100 dark:bg-white/5 text-zinc-600 dark:text-zinc-400 border border-zinc-200 dark:border-transparent">
+              <span key={i} className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-zinc-100 dark:bg-white/5 text-zinc-600 dark:text-zinc-200 border border-zinc-200 dark:border-transparent">
                 {tag}
               </span>
             ))}
@@ -89,7 +89,7 @@ const ProjectCard = ({ project, index, viewMode, handleMouseEnter, handleMouseLe
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: 10 }}
               transition={{ duration: 0.3 }}
-              className="text-zinc-600 dark:text-text-secondary text-sm md:text-base leading-relaxed font-medium"
+              className="text-zinc-600 dark:text-zinc-300 text-sm md:text-base leading-relaxed font-medium"
             >
               {viewMode === 'DEV' ? project.description : project.csDescription}
             </motion.p>
@@ -105,7 +105,7 @@ const ProjectCard = ({ project, index, viewMode, handleMouseEnter, handleMouseLe
             </p>
             <div className="flex items-center gap-2">
               <div className="h-px flex-none w-6 bg-accent-orange" />
-              <span className="text-[10px] font-black uppercase tracking-widest text-zinc-600 dark:text-zinc-400">
+              <span className="text-[10px] font-black uppercase tracking-widest text-zinc-600 dark:text-zinc-300">
                 {project.testimonial.author}
                 {project.testimonial.role && (
                   <span className="font-medium normal-case tracking-normal text-zinc-500 ml-1">
