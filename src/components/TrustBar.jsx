@@ -1,5 +1,5 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { FaMapMarkerAlt, FaClock, FaCode, FaShieldAlt, FaFacebookF } from 'react-icons/fa';
 
@@ -18,7 +18,7 @@ const stats = [
   },
   {
     icon: <FaShieldAlt className="w-5 h-5" />,
-    value: '220+',
+    value: '82+',
     label: 'Projects Shipped',
     sub: 'Live In Production',
   },
@@ -65,6 +65,151 @@ const riskReversals = [
     copy: 'Your site hits 90+ on every Google Lighthouse category — Performance, Accessibility, Best Practices, and SEO — or I optimize it for free until it does.',
   },
 ];
+
+// ── ADD NEW REVIEWS HERE ──────────────────────────────────────
+// Fields:
+//   name   – reviewer's name
+//   meta   – short subtitle shown under the name
+//              Google:   e.g. 'Local Guide · 12 reviews'
+//              Facebook: e.g. 'New Berlin, WI' or their business name, or ''
+//   text   – the review body (keep under ~300 chars for best display)
+//   date   – 'Month Year'  e.g. 'June 2025'
+//   source – 'google' | 'facebook'
+const reviews = [
+  {
+    name: 'Kettle Moraine Professional Cleaners',
+    meta: 'Professional Cleaning Service · West Bend, WI',
+    text: 'ZH Web Solutions helped our business revamp our site and we are over the moon happy with it! Thanks again for the amazing work!',
+    date: 'April 2026',
+    source: 'facebook',
+  },
+  {
+    name: 'Rachel M.',
+    meta: 'Local Guide · New Berlin, WI',
+    text: 'Zach is such a professional. He helped me understand what was going on in the process which gave me confidence in the results. He got it done! 10/10 recommend',
+    date: 'April 2025',
+    source: 'google',
+  },
+  {
+    name: 'Gutters Craft LLC',
+    meta: 'Gutter Services · Greenfield, WI',
+    text: 'ZH Website Solutions absolutely exceeded every expectation I had. The design and functionality were tailored specifically to my business. They understood exactly what I needed and turned it into a clean, high-performing site that has already increased my calls and bookings. Hands down the best investment you can make.',
+    date: 'April 2026',
+    source: 'facebook',
+  },
+  {
+    name: 'David H.',
+    meta: 'Local Guide · Fond Du Lac, WI',
+    text: 'Easy to navigate, very clearly details options and puts the power to choose in your hands! We finally have a choice for outstanding web solutions!',
+    date: 'March 2026',
+    source: 'google',
+  },
+  {
+    name: 'Lake Breeze Laundry',
+    meta: 'Professional Laundry Service · Port Washington, WI',
+    text: 'ZH Website Solutions was easy to work with, professional, and delivered a clean, effective website that made my business stand out.',
+    date: 'March 2026',
+    source: 'facebook',
+  },
+  
+];
+
+const StarRow = () => (
+  <div className="flex items-center gap-0.5">
+    {[...Array(5)].map((_, i) => (
+      <svg key={i} className="w-3.5 h-3.5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+    ))}
+  </div>
+);
+
+const ReviewTicker = () => {
+  const [index, setIndex] = useState(0);
+  const [paused, setPaused] = useState(false);
+
+  useEffect(() => {
+    if (reviews.length <= 1 || paused) return;
+    const id = setInterval(() => setIndex(i => (i + 1) % reviews.length), 5000);
+    return () => clearInterval(id);
+  }, [paused]);
+
+  const r = reviews[index];
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 16 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.7, delay: 0.35 }}
+      className="max-w-3xl mx-auto mb-10"
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+    >
+      <div className="relative overflow-hidden rounded-2xl bg-white dark:bg-obsidian-950/60 border border-obsidian-700/10 dark:border-white/10 shadow-sm px-7 py-6 min-h-[120px] flex flex-col justify-between gap-4">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.4 }}
+            className="flex gap-4 items-start"
+          >
+            {/* Avatar initial */}
+            <div className="w-9 h-9 rounded-full bg-accent-orange/15 text-accent-orange flex items-center justify-center font-black text-sm shrink-0 uppercase">
+              {r.name.charAt(0)}
+            </div>
+            <div className="flex-1 min-w-0">
+              <div className="flex items-center gap-2 flex-wrap mb-1">
+                <span className="text-sm font-black text-text-primary">{r.name}</span>
+                <span className="text-[10px] text-text-secondary font-medium">{r.meta}</span>
+                <span className="text-[10px] text-text-secondary/60 ml-auto shrink-0">{r.date}</span>
+              </div>
+              <StarRow />
+              <p className="mt-2 text-sm text-text-secondary leading-relaxed font-medium">
+                "{r.text}"
+              </p>
+            </div>
+            {/* Source badge */}
+            <div className="shrink-0 mt-0.5">
+              {r.source === 'google' ? (
+                <svg className="w-5 h-5" viewBox="0 0 48 48">
+                  <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
+                  <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
+                  <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
+                  <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.31-8.16 2.31-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
+                </svg>
+              ) : (
+                <div className="w-5 h-5 rounded-full bg-[#1877F2] text-white flex items-center justify-center">
+                  <FaFacebookF className="w-2.5 h-2.5" />
+                </div>
+              )}
+            </div>
+          </motion.div>
+        </AnimatePresence>
+
+        {/* Dot pagination — only shown when there are multiple reviews */}
+        {reviews.length > 1 && (
+          <div className="flex items-center justify-center gap-1.5 pt-1">
+            {reviews.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setIndex(i)}
+                className={`rounded-full transition-all duration-300 ${
+                  i === index
+                    ? 'w-4 h-1.5 bg-accent-orange'
+                    : 'w-1.5 h-1.5 bg-obsidian-700/20 dark:bg-white/20 hover:bg-accent-orange/50'
+                }`}
+                aria-label={`Review ${i + 1}`}
+              />
+            ))}
+          </div>
+        )}
+      </div>
+    </motion.div>
+  );
+};
 
 const processSteps = [
   {
@@ -222,6 +367,9 @@ const TrustBar = () => {
             </div>
           </a>
         </motion.div>
+
+        {/* ── REVIEW TICKER ─────────────────────────────────── */}
+        <ReviewTicker />
 
         {/* Guarantees Row */}
         <motion.div
