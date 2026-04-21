@@ -85,7 +85,7 @@ const reviews = [
   },
   {
     name: 'Rachel M.',
-    meta: 'Local Guide · New Berlin, WI',
+    meta: 'New Berlin, WI',
     text: 'Zach is such a professional. He helped me understand what was going on in the process which gave me confidence in the results. He got it done! 10/10 recommend',
     date: 'April 2025',
     source: 'google',
@@ -99,7 +99,7 @@ const reviews = [
   },
   {
     name: 'David H.',
-    meta: 'Local Guide · Fond Du Lac, WI',
+    meta: 'Fond Du Lac, WI',
     text: 'Easy to navigate, very clearly details options and puts the power to choose in your hands! We finally have a choice for outstanding web solutions!',
     date: 'March 2026',
     source: 'google',
