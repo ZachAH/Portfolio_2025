@@ -152,7 +152,7 @@ const Hero = ({ handleMouseEnter, handleMouseLeave }) => {
             >
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
             </svg>
-            <span className="max-w-[16ch] leading-tight sm:max-w-none">Start for $300/mo</span>
+            <span className="max-w-[16ch] leading-tight sm:max-w-none">Start for $200/mo</span>
             <svg
               className="h-3.5 w-3.5 shrink-0 transition-transform group-hover:translate-x-1 sm:h-4 sm:w-4"
               fill="none"
