@@ -250,8 +250,8 @@ const PricingGuides = () => {
 
   const content = {
     growth: [
-      { title: "The Pulse", price: "$200/mo", description: "The end of 'we just have a Facebook page.' A professional, mobile-ready presence for less than the cost of a daily shift meal.", features: ["Preserve your initial capital", "Turnkey deployment live within 4–7 days of asset delivery", "White-glove domain, DNS, and hosting setup", "1 monthly menu sync", "Mobile-first design for hungry, on-the-go customers", "Branded QR toolkit for tables and windows", "90+ Lighthouse guarantee or 2 months free", "Full ownership after 12 months"], accent: "text-emerald-500", link: "/pricing#partnership-intake", buttonLabel: "Start for $200" },
-      { title: "The Velocity", price: "$300/mo", description: "For businesses that play to win. Dominate local search, captivate customers with high-end motion, and stay ahead with unlimited updates.", features: ["Preserve your initial capital", "Elite 48h sprint after asset delivery", "Unlimited content updates", "GSAP motion logic for high-impact UI", "Local SEO and Google Business Profile management", "Advanced brand sculpting with industrial aesthetics", "90+ Lighthouse guarantee or 2 months free", "Full infrastructure handoff after 12 months"], accent: "text-red-500", isPopular: true, link: "/pricing#partnership-intake", buttonLabel: "Start for $300" }
+      { title: "The Cornerstone", price: "$200/mo", description: "A dependable online home for small businesses that need to look established, load fast, and make it easy for customers to reach out.", features: ["Preserve your initial capital", "Turnkey deployment live within 4–7 days of asset delivery", "White-glove domain, DNS, and hosting setup", "1 monthly menu sync", "Mobile-first design built for everyday customers", "Branded QR toolkit for your storefront, print materials, and promos", "90+ Lighthouse guarantee or 2 months free", "Full ownership after 12 months"], accent: "text-emerald-500", link: "/pricing#partnership-intake", buttonLabel: "Start for $200" },
+      { title: "The Climb", price: "$300/mo", description: "For growing businesses that want stronger search visibility, sharper presentation, and a site that keeps pace as the business moves.", features: ["Preserve your initial capital", "Priority launch after asset delivery", "Unlimited content updates", "High-impact motion and conversion-focused UI", "Local SEO and Google Business Profile management", "Brand sculpting tailored to your market and customer base", "90+ Lighthouse guarantee or 2 months free", "Full infrastructure handoff after 12 months"], accent: "text-red-500", isPopular: true, link: "/pricing#partnership-intake", buttonLabel: "Start for $300" }
     ],
     templates: [
       {
@@ -494,20 +494,12 @@ const PricingGuides = () => {
                         aria-hidden="true"
                       >
                         <motion.path
-                          d="M20 16 L198 56"
+                          d="M16 38 Q 68 28, 118 38 T 204 36"
                           stroke="#ef4444"
                           strokeWidth="6"
                           strokeLinecap="round"
                           variants={{ hidden: { pathLength: 0, opacity: 0 }, visible: { pathLength: 1, opacity: 1 } }}
-                          transition={{ duration: 0.45, ease: "easeOut", delay: 0.2 }}
-                        />
-                        <motion.path
-                          d="M196 14 L24 58"
-                          stroke="#ef4444"
-                          strokeWidth="6"
-                          strokeLinecap="round"
-                          variants={{ hidden: { pathLength: 0, opacity: 0 }, visible: { pathLength: 1, opacity: 1 } }}
-                          transition={{ duration: 0.45, ease: "easeOut", delay: 0.42 }}
+                          transition={{ duration: 0.55, ease: "easeOut", delay: 0.25 }}
                         />
                       </motion.svg>
                     </span>
@@ -654,11 +646,11 @@ const PricingGuides = () => {
                     <label className="text-[10px] uppercase tracking-[0.2em] text-zinc-600 dark:text-zinc-300 font-bold ml-1">Which plan are you leaning toward?</label>
                     <select
                       name="preferredPlan"
-                      defaultValue="The Pulse - $200/mo"
+                      defaultValue="The Cornerstone - $200/mo"
                       className="w-full px-5 py-4 rounded-2xl bg-gray-50 dark:bg-obsidian-950 border border-black/5 dark:border-white/10 focus:border-accent-orange outline-none transition-all duration-300 font-medium"
                     >
-                      <option>The Pulse - $200/mo</option>
-                      <option>The Velocity - $300/mo</option>
+                      <option>The Cornerstone - $200/mo</option>
+                      <option>The Climb - $300/mo</option>
                       <option>Not sure yet</option>
                     </select>
                   </div>
