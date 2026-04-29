@@ -12,16 +12,16 @@ function hexToRgba(hex, alpha = 1) {
 // 💡 SALES ENGINE: Defined for your two core paths
 const BADGE_CONFIGS = {
   sprint: {
-    label: '48-Hour Deploy',
+    label: 'One-Time Launch',
     classes: 'border-green-500/30 text-green-700 dark:text-green-400',
     dot: 'bg-green-500',
-    cta: '🚀 Deploy My Site in 48h',
+    cta: '🚀 Launch This Foundation',
   },
   conversion: {
-    label: 'Conversion Optimized',
+    label: 'Commerce Launch',
     classes: 'border-rose-500/30 text-rose-700 dark:text-rose-400',
     dot: 'bg-rose-500',
-    cta: '📈 Boost Your Sales',
+    cta: '🛒 Launch This Store',
   },
 };
 

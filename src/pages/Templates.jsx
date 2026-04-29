@@ -26,11 +26,11 @@ const CATEGORY_CONFIG = [
     label: 'All Templates',
     shortLabel: 'All',
     tagline: 'Every foundation, every vertical.',
-    heroEyebrow: 'Velocity as a Service',
+    heroEyebrow: 'Template Foundations',
     heroTitleA: 'Pick a Vibe.',
     heroTitleB: 'Launch in Record Time.',
     heroSubtitle:
-      "I build for speed without sacrificing the \"wow\" factor. Pick the vertical that matches your business below — I'll handle the rest.",
+      "Need a one-time launch instead of a monthly partnership? Pick the vertical that fits your business below and I will handle the deployment, branding, and setup.",
   },
   {
     id: 'business',
@@ -61,7 +61,7 @@ const CATEGORY_CONFIG = [
     tagline: 'Silicon Valley-grade launch engines for AI and SaaS products.',
     heroEyebrow: 'SaaS & Tech Startups',
     heroTitleA: 'Launch Your SaaS',
-    heroTitleB: 'In 48 Hours.',
+    heroTitleB: 'Without the Drag.',
     heroSubtitle:
       'Silicon Valley-grade starter suites with bento grids, pricing engines, and glassmorphism surfaces — ready to demo to your next round of investors.',
   },
@@ -201,7 +201,7 @@ const templatesJsonLd = {
   name: 'Premium React Templates',
   url: 'https://zachhowell.dev/templates',
   description:
-    'Curated collection of premium production-ready React and Typescript templates. Choose between 48-hour velocity sprints or full-scale eCommerce foundations.',
+    'Curated collection of premium production-ready React and Typescript templates for one-time launches, branded deployments, and full-scale eCommerce foundations.',
   ...breadcrumb([
     { name: 'Home', path: '/' },
     { name: 'Templates', path: '/templates' },
@@ -287,7 +287,7 @@ const Templates = ({ handleMouseEnter, handleMouseLeave }) => {
     <section className="min-h-screen py-32 px-6 md:px-12 lg:px-24 bg-white dark:bg-transparent">
       <Seo
         title="Affordable Website Templates for Wisconsin Businesses | React & Tailwind — Zach Howell"
-        description="High-speed, SEO-optimized website templates for Wisconsin small businesses. Launch in 48 hours — choose from business, trades, SaaS, industrial, creative, and e-commerce templates built with React and Tailwind CSS."
+        description="High-speed, SEO-optimized website templates for Wisconsin small businesses. Choose from business, trades, SaaS, industrial, creative, and e-commerce foundations for one-time launches and branded deployments."
         path="/templates"
         keywords="website templates Wisconsin, affordable web templates Milwaukee, small business website templates WI, React templates for local business, Tailwind CSS templates, e-commerce templates Wisconsin, trades website template, manufacturing website template, fast website launch Wisconsin"
         jsonLd={templatesJsonLd}
@@ -354,7 +354,7 @@ const Templates = ({ handleMouseEnter, handleMouseLeave }) => {
                 <p className="mt-4 text-base md:text-lg text-zinc-600 dark:text-zinc-300 font-medium max-w-2xl leading-relaxed">
                   Buying a template package isn't just buying code. I personally handle
                   the domain, hosting, DNS, deployment, and brand integration — you get a
-                  fully-live website, not a zip file and a "good luck."
+                  fully-live website, not a zip file and a "good luck." Want a lower-friction monthly launch path instead? My partnership plans are built for that.
                 </p>
               </div>
 
@@ -368,7 +368,7 @@ const Templates = ({ handleMouseEnter, handleMouseLeave }) => {
                     $1,400
                   </div>
                   <div className="text-[10px] font-bold uppercase tracking-wider text-accent-orange mt-1">
-                    48h Sprint Package
+                    One-Time Sprint Package
                   </div>
                 </div>
               </div>
@@ -523,7 +523,7 @@ const Templates = ({ handleMouseEnter, handleMouseLeave }) => {
                       Certified 2-Day Launch
                     </h2>
                     <p className="text-zinc-500 font-medium">
-                      Informational, SaaS, & Professional Service Foundations.
+                      One-time launch packages for informational, SaaS, and professional service sites.
                     </p>
                   </div>
                   <div className="h-px flex-1 bg-zinc-200 dark:bg-zinc-800 mx-8 hidden md:block mb-4" />
@@ -552,7 +552,7 @@ const Templates = ({ handleMouseEnter, handleMouseLeave }) => {
                       eCommerce Powerhouses
                     </h2>
                     <p className="text-zinc-500 font-medium">
-                      Inventory-ready builds with integrated checkout flows.
+                      One-time commerce deployments with inventory-ready builds and integrated checkout flows.
                     </p>
                   </div>
                   <div className="h-px flex-1 bg-zinc-200 dark:bg-zinc-800 mx-8 hidden md:block mb-4" />

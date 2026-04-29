@@ -12,7 +12,7 @@ const pricingJsonLd = {
       name: 'Wisconsin Web Development Pricing & Packages',
       url: 'https://zachhowell.dev/pricing',
       description:
-        'Transparent pricing for freelance web development packages. Custom React websites, e-commerce, SEO, and ongoing support for Wisconsin small businesses.',
+        'Transparent pricing for partnership website plans, one-time launches, and custom React builds for Wisconsin small businesses.',
     },
     breadcrumb([
       { name: 'Home', path: '/' },
@@ -31,7 +31,7 @@ const Pricing = ({ handleMouseEnter, handleMouseLeave }) => {
     >
       <Seo
         title="Wisconsin Web Development Pricing & Packages | Affordable Small Business Websites — Zach Howell"
-        description="Transparent, affordable pricing for Wisconsin web development. Sprint, growth, and custom packages for React websites, e-commerce stores, SEO, hosting, and ongoing support. No hidden fees — serving Milwaukee, Madison, and all of WI."
+        description="Transparent, affordable pricing for Wisconsin web development. Partnership plans, one-time template launches, and custom React builds for small businesses that need speed, SEO, and full ownership."
         path="/pricing"
         keywords="web development pricing Wisconsin, affordable website packages Milwaukee, small business website cost WI, freelance developer rates Wisconsin, React website pricing, e-commerce development cost Milwaukee, website packages Waukesha, web design quotes Madison WI"
         jsonLd={pricingJsonLd}

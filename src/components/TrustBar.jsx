@@ -442,7 +442,7 @@ const TrustBar = () => {
             {[
               {
                 title: 'Start Lean',
-                eyebrow: '$150 or $250/mo',
+                eyebrow: '$200 or $300/mo',
                 description: 'Launch without a giant upfront invoice. Pick the partnership tier that fits your current stage and cash flow.',
               },
               {

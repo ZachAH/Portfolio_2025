@@ -250,8 +250,8 @@ const PricingGuides = () => {
 
   const content = {
     growth: [
-      { title: "The Pulse", price: "$150/mo", description: "The end of 'we just have a Facebook page.' A professional, mobile-ready presence for less than the cost of a daily shift meal.", features: ["Preserve your initial capital", "Turnkey deployment live within 4–7 days of asset delivery", "White-glove domain, DNS, and hosting setup", "1 monthly menu sync", "Mobile-first design for hungry, on-the-go customers", "Branded QR toolkit for tables and windows", "90+ Lighthouse guarantee or 2 months free", "Full ownership after 12 months"], accent: "text-emerald-500", link: "/pricing#partnership-intake", buttonLabel: "Start for $150" },
-      { title: "The Velocity", price: "$250/mo", description: "For businesses that play to win. Dominate local search, captivate customers with high-end motion, and stay ahead with unlimited updates.", features: ["Preserve your initial capital", "Elite 48h sprint after asset delivery", "Unlimited content updates", "GSAP motion logic for high-impact UI", "Local SEO and Google Business Profile management", "Advanced brand sculpting with industrial aesthetics", "90+ Lighthouse guarantee or 2 months free", "Full infrastructure handoff after 12 months"], accent: "text-red-500", isPopular: true, link: "/pricing#partnership-intake", buttonLabel: "Start for $250" }
+      { title: "The Pulse", price: "$200/mo", description: "The end of 'we just have a Facebook page.' A professional, mobile-ready presence for less than the cost of a daily shift meal.", features: ["Preserve your initial capital", "Turnkey deployment live within 4–7 days of asset delivery", "White-glove domain, DNS, and hosting setup", "1 monthly menu sync", "Mobile-first design for hungry, on-the-go customers", "Branded QR toolkit for tables and windows", "90+ Lighthouse guarantee or 2 months free", "Full ownership after 12 months"], accent: "text-emerald-500", link: "/pricing#partnership-intake", buttonLabel: "Start for $200" },
+      { title: "The Velocity", price: "$300/mo", description: "For businesses that play to win. Dominate local search, captivate customers with high-end motion, and stay ahead with unlimited updates.", features: ["Preserve your initial capital", "Elite 48h sprint after asset delivery", "Unlimited content updates", "GSAP motion logic for high-impact UI", "Local SEO and Google Business Profile management", "Advanced brand sculpting with industrial aesthetics", "90+ Lighthouse guarantee or 2 months free", "Full infrastructure handoff after 12 months"], accent: "text-red-500", isPopular: true, link: "/pricing#partnership-intake", buttonLabel: "Start for $300" }
     ],
     templates: [
       {
@@ -347,7 +347,7 @@ const PricingGuides = () => {
                   className="max-w-2xl"
                 >
                   <p className="text-gray-600 dark:text-gray-300 text-sm mb-4 leading-relaxed">
-                    Stop losing customers to the place down the street. Launch your digital storefront for just $150 down today.
+                    Stop losing customers to the place down the street. Launch your digital storefront with a low-friction monthly plan built for real small-business cash flow.
                   </p>
                 </motion.div>
               )}
@@ -654,11 +654,11 @@ const PricingGuides = () => {
                     <label className="text-[10px] uppercase tracking-[0.2em] text-zinc-600 dark:text-zinc-300 font-bold ml-1">Which plan are you leaning toward?</label>
                     <select
                       name="preferredPlan"
-                      defaultValue="The Pulse - $150/mo"
+                      defaultValue="The Pulse - $200/mo"
                       className="w-full px-5 py-4 rounded-2xl bg-gray-50 dark:bg-obsidian-950 border border-black/5 dark:border-white/10 focus:border-accent-orange outline-none transition-all duration-300 font-medium"
                     >
-                      <option>The Pulse - $150/mo</option>
-                      <option>The Velocity - $250/mo</option>
+                      <option>The Pulse - $200/mo</option>
+                      <option>The Velocity - $300/mo</option>
                       <option>Not sure yet</option>
                     </select>
                   </div>
