@@ -60,14 +60,14 @@ const About = ({ handleMouseEnter, handleMouseLeave }) => {
 
             <div className="space-y-6 text-lg text-text-secondary font-medium leading-relaxed">
               <p>
-                I’m Zach, a 34-year-old  software engineer with over 6 years experience and business owner based right here in <span className="text-text-primary font-bold">New Berlin, Wisconsin</span>. I don’t just build websites; I build high-velocity conversion engines for people who are tired of the status quo.
+                I’m Zach, a software engineer with over 6 years of experience and a business owner based right here in <span className="text-text-primary font-bold">New Berlin, Wisconsin</span>. I do not build throwaway websites. I build high-performance digital assets for small businesses that need to be found, load fast, and turn attention into customers.
               </p>
               <p>
-                As the founder of my own clothing brand, <span className="text-text-primary font-bold">Claw and Decay</span>, I know that a website isn't a "pretty brochure"—it’s a tool that either makes you money or costs you opportunities. I specialize in 48-hour sprints because I believe momentum is the most valuable asset in business.
+                As the founder of my own clothing brand, <span className="text-text-primary font-bold">Claw and Decay</span>, I know that a website is not a pretty brochure. It either helps your business grow or it quietly leaks money every day. That is why I focus on search visibility, conversion-focused design, and a partnership model that gives business owners a clear path to full ownership.
               </p>
               <p>
                 When I’m not deep in a React build or automating workflows with Python,
-                you’ll find me catching an NFL game..
+                you’ll find me catching an NFL game,
                 <PackersHighlight>GO PACKERS!!</PackersHighlight>,
                 jamming on my instruments or blasting some music!
               </p>
@@ -76,12 +76,12 @@ const About = ({ handleMouseEnter, handleMouseLeave }) => {
             {/* Stats / Proof Points */}
             <div className="grid grid-cols-2 gap-8 mt-12">
               <div className="border-l-2 border-accent-orange/30 pl-6">
-                <h4 className="text-3xl font-black text-text-primary">48h</h4>
-                <p className="text-xs uppercase tracking-widest text-zinc-500 font-bold">Sprint Delivery</p>
+                <h4 className="text-3xl font-black text-text-primary">12-Mo</h4>
+                <p className="text-xs uppercase tracking-widest text-zinc-500 font-bold">Ownership Path</p>
               </div>
               <div className="border-l-2 border-accent-orange/30 pl-6">
                 <h4 className="text-3xl font-black text-text-primary">Full-Stack</h4>
-                <p className="text-xs uppercase tracking-widest text-zinc-500 font-bold">Engineering Strategy</p>
+                <p className="text-xs uppercase tracking-widest text-zinc-500 font-bold">SEO + Engineering</p>
               </div>
             </div>
           </motion.div>
@@ -113,8 +113,8 @@ const About = ({ handleMouseEnter, handleMouseLeave }) => {
               <ul className="space-y-6">
                 {[
                   { title: "No Fluff", desc: "You deal directly with the engineer. No account managers, no delays, no corporate speak." },
-                  { title: "Business First", desc: "I focus on ROI, SEO, and performance—the things that actually move the needle." },
-                  { title: "Pure Momentum", desc: "My workflow is designed for speed. We go from idea to launch before the competition wakes up." }
+                  { title: "Business First", desc: "I focus on ROI, local SEO, and performance, the things that actually move the needle for small businesses." },
+                  { title: "Built To Own", desc: "My partnership model is designed to get you online fast and move your site toward full ownership instead of permanent platform rent." }
                 ].map((item, i) => (
                   <li key={i} className="flex gap-4">
                     <div className="w-6 h-6 rounded-full bg-sunset-gradient flex-shrink-0 mt-1 flex items-center justify-center text-[10px] text-white font-bold italic">✓</div>

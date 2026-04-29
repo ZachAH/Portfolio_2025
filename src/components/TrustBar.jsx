@@ -38,31 +38,31 @@ const stats = [
 
 const guarantees = [
   {
-    title: 'Fixed Pricing',
-    copy: 'Transparent tiers. No surprise invoices after the build starts.',
+    title: 'Low-Friction Launch',
+    copy: 'Get online without a massive upfront build fee. Simple monthly partnership tiers built for real small-business cash flow.',
   },
   {
-    title: 'You Own Everything',
-    copy: 'Code, domain, hosting, every account and credential — 100% yours on launch day. I email you a secure master-list of every login created.',
+    title: 'Ownership Path',
+    copy: 'This is not platform rent forever. After 12 months, the code, domain, and infrastructure are handed over to you.',
   },
   {
     title: 'Direct Access',
-    copy: 'Work directly with the developer. No account managers or middlemen.',
+    copy: 'Work directly with the developer. No account managers, no support maze, and no middlemen between you and the work.',
   },
   {
-    title: 'Discovery Is Free',
-    copy: 'No contracts or deposits until we both agree on scope and fit.',
+    title: 'Fast Updates',
+    copy: 'Need a price, photo, service, or offer changed? Send it over and I push updates fast without you wrestling a builder.',
   },
 ];
 
 const riskReversals = [
   {
-    title: '48-Hour Deadline Guarantee',
-    copy: 'If I take longer than 48 hours to go live, you get a full refund — and you keep the site. I still build it, deploy it, and hand it over. Free.',
+    title: 'Built To Be Found',
+    copy: 'Your site is structured for local search visibility with mobile-first performance, custom SEO architecture, and conversion-ready page flow.',
   },
   {
-    title: '90+ Across All Lighthouse Audits',
-    copy: 'Your site hits 90+ on every Google Lighthouse category — Performance, Accessibility, Best Practices, and SEO — or I optimize it for free until it does.',
+    title: 'Not Another Template Rental',
+    copy: 'This model is designed to turn your website from a monthly expense into a business asset. You are building equity, not just paying to exist online.',
   },
 ];
 
@@ -211,29 +211,6 @@ const ReviewTicker = () => {
   );
 };
 
-const processSteps = [
-  {
-    hours: '0 – 4',
-    title: 'Onboarding',
-    description: 'Intake form, brand asset audit, and initial brief confirmation.',
-  },
-  {
-    hours: '4 – 24',
-    title: 'Development',
-    description: 'Template customization, content integration, SEO infrastructure, and DNS setup.',
-  },
-  {
-    hours: '24 – 36',
-    title: 'Review',
-    description: 'Live preview link for your feedback. Consolidated revision requests.',
-  },
-  {
-    hours: '36 – 48',
-    title: 'Deployment',
-    description: 'Domain connection, final QA, and your site goes live worldwide. Once live, you are emailed every credential — emails, passwords, hosting access, and source code. Full ownership is yours.',
-  },
-];
-
 const TrustBar = () => {
   return (
     <section
@@ -260,7 +237,7 @@ const TrustBar = () => {
           </h2>
           <p className="text-base md:text-lg text-text-secondary max-w-2xl mx-auto mt-4 font-medium leading-relaxed">
             I'm a real developer based in Wisconsin — not an agency, not an offshore team.
-            Every project ships from my desk, with my name attached.
+            Every project ships from my desk, with my name attached and a clear path to ownership.
           </p>
         </motion.div>
 
@@ -442,7 +419,6 @@ const TrustBar = () => {
           ))}
         </motion.div>
 
-        {/* ── HOW IT WORKS — 48-HOUR TIMELINE ────────────────── */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -452,54 +428,62 @@ const TrustBar = () => {
         >
           <div className="text-center mb-12">
             <span className="text-xs font-black tracking-[0.3em] text-accent-orange uppercase mb-4 inline-block">
-              How It Works
+              The Model
             </span>
             <h2 className="text-3xl md:text-5xl font-bold tracking-tighter text-text-primary uppercase">
-              Your 48-Hour <span className="text-gradient">Roadmap</span>
+              Built for <span className="text-gradient">Momentum</span>
             </h2>
-            <p className="text-base md:text-lg text-text-secondary max-w-2xl mx-auto mt-4 font-medium leading-relaxed">
-              Every hour is accounted for. Speed isn't cutting corners — it's the result of a refined,
-              specialized system built to deliver professional results on a predictable timeline.
+            <p className="text-base md:text-lg text-text-secondary max-w-3xl mx-auto mt-4 font-medium leading-relaxed">
+              The goal is simple: get your business online fast, make you easier to find, and give you a clean path from monthly launch support to full ownership.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-            {processSteps.map((step, i) => (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[
+              {
+                title: 'Start Lean',
+                eyebrow: '$150 or $250/mo',
+                description: 'Launch without a giant upfront invoice. Pick the partnership tier that fits your current stage and cash flow.',
+              },
+              {
+                title: 'Grow Fast',
+                eyebrow: 'Search + Conversion',
+                description: 'Get a mobile-first site built to rank, load quickly, and turn local search traffic into real calls, leads, and customers.',
+              },
+              {
+                title: 'Own The Asset',
+                eyebrow: '12-Month Handoff',
+                description: 'At the end of the partnership term, the code, domain, and infrastructure become fully yours instead of living behind a platform paywall.',
+              },
+            ].map((item, i) => (
               <motion.div
-                key={step.title}
+                key={item.title}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: i * 0.1 }}
-                className="relative p-6 md:p-8 rounded-3xl bg-white dark:bg-obsidian-950/60 border border-obsidian-700/10 dark:border-white/10 backdrop-blur-md"
+                className="p-6 md:p-8 rounded-3xl bg-white dark:bg-obsidian-950/60 border border-obsidian-700/10 dark:border-white/10 backdrop-blur-md"
               >
                 <div className="text-xs font-black tracking-[0.2em] text-accent-orange uppercase mb-3">
-                  Hour {step.hours}
+                  {item.eyebrow}
                 </div>
-                <h3 className="text-lg font-bold text-text-primary mb-2">{step.title}</h3>
+                <h3 className="text-lg font-bold text-text-primary mb-2">{item.title}</h3>
                 <p className="text-sm text-text-secondary leading-relaxed font-medium">
-                  {step.description}
+                  {item.description}
                 </p>
-                {i < processSteps.length - 1 && (
-                  <div className="hidden md:block absolute top-1/2 -right-3 w-6 h-6 text-accent-orange/40">
-                    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </div>
-                )}
               </motion.div>
             ))}
           </div>
 
           <div className="mt-10 flex justify-center">
             <Link
-              to="/templates"
+              to="/pricing"
               className="inline-flex items-center gap-3 px-8 py-4 bg-sunset-gradient text-white rounded-full font-bold transition-all hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
               </svg>
-              Choose Your Template & Get Started
+              See Partnership Plans
             </Link>
           </div>
         </motion.div>

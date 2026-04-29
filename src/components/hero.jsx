@@ -127,7 +127,7 @@ const Hero = ({ handleMouseEnter, handleMouseLeave }) => {
           animate="visible"
           className="text-lg md:text-xl lg:text-2xl text-text-secondary dark:text-zinc-300 max-w-5xl mx-auto mb-14 font-medium leading-relaxed"
         >
-          I design and build blazing-fast websites for Wisconsin small businesses — manufacturing shops, service firms, and local retailers — using modern code that ranks, loads in under 2 seconds, and converts.
+          I build blazing-fast websites for Wisconsin small businesses that rank on Google, load fast, and convert — with a simple monthly path to full ownership.
         </motion.p>
 
         {/* Primary CTA */}
@@ -138,7 +138,7 @@ const Hero = ({ handleMouseEnter, handleMouseLeave }) => {
           className="flex justify-center"
         >
           <Link
-            to="/templates"
+            to="/pricing"
             className="group relative inline-flex max-w-full items-center justify-center gap-2 px-5 py-3 text-sm sm:gap-3 sm:px-10 sm:py-5 sm:text-lg bg-sunset-gradient text-white rounded-full font-bold overflow-hidden transition-all hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl"
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
@@ -152,7 +152,7 @@ const Hero = ({ handleMouseEnter, handleMouseLeave }) => {
             >
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
             </svg>
-            <span className="max-w-[14ch] leading-tight sm:max-w-none">Launch Your Website in 2 Days</span>
+            <span className="max-w-[16ch] leading-tight sm:max-w-none">Start for $250/mo</span>
             <svg
               className="h-3.5 w-3.5 shrink-0 transition-transform group-hover:translate-x-1 sm:h-4 sm:w-4"
               fill="none"
@@ -177,11 +177,11 @@ const Hero = ({ handleMouseEnter, handleMouseLeave }) => {
           className="mt-10 flex justify-center"
         >
           <Link
-            to="/custom-discovery"
+            to="/pricing#partnership-intake"
             className="group inline-flex items-center gap-3 text-green-700 dark:text-green-400 hover:text-green-600 dark:hover:text-green-300 transition-colors"
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
-            aria-label="Book a free 30-minute discovery call"
+            aria-label="Book a 10-minute strategy call"
           >
             {/* Blinking green dot with halo */}
             <span className="relative flex h-2.5 w-2.5" aria-hidden="true">
@@ -189,7 +189,7 @@ const Hero = ({ handleMouseEnter, handleMouseLeave }) => {
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500" />
             </span>
             <span className="text-[11px] sm:text-xs font-black tracking-[0.18em] uppercase">
-              Now Booking — Free 30&#8209;Min Discovery Call
+              Now Booking — 10&#8209;Min Strategy Call
             </span>
             <svg
               className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1"
@@ -202,22 +202,6 @@ const Hero = ({ handleMouseEnter, handleMouseLeave }) => {
           </Link>
         </motion.div>
 
-        <motion.div
-          variants={itemVariants}
-          initial="hidden"
-          animate="visible"
-          className="mt-10 flex justify-center"
-        >
-          <a
-            href="#projects"
-            className="group inline-flex items-center gap-2 text-sm md:text-base font-semibold text-text-secondary dark:text-zinc-300 hover:text-accent-orange transition-colors"
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-          >
-            <span>See My Recent Work</span>
-            <span className="transition-transform group-hover:translate-x-1" aria-hidden="true">→</span>
-          </a>
-        </motion.div>
       </div>
 
       <WisconsinOutline />
