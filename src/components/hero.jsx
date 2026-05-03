@@ -113,12 +113,11 @@ const Hero = ({ handleMouseEnter, handleMouseLeave }) => {
     <section className="relative min-h-[92vh] flex flex-col items-center justify-center text-center px-6 md:px-12 overflow-hidden pt-20 md:pt-0">
       <div className="max-w-6xl w-full relative z-10">
         <h1
-          className="text-4xl xs:text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tighter mb-10 leading-[0.92] text-text-primary select-none max-w-6xl mx-auto"
+          className=" test-gradient text-4xl xs:text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tighter mb-10 leading-[0.92] text-text-primary select-none max-w-6xl mx-auto"
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         >
-          Wisconsin-Built Websites That Actually Show Up on Google
-          <span className="text-gradient"> — and Turn Visitors Into Customers</span>
+          <span className="text-gradient">Wisconsin-Built Websites That Rank & Convert</span>
         </h1>
 
         <motion.p
