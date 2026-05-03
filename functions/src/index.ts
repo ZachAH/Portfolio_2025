@@ -275,7 +275,7 @@ export const sendOnboardingEmail = onDocumentCreated(
         from: "Zach Howell <zachary@zachhowell.dev>",
         to: [clientEmail],
         bcc: ["zachary@zachhowell.dev"],
-        subject: `⚡ Project Confirmed: ${clientName} 48h Sprint Started!`,
+        subject: `⚡ Project Confirmed: ${clientName} 72h Sprint Started!`,
         html: `
           <div style="font-family: 'Inter', Helvetica, Arial, sans-serif; background-color: #050505; color: #fafafa; padding: 60px 20px; text-align: center;">
               <div style="max-width: 600px; margin: 0 auto; background: #09090b; border: 1px solid #27272a; border-radius: 24px; overflow: hidden; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);">
@@ -329,7 +329,7 @@ export const sendOnboardingEmail = onDocumentCreated(
                   <div style="padding: 30px 40px; border-top: 1px solid #1c1c1f; background: #0c0c0e; text-align: center;">
                       <p style="font-size: 12px; color: #52525b; margin: 0;">
                           Questions? Call or Text: <strong style="color: #a1a1aa;">262-341-7181</strong><br/>
-                          <span style="font-style: italic; font-size: 10px;">You are receiving this because you initiated a 48h Sprint build.</span>
+                          <span style="font-style: italic; font-size: 10px;">You are receiving this because you initiated a 72h Sprint build.</span>
                       </p>
                   </div>
               </div>

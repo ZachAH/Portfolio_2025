@@ -76,7 +76,7 @@ const About = ({ handleMouseEnter, handleMouseLeave }) => {
             {/* Stats / Proof Points */}
             <div className="grid grid-cols-2 gap-8 mt-12">
               <div className="border-l-2 border-accent-orange/30 pl-6">
-                <h4 className="text-3xl font-black text-text-primary">48h</h4>
+                <h4 className="text-3xl font-black text-text-primary">72h</h4>
                 <p className="text-xs uppercase tracking-widest text-zinc-500 font-bold">Sprint Delivery</p>
               </div>
               <div className="border-l-2 border-accent-orange/30 pl-6">

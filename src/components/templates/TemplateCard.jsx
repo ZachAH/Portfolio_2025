@@ -15,7 +15,7 @@ const BADGE_CONFIGS = {
     label: '48-Hour Deploy',
     classes: 'border-green-500/30 text-green-700 dark:text-green-400',
     dot: 'bg-green-500',
-    cta: '🚀 Deploy My Site in 48h',
+    cta: '🚀 Deploy My Site in 72h',
   },
   conversion: {
     label: 'Conversion Optimized',

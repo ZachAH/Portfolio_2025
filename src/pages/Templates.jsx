@@ -368,7 +368,7 @@ const Templates = ({ handleMouseEnter, handleMouseLeave }) => {
                     $1,400
                   </div>
                   <div className="text-[10px] font-bold uppercase tracking-wider text-accent-orange mt-1">
-                    48h Sprint Package
+                    72h Sprint Package
                   </div>
                 </div>
               </div>
@@ -442,7 +442,7 @@ const Templates = ({ handleMouseEnter, handleMouseLeave }) => {
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-amber-500" />
             </span>
             <span className="text-xs sm:text-sm font-bold text-amber-700 dark:text-amber-400">
-              Only <span className="font-black text-amber-900 dark:text-amber-300">3 2-Day Launch Spots</span> remaining this month
+              Only <span className="font-black text-amber-900 dark:text-amber-300">10 3-Day Launch Spots</span> remaining this month
             </span>
           </div>
         </motion.div>
@@ -520,7 +520,7 @@ const Templates = ({ handleMouseEnter, handleMouseLeave }) => {
                 <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
                   <div>
                     <h2 className="text-4xl font-black text-zinc-900 dark:text-white uppercase tracking-tighter">
-                      Certified 2-Day Launch
+                      Certified 3-Day Launch
                     </h2>
                     <p className="text-zinc-500 font-medium">
                       Informational, SaaS, & Professional Service Foundations.

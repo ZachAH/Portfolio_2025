@@ -29,7 +29,7 @@ interface Step {
 
 // ── LEGAL CONTENT ─────────────────────────────────────────
 const TOS_TEXT = `
-1. THE SPRINT CLOCK: The development window (48h for Sprint, 72h for Modern Edge) begins ONLY once this onboarding form is fully completed AND all required high-resolution assets (logos, photos, copy, brand guidelines) have been received and confirmed by Zach Howell via email. Delays in asset delivery pause the clock — the 48/72-hour guarantee applies to active build time, not calendar time from purchase.
+1. THE SPRINT CLOCK: The development window (72h for Sprint, 72h for Modern Edge) begins ONLY once this onboarding form is fully completed AND all required high-resolution assets (logos, photos, copy, brand guidelines) have been received and confirmed by Zach Howell via email. Delays in asset delivery pause the clock — the 48/72-hour guarantee applies to active build time, not calendar time from purchase.
 
 2. DNS PROPAGATION: Domain Name System (DNS) changes can take up to 24–72 hours to propagate globally after deployment. This propagation window is controlled entirely by third-party DNS providers and internet service providers — it is outside the scope of the 48-hour delivery guarantee. Your site will be deployed and accessible via the hosting URL within the guaranteed window; worldwide domain resolution may take additional time beyond Zach Howell's control.
 
@@ -70,7 +70,7 @@ const STEPS: Step[] = [
                 type: 'select',
                 disabled: true,
                 options: [
-                    { value: 'sprint', label: 'The 48h Sprint ($1,400)' },
+                    { value: 'sprint', label: 'The 72h Sprint ($1,400)' },
                     { value: 'modern_edge', label: 'Modern Edge ($2,000)' },
                     { value: 'commerce', label: 'Commerce Launch ($3,200+)' }
                 ]

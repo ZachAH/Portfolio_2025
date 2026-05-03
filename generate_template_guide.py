@@ -103,7 +103,7 @@ def build_pdf():
 
     tier_data = [
         [Paragraph("<b>Package</b>", th), Paragraph("<b>Investment</b>", th), Paragraph("<b>Turnaround</b>", th), Paragraph("<b>Best For...</b>", th)],
-        [Paragraph("The 48h Sprint", td_bold), Paragraph("$1,400", td), Paragraph("48 Hours", td), Paragraph("Service pros and contractors needing immediate market presence.", td)],
+        [Paragraph("The 72h Sprint", td_bold), Paragraph("$1,400", td), Paragraph("48 Hours", td), Paragraph("Service pros and contractors needing immediate market presence.", td)],
         [Paragraph("Modern Edge", td_bold), Paragraph("$2,000", td), Paragraph("72 Hours", td), Paragraph("Brands needing high-impact UI and complex motion logic.", td)],
         [Paragraph("Commerce Launch", td_bold), Paragraph("$3,200", td), Paragraph("7 Days", td), Paragraph("Brands selling physical or digital products via Stripe.", td)],
     ]
@@ -122,7 +122,7 @@ def build_pdf():
     story.append(Spacer(1, 10))
 
     # Sprint
-    story.append(Paragraph('The 48h Sprint — $1,400 <font color="#FF6B35">[MOST POPULAR]</font>', s_section))
+    story.append(Paragraph('The 72h Sprint — $1,400 <font color="#FF6B35">[MOST POPULAR]</font>', s_section))
     story.append(Paragraph(
         '<i>Velocity as a Service.</i> I take your selected foundation and transform it into a high-performance, '
         'live brand in exactly 48 hours. One fixed price — no hidden fees, no recurring charges.',
@@ -134,7 +134,7 @@ def build_pdf():
         "Brand DNA &amp; Asset Integration",
         "White-Glove DNS &amp; Infrastructure Setup",
         "Domain pushed to your Porkbun account, site transferred to your Netlify dashboard",
-        "2-Day Deployment Guaranteed",
+        "3-Day Deployment Guaranteed",
         "Local SEO Metadata Injection",
         "Google PageSpeed 90+ Score Guaranteed",
     ]:
@@ -243,7 +243,7 @@ def build_pdf():
     story.append(Paragraph("Why $1,400 — Not $200?", s_section_sub))
     story.append(Paragraph(
         'A $200 website uses bloated page builders with slow load times, missing metadata, and zero SEO — '
-        'leaving you with technical debt that costs more to fix than it did to build. The 48h Sprint delivers a '
+        'leaving you with technical debt that costs more to fix than it did to build. The 72h Sprint delivers a '
         'hand-coded React/TypeScript site with professional DNS configuration, secure infrastructure, and a '
         'guaranteed 90+ PageSpeed score — the same foundation agencies charge $5,000+ for.',
         s_body
@@ -330,7 +330,7 @@ def build_pdf():
 
     tos_items = [
         ("1. THE SPRINT CLOCK",
-         "The development window (48h for Sprint, 72h for Modern Edge) begins ONLY once the onboarding form is fully completed AND all required high-resolution assets (logos, photos, copy, brand guidelines) have been received and confirmed by Zach Howell via email. Delays in asset delivery pause the clock — the 48/72-hour guarantee applies to active build time, not calendar time from purchase."),
+         "The development window (72h for Sprint, 72h for Modern Edge) begins ONLY once the onboarding form is fully completed AND all required high-resolution assets (logos, photos, copy, brand guidelines) have been received and confirmed by Zach Howell via email. Delays in asset delivery pause the clock — the 48/72-hour guarantee applies to active build time, not calendar time from purchase."),
         ("2. DNS PROPAGATION",
          "DNS changes can take up to 24-72 hours to propagate globally after deployment. This propagation window is controlled entirely by third-party DNS providers and ISPs — it is outside the scope of the 48-hour delivery guarantee. Your site will be deployed and accessible via the hosting URL within the guaranteed window; worldwide domain resolution may take additional time beyond Zach Howell's control."),
         ("3. THIRD-PARTY SERVICES",

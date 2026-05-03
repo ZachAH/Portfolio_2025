@@ -214,7 +214,7 @@ const PricingGuides = () => {
     ],
     templates: [
       {
-        title: "The 48h Sprint",
+        title: "The 72h Sprint",
         price: "$1,400",
         description: "Velocity as a Service. I take your selected foundation and transform it into a high-performance, live brand in exactly 48 hours. One fixed price — no hidden fees, no recurring charges.",
         features: [
@@ -223,7 +223,7 @@ const PricingGuides = () => {
           "Brand DNA & Asset Integration",
           "White-Glove DNS & Infrastructure Setup",
           "Domain pushed to your Porkbun, site transferred to your Netlify",
-          "2-Day Deployment Guaranteed",
+          "3-Day Deployment Guaranteed",
           "Local SEO Metadata Injection",
           "90+ Across All Lighthouse Audits Guaranteed",
         ],
@@ -232,7 +232,7 @@ const PricingGuides = () => {
           "Ongoing hosting (available via Growth Plans)",
           "Stock photography or copywriting",
         ],
-        guarantee: "Miss the 48h deadline and you get a full refund — keep the site free. Miss 90+ Lighthouse across all audits and I fix it free.",
+        guarantee: "Miss the 72h deadline and you get a full refund — keep the site free. Miss 90+ Lighthouse across all audits and I fix it free.",
         accent: "text-accent-orange",
         isPopular: true,
         stripeUrl: import.meta.env.VITE_STRIPE_SPRINT_URL
@@ -407,7 +407,7 @@ const PricingGuides = () => {
                 </h4>
                 <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-sm sm:text-base">
                   A $200 website uses bloated page builders with slow load times, missing metadata, and zero SEO — leaving you
-                  with technical debt that costs more to fix than it did to build. The 48h Sprint delivers a hand-coded React/TypeScript site
+                  with technical debt that costs more to fix than it did to build. The 72h Sprint delivers a hand-coded React/TypeScript site
                   with professional DNS configuration, secure infrastructure, and guaranteed 90+ scores across all Lighthouse audits — the same
                   foundation agencies charge $5,000+ for.
                 </p>
