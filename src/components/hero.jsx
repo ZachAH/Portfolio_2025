@@ -3,9 +3,9 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
 const SharpieUnderline = () => (
-  <svg 
+  <svg
     className="absolute -bottom-2 left-0 w-full h-3 text-accent-orange/40"
-    viewBox="0 0 100 10" 
+    viewBox="0 0 100 10"
     preserveAspectRatio="none"
   >
     <motion.path
@@ -23,7 +23,7 @@ const SharpieUnderline = () => (
 
 const LetterReveal = ({ text, delay = 0 }) => {
   const letters = Array.from(text);
-  
+
   const container = {
     hidden: { opacity: 0 },
     visible: (i = 1) => ({
@@ -33,8 +33,8 @@ const LetterReveal = ({ text, delay = 0 }) => {
   };
 
   const child = {
-    hidden: { 
-      opacity: 0, 
+    hidden: {
+      opacity: 0,
       y: 20,
       filter: "blur(10px)",
       scale: 1.1
@@ -102,10 +102,10 @@ const WisconsinOutline = () => {
 const Hero = ({ handleMouseEnter, handleMouseLeave }) => {
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
-    visible: { 
-      opacity: 1, 
-      y: 0, 
-      transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.8 } 
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.8 }
     },
   };
 
@@ -137,7 +137,7 @@ const Hero = ({ handleMouseEnter, handleMouseLeave }) => {
           className="flex justify-center"
         >
           <Link
-            to="/templates"
+            to="/custom-discovery"
             className="group relative inline-flex max-w-full items-center justify-center gap-2 px-5 py-3 text-sm sm:gap-3 sm:px-10 sm:py-5 sm:text-lg bg-sunset-gradient text-white rounded-full font-bold overflow-hidden transition-all hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl"
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
@@ -175,21 +175,24 @@ const Hero = ({ handleMouseEnter, handleMouseLeave }) => {
           animate="visible"
           className="mt-10 flex justify-center"
         >
-          <Link
-            to="/custom-discovery"
-            className="group inline-flex items-center gap-3 text-green-700 dark:text-green-400 hover:text-green-600 dark:hover:text-green-300 transition-colors"
+          {/* Changed to standard anchor for hash-link reliability on the same page */}
+          <a
+            href="#projects"
+            className="group inline-flex items-center gap-3 text-green-700 dark:text-green-400 hover:text-green-600 dark:hover:text-green-300 transition-colors cursor-pointer"
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
-            aria-label="Book a free 30-minute discovery call"
+            aria-label="View my recent web development and software engineering projects"
           >
-            {/* Blinking green dot with halo */}
+            {/* Blinking green dot with halo - indicating 'Active' status */}
             <span className="relative flex h-2.5 w-2.5" aria-hidden="true">
               <span className="absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75 animate-ping" />
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500" />
             </span>
+
             <span className="text-[11px] sm:text-xs font-black tracking-[0.18em] uppercase">
-              Now Booking — Free 30&#8209;Min Discovery Call
+              See My Recent Projects
             </span>
+
             <svg
               className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1"
               fill="none"
@@ -198,23 +201,6 @@ const Hero = ({ handleMouseEnter, handleMouseLeave }) => {
             >
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
-          </Link>
-        </motion.div>
-
-        <motion.div
-          variants={itemVariants}
-          initial="hidden"
-          animate="visible"
-          className="mt-10 flex justify-center"
-        >
-          <a
-            href="#projects"
-            className="group inline-flex items-center gap-2 text-sm md:text-base font-semibold text-text-secondary dark:text-zinc-300 hover:text-accent-orange transition-colors"
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-          >
-            <span>See My Recent Work</span>
-            <span className="transition-transform group-hover:translate-x-1" aria-hidden="true">→</span>
           </a>
         </motion.div>
       </div>
@@ -222,11 +208,11 @@ const Hero = ({ handleMouseEnter, handleMouseLeave }) => {
       <WisconsinOutline />
 
       {/* Decorative ambient background highlight */}
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 0.2, scale: 1 }}
         transition={{ duration: 2, ease: 'easeOut' }}
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70vw] h-[70vw] -z-10 blur-[130px] bg-sunset-gradient rounded-full pointer-events-none" 
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70vw] h-[70vw] -z-10 blur-[130px] bg-sunset-gradient rounded-full pointer-events-none"
       />
     </section>
   );

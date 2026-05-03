@@ -190,7 +190,7 @@ const PricingCard = ({ title, price, description, features, notIncluded, accent,
 };
 
 const PricingGuides = () => {
-  const [activeTab, setActiveTab] = useState('templates');
+  const [activeTab, setActiveTab] = useState('custom');
 
   const downloadLinks = {
     templates: { file: templateGuide, label: 'Template Pricing Guide' },
