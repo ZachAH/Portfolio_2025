@@ -39,11 +39,7 @@ const stats = [
 const guarantees = [
   {
     title: 'Fixed Pricing',
-    copy: 'Transparent tiers. No surprise invoices after the build starts.',
-  },
-  {
-    title: 'You Own Everything',
-    copy: 'Code, domain, hosting, every account and credential — 100% yours on launch day. I email you a secure master-list of every login created.',
+    copy: 'Transparent pricing. No surprise invoices after the build starts.',
   },
   {
     title: 'Direct Access',
@@ -53,28 +49,27 @@ const guarantees = [
     title: 'Discovery Is Free',
     copy: 'No contracts or deposits until we both agree on scope and fit.',
   },
+  {
+    title: 'Custom Builds Only',
+    copy: 'Every project is built around your business, goals, and offer — not a recycled template.',
+  },
 ];
 
 const riskReversals = [
   {
-    title: '72-Hour Deadline Guarantee',
-    copy: 'If I take longer than 48 hours to go live, you get a full refund — and you keep the site. I still build it, deploy it, and hand it over. Free.',
+    title: 'Full Ownership Guarantee',
+    copy: 'You own the final website, source code, accounts, and assets at handoff. No platform lock-in or hidden fees.',
+  },
+  {
+    title: 'Deadline Guarantee',
+    copy: 'If I miss the agreed-upon deadline, you get a full refund and keep the website, source code, accounts, and assets we agreed on.',
   },
   {
     title: '90+ Across All Lighthouse Audits',
-    copy: 'Your site hits 90+ on every Google Lighthouse category — Performance, Accessibility, Best Practices, and SEO — or I optimize it for free until it does.',
+    copy: 'Your site hits 90+ in Performance, Accessibility, Best Practices, and SEO — or I keep optimizing it for free.',
   },
 ];
 
-// ── ADD NEW REVIEWS HERE ──────────────────────────────────────
-// Fields:
-//   name   – reviewer's name
-//   meta   – short subtitle shown under the name
-//              Google:   e.g. 'Local Guide · 12 reviews'
-//              Facebook: e.g. 'New Berlin, WI' or their business name, or ''
-//   text   – the review body (keep under ~300 chars for best display)
-//   date   – 'Month Year'  e.g. 'June 2025'
-//   source – 'google' | 'facebook'
 const reviews = [
   {
     name: 'Kettle Moraine Professional Cleaners',
@@ -111,7 +106,7 @@ const reviews = [
     date: 'March 2026',
     source: 'facebook',
   },
-  
+
 ];
 
 const StarRow = () => (
@@ -175,10 +170,10 @@ const ReviewTicker = () => {
             <div className="shrink-0 mt-0.5">
               {r.source === 'google' ? (
                 <svg className="w-5 h-5" viewBox="0 0 48 48">
-                  <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
-                  <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
-                  <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
-                  <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.31-8.16 2.31-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
+                  <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z" />
+                  <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z" />
+                  <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z" />
+                  <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.31-8.16 2.31-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z" />
                 </svg>
               ) : (
                 <div className="w-5 h-5 rounded-full bg-[#1877F2] text-white flex items-center justify-center">
@@ -196,11 +191,10 @@ const ReviewTicker = () => {
               <button
                 key={i}
                 onClick={() => setIndex(i)}
-                className={`rounded-full transition-all duration-300 ${
-                  i === index
-                    ? 'w-4 h-1.5 bg-accent-orange'
-                    : 'w-1.5 h-1.5 bg-obsidian-700/20 dark:bg-white/20 hover:bg-accent-orange/50'
-                }`}
+                className={`rounded-full transition-all duration-300 ${i === index
+                  ? 'w-4 h-1.5 bg-accent-orange'
+                  : 'w-1.5 h-1.5 bg-obsidian-700/20 dark:bg-white/20 hover:bg-accent-orange/50'
+                  }`}
                 aria-label={`Review ${i + 1}`}
               />
             ))}
@@ -213,24 +207,24 @@ const ReviewTicker = () => {
 
 const processSteps = [
   {
-    hours: '0 – 4',
-    title: 'Onboarding',
-    description: 'Intake form, brand asset audit, and initial brief confirmation.',
+    hours: 'Step 1',
+    title: 'Discovery',
+    description: 'We talk through your business, goals, pages, style, and what the site needs to actually do for you.',
   },
   {
-    hours: '4 – 24',
-    title: 'Development',
-    description: 'Template customization, content integration, SEO infrastructure, and DNS setup.',
+    hours: 'Step 2',
+    title: 'Strategy + Build',
+    description: 'I design and build a custom site around your offer, content, and conversion goals — not a recycled template.',
   },
   {
-    hours: '24 – 36',
+    hours: 'Step 3',
     title: 'Review',
-    description: 'Live preview link for your feedback. Consolidated revision requests.',
+    description: 'You get a live preview, leave your feedback, and I handle revisions before launch.',
   },
   {
-    hours: '36 – 48',
-    title: 'Deployment',
-    description: 'Domain connection, final QA, and your site goes live worldwide. Once live, you are emailed every credential — emails, passwords, hosting access, and source code. Full ownership is yours.',
+    hours: 'Step 4',
+    title: 'Launch',
+    description: 'I connect the domain, run final QA, and deliver a fully live site with full ownership and access.',
   },
 ];
 
@@ -307,11 +301,11 @@ const TrustBar = () => {
           >
             {/* Google G logo */}
             <svg className="w-9 h-9 shrink-0" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-              <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
-              <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
-              <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
-              <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.31-8.16 2.31-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
-              <path fill="none" d="M0 0h48v72h0z"/>
+              <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z" />
+              <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z" />
+              <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z" />
+              <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.31-8.16 2.31-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z" />
+              <path fill="none" d="M0 0h48v72h0z" />
             </svg>
 
             {/* Stars + rating */}
@@ -372,25 +366,27 @@ const TrustBar = () => {
         <ReviewTicker />
 
         {/* Guarantees Row */}
+        {/* Guarantees Row */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="p-8 md:p-12 rounded-[2.5rem] bg-white dark:bg-obsidian-950/40 border border-accent-orange/20 shadow-sm"
+          className="p-6 md:p-8 rounded-[2.25rem] bg-white dark:bg-obsidian-950/30 border border-accent-orange/15 shadow-sm max-w-6xl mx-auto"
         >
-          <div className="flex items-center gap-3 mb-8 justify-center md:justify-start">
-            <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+          <div className="flex items-center gap-3 mb-6 justify-center md:justify-start">
+            <span className="w-2 h-2 rounded-full bg-green-500" />
             <span className="text-[10px] font-black uppercase tracking-[0.3em] text-text-secondary">
               The ZH Web Solutions Promise
             </span>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-5 md:gap-6">
             {guarantees.map((g) => (
               <div key={g.title} className="flex flex-col gap-2">
                 <div className="flex items-center gap-2">
                   <svg
-                    className="w-5 h-5 text-accent-orange shrink-0"
+                    className="w-4 h-4 text-accent-orange shrink-0"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -402,11 +398,11 @@ const TrustBar = () => {
                       d="M5 13l4 4L19 7"
                     />
                   </svg>
-                  <h3 className="text-sm font-black uppercase tracking-wide text-text-primary">
+                  <h3 className="text-xs md:text-sm font-black uppercase tracking-wide text-text-primary">
                     {g.title}
                   </h3>
                 </div>
-                <p className="text-xs md:text-sm text-text-secondary leading-relaxed font-medium pl-7">
+                <p className="text-xs text-text-secondary leading-relaxed font-medium pl-6">
                   {g.copy}
                 </p>
               </div>
@@ -414,24 +410,24 @@ const TrustBar = () => {
           </div>
         </motion.div>
 
-        {/* ── RISK REVERSAL ─────────────────────────────────── */}
+        {/* Risk Reversal */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6"
+          className="mt-10 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 max-w-6xl mx-auto"
         >
           {riskReversals.map((r) => (
             <div
               key={r.title}
-              className="p-6 md:p-8 rounded-3xl bg-green-50/80 dark:bg-green-900/10 border border-green-500/20 flex items-start gap-4"
+              className="p-6 md:p-7 rounded-3xl bg-green-50/90 dark:bg-green-900/10 border border-green-500/25 shadow-sm flex items-start gap-4 h-full"
             >
               <div className="w-10 h-10 rounded-xl bg-green-500/10 text-green-600 dark:text-green-400 flex items-center justify-center shrink-0 mt-0.5">
                 <FaShieldAlt className="w-5 h-5" />
               </div>
               <div>
-                <h3 className="text-sm font-black uppercase tracking-wide text-text-primary mb-1">
+                <h3 className="text-sm font-black uppercase tracking-wide text-text-primary mb-1.5">
                   {r.title}
                 </h3>
                 <p className="text-xs md:text-sm text-text-secondary leading-relaxed font-medium">
@@ -455,11 +451,11 @@ const TrustBar = () => {
               How It Works
             </span>
             <h2 className="text-3xl md:text-5xl font-bold tracking-tighter text-text-primary uppercase">
-              Your 72-Hour <span className="text-gradient">Roadmap</span>
+              Your <span className="text-gradient">Roadmap</span>
             </h2>
             <p className="text-base md:text-lg text-text-secondary max-w-2xl mx-auto mt-4 font-medium leading-relaxed">
-              Every hour is accounted for. Speed isn't cutting corners — it's the result of a refined,
-              specialized system built to deliver professional results on a predictable timeline.
+              Launch-Ready Delivery
+              Every custom build is delivered production-ready, fully responsive, SEO-structured, and connected to your domain with full ownership.
             </p>
           </div>
 
@@ -491,16 +487,20 @@ const TrustBar = () => {
             ))}
           </div>
 
-          <div className="mt-10 flex justify-center">
+          <div className="mt-8 flex flex-col items-center">
             <Link
-              to="/templates"
+              to="/custom-discovery"
               className="inline-flex items-center gap-3 px-8 py-4 bg-sunset-gradient text-white rounded-full font-bold transition-all hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
               </svg>
-              Choose Your Template & Get Started
+              Get Started Risk-Free
             </Link>
+
+            <p className="mt-3 text-xs md:text-sm text-text-secondary font-medium text-center">
+              No deposit until we agree on scope. Missed deadline = full refund.
+            </p>
           </div>
         </motion.div>
       </div>
