@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-// ── REVEAL CARD ──────────────────────────────────────────
-const ComparisonCard = ({ before, after, buildType }) => {
+const ComparisonCard = ({ before, after, title, labelType = 'Built for' }) => {
   const [revealed, setRevealed] = useState(false);
 
   const reset = () => setRevealed(false);
@@ -10,21 +9,19 @@ const ComparisonCard = ({ before, after, buildType }) => {
   return (
     <div className="flex flex-col gap-4">
       <div className="relative w-full aspect-[16/10] rounded-2xl overflow-hidden border border-obsidian-700/10 dark:border-white/10 shadow-lg">
-        {/* BEFORE image — always rendered underneath */}
         <img
           src={before}
-          alt={`Before — ${buildType}`}
+          alt={`Before — ${title}`}
           className="absolute inset-0 w-full h-full object-cover object-top"
           draggable={false}
         />
 
-        {/* AFTER image — animates in over the before */}
         <AnimatePresence>
           {revealed && (
             <motion.img
               key="after"
               src={after}
-              alt={`After — ${buildType}`}
+              alt={`After — ${title}`}
               className="absolute inset-0 w-full h-full object-cover object-top z-10"
               draggable={false}
               initial={{ clipPath: 'inset(0 100% 0 0)' }}
@@ -35,16 +32,16 @@ const ComparisonCard = ({ before, after, buildType }) => {
           )}
         </AnimatePresence>
 
-        {/* Label badge — top left */}
         <div className="absolute top-4 left-4 z-20">
-          <span className={`px-3 py-1.5 rounded-full text-white text-[10px] font-black uppercase tracking-widest backdrop-blur-sm ${
-            revealed ? 'bg-emerald-500/90' : 'bg-red-500/90'
-          } transition-colors duration-300`}>
+          <span
+            className={`px-3 py-1.5 rounded-full text-white text-[10px] font-black uppercase tracking-widest backdrop-blur-sm transition-colors duration-300 ${
+              revealed ? 'bg-emerald-500/90' : 'bg-red-500/90'
+            }`}
+          >
             {revealed ? 'After' : 'Before'}
           </span>
         </div>
 
-        {/* CTA button — centered */}
         <div className="absolute inset-0 z-20 flex items-center justify-center">
           <AnimatePresence mode="wait">
             {!revealed ? (
@@ -89,40 +86,59 @@ const ComparisonCard = ({ before, after, buildType }) => {
         </div>
       </div>
 
-      {/* Caption bar */}
       <div className="flex items-center justify-center px-1">
         <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-accent-orange/10 border border-accent-orange/20">
-          <span className="text-[10px] font-black uppercase tracking-widest text-accent-orange">Built with</span>
-          <span className="text-xs font-bold text-text-primary">{buildType}</span>
+          <span className="text-[10px] font-black uppercase tracking-widest text-accent-orange">
+            {labelType}
+          </span>
+          <span className="text-xs font-bold text-text-primary">{title}</span>
         </div>
       </div>
     </div>
   );
 };
 
-// ── COMPARISON DATA ──────────────────────────────────────
-// To add a new comparison:
-//   1. Drop the "before" screenshot into  /public/before/<slug>.webp
-//   2. Drop the "after"  screenshot into  /public/after/<slug>.webp
-//   3. Add a new entry below — the slug must match the filenames.
-//
-// Example:
-//   { slug: 'saas_template', buildType: 'SaaS Template' }
-//   → expects /public/before/saas_template.webp  &  /public/after/saas_template.webp
-
 const comparisons = [
-  { slug: 'hero_service',       buildType: 'Hero Service Template' },
-  { slug: 'influencer_pro',     buildType: 'Influencer Pro Template' },
-  { slug: 'customdynamic+cms',  buildType: 'Custom Dynamic + CMS Build' },
-].map((entry) => ({
-  ...entry,
-  before: `/before/${entry.slug}.webp`,
-  after:  `/after/${entry.slug}.webp`,
-}));
+  {
+    slug: 'kml_1',
+    title: 'Kettle Moraine Professional Cleaners',
+    labelType: 'Built for',
+    before: '/before/KML_before1.png',
+    after: '/after/KML_after_1.png',
+  },
+  {
+    slug: 'kml_2',
+    title: 'Kettle Moraine Professional Cleaners',
+    labelType: 'Built for',
+    before: '/before/KML_before2.png',
+    after: '/after/KML_after_4.png',
+  },
+  {
+    slug: 'uppercrust_1',
+    title: 'Uppercrust Pizza',
+    labelType: 'Built for',
+    before: '/before/UpperCrustBefore_1.png',
+    after: '/after/UppercrustAfter_1.png',
+  },
+  {
+    slug: 'uppercrust_2',
+    title: 'Uppercrust Pizza',
+    labelType: 'Built for',
+    before: '/before/UpperCrustBefore_2.png',
+    after: '/after/UppercrustAfter_2.webp',
+  },
+  {
+    slug: 'influencer_pro',
+    title: 'Influencer Pro Template',
+    labelType: 'Built with',
+    before: '/before/influencer_pro.webp',
+    after: '/after/influencer_pro.webp',
+  },
+];
 
-// ── MAIN SECTION ─────────────────────────────────────────
 const BeforeAfter = ({ handleMouseEnter, handleMouseLeave }) => {
   const [activeIndex, setActiveIndex] = useState(0);
+  const active = comparisons[activeIndex];
 
   return (
     <section className="py-24 px-6 md:px-12 lg:px-24 bg-silver-50/60 dark:bg-obsidian-900/30 border-y border-obsidian-700/10 dark:border-white/5">
@@ -141,12 +157,10 @@ const BeforeAfter = ({ handleMouseEnter, handleMouseLeave }) => {
             Before &amp; <span className="text-gradient">After</span>
           </h2>
           <p className="text-base md:text-lg text-text-secondary max-w-2xl mx-auto mt-4 font-medium leading-relaxed">
-            See what happens when a local business upgrades from an outdated site to a
-            professionally built web presence.
+            See what happens when a local business upgrades from an outdated site to a professionally built web presence.
           </p>
         </motion.div>
 
-        {/* Tab selector */}
         <div className="flex flex-wrap justify-center gap-2 mb-10">
           {comparisons.map((comp, i) => (
             <button
@@ -160,19 +174,18 @@ const BeforeAfter = ({ handleMouseEnter, handleMouseLeave }) => {
                   : 'text-text-secondary hover:text-accent-orange bg-white/50 dark:bg-white/5'
               }`}
             >
-              {comp.buildType}
+              {comp.title}
             </button>
           ))}
         </div>
 
-        {/* Comparison card */}
         <motion.div
-          key={activeIndex}
+          key={active.slug}
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3 }}
         >
-          <ComparisonCard {...comparisons[activeIndex]} />
+          <ComparisonCard {...active} />
         </motion.div>
       </div>
     </section>
