@@ -73,6 +73,30 @@ const projectsData = [
     link: "https://clawanddecay.com/",
     tags: ["TypeScript", "GSAP", "Vite", "Tailwind CSS"],
     testimonial: null,
+  },
+  {
+    id: 11,
+    title: "Commercial Forestry",
+    category: "Nationwide Forestry Services",
+    location: "Remote / National",
+    description: "A modern, performance-optimized website for a nationwide forestry services company, featuring a clean design, clear service descriptions, and strong calls to action.",
+    csDescription: "Built a high-impact digital presence for a commercial forestry company, utilizing React and Tailwind CSS to create a visually compelling and user-friendly site. Implemented custom animations and interactive elements to engage visitors and drive inquiries.",
+    image: "/commerciallogging.jpg",
+    link: "https://gertchmockup.netlify.app/",
+    tags: ["TypeScript", "GSAP", "Vite", "Tailwind CSS"],
+    testimonial: null,
+  },
+  {
+    id: 12,
+    title: "Maison Boutique",
+    category: "E-commerce Storefront",
+    location: "Remote / National",
+    description: "A sleek online storefront for a boutique fashion brand, designed to showcase products with high-quality visuals and smooth user interactions.",
+    csDescription: "Developed a visually stunning e-commerce site for a boutique fashion brand, leveraging GSAP for dynamic animations and Vite for optimal performance. The design emphasizes product imagery and provides an intuitive shopping experience.",
+    image: "/boutique.jpg",
+    link: "https://ecommercetemplatezh.netlify.app/",
+    tags: ["TypeScript", "GSAP", "Vite", "Tailwind CSS"],
+    testimonial: null,
   }
 ];
 
