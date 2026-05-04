@@ -12,7 +12,7 @@ function hexToRgba(hex, alpha = 1) {
 // 💡 SALES ENGINE: Defined for your two core paths
 const BADGE_CONFIGS = {
   sprint: {
-    label: '48-Hour Deploy',
+    label: '72-Hour Deploy',
     classes: 'border-green-500/30 text-green-700 dark:text-green-400',
     dot: 'bg-green-500',
     cta: '🚀 Deploy My Site in 72h',

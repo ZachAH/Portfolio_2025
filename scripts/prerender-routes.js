@@ -47,7 +47,7 @@ const ROUTES = [
   },
   {
     path: '/templates',
-    title: 'Premium Website Templates | 48-Hour Launch — Zach Howell',
+    title: 'Premium Website Templates | 72-Hour Launch — Zach Howell',
     description:
       'High-performance React + Tailwind templates with full white-glove deployment. Domain, hosting, DNS, and brand integration handled for you. Live in 48 hours.',
   },

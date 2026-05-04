@@ -133,7 +133,7 @@ export const servicesSchema = {
           '@type': 'Service',
           name: 'Custom React Website Development',
           description:
-            'End-to-end React + Node.js application development for Wisconsin businesses — from concept to deployment with 48-hour sprint delivery.',
+            'End-to-end React + Node.js application development for Wisconsin businesses — from concept to deployment with 72-Hour sprint delivery.',
         },
       },
       {

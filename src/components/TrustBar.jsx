@@ -57,7 +57,7 @@ const guarantees = [
 
 const riskReversals = [
   {
-    title: '48-Hour Deadline Guarantee',
+    title: '72-Hour Deadline Guarantee',
     copy: 'If I take longer than 48 hours to go live, you get a full refund — and you keep the site. I still build it, deploy it, and hand it over. Free.',
   },
   {
@@ -442,7 +442,7 @@ const TrustBar = () => {
           ))}
         </motion.div>
 
-        {/* ── HOW IT WORKS — 48-HOUR TIMELINE ────────────────── */}
+        {/* ── HOW IT WORKS — 72-Hour TIMELINE ────────────────── */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -455,7 +455,7 @@ const TrustBar = () => {
               How It Works
             </span>
             <h2 className="text-3xl md:text-5xl font-bold tracking-tighter text-text-primary uppercase">
-              Your 48-Hour <span className="text-gradient">Roadmap</span>
+              Your 72-Hour <span className="text-gradient">Roadmap</span>
             </h2>
             <p className="text-base md:text-lg text-text-secondary max-w-2xl mx-auto mt-4 font-medium leading-relaxed">
               Every hour is accounted for. Speed isn't cutting corners — it's the result of a refined,

@@ -47,7 +47,7 @@ const CheckoutReadyModal = ({ isOpen, onClose, stripeUrl, title }) => (
               {[
                 { step: '1', title: 'Secure Stripe Checkout', desc: 'Your payment is processed through Stripe — your card data never touches my servers.' },
                 { step: '2', title: 'Secure Onboarding Portal', desc: 'You\'ll be redirected to a private onboarding page to provide your brand info, assets, and preferences.' },
-                { step: '3', title: 'Sprint Clock Starts', desc: 'Once I confirm your assets, the 48-hour build window begins immediately.' },
+                { step: '3', title: 'Sprint Clock Starts', desc: 'Once I confirm your assets, the 72-Hour build window begins immediately.' },
                 { step: '4', title: 'You Own Everything', desc: 'After launch, I\'ll push your domain to your Porkbun account and transfer your site to your Netlify dashboard. The domain, hosting, code — it\'s all yours.' },
               ].map((item) => (
                 <li key={item.step} className="flex gap-3">

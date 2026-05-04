@@ -63,7 +63,7 @@ const About = ({ handleMouseEnter, handleMouseLeave }) => {
                 I’m Zach, a 34-year-old  software engineer with over 6 years experience and business owner based right here in <span className="text-text-primary font-bold">New Berlin, Wisconsin</span>. I don’t just build websites; I build high-velocity conversion engines for people who are tired of the status quo.
               </p>
               <p>
-                As the founder of my own clothing brand, <span className="text-text-primary font-bold">Claw and Decay</span>, I know that a website isn't a "pretty brochure"—it’s a tool that either makes you money or costs you opportunities. I specialize in 48-hour sprints because I believe momentum is the most valuable asset in business.
+                As the founder of my own clothing brand, <span className="text-text-primary font-bold">Claw and Decay</span>, I know that a website isn't a "pretty brochure"—it’s a tool that either makes you money or costs you opportunities. I specialize in 72-Hour sprints because I believe momentum is the most valuable asset in business.
               </p>
               <p>
                 When I’m not deep in a React build or automating workflows with Python,

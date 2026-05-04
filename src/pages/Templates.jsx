@@ -131,7 +131,7 @@ const FAQ_ITEMS = [
     a: 'Yes. The live previews are starting points. Need a booking calendar? A blog? An extra testimonials section? A video background hero? A staff directory? Just tell me during onboarding and I\'ll build it in. Larger additions may fall under the Modern Edge or Commerce tiers depending on scope.',
   },
   {
-    q: 'How does the 48-hour deployment actually work?',
+    q: 'How does the 72-Hour deployment actually work?',
     a: 'Once you complete checkout, you\'ll land on a guided onboarding form where you provide your brand info, assets, and preferences. From the moment I receive your completed form, I begin the build immediately. Within 48 hours, your fully branded, live site is deployed and the domain is pointing to it.',
   },
   {
@@ -201,7 +201,7 @@ const templatesJsonLd = {
   name: 'Premium React Templates',
   url: 'https://zachhowell.dev/templates',
   description:
-    'Curated collection of premium production-ready React and Typescript templates. Choose between 48-hour velocity sprints or full-scale eCommerce foundations.',
+    'Curated collection of premium production-ready React and Typescript templates. Choose between 72-Hour velocity sprints or full-scale eCommerce foundations.',
   ...breadcrumb([
     { name: 'Home', path: '/' },
     { name: 'Templates', path: '/templates' },
@@ -515,7 +515,7 @@ const Templates = ({ handleMouseEnter, handleMouseLeave }) => {
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.3 }}
             >
-              {/* --- SECTION 1: 48-HOUR SPRINTS --- */}
+              {/* --- SECTION 1: 72-Hour SPRINTS --- */}
               <div className="mb-32">
                 <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
                   <div>

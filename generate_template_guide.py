@@ -150,7 +150,7 @@ def build_pdf():
 
     # Guarantee banner
     g_data = [[Paragraph(
-        "48-hour deadline or double credit back. 90+ Google PageSpeed score or full refund.",
+        "72-Hour deadline or double credit back. 90+ Google PageSpeed score or full refund.",
         s_guarantee
     )]]
     g_table = Table(g_data, colWidths=[doc.width - 40])
@@ -206,8 +206,8 @@ def build_pdf():
 
     story.append(divider())
 
-    # 48-Hour Roadmap
-    story.append(Paragraph("Your 48-Hour Roadmap", s_section))
+    # 72-Hour Roadmap
+    story.append(Paragraph("Your 72-Hour Roadmap", s_section))
     story.append(Paragraph(
         "Every hour is accounted for. Speed isn't cutting corners — it's the result of a refined, "
         "specialized system built to deliver professional results on a predictable timeline.",
@@ -332,7 +332,7 @@ def build_pdf():
         ("1. THE SPRINT CLOCK",
          "The development window (72h for Sprint, 72h for Modern Edge) begins ONLY once the onboarding form is fully completed AND all required high-resolution assets (logos, photos, copy, brand guidelines) have been received and confirmed by Zach Howell via email. Delays in asset delivery pause the clock — the 48/72-hour guarantee applies to active build time, not calendar time from purchase."),
         ("2. DNS PROPAGATION",
-         "DNS changes can take up to 24-72 hours to propagate globally after deployment. This propagation window is controlled entirely by third-party DNS providers and ISPs — it is outside the scope of the 48-hour delivery guarantee. Your site will be deployed and accessible via the hosting URL within the guaranteed window; worldwide domain resolution may take additional time beyond Zach Howell's control."),
+         "DNS changes can take up to 24-72 hours to propagate globally after deployment. This propagation window is controlled entirely by third-party DNS providers and ISPs — it is outside the scope of the 72-Hour delivery guarantee. Your site will be deployed and accessible via the hosting URL within the guaranteed window; worldwide domain resolution may take additional time beyond Zach Howell's control."),
         ("3. THIRD-PARTY SERVICES",
          "This engagement relies on third-party platforms including but not limited to Porkbun (domain registrar), Netlify (hosting &amp; deployment), CDN networks, Stripe, Google Search Console, and email providers. Zach Howell is not liable for outages, policy changes, service interruptions, delayed verifications, or account-level restrictions imposed by any third-party platform."),
         ("4. DOMAIN DISCRETION",
