@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import ReactGA from 'react-ga4';
 
 // PDF Imports
@@ -91,7 +91,55 @@ const CheckoutReadyModal = ({ isOpen, onClose, stripeUrl, title }) => (
   </AnimatePresence>
 );
 
-const PricingCard = ({ title, price, description, features, notIncluded, accent, isPopular, link, stripeUrl, guarantee }) => {
+const CallSetupModal = ({ isOpen, onClose }) => (
+  <AnimatePresence>
+    {isOpen && (
+      <>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          onClick={onClose}
+          className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[9998]"
+        />
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95, y: 20 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          exit={{ opacity: 0, scale: 0.95, y: 20 }}
+          className="fixed inset-0 z-[9999] flex items-center justify-center p-4"
+        >
+          <div className="bg-white dark:bg-obsidian-950 border border-gray-200 dark:border-white/10 rounded-3xl shadow-2xl max-w-md w-full p-8 relative">
+            <button onClick={onClose} className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 dark:hover:text-white transition-colors">
+              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
+            </button>
+
+            <div className="w-12 h-12 rounded-2xl bg-accent-orange/10 text-accent-orange flex items-center justify-center mb-5">
+              <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a2 2 0 011.894 1.368l1.09 3.272a2 2 0 01-.455 2.055l-1.57 1.57a16.042 16.042 0 006.415 6.415l1.57-1.57a2 2 0 012.055-.455l3.272 1.09A2 2 0 0121 18.72V22a2 2 0 01-2 2h-1C9.716 24 0 14.284 0 2V1a2 2 0 012-2h1z" />
+              </svg>
+            </div>
+
+            <h3 className="text-2xl font-black text-obsidian-950 dark:text-white mb-3">
+              Set Up a Plan
+            </h3>
+            <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
+              To set up a plan, please give me a call at 262-341-7181 as this requires a a little more information.
+            </p>
+
+            <button
+              onClick={onClose}
+              className="w-full py-3.5 rounded-full bg-accent-orange text-white font-bold text-sm hover:bg-accent-orange/90 active:scale-95 transition-all shadow-md"
+            >
+              Close
+            </button>
+          </div>
+        </motion.div>
+      </>
+    )}
+  </AnimatePresence>
+);
+
+const PricingCard = ({ title, price, description, features, notIncluded, accent, isPopular, link, stripeUrl, guarantee, modalType }) => {
   const [showModal, setShowModal] = useState(false);
 
   return (
@@ -161,7 +209,17 @@ const PricingCard = ({ title, price, description, features, notIncluded, accent,
 
         {!notIncluded && <div className="mb-8" />}
 
-        {stripeUrl ? (
+        {modalType === 'call' ? (
+          <button
+            onClick={() => setShowModal(true)}
+            className={`w-full py-4 rounded-full font-bold transition-all active:scale-95 shadow-md text-center block ${isPopular
+              ? 'bg-accent-orange text-white hover:bg-accent-orange/90'
+              : 'bg-obsidian-950 text-white dark:bg-white dark:text-obsidian-950 hover:opacity-90'
+              }`}
+          >
+            {isPopular ? 'Get Started' : 'Get Started'}
+          </button>
+        ) : stripeUrl ? (
           <button
             onClick={() => setShowModal(true)}
             className={`w-full py-4 rounded-full font-bold transition-all active:scale-95 shadow-md text-center block ${isPopular
@@ -184,13 +242,25 @@ const PricingCard = ({ title, price, description, features, notIncluded, accent,
         )}
       </motion.div>
 
-      {stripeUrl && <CheckoutReadyModal isOpen={showModal} onClose={() => setShowModal(false)} stripeUrl={stripeUrl} title={title} />}
+      {modalType === 'call' && <CallSetupModal isOpen={showModal} onClose={() => setShowModal(false)} />}
+      {modalType !== 'call' && stripeUrl && <CheckoutReadyModal isOpen={showModal} onClose={() => setShowModal(false)} stripeUrl={stripeUrl} title={title} />}
     </>
   );
 };
 
 const PricingGuides = () => {
+  const { hash } = useLocation();
   const [activeTab, setActiveTab] = useState('custom');
+
+  useEffect(() => {
+    if (hash === '#custom-builds') {
+      setActiveTab('custom');
+    } else if (hash === '#partnership-plans') {
+      setActiveTab('growth');
+    } else if (hash === '#template-launch') {
+      setActiveTab('templates');
+    }
+  }, [hash]);
 
   const downloadLinks = {
     templates: { file: templateGuide, label: 'Template Pricing Guide' },
@@ -221,7 +291,7 @@ const PricingGuides = () => {
           "Security & Dependency Patching"
         ],
         accent: "text-emerald-500",
-        stripeUrl: import.meta.env.VITE_STRIPE_PILOT_URL,
+        modalType: "call",
         link: "/contact"
       },
       {
@@ -235,7 +305,7 @@ const PricingGuides = () => {
           "1 Expert Hour / month"
         ],
         accent: "text-blue-500",
-        stripeUrl: import.meta.env.VITE_STRIPE_PILOT_URL,
+        modalType: "call",
         link: "/contact"
       },
       {
@@ -252,7 +322,7 @@ const PricingGuides = () => {
         ],
         accent: "text-accent-orange",
         isPopular: true,
-        stripeUrl: import.meta.env.VITE_STRIPE_NAVIGATOR_URL,
+        modalType: "call",
         link: "/contact"
       },
       {
@@ -266,7 +336,7 @@ const PricingGuides = () => {
           "Direct Slack/Text Access"
         ],
         accent: "text-purple-500",
-        stripeUrl: import.meta.env.VITE_STRIPE_COPILOT_URL,
+        modalType: "call",
         link: "/contact"
       }],
     templates: [
@@ -333,7 +403,7 @@ const PricingGuides = () => {
   };
 
   return (
-    <section className="py-24 px-6 relative overflow-hidden bg-white dark:bg-obsidian-950 transition-colors duration-300">
+    <section id="custom-builds" className="py-24 px-6 relative overflow-hidden bg-white dark:bg-obsidian-950 transition-colors duration-300">
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-6xl font-bold tracking-tighter text-obsidian-950 dark:text-white mb-6">
@@ -397,6 +467,23 @@ const PricingGuides = () => {
 
         {/* ── LAUNCH PRICING BANNER (templates tab only) ──── */}
         <AnimatePresence>
+          {activeTab === 'growth' && (
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              className="mb-8 p-4 md:p-5 rounded-2xl bg-amber-50 dark:bg-amber-900/10 border border-amber-500/25 flex flex-col sm:flex-row items-center justify-center gap-3 text-center"
+            >
+              <span className="relative flex h-2.5 w-2.5 shrink-0">
+                <span className="absolute inline-flex h-full w-full rounded-full bg-amber-500 opacity-75 animate-ping" />
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-amber-500" />
+              </span>
+              <span className="text-sm font-bold text-amber-800 dark:text-amber-300">
+                Partnership plans are only available for websites I built and currently manage.
+              </span>
+            </motion.div>
+          )}
+
           {activeTab === 'templates' && (
             <motion.div
               initial={{ opacity: 0, y: -10 }}
