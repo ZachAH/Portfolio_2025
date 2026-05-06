@@ -126,14 +126,7 @@ const comparisons = [
     labelType: 'Built for',
     before: '/before/UpperCrustBefore_2.webp',
     after: '/after/UppercrustAfter_2.webp',
-  },
-  {
-    slug: 'influencer_pro',
-    title: 'Influencer Pro Template',
-    labelType: 'Built with',
-    before: '/before/influencer_pro.webp',
-    after: '/after/influencer_pro.webp',
-  },
+  }
 ];
 
 const BeforeAfter = ({ handleMouseEnter, handleMouseLeave }) => {
@@ -154,7 +147,7 @@ const BeforeAfter = ({ handleMouseEnter, handleMouseLeave }) => {
             The Transformation
           </span>
           <h2 className="text-3xl md:text-5xl font-bold tracking-tighter text-text-primary uppercase">
-            Before &amp; <span className="text-gradient">After</span>
+            Website <span className="text-gradient">Re-Designs</span>
           </h2>
           <p className="text-base md:text-lg text-text-secondary max-w-2xl mx-auto mt-4 font-medium leading-relaxed">
             See what happens when a local business upgrades from an outdated site to a professionally built web presence.

@@ -366,7 +366,6 @@ const TrustBar = () => {
         <ReviewTicker />
 
         {/* Guarantees Row */}
-        {/* Guarantees Row */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -446,45 +445,9 @@ const TrustBar = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="mt-20"
         >
-          <div className="text-center mb-12">
-            <span className="text-xs font-black tracking-[0.3em] text-accent-orange uppercase mb-4 inline-block">
-              How It Works
-            </span>
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tighter text-text-primary uppercase">
-              Your <span className="text-gradient">Roadmap</span>
-            </h2>
-            <p className="text-base md:text-lg text-text-secondary max-w-2xl mx-auto mt-4 font-medium leading-relaxed">
-              Launch-Ready Delivery
-              Every custom build is delivered production-ready, fully responsive, SEO-structured, and connected to your domain with full ownership.
-            </p>
-          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-            {processSteps.map((step, i) => (
-              <motion.div
-                key={step.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: i * 0.1 }}
-                className="relative p-6 md:p-8 rounded-3xl bg-white dark:bg-obsidian-950/60 border border-obsidian-700/10 dark:border-white/10 backdrop-blur-md"
-              >
-                <div className="text-xs font-black tracking-[0.2em] text-accent-orange uppercase mb-3">
-                  Hour {step.hours}
-                </div>
-                <h3 className="text-lg font-bold text-text-primary mb-2">{step.title}</h3>
-                <p className="text-sm text-text-secondary leading-relaxed font-medium">
-                  {step.description}
-                </p>
-                {i < processSteps.length - 1 && (
-                  <div className="hidden md:block absolute top-1/2 -right-3 w-6 h-6 text-accent-orange/40">
-                    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </div>
-                )}
-              </motion.div>
-            ))}
+
           </div>
 
           <div className="mt-8 flex flex-col items-center">
