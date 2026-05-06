@@ -117,7 +117,7 @@ const Hero = ({ handleMouseEnter, handleMouseLeave }) => {
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         >
-          <span className="text-gradient">Wisconsin-Built Websites That Rank & Convert</span>
+          <span className="text-gradient">Premium Websites That Rank & Convert</span>
         </h1>
 
         <motion.p
@@ -126,7 +126,7 @@ const Hero = ({ handleMouseEnter, handleMouseLeave }) => {
           animate="visible"
           className="text-lg md:text-xl lg:text-2xl text-text-secondary dark:text-zinc-300 max-w-5xl mx-auto mb-14 font-medium leading-relaxed"
         >
-          I design and build blazing-fast websites for Wisconsin small businesses — manufacturing shops, service firms, and local retailers — using modern code that ranks, loads in under 2 seconds, and converts.
+          I design and build blazing-fast websites for Wisconsin businesses — using modern code that ranks with both Google and AI search engines, loads in under 2 seconds, and converts browsers into customers.
         </motion.p>
 
         {/* Primary CTA */}
