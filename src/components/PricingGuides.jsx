@@ -208,10 +208,67 @@ const PricingGuides = () => {
 
   const content = {
     growth: [
-      { title: "The Pilot", price: "$150/mo", description: "Peace of mind for business owners who want their site 'always on'.", features: ["24/7 Uptime Monitor", "Hosting & DNS Management", "Security Patching", "1 Expert Hour / month"], accent: "text-blue-500", stripeUrl: import.meta.env.VITE_STRIPE_PILOT_URL, link: "/contact" },
-      { title: "The Navigator", price: "$450/mo", description: "Active scaling for brands that need regular feature updates and SEO.", features: ["Includes Pilot Plan", "4 Expert Hours / month", "Monthly SEO Health Audit", "Priority 24h Support"], accent: "text-accent-orange", isPopular: true, stripeUrl: import.meta.env.VITE_STRIPE_NAVIGATOR_URL, link: "/contact" },
-      { title: "The Co-Pilot", price: "$950/mo", description: "A dedicated full-stack partner for high-traffic or E-commerce brands.", features: ["Includes Navigator Plan", "10 Expert Hours / month", "Strategy Sync Calls", "Direct Slack/Text Access"], accent: "text-purple-500", stripeUrl: import.meta.env.VITE_STRIPE_COPILOT_URL, link: "/contact" }
-    ],
+      {
+        title: "The Sentry",
+        price: "$75/mo",
+        description: "Zero-latency infrastructure and security for high-performance React applications.",
+        features: [
+          "Netlify Edge-Network Hosting",
+          "Vite-Optimized Asset Delivery",
+          "Porkbun DNS & SSL Management",
+          "24/7 Automated Uptime Sentry",
+          "CI/CD Deployment Monitoring",
+          "Security & Dependency Patching"
+        ],
+        accent: "text-emerald-500",
+        stripeUrl: import.meta.env.VITE_STRIPE_PILOT_URL,
+        link: "/contact"
+      },
+      {
+        title: "The Pilot",
+        price: "$150/mo",
+        description: "Peace of mind with monthly expert care and future-proof optimization.",
+        features: [
+          "Includes Sentry Plan",
+          "Monthly AI Visibility Tuning",
+          "Google Authority Maintenance",
+          "1 Expert Hour / month"
+        ],
+        accent: "text-blue-500",
+        stripeUrl: import.meta.env.VITE_STRIPE_PILOT_URL,
+        link: "/contact"
+      },
+      {
+        title: "The Navigator",
+        price: "$450/mo",
+        description: "Active scaling for brands that need regular feature updates, deep SEO, and data-driven growth.",
+        features: [
+          "Includes Pilot Plan",
+          "4 Expert Hours / month",
+          "Behavioral GA4 Analysis",
+          "Conversion-Tuned Updates",
+          "Full SEO & AI Health Audit",
+          "Priority 24h Support"
+        ],
+        accent: "text-accent-orange",
+        isPopular: true,
+        stripeUrl: import.meta.env.VITE_STRIPE_NAVIGATOR_URL,
+        link: "/contact"
+      },
+      {
+        title: "The Co-Pilot",
+        price: "$950/mo",
+        description: "A dedicated full-stack partner for high-traffic or E-commerce brands.",
+        features: [
+          "Includes Navigator Plan",
+          "10 Expert Hours / month",
+          "Strategy & AI Sync Calls",
+          "Direct Slack/Text Access"
+        ],
+        accent: "text-purple-500",
+        stripeUrl: import.meta.env.VITE_STRIPE_COPILOT_URL,
+        link: "/contact"
+      }],
     templates: [
       {
         title: "The 72h Sprint",
@@ -321,7 +378,7 @@ const PricingGuides = () => {
               )}
             </AnimatePresence>
 
-            <motion.a
+            {/* <motion.a
               key={activeTab}
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
@@ -334,7 +391,7 @@ const PricingGuides = () => {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a2 2 0 002 2h12a2 2 0 002-2v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
               </svg>
               Download Full {activeTab === 'templates' ? 'Launch' : activeTab === 'growth' ? 'Partnership' : 'Custom'} Guide (PDF)
-            </motion.a>
+            </motion.a> */}
           </div>
         </div>
 
