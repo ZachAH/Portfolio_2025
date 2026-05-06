@@ -117,7 +117,7 @@ const Hero = ({ handleMouseEnter, handleMouseLeave }) => {
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         >
-          <span className="text-gradient">Premium Websites That Rank & Convert</span>
+          <span className="text-gradient">The Last Website You’ll Ever Need.</span>
         </h1>
 
         <motion.p

@@ -99,14 +99,14 @@ const Services = ({ handleMouseEnter, handleMouseLeave }) => {
       tags: ["Porkbun", "Netlify", "Full Ownership"]
     },
     {
-      title: "SEO & Analytics",
-      description: "Visibility and data-driven growth. I handle sitemap.xml submissions, JSON schema, and meta-updates, while integrating GA4 to track your ROI.",
+      title: "SEO, AI Visibility & Analytics",
+      description: "Visibility built for the next generation of search. I handle sitemap.xml submissions, meta-updates, and advanced JSON-LD schema to ensure your business ranks on Google and gets cited by AI search engines, all backed by GA4 analytics to track your ROI and customer behavior.",
       icon: (
         <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
         </svg>
       ),
-      tags: ["GA4", "JSON-LD", "Sitemaps", "SEO"]
+      tags: ["GA4 Analytics", "AI Search (GEO)", "JSON-LD Schema", "Sitemaps & Meta"]
     },
     {
       title: "WCAG Accessibility",
