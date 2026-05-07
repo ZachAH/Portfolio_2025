@@ -6,6 +6,7 @@ import ReactGA from 'react-ga4';
 import Navbar from './components/navbar';
 import Footer from './components/Footer';
 import AnimatedBackground from './components/AnimatedBackground';
+import LocalBusinessSchema from './components/LocalBusinessSchema';
 import useDarkMode from './hooks/useDarkMode';
 import './index.css';
 
@@ -14,7 +15,8 @@ import './index.css';
 const Home = lazy(() => import('./pages/Home'));
 const Services = lazy(() => import('./pages/Services'));
 const About = lazy(() => import('./pages/About'));
-const Templates = lazy(() => import('./pages/Templates'));
+const Locations = lazy(() => import('./pages/Locations'));
+const LocationPage = lazy(() => import('./pages/LocationPage'));
 const Pricing = lazy(() => import('./pages/Pricing'));
 const OnboardingForm = lazy(() => import('./components/OnboardingForm'));
 const DiscoveryForm = lazy(() => import('./components/DiscoveryForm'));
@@ -176,6 +178,7 @@ function AppContent() {
     <div className={`min-h-screen ${theme === 'dark' ? 'dark bg-obsidian-950 text-white' : 'bg-white text-obsidian-950'}`}>
       <ScrollHandler />
       <AnimatedBackground currentTheme={theme} />
+      <LocalBusinessSchema />
       <Cursor />
 
       <div className="relative z-10 flex flex-col min-h-screen">
@@ -212,10 +215,18 @@ function AppContent() {
                 }
               />
               <Route
-                path="/templates"
+                path="/locations"
                 element={
                   <PageWrapper>
-                    <Templates handleMouseEnter={handleMouseEnter} handleMouseLeave={handleMouseLeave} />
+                    <Locations />
+                  </PageWrapper>
+                }
+              />
+              <Route
+                path="/locations/:citySlug-web-design"
+                element={
+                  <PageWrapper>
+                    <LocationPage />
                   </PageWrapper>
                 }
               />
@@ -244,6 +255,11 @@ function AppContent() {
                     <DiscoveryForm />
                   </PageWrapper>
                 }
+              />
+
+              <Route
+                path="/templates"
+                element={<Navigate to="/custom-discovery" replace />}
               />
 
               <Route

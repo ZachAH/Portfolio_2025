@@ -1,34 +1,13 @@
 // Reusable JSON-LD structured-data builders for SEO.
 // Spec: https://schema.org
+import { SERVICE_AREA_NAMES } from '../data/locationPages';
 
 const SITE_URL = 'https://zachhowell.dev';
 
-// Wisconsin cities for areaServed — covers primary hubs + regional centers
-const WISCONSIN_SERVICE_AREAS = [
-  { '@type': 'State', name: 'Wisconsin' },
-  { '@type': 'City', name: 'Milwaukee' },
-  { '@type': 'City', name: 'New Berlin' },
-  { '@type': 'City', name: 'Waukesha' },
-  { '@type': 'City', name: 'Madison' },
-  { '@type': 'City', name: 'Brookfield' },
-  { '@type': 'City', name: 'Wauwatosa' },
-  { '@type': 'City', name: 'Green Bay' },
-  { '@type': 'City', name: 'Appleton' },
-  { '@type': 'City', name: 'Eau Claire' },
-  { '@type': 'City', name: 'Racine' },
-  { '@type': 'City', name: 'Kenosha' },
-  { '@type': 'City', name: 'Oshkosh' },
-  { '@type': 'City', name: 'Janesville' },
-  { '@type': 'City', name: 'Sheboygan' },
-  { '@type': 'City', name: 'Fond du Lac' },
-  { '@type': 'City', name: 'La Crosse' },
-  { '@type': 'City', name: 'Menomonee Falls' },
-  { '@type': 'City', name: 'Muskego' },
-  { '@type': 'City', name: 'West Allis' },
-  { '@type': 'City', name: 'Oak Creek' },
-  { '@type': 'City', name: 'Franklin' },
-  { '@type': 'Country', name: 'United States' },
-];
+const WISCONSIN_SERVICE_AREAS = SERVICE_AREA_NAMES.map((name) => ({
+  '@type': 'City',
+  name,
+}));
 
 const ADDRESS = {
   '@type': 'PostalAddress',
@@ -75,13 +54,14 @@ export const personSchema = {
 
 export const localBusinessSchema = {
   '@context': 'https://schema.org',
-  '@type': 'ProfessionalService',
+  '@type': 'LocalBusiness',
   '@id': `${SITE_URL}/#business`,
-  name: 'Zach Howell — Wisconsin Web Development',
+  name: 'ZH Web Solutions',
   image: `${SITE_URL}/og-preview.png`,
   url: SITE_URL,
+  telephone: '+1-262-341-7181',
   description:
-    'Freelance full-stack web development for Wisconsin small businesses. Custom React websites, e-commerce stores, SEO optimization, hosting, and domain management serving Milwaukee, Madison, and 20+ WI cities.',
+    'Custom React web development and local SEO for Wisconsin businesses. ZH Web Solutions builds high-performance websites for New Berlin, Brookfield, Milwaukee, Mequon, Elm Grove, Waukesha, West Bend, Whitefish Bay, and Fox Point.',
   priceRange: '$$',
   areaServed: WISCONSIN_SERVICE_AREAS,
   address: ADDRESS,
@@ -103,7 +83,7 @@ export const websiteSchema = {
   name: 'Zach Howell — Wisconsin Web Developer',
   url: SITE_URL,
   description:
-    'Custom web development, SEO-optimized templates, and e-commerce solutions for Wisconsin small businesses.',
+    'Custom web development, technical SEO, and high-performance digital experiences for Wisconsin small businesses.',
   potentialAction: {
     '@type': 'SearchAction',
     target: `${SITE_URL}/?s={search_term_string}`,

@@ -25,6 +25,7 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
+import { getLocationPath, locationPages } from '../src/data/locationPages.js';
 
 const SITE_URL = 'https://zachhowell.dev';
 const DIST = path.resolve('dist');
@@ -46,16 +47,10 @@ const ROUTES = [
       'Wisconsin-based full-stack developer with 6+ years building React websites, e-commerce, and custom web apps for local small businesses. My story, my stack, and how I work.',
   },
   {
-    path: '/templates',
-    title: 'Premium Website Templates | 72-Hour Launch — Zach Howell',
-    description:
-      'High-performance React + Tailwind templates with full white-glove deployment. Domain, hosting, DNS, and brand integration handled for you. Live in 48 hours.',
-  },
-  {
     path: '/pricing',
-    title: 'Pricing | Templates, Custom Builds & Growth Plans — Zach Howell',
+    title: 'Pricing | Custom Builds & Partnership Plans — Zach Howell',
     description:
-      'Transparent pricing for template launches, custom React builds, and ongoing partnership plans. No hidden fees — see exactly what you get at each tier.',
+      'Transparent pricing for custom React builds and ongoing partnership plans. No hidden fees — see exactly what you get at each tier.',
   },
   {
     path: '/audit',
@@ -63,6 +58,23 @@ const ROUTES = [
     description:
       'Get a free, no-strings website audit. I review your site\'s performance, SEO, accessibility, and conversion gaps and send you a personalized action plan.',
   },
+  {
+    path: '/custom-discovery',
+    title: 'Custom Build Discovery | Zach Howell',
+    description:
+      'Start a custom website or web app project with ZH Web Solutions. Share your business, goals, and what you need built and get a response within 24 hours.',
+  },
+  {
+    path: '/locations',
+    title: 'Web Design Service Areas in Southeastern Wisconsin | ZH Web Solutions',
+    description:
+      'Explore the Southeastern Wisconsin markets ZH Web Solutions serves, including Milwaukee, Brookfield, Mequon, Elm Grove, Whitefish Bay, and West Bend.',
+  },
+  ...locationPages.map((location) => ({
+    path: getLocationPath(location.slug),
+    title: `Custom Web Development in ${location.city}, WI | ZH Web Solutions`,
+    description: location.metaDescription,
+  })),
 ];
 
 if (!fs.existsSync(TEMPLATE_PATH)) {

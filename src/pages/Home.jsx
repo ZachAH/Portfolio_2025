@@ -9,13 +9,12 @@ import BeforeAfter from '../components/BeforeAfter';
 import Seo from '../components/Seo';
 import {
   personSchema,
-  localBusinessSchema,
   websiteSchema,
 } from '../utils/structuredData';
 
 const homeJsonLd = {
   '@context': 'https://schema.org',
-  '@graph': [websiteSchema, personSchema, localBusinessSchema],
+  '@graph': [websiteSchema, personSchema],
 };
 
 const SummerPromoModal = ({ isOpen, onClose }) => (

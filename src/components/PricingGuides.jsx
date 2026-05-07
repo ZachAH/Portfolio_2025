@@ -4,7 +4,6 @@ import { Link, useLocation } from 'react-router-dom';
 import ReactGA from 'react-ga4';
 
 // PDF Imports
-import templateGuide from '../../src/assets/PriceGuides/Template_Price_Guide.pdf';
 import growthPlans from '../../src/assets/PriceGuides/Growth_Plans.pdf';
 import freelanceGuide from '../../src/assets/PriceGuides/freelance_price_guide.pdf';
 
@@ -257,13 +256,10 @@ const PricingGuides = () => {
       setActiveTab('custom');
     } else if (hash === '#partnership-plans') {
       setActiveTab('growth');
-    } else if (hash === '#template-launch') {
-      setActiveTab('templates');
     }
   }, [hash]);
 
   const downloadLinks = {
-    templates: { file: templateGuide, label: 'Template Pricing Guide' },
     custom: { file: freelanceGuide, label: 'Custom Project Guide' },
     growth: { file: growthPlans, label: 'Growth & Partnership Plans' }
   };
@@ -412,41 +408,17 @@ const PricingGuides = () => {
 
           <div className="flex flex-col items-center gap-8">
             <div className="flex flex-wrap justify-center gap-2 p-1.5 bg-gray-100 dark:bg-white/5 backdrop-blur-md rounded-full w-fit border border-black/5 dark:border-white/10">
-              {['growth', 'templates', 'custom'].map((tab) => (
+              {['growth', 'custom'].map((tab) => (
                 <button
                   key={tab}
                   onClick={() => setActiveTab(tab)}
                   className={`px-4 sm:px-6 py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all uppercase tracking-widest ${activeTab === tab ? 'bg-white dark:bg-white dark:text-obsidian-950 shadow-md' : 'text-gray-500 dark:text-gray-300 hover:text-accent-orange'
                     }`}
                 >
-                  {tab === 'growth' ? 'Partnership Plans' : tab === 'templates' ? 'Template Launch' : 'Custom Builds'}
+                  {tab === 'growth' ? 'Partnership Plans' : 'Custom Builds'}
                 </button>
               ))}
             </div>
-
-            <AnimatePresence mode="wait">
-              {activeTab === 'templates' && (
-                <motion.div
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
-                  className="max-w-2xl"
-                >
-                  <p className="text-gray-600 dark:text-gray-300 text-sm mb-4 leading-relaxed">
-                    Choose an industry-leading foundation from my collection and I will personally handle the
-                    deployment, content integration, and domain setup. Every launch includes
-                    full ownership of the source code and a professional, hand-polished result tailored
-                    to your specific brand package.
-                  </p>
-                  <Link
-                    to="/templates"
-                    className="text-accent-orange font-bold text-sm hover:underline flex items-center justify-center gap-2"
-                  >
-                    Browse Available Template Foundations →
-                  </Link>
-                </motion.div>
-              )}
-            </AnimatePresence>
 
             {/* <motion.a
               key={activeTab}
@@ -484,22 +456,6 @@ const PricingGuides = () => {
             </motion.div>
           )}
 
-          {activeTab === 'templates' && (
-            <motion.div
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              className="mb-8 p-4 md:p-5 rounded-2xl bg-gradient-to-r from-accent-orange/10 via-amber-500/10 to-accent-orange/10 border border-accent-orange/25 flex flex-col sm:flex-row items-center justify-center gap-3 text-center"
-            >
-              <span className="relative flex h-2 w-2 shrink-0">
-                <span className="absolute inline-flex h-full w-full rounded-full bg-accent-orange opacity-75 animate-ping" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-accent-orange" />
-              </span>
-              <span className="text-sm font-bold text-zinc-800 dark:text-zinc-200">
-                Every template package includes full White-Glove deployment — <span className="text-accent-orange font-black">domain, hosting, DNS, and brand integration</span> all handled for you
-              </span>
-            </motion.div>
-          )}
         </AnimatePresence>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -537,37 +493,6 @@ const PricingGuides = () => {
                 legacy builders. An 'hour' of my time usually covers what takes other agencies three — you're paying for rapid,
                 professional execution on a world-class foundation."
               </p>
-            </motion.div>
-          ) : activeTab === 'templates' ? (
-            <motion.div
-              key="template-footer"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-            >
-              <div className="mt-20 p-8 bg-gray-50 dark:bg-white/5 rounded-3xl border border-accent-orange/20 text-center max-w-4xl mx-auto shadow-sm">
-                <h4 className="text-xl font-bold text-obsidian-950 dark:text-white mb-3 flex items-center justify-center gap-2">
-                  Why $1,400 — Not $200?
-                </h4>
-                <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-sm sm:text-base">
-                  A $200 website uses bloated page builders with slow load times, missing metadata, and zero SEO — leaving you
-                  with technical debt that costs more to fix than it did to build. The 72h Sprint delivers a hand-coded React/TypeScript site
-                  with professional DNS configuration, secure infrastructure, and guaranteed 90+ scores across all Lighthouse audits — the same
-                  foundation agencies charge $5,000+ for.
-                </p>
-              </div>
-
-              <div className="mt-8 text-center">
-                <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-amber-50 dark:bg-amber-900/10 border border-amber-500/20">
-                  <span className="relative flex h-2 w-2">
-                    <span className="absolute inline-flex h-full w-full rounded-full bg-amber-500 opacity-75 animate-ping" />
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-500" />
-                  </span>
-                  <span className="text-xs font-bold text-amber-700 dark:text-amber-400">
-                    I take on a limited number of Sprint projects each month to maintain quality
-                  </span>
-                </div>
-              </div>
             </motion.div>
           ) : (
             <motion.div

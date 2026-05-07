@@ -35,12 +35,11 @@ const Navbar = ({ handleMouseEnter, handleMouseLeave }) => {
     };
   }, [isOpen]);
 
-  // Updated Links: Added Templates after Services
   const navLinks = [
     { name: 'Home', path: '/' },
     { name: 'About', path: '/about' },
     { name: 'Services', path: '/services' },
-    { name: 'Template Store', path: '/templates' },
+    { name: 'Areas Served', path: '/locations' },
     { name: 'Pricing', path: '/pricing' },
     { name: 'Free Audit', path: '/audit' },
     { name: 'Contact', path: '/#contact' },

@@ -30,10 +30,10 @@ const Pricing = ({ handleMouseEnter, handleMouseLeave }) => {
       className="pt-24 pb-12" // Padding to account for the fixed Navbar
     >
       <Seo
-        title="Wisconsin Web Development Pricing & Packages | Affordable Small Business Websites — Zach Howell"
-        description="Transparent, affordable pricing for Wisconsin web development. Sprint, growth, and custom packages for React websites, e-commerce stores, SEO, hosting, and ongoing support. No hidden fees — serving Milwaukee, Madison, and all of WI."
+        title="Wisconsin Web Development Pricing | Custom Builds & Partnership Plans — Zach Howell"
+        description="Transparent pricing for Wisconsin web development. Custom React builds, technical SEO, hosting guidance, and ongoing partnership plans for businesses in Milwaukee, Brookfield, Mequon, Waukesha, and Southeastern Wisconsin."
         path="/pricing"
-        keywords="web development pricing Wisconsin, affordable website packages Milwaukee, small business website cost WI, freelance developer rates Wisconsin, React website pricing, e-commerce development cost Milwaukee, website packages Waukesha, web design quotes Madison WI"
+        keywords="web development pricing Wisconsin, custom website pricing Milwaukee, Brookfield web design cost, Mequon web developer pricing, freelance developer rates Wisconsin, React website pricing, Waukesha web design quote, custom build pricing Wisconsin"
         jsonLd={pricingJsonLd}
       />
       <PricingGuides

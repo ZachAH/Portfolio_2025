@@ -222,7 +222,7 @@ const Services = ({ handleMouseEnter, handleMouseLeave }) => {
                       <LighthouseWidget />
                     </div>
                     <Link
-                      to="/templates"
+                      to="/custom-discovery"
                       className="w-full py-4 bg-sunset-gradient text-white rounded-2xl font-black text-xs uppercase tracking-widest shadow-lg shadow-accent-red/20 hover:scale-[1.02] active:scale-95 transition-transform text-center block"
                     >
                       Get Started Today

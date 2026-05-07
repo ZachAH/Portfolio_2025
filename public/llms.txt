@@ -1,118 +1,81 @@
-# Zach Howell Web Development
+# ZH Web Solutions
 
 Canonical site: https://zachhowell.dev
 
-This website belongs to Zach Howell, a Wisconsin-based freelance full-stack web developer in New Berlin, WI. The site focuses on custom React websites, template-based launches, e-commerce builds, SEO, AI visibility, analytics, accessibility, hosting, and ongoing partnership support for small businesses.
+This website belongs to Zach Howell, a Wisconsin-based senior full-stack engineer and freelance web developer in New Berlin, WI. The public site currently emphasizes custom React/Vite builds, GSAP-powered front-end execution, technical SEO, analytics, hosting guidance, and ongoing partnership support for businesses in Southeastern Wisconsin.
 
 ## Primary Pages
 
 - [Home](https://zachhowell.dev/)
-  Summary: Main landing page for Zach Howell's freelance web development business. Highlights custom React websites, small-business positioning, featured work, before/after examples, and contact entry points.
+  Summary: Main landing page for Zach Howell and ZH Web Solutions, focused on custom React websites, GSAP motion, technical SEO, and local business growth.
 
-- [Services](https://zachhowell.dev/services)
-  Summary: Detailed overview of services offered, including full-cycle React development, UI/UX and brand identity, domain and hosting infrastructure, SEO and AI visibility, analytics, and WCAG accessibility.
+- [services](https://zachhowell.dev/services)
+  Summary: Detailed overview of custom web development services including React, Vite, GSAP, technical SEO, analytics, hosting, and accessibility.
 
-- [Pricing](https://zachhowell.dev/pricing)
-  Summary: Main pricing hub. Contains three offer groups:
-  1. Partnership Plans
-  2. Template Launch packages
-  3. Custom Builds
+- [pricing](https://zachhowell.dev/pricing)
+  Summary: Pricing page for custom builds and ongoing partnership plans. Current public emphasis is on custom development rather than template launches.
 
-- [Templates](https://zachhowell.dev/templates)
-  Summary: Catalog of premium website templates for different industries and styles. Visitors can browse foundations for business, trades, SaaS, industrial, creative, and e-commerce use cases.
+- [audit](https://zachhowell.dev/audit)
+  Summary: Lead-generation page offering a free website audit across performance, SEO, accessibility, security, and conversion readiness.
 
-- [About](https://zachhowell.dev/about)
-  Summary: Founder profile for Zach Howell. Explains his background, business philosophy, focus on speed and conversion, and local Wisconsin positioning.
+- [about](https://zachhowell.dev/about)
+  Summary: Background and positioning page for Zach Howell, a Wisconsin-based senior full-stack engineer focused on premium custom web builds.
 
-- [Free Audit](https://zachhowell.dev/audit)
-  Summary: Lead-generation page offering a free website audit covering performance, SEO, mobile responsiveness, security, accessibility, and conversion readiness.
+- [custom-discovery](https://zachhowell.dev/custom-discovery)
+  Summary: Short discovery form for custom website and web application inquiries.
 
-## Pricing Snapshot
+- [locations](https://zachhowell.dev/locations)
+  Summary: Hub page for Southeastern Wisconsin service areas, linking to city-specific custom web development landing pages.
 
-### Custom Builds
+- [locations/milwaukee-web-design](https://zachhowell.dev/locations/milwaukee-web-design)
+  Summary: Milwaukee location page focused on Enterprise Modernization, with city-specific positioning for custom web development and local SEO.
 
-Located at: [Pricing - Custom Builds](https://zachhowell.dev/pricing#custom-builds)
+- [locations/brookfield-web-design](https://zachhowell.dev/locations/brookfield-web-design)
+  Summary: Brookfield location page focused on Local Business Growth, with city-specific positioning for custom web development and local SEO.
 
-- Landing Page: $800-$1,200
-- Business Site: $1,500-$3,000
-- Dynamic + CMS: $3,500-$6,000
-- E-Commerce / Web App: $5,000-$8,500+
-- Total Brand Launch: $6,000-$9,000+
+- [locations/mequon-web-design](https://zachhowell.dev/locations/mequon-web-design)
+  Summary: Mequon location page focused on Boutique Performance, with city-specific positioning for custom web development and local SEO.
 
-These prices cover custom code, design, and development. Infrastructure such as domain registration, hosting, DNS, SSL, and deployment may be scoped separately depending on package.
+- [locations/elm-grove-web-design](https://zachhowell.dev/locations/elm-grove-web-design)
+  Summary: Elm Grove location page focused on Neighborhood Authority, with city-specific positioning for custom web development and local SEO.
 
-### Template Launch Packages
+- [locations/whitefish-bay-web-design](https://zachhowell.dev/locations/whitefish-bay-web-design)
+  Summary: Whitefish Bay location page focused on Premium Service Positioning, with city-specific positioning for custom web development and local SEO.
 
-Located at: [Pricing - Template Launch](https://zachhowell.dev/pricing#template-launch)
+- [locations/west-bend-web-design](https://zachhowell.dev/locations/west-bend-web-design)
+  Summary: West Bend location page focused on Regional Lead Capture, with city-specific positioning for custom web development and local SEO.
 
-- The 72h Sprint: $1,400
-- Modern Edge: $2,000
-- Commerce Launch: $3,200
+## Focus Areas
 
-Template launches emphasize fast deployment, brand integration, SEO setup, and full ownership of code and accounts.
-
-### Partnership Plans
-
-Located at: [Pricing - Partnership Plans](https://zachhowell.dev/pricing#partnership-plans)
-
-- The Sentry: $75/mo
-- The Pilot: $150/mo
-- The Navigator: $450/mo
-- The Co-Pilot: $950/mo
-
-Important: Partnership plans are only available for websites Zach built and manages.
-
-For partnership plan setup, the site instructs users to call: 262-341-7181
-
-## Current Promotional Offer
-
-As of May 2026, the homepage includes a summer promotional modal advertising:
-
-- 3 free months of The Pilot partnership plan included with every new website build
-
-This is a promotional offer and may change over time.
-
-## Core Service Themes
-
-- Custom React development
-- Vite and Tailwind-based frontend builds
-- GSAP motion and premium UI execution
-- E-commerce with Stripe
-- Hosting and deployment via Netlify
-- Domain and DNS management via Porkbun
+- Custom React and Vite web development
+- GSAP-powered motion systems
 - Technical SEO and structured data
-- AI visibility and citation readiness
-- Google Analytics 4 integration
-- WCAG-minded accessibility
-- White-glove deployment and account transfer
+- Local SEO for Southeastern Wisconsin
+- Performance optimization and Core Web Vitals
+- Hosting, DNS, and deployment guidance
+- Accessibility-conscious front-end implementation
 
-## Audience and Geography
+## Geography
 
-Primary audience:
-
-- Wisconsin small businesses
-- Service businesses
-- Local brands
-- E-commerce businesses
-- Companies needing custom websites or web apps
-
-Primary geography mentioned throughout the site:
-
-- Wisconsin
-- Milwaukee
-- Waukesha
-- Madison
 - New Berlin
+- Brookfield
+- Milwaukee
+- Mequon
+- Elm Grove
+- Waukesha
+- West Bend
+- Whitefish Bay
+- Fox Point
 
 ## Contact and Conversion Paths
 
-- Contact section on the homepage: https://zachhowell.dev/#contact
-- Free audit form: https://zachhowell.dev/audit
-- Custom project discovery flow: https://zachhowell.dev/custom-discovery
-- Pricing page: https://zachhowell.dev/pricing
+- Custom discovery: https://zachhowell.dev/custom-discovery
+- Free audit: https://zachhowell.dev/audit
+- Locations hub: https://zachhowell.dev/locations
+- Phone: 262-341-7181
 
 ## Notes for LLMs and Crawlers
 
-- Prefer the public marketing pages listed above for factual summaries.
-- The route `/launch-onboarding` is a private onboarding flow and should not be treated as general public informational content.
-- The site is a JavaScript application, so this file is intended to provide a direct content summary without requiring client-side rendering.
+- The public marketing site is currently focused on custom builds rather than the template store.
+- The route `/launch-onboarding` is a private onboarding flow and should not be treated as a general public informational page.
+- The route `/templates` should not be treated as a current primary offer page.

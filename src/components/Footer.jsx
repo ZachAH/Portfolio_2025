@@ -1,7 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 // import { motion } from 'framer-motion';
 import { FaGithub, FaLinkedin, FaFacebookF, FaReact, FaNodeJs, FaEnvelope, FaLock, FaShieldAlt, FaMapMarkerAlt, FaUserCheck } from 'react-icons/fa';
 import { SiTailwindcss, SiFramer, SiVite, SiStripe } from 'react-icons/si';
+import { getLocationPath, locationPages } from '../data/locationPages';
 
 const Footer = ({ handleMouseEnter, handleMouseLeave }) => {
   const socialLinks = [
@@ -29,7 +31,7 @@ const Footer = ({ handleMouseEnter, handleMouseLeave }) => {
 
   return (
     <footer className="py-20 px-6 md:px-12 lg:px-24 bg-white dark:bg-obsidian-950 border-t border-obsidian-700/10">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-12">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr_0.8fr_0.9fr] gap-12 items-start">
         <div className="flex flex-col items-center md:items-start text-center md:text-left">
           <a
             href="https://www.facebook.com/profile.php?id=61573480569044"
@@ -93,6 +95,23 @@ const Footer = ({ handleMouseEnter, handleMouseLeave }) => {
                 </div>
               ))}
             </div>
+          </div>
+        </div>
+
+        <div className="text-center lg:text-left">
+          <p className="text-[10px] font-black uppercase tracking-[0.24em] text-accent-orange mb-4">
+            Areas Served
+          </p>
+          <div className="grid grid-cols-1 gap-3">
+            {locationPages.map((location) => (
+              <Link
+                key={location.slug}
+                to={getLocationPath(location.slug)}
+                className="text-sm font-medium text-text-secondary dark:text-zinc-300 hover:text-accent-orange transition-colors"
+              >
+                {location.city} Web Design
+              </Link>
+            ))}
           </div>
         </div>
 
