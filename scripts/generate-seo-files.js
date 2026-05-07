@@ -41,7 +41,7 @@ const routes = [
     changefreq: 'monthly',
     priority: '0.8',
     summary:
-      'Background and positioning page for Zach Howell, a Wisconsin-based senior full-stack engineer focused on premium custom web builds.',
+      'Authority page explaining why businesses choose ZH Web Solutions over WordPress, Wix, and GoDaddy: senior-engineer execution, faster performance, stronger SEO, better security, and full ownership.',
   },
   {
     path: '/custom-discovery',

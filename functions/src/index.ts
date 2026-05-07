@@ -153,6 +153,8 @@ export const sendOnboardingEmail = onDocumentCreated(
         data.visionPitch ||
         "(none provided)";
       const inqPhone = data.phone || "Not provided";
+      const inqSourcePage = data.sourcePage || "";
+      const inqServiceArea = data.serviceArea || "";
 
       try {
         // 1. Lead notification → me
@@ -175,6 +177,8 @@ export const sendOnboardingEmail = onDocumentCreated(
                       <tr><td style="padding: 6px 0; font-size: 11px; text-transform: uppercase; color: #52525b; font-weight: 800;">Name</td><td style="padding: 6px 0; font-size: 13px; text-align: right; color: #fff;">${inqName}</td></tr>
                       <tr><td style="padding: 6px 0; font-size: 11px; text-transform: uppercase; color: #52525b; font-weight: 800;">Email</td><td style="padding: 6px 0; font-size: 13px; text-align: right;"><a href="mailto:${inqEmail}" style="color:#FF6B35; text-decoration: none;">${inqEmail}</a></td></tr>
                       <tr><td style="padding: 6px 0; font-size: 11px; text-transform: uppercase; color: #52525b; font-weight: 800;">Phone</td><td style="padding: 6px 0; font-size: 13px; text-align: right; color: #fff;">${inqPhone}</td></tr>
+                      <tr><td style="padding: 6px 0; font-size: 11px; text-transform: uppercase; color: #52525b; font-weight: 800;">Service Area</td><td style="padding: 6px 0; font-size: 13px; text-align: right; color: #fff;">${inqServiceArea || "General inquiry"}</td></tr>
+                      <tr><td style="padding: 6px 0; font-size: 11px; text-transform: uppercase; color: #52525b; font-weight: 800;">Source Page</td><td style="padding: 6px 0; font-size: 13px; text-align: right; color: #fff;">${inqSourcePage || "/custom-discovery"}</td></tr>
                     </table>
                   </div>
 

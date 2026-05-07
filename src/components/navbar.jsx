@@ -37,7 +37,7 @@ const Navbar = ({ handleMouseEnter, handleMouseLeave }) => {
 
   const navLinks = [
     { name: 'Home', path: '/' },
-    { name: 'About', path: '/about' },
+    { name: 'Why Me?', path: '/about' },
     { name: 'Services', path: '/services' },
     { name: 'Areas Served', path: '/locations' },
     { name: 'Pricing', path: '/pricing' },

@@ -42,9 +42,9 @@ const ROUTES = [
   },
   {
     path: '/about',
-    title: 'About Zach Howell | Wisconsin Freelance Web Developer',
+    title: 'Why ZH Web Solutions? | Senior Engineer, Fast React Builds, Zero Lock-In',
     description:
-      'Wisconsin-based full-stack developer with 6+ years building React websites, e-commerce, and custom web apps for local small businesses. My story, my stack, and how I work.',
+      'Why businesses pay more for ZH Web Solutions: direct access to a senior full-stack engineer, high-performance React/Vite builds, better SEO, stronger security, and full ownership without WordPress or builder lock-in.',
   },
   {
     path: '/pricing',

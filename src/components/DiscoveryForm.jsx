@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import { db } from '../firebase';
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 import Seo from './Seo';
@@ -17,9 +18,18 @@ const ALL_FIELDS = [
 ];
 
 const DiscoveryForm = ({ embedded = false, title = 'Tell me what you need.', description = 'Expect a response within 24 hours.' }) => {
+  const location = useLocation();
   const [formData, setFormData] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isComplete, setIsComplete] = useState(false);
+  const serviceArea = useMemo(() => {
+    const match = location.pathname.match(/^\/locations\/(.+?)-web-design$/);
+    if (!match) return '';
+    return match[1]
+      .split('-')
+      .map((segment) => segment.charAt(0).toUpperCase() + segment.slice(1))
+      .join(' ');
+  }, [location.pathname]);
 
   const handleChange = (id, value) => {
     setFormData(prev => ({ ...prev, [id]: value }));
@@ -56,6 +66,8 @@ const DiscoveryForm = ({ embedded = false, title = 'Tell me what you need.', des
         name: formData.fullName,
         emailAddress: formData.email,
         projectSummary: formData.howCanIHelp,
+        sourcePage: location.pathname,
+        serviceArea,
         type: 'custom_inquiry',
         submittedAt: serverTimestamp(),
       });

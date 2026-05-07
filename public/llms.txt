@@ -19,7 +19,7 @@ This website belongs to Zach Howell, a Wisconsin-based senior full-stack enginee
   Summary: Lead-generation page offering a free website audit across performance, SEO, accessibility, security, and conversion readiness.
 
 - [about](https://zachhowell.dev/about)
-  Summary: Background and positioning page for Zach Howell, a Wisconsin-based senior full-stack engineer focused on premium custom web builds.
+  Summary: Authority page explaining why businesses choose ZH Web Solutions over WordPress, Wix, and GoDaddy: senior-engineer execution, faster performance, stronger SEO, better security, and full ownership.
 
 - [custom-discovery](https://zachhowell.dev/custom-discovery)
   Summary: Short discovery form for custom website and web application inquiries.
