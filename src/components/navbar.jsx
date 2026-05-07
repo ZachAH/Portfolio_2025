@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FiMenu, FiX } from 'react-icons/fi';
+import { FiMenu, FiPhone, FiX } from 'react-icons/fi';
 import ThemeToggle from './ThemeToggle';
+
+const PHONE_NUMBER = '262-341-7181';
+const PHONE_HREF = 'tel:2623417181';
 
 const Navbar = ({ handleMouseEnter, handleMouseLeave }) => {
   const [scrolled, setScrolled] = useState(false);
@@ -88,6 +91,15 @@ const Navbar = ({ handleMouseEnter, handleMouseLeave }) => {
         </div>
 
         <div className="flex items-center gap-4">
+          <a
+            href={PHONE_HREF}
+            className="inline-flex items-center gap-2 rounded-full border border-accent-orange/30 bg-accent-orange/10 px-3 py-2 text-xs font-black uppercase tracking-[0.18em] text-accent-orange transition-colors hover:bg-accent-orange hover:text-white"
+            aria-label={`Call Zach Howell at ${PHONE_NUMBER}`}
+          >
+            <FiPhone size={14} />
+            <span className="hidden sm:inline">{PHONE_NUMBER}</span>
+          </a>
+
           <div className="hidden sm:block pl-4 border-l border-obsidian-700/20">
             <ThemeToggle handleMouseEnter={handleMouseEnter} handleMouseLeave={handleMouseLeave} />
           </div>
@@ -159,6 +171,15 @@ const Navbar = ({ handleMouseEnter, handleMouseLeave }) => {
                 transition={{ delay: 0.5 }}
                 className="mt-auto pt-10 border-t border-obsidian-700/10 flex flex-col gap-6"
               >
+                <a
+                  href={PHONE_HREF}
+                  className="inline-flex items-center justify-center gap-3 rounded-full bg-accent-orange px-5 py-4 text-sm font-black uppercase tracking-[0.18em] text-white"
+                  aria-label={`Call Zach Howell at ${PHONE_NUMBER}`}
+                >
+                  <FiPhone size={16} />
+                  <span>{PHONE_NUMBER}</span>
+                </a>
+
                 <div>
                   <span className="text-xs font-semibold text-text-secondary uppercase tracking-widest block mb-4">Appearance</span>
                   <ThemeToggle handleMouseEnter={handleMouseEnter} handleMouseLeave={handleMouseEnter} />

@@ -147,18 +147,11 @@ export const sendOnboardingEmail = onDocumentCreated(
       const inqEmail = data.email || data.emailAddress || "";
       const inqName = data.fullName || "there";
       const inqBusiness = data.businessName || "(no business name)";
-      const inqProjectType = data.projectType || "Not specified";
-      const inqBudget = data.budgetRange || "Not specified";
-      const inqTimeline = data.timeline || "Not specified";
-      const inqStage = data.businessStage || "Not specified";
-      const inqVision = data.visionPitch || "(none provided)";
-      const inqMustHaves = data.mustHaves || "(none provided)";
-      const inqInspiration = data.inspiration || "(none provided)";
-      const inqAudience = data.audience || "(none provided)";
-      const inqAssets = data.hasAssets || "Not specified";
-      const inqCallPref = data.callPreference || "Not specified";
-      const inqAvailability = data.callAvailability || "(none provided)";
-      const inqExtras = data.anythingElse || "(none provided)";
+      const inqSummary =
+        data.howCanIHelp ||
+        data.projectSummary ||
+        data.visionPitch ||
+        "(none provided)";
       const inqPhone = data.phone || "Not provided";
 
       try {
@@ -178,32 +171,15 @@ export const sendOnboardingEmail = onDocumentCreated(
 
                   <div style="background: #121214; border-radius: 16px; padding: 24px; border: 1px solid #1c1c1f; margin-bottom: 24px;">
                     <table style="width: 100%; border-collapse: collapse;">
-                      <tr><td style="padding: 6px 0; font-size: 11px; text-transform: uppercase; color: #52525b; font-weight: 800;">Project Type</td><td style="padding: 6px 0; font-size: 13px; text-align: right; color: #fff;">${inqProjectType}</td></tr>
-                      <tr><td style="padding: 6px 0; font-size: 11px; text-transform: uppercase; color: #52525b; font-weight: 800;">Budget</td><td style="padding: 6px 0; font-size: 13px; text-align: right; color: #fff;">${inqBudget}</td></tr>
-                      <tr><td style="padding: 6px 0; font-size: 11px; text-transform: uppercase; color: #52525b; font-weight: 800;">Timeline</td><td style="padding: 6px 0; font-size: 13px; text-align: right; color: #fff;">${inqTimeline}</td></tr>
-                      <tr><td style="padding: 6px 0; font-size: 11px; text-transform: uppercase; color: #52525b; font-weight: 800;">Business Stage</td><td style="padding: 6px 0; font-size: 13px; text-align: right; color: #fff;">${inqStage}</td></tr>
-                      <tr><td style="padding: 6px 0; font-size: 11px; text-transform: uppercase; color: #52525b; font-weight: 800;">Has Assets</td><td style="padding: 6px 0; font-size: 13px; text-align: right; color: #fff;">${inqAssets}</td></tr>
-                      <tr><td style="padding: 6px 0; font-size: 11px; text-transform: uppercase; color: #52525b; font-weight: 800;">Call Preference</td><td style="padding: 6px 0; font-size: 13px; text-align: right; color: #fff;">${inqCallPref}</td></tr>
+                      <tr><td style="padding: 6px 0; font-size: 11px; text-transform: uppercase; color: #52525b; font-weight: 800;">Business</td><td style="padding: 6px 0; font-size: 13px; text-align: right; color: #fff;">${inqBusiness}</td></tr>
+                      <tr><td style="padding: 6px 0; font-size: 11px; text-transform: uppercase; color: #52525b; font-weight: 800;">Name</td><td style="padding: 6px 0; font-size: 13px; text-align: right; color: #fff;">${inqName}</td></tr>
+                      <tr><td style="padding: 6px 0; font-size: 11px; text-transform: uppercase; color: #52525b; font-weight: 800;">Email</td><td style="padding: 6px 0; font-size: 13px; text-align: right;"><a href="mailto:${inqEmail}" style="color:#FF6B35; text-decoration: none;">${inqEmail}</a></td></tr>
+                      <tr><td style="padding: 6px 0; font-size: 11px; text-transform: uppercase; color: #52525b; font-weight: 800;">Phone</td><td style="padding: 6px 0; font-size: 13px; text-align: right; color: #fff;">${inqPhone}</td></tr>
                     </table>
                   </div>
 
-                  <h3 style="font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: #FF6B35; margin: 24px 0 8px 0;">The Vision</h3>
-                  <p style="font-size: 13px; color: #d4d4d8; line-height: 1.6; margin: 0 0 16px 0; white-space: pre-wrap;">${inqVision}</p>
-
-                  <h3 style="font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: #FF6B35; margin: 24px 0 8px 0;">Must-Haves</h3>
-                  <p style="font-size: 13px; color: #d4d4d8; line-height: 1.6; margin: 0 0 16px 0; white-space: pre-wrap;">${inqMustHaves}</p>
-
-                  <h3 style="font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: #FF6B35; margin: 24px 0 8px 0;">Audience</h3>
-                  <p style="font-size: 13px; color: #d4d4d8; line-height: 1.6; margin: 0 0 16px 0;">${inqAudience}</p>
-
-                  <h3 style="font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: #FF6B35; margin: 24px 0 8px 0;">Inspiration</h3>
-                  <p style="font-size: 13px; color: #d4d4d8; line-height: 1.6; margin: 0 0 16px 0; white-space: pre-wrap;">${inqInspiration}</p>
-
-                  <h3 style="font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: #FF6B35; margin: 24px 0 8px 0;">Availability</h3>
-                  <p style="font-size: 13px; color: #d4d4d8; line-height: 1.6; margin: 0 0 16px 0; white-space: pre-wrap;">${inqAvailability}</p>
-
-                  <h3 style="font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: #FF6B35; margin: 24px 0 8px 0;">Anything Else</h3>
-                  <p style="font-size: 13px; color: #d4d4d8; line-height: 1.6; margin: 0 0 24px 0; white-space: pre-wrap;">${inqExtras}</p>
+                  <h3 style="font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: #FF6B35; margin: 24px 0 8px 0;">How Can I Help?</h3>
+                  <p style="font-size: 13px; color: #d4d4d8; line-height: 1.6; margin: 0 0 24px 0; white-space: pre-wrap;">${inqSummary}</p>
                 </div>
               </div>
             </div>
@@ -230,9 +206,9 @@ export const sendOnboardingEmail = onDocumentCreated(
                     <div style="background: #121214; border-radius: 16px; padding: 24px; border: 1px solid #1c1c1f;">
                       <h3 style="font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: #FF6B35; margin: 0 0 16px 0;">What Happens Next</h3>
                       <ul style="padding: 0 0 0 18px; margin: 0; color: #a1a1aa; font-size: 13px; line-height: 1.7;">
-                        <li style="margin-bottom: 8px;"><strong style="color:#fff;">Within 24 hours:</strong> I'll personally review your vision and reply.</li>
-                        <li style="margin-bottom: 8px;"><strong style="color:#fff;">Schedule a call:</strong> We'll lock in a 30-min ${inqCallPref === "teams" ? "Microsoft Teams" : inqCallPref === "phone" ? "phone" : "Zoom"} call to dig in.</li>
-                        <li><strong style="color:#fff;">Tailored proposal:</strong> After the call, I'll send fixed pricing and a clear timeline.</li>
+                        <li style="margin-bottom: 8px;"><strong style="color:#fff;">Within 24 hours:</strong> I'll personally review your request and reply.</li>
+                        <li style="margin-bottom: 8px;"><strong style="color:#fff;">Fast follow-up:</strong> If needed, I'll suggest a call or send a few scoping questions by email.</li>
+                        <li><strong style="color:#fff;">Clear next step:</strong> You'll get either a recommendation, a quote range, or a path to a proper proposal.</li>
                       </ul>
                     </div>
                   </div>
