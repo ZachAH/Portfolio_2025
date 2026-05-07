@@ -1,11 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link, useLocation } from 'react-router-dom';
-import ReactGA from 'react-ga4';
-
-// PDF Imports
-import growthPlans from '../../src/assets/PriceGuides/Growth_Plans.pdf';
-import freelanceGuide from '../../src/assets/PriceGuides/freelance_price_guide.pdf';
 
 const CheckoutReadyModal = ({ isOpen, onClose, stripeUrl, title }) => (
   <AnimatePresence>
@@ -258,19 +253,6 @@ const PricingGuides = () => {
       setActiveTab('growth');
     }
   }, [hash]);
-
-  const downloadLinks = {
-    custom: { file: freelanceGuide, label: 'Custom Project Guide' },
-    growth: { file: growthPlans, label: 'Growth & Partnership Plans' }
-  };
-
-  const trackDownload = (label) => {
-    ReactGA.event({
-      category: "Conversion",
-      action: "PDF Download",
-      label: label,
-    });
-  };
 
   const content = {
     growth: [

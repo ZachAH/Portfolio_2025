@@ -15,7 +15,7 @@ const aboutJsonLd = {
   ],
 };
 
-const About = ({ handleMouseEnter, handleMouseLeave }) => {
+const About = () => {
 
   const PackersHighlight = ({ children }) => (
     <span className="relative font-black inline-block px-1">

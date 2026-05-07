@@ -21,7 +21,7 @@ const pricingJsonLd = {
   ],
 };
 
-const Pricing = ({ handleMouseEnter, handleMouseLeave }) => {
+const Pricing = () => {
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -37,8 +37,6 @@ const Pricing = ({ handleMouseEnter, handleMouseLeave }) => {
         jsonLd={pricingJsonLd}
       />
       <PricingGuides
-        handleMouseEnter={handleMouseEnter}
-        handleMouseLeave={handleMouseLeave}
       />
     </motion.div>
   );

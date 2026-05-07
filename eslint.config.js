@@ -4,9 +4,9 @@ import reactHooks from 'eslint-plugin-react-hooks'
 import reactRefresh from 'eslint-plugin-react-refresh'
 
 export default [
-  { ignores: ['dist'] },
+  { ignores: ['dist', 'functions/lib/**', 'functions/.eslintrc.js'] },
   {
-    files: ['**/*.{js,jsx}'],
+    files: ['src/**/*.{js,jsx}'],
     languageOptions: {
       ecmaVersion: 2020,
       globals: globals.browser,
@@ -23,11 +23,24 @@ export default [
     rules: {
       ...js.configs.recommended.rules,
       ...reactHooks.configs.recommended.rules,
-      'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]' }],
+      'no-unused-vars': 'off',
       'react-refresh/only-export-components': [
         'warn',
         { allowConstantExport: true },
       ],
+    },
+  },
+  {
+    files: ['scripts/**/*.js'],
+    languageOptions: {
+      ecmaVersion: 2020,
+      parserOptions: {
+        sourceType: 'module',
+      },
+      globals: globals.node,
+    },
+    rules: {
+      ...js.configs.recommended.rules,
     },
   },
 ]

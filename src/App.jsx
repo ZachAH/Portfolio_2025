@@ -88,7 +88,7 @@ function ScrollHandler() {
   // Always scroll to top on initial page load / refresh
   useEffect(() => {
     if (!hash) window.scrollTo(0, 0);
-  }, []);
+  }, [hash]);
 
   return null;
 }
@@ -167,10 +167,6 @@ function AppContent() {
   const [theme] = useDarkMode();
   const location = useLocation();
 
-  const [isHovering, setIsHovering] = useState(false);
-  const handleMouseEnter = () => setIsHovering(true);
-  const handleMouseLeave = () => setIsHovering(false);
-
   // Determine if we are on the onboarding page to hide Nav/Footer
   const isOnboarding = location.pathname === '/launch-onboarding';
 
@@ -183,7 +179,7 @@ function AppContent() {
 
       <div className="relative z-10 flex flex-col min-h-screen">
         {!isOnboarding && (
-          <Navbar handleMouseEnter={handleMouseEnter} handleMouseLeave={handleMouseLeave} />
+          <Navbar />
         )}
 
         <main className="flex-grow">
@@ -194,7 +190,7 @@ function AppContent() {
                 path="/"
                 element={
                   <PageWrapper>
-                    <Home handleMouseEnter={handleMouseEnter} handleMouseLeave={handleMouseLeave} />
+                    <Home />
                   </PageWrapper>
                 }
               />
@@ -202,7 +198,7 @@ function AppContent() {
                 path="/services"
                 element={
                   <PageWrapper>
-                    <Services handleMouseEnter={handleMouseEnter} handleMouseLeave={handleMouseLeave} />
+                    <Services />
                   </PageWrapper>
                 }
               />
@@ -210,7 +206,7 @@ function AppContent() {
                 path="/about"
                 element={
                   <PageWrapper>
-                    <About handleMouseEnter={handleMouseEnter} handleMouseLeave={handleMouseLeave} />
+                    <About />
                   </PageWrapper>
                 }
               />
@@ -234,7 +230,7 @@ function AppContent() {
                 path="/pricing"
                 element={
                   <PageWrapper>
-                    <Pricing handleMouseEnter={handleMouseEnter} handleMouseLeave={handleMouseLeave} />
+                    <Pricing />
                   </PageWrapper>
                 }
               />
@@ -243,7 +239,7 @@ function AppContent() {
                 path="/audit"
                 element={
                   <PageWrapper>
-                    <Audit handleMouseEnter={handleMouseEnter} handleMouseLeave={handleMouseLeave} />
+                    <Audit />
                   </PageWrapper>
                 }
               />
@@ -280,7 +276,7 @@ function AppContent() {
         </main>
 
         {!isOnboarding && (
-          <Footer handleMouseEnter={handleMouseEnter} handleMouseLeave={handleMouseLeave} />
+          <Footer />
         )}
       </div>
     </div>

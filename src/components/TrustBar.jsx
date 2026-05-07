@@ -205,29 +205,6 @@ const ReviewTicker = () => {
   );
 };
 
-const processSteps = [
-  {
-    hours: 'Step 1',
-    title: 'Discovery',
-    description: 'We talk through your business, goals, pages, style, and what the site needs to actually do for you.',
-  },
-  {
-    hours: 'Step 2',
-    title: 'Strategy + Build',
-    description: 'I design and build a custom site around your offer, content, and conversion goals — not a recycled template.',
-  },
-  {
-    hours: 'Step 3',
-    title: 'Review',
-    description: 'You get a live preview, leave your feedback, and I handle revisions before launch.',
-  },
-  {
-    hours: 'Step 4',
-    title: 'Launch',
-    description: 'I connect the domain, run final QA, and deliver a fully live site with full ownership and access.',
-  },
-];
-
 const TrustBar = () => {
   return (
     <section
