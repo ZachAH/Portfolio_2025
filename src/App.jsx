@@ -219,7 +219,7 @@ function AppContent() {
                 }
               />
               <Route
-                path="/locations/:citySlug-web-design"
+                path="/locations/:slug"
                 element={
                   <PageWrapper>
                     <LocationPage />

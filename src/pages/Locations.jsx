@@ -45,7 +45,6 @@ const Locations = () => {
             Custom web development across Southeastern Wisconsin.
           </h1>
           <p className="text-lg text-zinc-600 dark:text-zinc-300 leading-relaxed">
-            This is the hub page for the markets I am targeting most aggressively right now. Each location page is tailored to the business environment in that city, with distinct positioning and SEO signals rather than spun doorway copy.
           </p>
         </div>
 

@@ -1,23 +1,22 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
 import { db } from '../firebase';
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 import Seo from './Seo';
 
 const ALL_FIELDS = [
-  { id: 'fullName', label: 'Your Name', placeholder: 'First and last name', required: true },
-  { id: 'email', label: 'Email', placeholder: 'you@business.com', required: true },
-  { id: 'businessName', label: 'Business', placeholder: 'Your business name', required: true },
+  { id: 'fullName', label: 'Your Name', type: 'text', placeholder: 'First and last name', required: true },
+  { id: 'email', label: 'Email', type: 'email', placeholder: 'you@business.com', required: true },
+  { id: 'businessName', label: 'Business', type: 'text', placeholder: 'Your business name', required: true },
   {
     id: 'howCanIHelp',
     label: 'How Can I Help?',
+    type: 'textarea',
     placeholder: 'What do you need built, fixed, or improved?',
     required: true,
   },
 ];
 
-const DiscoveryForm = () => {
+const DiscoveryForm = ({ embedded = false, title = 'Tell me what you need.', description = 'Expect a response within 24 hours.' }) => {
   const [formData, setFormData] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isComplete, setIsComplete] = useState(false);
@@ -70,25 +69,29 @@ const DiscoveryForm = () => {
 
   if (isComplete) {
     return (
-      <section className="min-h-screen pt-32 pb-20 px-6 bg-white dark:bg-obsidian-950">
-        <motion.div initial={{ scale: 0.95, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} className="max-w-2xl mx-auto p-12 bg-gray-50 dark:bg-white/5 border border-obsidian-700/10 dark:border-white/10 rounded-3xl text-center shadow-xl">
+      <section className={`${embedded ? 'py-0' : 'min-h-screen pt-32 pb-20 px-6 bg-white dark:bg-obsidian-950'}`}>
+        <div className="max-w-2xl mx-auto p-12 bg-gray-50 dark:bg-white/5 border border-obsidian-700/10 dark:border-white/10 rounded-3xl text-center shadow-xl">
           <div className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-8 text-4xl bg-accent-orange/10 text-accent-orange">✓</div>
           <h2 className="text-4xl font-bold tracking-tighter mb-4 text-obsidian-950 dark:text-white">Discovery Received.</h2>
           <p className="text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">Thanks for the detail — I will personally review your vision and call or email you within 24 hours to lock in our sync.</p>
-          <Link to="/" className="inline-block px-8 py-4 bg-obsidian-950 dark:bg-white text-white dark:text-obsidian-950 rounded-full font-bold uppercase text-xs tracking-widest hover:scale-105 transition-transform">Return Home</Link>
-        </motion.div>
+          {!embedded && (
+            <a href="/" className="inline-block px-8 py-4 bg-obsidian-950 dark:bg-white text-white dark:text-obsidian-950 rounded-full font-bold uppercase text-xs tracking-widest hover:scale-105 transition-transform">Return Home</a>
+          )}
+        </div>
       </section>
     );
   }
 
   return (
-    <section className="min-h-screen pt-32 pb-20 px-6 bg-white dark:bg-obsidian-950">
-      <Seo title="Custom Build Discovery | Zach Howell" description="Kick off the discovery phase for a fully custom website or web app build." path="/custom-discovery" />
+    <section className={embedded ? 'py-0' : 'min-h-screen pt-32 pb-20 px-6 bg-white dark:bg-obsidian-950'}>
+      {!embedded && (
+        <Seo title="Custom Build Discovery | Zach Howell" description="Kick off the discovery phase for a fully custom website or web app build." path="/custom-discovery" />
+      )}
       <div className="max-w-3xl mx-auto">
         <div className="text-center mb-12">
           <span className="text-xs font-black tracking-[0.3em] text-accent-orange uppercase mb-4 inline-block">Custom Build · Discovery Phase</span>
-          <h1 className="text-4xl md:text-6xl font-bold tracking-tighter text-obsidian-950 dark:text-white mb-6">Tell me what you need.</h1>
-          <p className="text-gray-500 dark:text-gray-400 text-sm italic">Expect a response within 24 hours.</p>
+          <h1 className="text-4xl md:text-6xl font-bold tracking-tighter text-obsidian-950 dark:text-white mb-6">{title}</h1>
+          <p className="text-gray-500 dark:text-gray-400 text-sm italic">{description}</p>
         </div>
 
         <form onSubmit={handleSubmit} className="p-8 md:p-10 bg-gray-50 dark:bg-white/5 backdrop-blur-md border border-obsidian-700/10 dark:border-white/10 rounded-3xl shadow-xl space-y-6">

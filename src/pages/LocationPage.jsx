@@ -1,20 +1,49 @@
-import React from 'react';
+import React, { useEffect, useMemo, useRef } from 'react';
+import gsap from 'gsap';
 import { Link, Navigate, useParams } from 'react-router-dom';
-import { motion } from 'framer-motion';
 import Seo from '../components/Seo';
+import DiscoveryForm from '../components/DiscoveryForm';
 import { breadcrumb } from '../utils/structuredData';
 import { getLocationPath, locationPageMap, locationPages } from '../data/locationPages';
 
+const normalizeSlug = (slug = '') => slug.replace(/-web-design$/, '');
+
 const LocationPage = () => {
-  const { citySlug } = useParams();
-  const location = citySlug ? locationPageMap[citySlug] : null;
+  const { slug } = useParams();
+  const normalizedSlug = normalizeSlug(slug);
+  const location = normalizedSlug ? locationPageMap[normalizedSlug] : null;
+  const heroRef = useRef(null);
+
+  useEffect(() => {
+    if (!heroRef.current) return undefined;
+
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        heroRef.current.querySelectorAll('[data-hero-item]'),
+        { opacity: 0, y: 28 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          stagger: 0.12,
+          ease: 'power3.out',
+        }
+      );
+    }, heroRef);
+
+    return () => ctx.revert();
+  }, [normalizedSlug]);
+
+  const otherMarkets = useMemo(
+    () => locationPages.filter((page) => page.slug !== normalizedSlug),
+    [normalizedSlug]
+  );
 
   if (!location) {
     return <Navigate to="/locations" replace />;
   }
 
   const path = getLocationPath(location.slug);
-  const otherMarkets = locationPages.filter((page) => page.slug !== location.slug);
   const title = `Custom Web Development in ${location.city}, WI | ZH Web Solutions`;
 
   const jsonLd = {
@@ -55,51 +84,46 @@ const LocationPage = () => {
       />
 
       <div className="max-w-6xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 18 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.55 }}
-          className="max-w-4xl"
+        <div
+          ref={heroRef}
+          className="rounded-[3rem] border border-zinc-200 dark:border-white/10 bg-[radial-gradient(circle_at_top_left,rgba(249,115,22,0.14),transparent_30%),linear-gradient(145deg,rgba(255,255,255,0.92),rgba(244,244,245,0.82))] dark:bg-[radial-gradient(circle_at_top_left,rgba(249,115,22,0.16),transparent_30%),linear-gradient(145deg,rgba(16,16,18,0.96),rgba(24,24,27,0.9))] p-8 md:p-12 shadow-sm"
         >
-          <span className="text-xs font-black tracking-[0.3em] text-accent-orange uppercase mb-4 inline-block">
+          <span
+            data-hero-item
+            className="text-xs font-black tracking-[0.3em] text-accent-orange uppercase mb-4 inline-block"
+          >
             {location.focusKeyword}
           </span>
-          <h1 className="text-4xl md:text-6xl font-bold tracking-tighter text-obsidian-950 dark:text-white mb-6">
+          <h1
+            data-hero-item
+            className="text-4xl md:text-6xl font-bold tracking-tighter text-obsidian-950 dark:text-white mb-6"
+          >
             Custom Web Development in {location.city}, WI
           </h1>
-          <p className="text-lg md:text-xl text-zinc-600 dark:text-zinc-300 leading-relaxed">
+          <p
+            data-hero-item
+            className="max-w-4xl text-lg md:text-2xl text-zinc-600 dark:text-zinc-300 leading-relaxed"
+          >
             {location.heroLead}
           </p>
-        </motion.div>
+        </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-[1.15fr_0.85fr] gap-8 mt-14">
-          <motion.article
-            initial={{ opacity: 0, y: 18 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="rounded-[2.5rem] border border-zinc-200 dark:border-white/10 bg-zinc-50/80 dark:bg-white/5 p-8 md:p-10 shadow-sm"
-          >
-            <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-obsidian-950 dark:text-white mb-4">
-              Service Description
-            </h2>
-            <p className="text-zinc-600 dark:text-zinc-300 leading-relaxed mb-5">
-              <strong className="text-obsidian-950 dark:text-white">{location.focusKeyword}</strong> is the anchor for this market.
-              {' '}
-              {location.serviceDescription}
+        <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-8 mt-10">
+          <article className="rounded-[2.5rem] border border-zinc-200 dark:border-white/10 bg-zinc-50/80 dark:bg-white/5 p-8 md:p-10 shadow-sm">
+            <p className="text-[10px] font-black uppercase tracking-[0.24em] text-accent-orange mb-4">
+              Market Insight
             </p>
+            <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-obsidian-950 dark:text-white mb-4">
+              How to compete in {location.city}
+            </h2>
             <p className="text-zinc-600 dark:text-zinc-300 leading-relaxed">
               {location.marketInsight}
             </p>
-          </motion.article>
+          </article>
 
-          <motion.aside
-            initial={{ opacity: 0, y: 18 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="rounded-[2.5rem] border border-zinc-200 dark:border-white/10 bg-obsidian-950 text-white p-8 md:p-10 shadow-sm"
-          >
-            <p className="text-[10px] font-black uppercase tracking-[0.25em] text-accent-orange mb-4">
-              Why this page is different
+          <aside className="rounded-[2.5rem] border border-zinc-200 dark:border-white/10 bg-obsidian-950 text-white p-8 md:p-10 shadow-sm">
+            <p className="text-[10px] font-black uppercase tracking-[0.24em] text-accent-orange mb-4">
+              Proof Points
             </p>
             <ul className="space-y-4">
               {location.proofPoints.map((point) => (
@@ -109,47 +133,32 @@ const LocationPage = () => {
                 </li>
               ))}
             </ul>
-
-            <div className="mt-8 rounded-2xl border border-white/10 bg-white/5 p-5">
-              <p className="text-sm text-zinc-300 leading-relaxed mb-4">
-                Want the same level of execution for your business in {location.city}? Start with a short discovery form and I will scope the right build path.
-              </p>
-              <Link
-                to="/custom-discovery"
-                className="inline-flex items-center justify-center rounded-full bg-accent-orange px-5 py-3 text-sm font-bold text-white hover:bg-accent-orange/90 transition-colors"
-              >
-                Start a custom build
-              </Link>
-            </div>
-          </motion.aside>
+          </aside>
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 18 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mt-10 rounded-[2.5rem] border border-zinc-200 dark:border-white/10 bg-white dark:bg-white/5 p-8 md:p-10 shadow-sm"
-        >
+        <div className="mt-10 rounded-[2.5rem] border border-zinc-200 dark:border-white/10 bg-white dark:bg-white/5 p-8 md:p-10 shadow-sm">
+          <p className="text-[10px] font-black uppercase tracking-[0.24em] text-accent-orange mb-4">
+            Service Description
+          </p>
           <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-obsidian-950 dark:text-white mb-4">
-            Built for owners who care about quality
+            Why {location.city} businesses hire ZH Web Solutions
           </h2>
           <p className="text-zinc-600 dark:text-zinc-300 leading-relaxed">
-            These location pages are not placeholder city swaps. Each one is mapped to a different market angle so search engines and visitors both get a clearer signal about how ZH Web Solutions approaches growth, performance, and brand position in {location.city}.
+            <strong className="text-obsidian-950 dark:text-white">{location.focusKeyword}</strong>
+            {' '}
+            is the core angle for this market.
+            {' '}
+            {location.serviceDescription}
           </p>
-        </motion.div>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 18 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mt-10"
-        >
+        <div className="mt-10">
           <div className="flex items-center justify-between gap-4 mb-6">
             <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-obsidian-950 dark:text-white">
-              Nearby markets
+              More Southeastern Wisconsin markets
             </h2>
             <Link to="/locations" className="text-sm font-bold text-accent-orange hover:underline">
-              View all locations
+              Back to hub
             </Link>
           </div>
 
@@ -167,12 +176,20 @@ const LocationPage = () => {
                   {page.city}, WI
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-300 leading-relaxed">
-                  {page.serviceDescription}
+                  {page.heroLead}
                 </p>
               </Link>
             ))}
           </div>
-        </motion.div>
+        </div>
+
+        <div className="mt-14 rounded-[3rem] border border-zinc-200 dark:border-white/10 bg-zinc-50/80 dark:bg-white/5 p-6 md:p-10 shadow-sm">
+          <DiscoveryForm
+            embedded
+            title={`Start your ${location.city} project.`}
+            description={`Tell me what you need built for your ${location.city} business and I will follow up within 24 hours.`}
+          />
+        </div>
       </div>
     </section>
   );
