@@ -7,7 +7,7 @@ import Seo from './Seo';
 const ALL_FIELDS = [
   { id: 'fullName', label: 'Your Name', type: 'text', placeholder: 'First and last name', required: true },
   { id: 'email', label: 'Email', type: 'email', placeholder: 'you@business.com', required: true },
-  { id: 'businessName', label: 'Business', type: 'text', placeholder: 'Your business name', required: true },
+  { id: 'phoneNumber', label: 'Phone Number', type: 'tel', placeholder: '(555) 555-5555', required: true },
   {
     id: 'howCanIHelp',
     label: 'How Can I Help?',
@@ -22,6 +22,7 @@ const DiscoveryForm = ({ embedded = false, title = 'Tell me what you need.', des
   const [formData, setFormData] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isComplete, setIsComplete] = useState(false);
+
   const serviceArea = useMemo(() => {
     const match = location.pathname.match(/^\/locations\/(.+?)-web-design$/);
     if (!match) return '';
@@ -65,6 +66,7 @@ const DiscoveryForm = ({ embedded = false, title = 'Tell me what you need.', des
         ...formData,
         name: formData.fullName,
         emailAddress: formData.email,
+        phone: formData.phoneNumber, // Added to Firestore mapping
         projectSummary: formData.howCanIHelp,
         sourcePage: location.pathname,
         serviceArea,
@@ -107,7 +109,6 @@ const DiscoveryForm = ({ embedded = false, title = 'Tell me what you need.', des
         </div>
 
         <form onSubmit={handleSubmit} className="p-8 md:p-10 bg-gray-50 dark:bg-white/5 backdrop-blur-md border border-obsidian-700/10 dark:border-white/10 rounded-3xl shadow-xl space-y-6">
-          {/* Honeypot */}
           <div className="absolute -top-96 left-0 opacity-0 pointer-events-none" aria-hidden="true">
             <input type="text" name="faxNumber" autoComplete="off" value={formData.faxNumber || ''} onChange={(e) => handleChange('faxNumber', e.target.value)} />
           </div>
@@ -118,13 +119,23 @@ const DiscoveryForm = ({ embedded = false, title = 'Tell me what you need.', des
                 <label className="text-[10px] uppercase tracking-[0.2em] font-bold text-gray-600 dark:text-gray-300">
                   {field.label} {field.required && <span className="text-accent-orange">*</span>}
                 </label>
-                <textarea
-                  value={formData[field.id] || ''}
-                  onChange={(e) => handleChange(field.id, e.target.value)}
-                  placeholder={field.placeholder}
-                  rows={field.id === 'howCanIHelp' ? 6 : 3}
-                  className="w-full bg-white dark:bg-obsidian-900/50 border border-obsidian-700/10 dark:border-white/10 rounded-xl p-4 text-obsidian-950 dark:text-white outline-none focus:border-accent-orange transition-colors resize-y min-h-[110px]"
-                />
+                {field.type === 'textarea' ? (
+                  <textarea
+                    value={formData[field.id] || ''}
+                    onChange={(e) => handleChange(field.id, e.target.value)}
+                    placeholder={field.placeholder}
+                    rows={6}
+                    className="w-full bg-white dark:bg-obsidian-900/50 border border-obsidian-700/10 dark:border-white/10 rounded-xl p-4 text-obsidian-950 dark:text-white outline-none focus:border-accent-orange transition-colors resize-y min-h-[150px]"
+                  />
+                ) : (
+                  <input
+                    type={field.type}
+                    value={formData[field.id] || ''}
+                    onChange={(e) => handleChange(field.id, e.target.value)}
+                    placeholder={field.placeholder}
+                    className="w-full bg-white dark:bg-obsidian-900/50 border border-obsidian-700/10 dark:border-white/10 rounded-xl p-4 text-obsidian-950 dark:text-white outline-none focus:border-accent-orange transition-colors"
+                  />
+                )}
               </div>
             ))}
           </div>

@@ -143,99 +143,99 @@ export const sendOnboardingEmail = onDocumentCreated(
     }
 
     // ── BRANCH: Custom Build Discovery Inquiry ───────────────
+    // ── BRANCH: Custom Build Discovery Inquiry ───────────────
     if (data.type === "custom_inquiry") {
       const inqEmail = data.email || data.emailAddress || "";
       const inqName = data.fullName || "there";
-      const inqBusiness = data.businessName || "(no business name)";
+      // data.phone comes from our React form update
+      const inqPhone = data.phone || data.phoneNumber || "Not provided";
       const inqSummary =
         data.howCanIHelp ||
         data.projectSummary ||
         data.visionPitch ||
         "(none provided)";
-      const inqPhone = data.phone || "Not provided";
       const inqSourcePage = data.sourcePage || "";
       const inqServiceArea = data.serviceArea || "";
 
       try {
-        // 1. Lead notification → me
+        // 1. Lead notification → me (Subject updated to use Name since Business is gone)
         await resend.emails.send({
           from: "Zach Howell <zachary@zachhowell.dev>",
           to: ["zachary@zachhowell.dev"],
           replyTo: inqEmail,
-          subject: `🛠 New Custom Build Inquiry: ${inqBusiness}`,
+          subject: `🛠 New Custom Build Inquiry: ${inqName}`,
           html: `
-            <div style="font-family: 'Inter', Helvetica, Arial, sans-serif; background-color: #050505; color: #fafafa; padding: 60px 20px;">
-              <div style="max-width: 640px; margin: 0 auto; background: #09090b; border: 1px solid #27272a; border-radius: 24px; overflow: hidden;">
-                <div style="padding: 40px;">
-                  <div style="display: inline-block; padding: 8px 16px; background: #FF6B35; border-radius: 99px; font-size: 10px; font-weight: 900; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 24px;">Custom Build Lead</div>
-                  <h1 style="font-size: 32px; font-weight: 900; line-height: 1; text-transform: uppercase; letter-spacing: -1px; margin: 0 0 8px 0;">${inqBusiness}</h1>
-                  <p style="font-size: 14px; color: #a1a1aa; margin: 0 0 24px 0;">From <strong style="color:#fff;">${inqName}</strong> · <a href="mailto:${inqEmail}" style="color:#FF6B35;">${inqEmail}</a> · ${inqPhone}</p>
+          <div style="font-family: 'Inter', Helvetica, Arial, sans-serif; background-color: #050505; color: #fafafa; padding: 60px 20px;">
+            <div style="max-width: 640px; margin: 0 auto; background: #09090b; border: 1px solid #27272a; border-radius: 24px; overflow: hidden;">
+              <div style="padding: 40px;">
+                <div style="display: inline-block; padding: 8px 16px; background: #FF6B35; border-radius: 99px; font-size: 10px; font-weight: 900; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 24px;">Custom Build Lead</div>
+                <h1 style="font-size: 32px; font-weight: 900; line-height: 1; text-transform: uppercase; letter-spacing: -1px; margin: 0 0 8px 0;">${inqName}</h1>
+                <p style="font-size: 14px; color: #a1a1aa; margin: 0 0 24px 0;">Email: <a href="mailto:${inqEmail}" style="color:#FF6B35;">${inqEmail}</a> · Phone: <strong style="color:#fff;">${inqPhone}</strong></p>
 
-                  <div style="background: #121214; border-radius: 16px; padding: 24px; border: 1px solid #1c1c1f; margin-bottom: 24px;">
-                    <table style="width: 100%; border-collapse: collapse;">
-                      <tr><td style="padding: 6px 0; font-size: 11px; text-transform: uppercase; color: #52525b; font-weight: 800;">Business</td><td style="padding: 6px 0; font-size: 13px; text-align: right; color: #fff;">${inqBusiness}</td></tr>
-                      <tr><td style="padding: 6px 0; font-size: 11px; text-transform: uppercase; color: #52525b; font-weight: 800;">Name</td><td style="padding: 6px 0; font-size: 13px; text-align: right; color: #fff;">${inqName}</td></tr>
-                      <tr><td style="padding: 6px 0; font-size: 11px; text-transform: uppercase; color: #52525b; font-weight: 800;">Email</td><td style="padding: 6px 0; font-size: 13px; text-align: right;"><a href="mailto:${inqEmail}" style="color:#FF6B35; text-decoration: none;">${inqEmail}</a></td></tr>
-                      <tr><td style="padding: 6px 0; font-size: 11px; text-transform: uppercase; color: #52525b; font-weight: 800;">Phone</td><td style="padding: 6px 0; font-size: 13px; text-align: right; color: #fff;">${inqPhone}</td></tr>
-                      <tr><td style="padding: 6px 0; font-size: 11px; text-transform: uppercase; color: #52525b; font-weight: 800;">Service Area</td><td style="padding: 6px 0; font-size: 13px; text-align: right; color: #fff;">${inqServiceArea || "General inquiry"}</td></tr>
-                      <tr><td style="padding: 6px 0; font-size: 11px; text-transform: uppercase; color: #52525b; font-weight: 800;">Source Page</td><td style="padding: 6px 0; font-size: 13px; text-align: right; color: #fff;">${inqSourcePage || "/custom-discovery"}</td></tr>
-                    </table>
-                  </div>
-
-                  <h3 style="font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: #FF6B35; margin: 24px 0 8px 0;">How Can I Help?</h3>
-                  <p style="font-size: 13px; color: #d4d4d8; line-height: 1.6; margin: 0 0 24px 0; white-space: pre-wrap;">${inqSummary}</p>
+                <div style="background: #121214; border-radius: 16px; padding: 24px; border: 1px solid #1c1c1f; margin-bottom: 24px;">
+                  <table style="width: 100%; border-collapse: collapse;">
+                    <tr><td style="padding: 6px 0; font-size: 11px; text-transform: uppercase; color: #52525b; font-weight: 800;">Name</td><td style="padding: 6px 0; font-size: 13px; text-align: right; color: #fff;">${inqName}</td></tr>
+                    <tr><td style="padding: 6px 0; font-size: 11px; text-transform: uppercase; color: #52525b; font-weight: 800;">Email</td><td style="padding: 6px 0; font-size: 13px; text-align: right;"><a href="mailto:${inqEmail}" style="color:#FF6B35; text-decoration: none;">${inqEmail}</a></td></tr>
+                    <tr><td style="padding: 6px 0; font-size: 11px; text-transform: uppercase; color: #52525b; font-weight: 800;">Phone</td><td style="padding: 6px 0; font-size: 13px; text-align: right; color: #fff;">${inqPhone}</td></tr>
+                    <tr><td style="padding: 6px 0; font-size: 11px; text-transform: uppercase; color: #52525b; font-weight: 800;">Service Area</td><td style="padding: 6px 0; font-size: 13px; text-align: right; color: #fff;">${inqServiceArea || "General inquiry"}</td></tr>
+                    <tr><td style="padding: 6px 0; font-size: 11px; text-transform: uppercase; color: #52525b; font-weight: 800;">Source Page</td><td style="padding: 6px 0; font-size: 13px; text-align: right; color: #fff;">${inqSourcePage || "/custom-discovery"}</td></tr>
+                  </table>
                 </div>
+
+                <h3 style="font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: #FF6B35; margin: 24px 0 8px 0;">How Can I Help?</h3>
+                <p style="font-size: 13px; color: #d4d4d8; line-height: 1.6; margin: 0 0 24px 0; white-space: pre-wrap;">${inqSummary}</p>
               </div>
             </div>
-          `,
+          </div>
+        `,
         });
 
-        // 2. Confirmation → client (only if we have a valid-looking email)
+        // 2. Confirmation → client
         if (inqEmail && inqEmail.includes("@")) {
           await resend.emails.send({
             from: "Zach Howell <zachary@zachhowell.dev>",
             to: [inqEmail],
             bcc: ["zachary@zachhowell.dev"],
-            subject: `Discovery received — let's build ${inqBusiness}`,
+            subject: `Discovery received — let's build your vision`,
             html: `
-              <div style="font-family: 'Inter', Helvetica, Arial, sans-serif; background-color: #050505; color: #fafafa; padding: 60px 20px; text-align: center;">
-                <div style="max-width: 600px; margin: 0 auto; background: #09090b; border: 1px solid #27272a; border-radius: 24px; overflow: hidden;">
-                  <div style="padding: 48px 40px 24px 40px;">
-                    <div style="display: inline-block; padding: 8px 16px; background: #FF6B35; border-radius: 99px; font-size: 10px; font-weight: 900; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 24px;">Discovery Received</div>
-                    <h1 style="font-size: 38px; font-weight: 900; line-height: 0.95; text-transform: uppercase; letter-spacing: -1.5px; margin: 0 0 16px 0;">Got it,<br/>${inqName}.</h1>
-                    <p style="font-size: 15px; color: #a1a1aa; line-height: 1.6;">Thanks for taking the time to share your vision for <strong style="color:#fff;">${inqBusiness}</strong>. I've received your discovery details and they're sitting in my inbox.</p>
-                  </div>
+            <div style="font-family: 'Inter', Helvetica, Arial, sans-serif; background-color: #050505; color: #fafafa; padding: 60px 20px; text-align: center;">
+              <div style="max-width: 600px; margin: 0 auto; background: #09090b; border: 1px solid #27272a; border-radius: 24px; overflow: hidden;">
+                <div style="padding: 48px 40px 24px 40px;">
+                  <div style="display: inline-block; padding: 8px 16px; background: #FF6B35; border-radius: 99px; font-size: 10px; font-weight: 900; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 24px;">Discovery Received</div>
+                  <h1 style="font-size: 38px; font-weight: 900; line-height: 0.95; text-transform: uppercase; letter-spacing: -1.5px; margin: 0 0 16px 0;">Got it,<br/>${inqName}.</h1>
+                  <p style="font-size: 15px; color: #a1a1aa; line-height: 1.6;">Thanks for taking the time to share your vision. I've received your discovery details and they're sitting in my inbox.</p>
+                </div>
 
-                  <div style="padding: 0 40px 24px 40px; text-align: left;">
-                    <div style="background: #121214; border-radius: 16px; padding: 24px; border: 1px solid #1c1c1f;">
-                      <h3 style="font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: #FF6B35; margin: 0 0 16px 0;">What Happens Next</h3>
-                      <ul style="padding: 0 0 0 18px; margin: 0; color: #a1a1aa; font-size: 13px; line-height: 1.7;">
-                        <li style="margin-bottom: 8px;"><strong style="color:#fff;">Within 24 hours:</strong> I'll personally review your request and reply.</li>
-                        <li style="margin-bottom: 8px;"><strong style="color:#fff;">Fast follow-up:</strong> If needed, I'll suggest a call or send a few scoping questions by email.</li>
-                        <li><strong style="color:#fff;">Clear next step:</strong> You'll get either a recommendation, a quote range, or a path to a proper proposal.</li>
-                      </ul>
-                    </div>
-                  </div>
-
-                  <div style="padding: 24px 40px 40px 40px; text-align: center;">
-                    <p style="font-size: 12px; color: #71717a; margin: 0 0 8px 0; font-style: italic;">No commitments, no pressure. Discovery is always free.</p>
-                  </div>
-
-                  <div style="padding: 24px 40px; border-top: 1px solid #1c1c1f; background: #0c0c0e; text-align: center;">
-                    <p style="font-size: 12px; color: #52525b; margin: 0;">
-                      Need to reach me sooner? <strong style="color: #a1a1aa;">262-341-7181</strong>
-                    </p>
+                <div style="padding: 0 40px 24px 40px; text-align: left;">
+                  <div style="background: #121214; border-radius: 16px; padding: 24px; border: 1px solid #1c1c1f;">
+                    <h3 style="font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: #FF6B35; margin: 0 0 16px 0;">What Happens Next</h3>
+                    <ul style="padding: 0 0 0 18px; margin: 0; color: #a1a1aa; font-size: 13px; line-height: 1.7;">
+                      <li style="margin-bottom: 8px;"><strong style="color:#fff;">Within 24 hours:</strong> I'll personally review your request and reply.</li>
+                      <li style="margin-bottom: 8px;"><strong style="color:#fff;">Fast follow-up:</strong> If needed, I'll suggest a call or send scoping questions by email.</li>
+                      <li><strong style="color:#fff;">Clear next step:</strong> You'll get a recommendation, a quote range, or a path to a proposal.</li>
+                    </ul>
                   </div>
                 </div>
+
+                <div style="padding: 24px 40px 40px 40px; text-align: center;">
+                  <p style="font-size: 12px; color: #71717a; margin: 0 0 8px 0; font-style: italic;">No commitments, no pressure. Discovery is always free.</p>
+                </div>
+
+                <div style="padding: 24px 40px; border-top: 1px solid #1c1c1f; background: #0c0c0e; text-align: center;">
+                  <p style="font-size: 12px; color: #52525b; margin: 0;">
+                    Need to reach me sooner? <strong style="color: #a1a1aa;">262-341-7181</strong>
+                  </p>
+                </div>
               </div>
-            `,
+            </div>
+          `,
           });
         }
         console.log(`Custom inquiry email flow complete for ${inqEmail}`);
       } catch (error) {
         console.error("Failed to send custom inquiry email:", error);
       }
-      return; // ⛔ Skip the sprint email path below
+      return;
     }
 
     // Mapping fields to ensure no "undefined"
