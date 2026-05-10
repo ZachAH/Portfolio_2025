@@ -18,28 +18,28 @@ const aboutJsonLd = {
 const comparisonRows = [
   {
     label: 'Speed',
-    zh: 'Sub-2s loads, Vite delivery, 95-100 Lighthouse targets',
-    generic: '3-5s loads, bloated themes, plugin drag',
+    zh: 'Faster load times help keep visitors engaged and reduce the chance they leave before converting.',
+    generic: 'Slower pages that frustrate visitors and lose leads before they take action.',
   },
   {
     label: 'SEO',
-    zh: 'Lean markup, fast CWV, structured data, rank-ready architecture',
-    generic: 'Heavy DOM output, slower crawl paths, weaker on-page control',
+    zh: 'Built to make it easier for search engines to understand your site and for customers to find you.',
+    generic: 'Harder to optimize, with more clutter that can hold back visibility.',
   },
   {
     label: 'Security',
-    zh: 'Static-first architecture, no plugin sprawl, no CMS database attack surface',
-    generic: 'Frequent plugin updates, common exploit vectors, larger attack surface',
+    zh: 'Fewer moving parts means fewer common break points and less maintenance stress.',
+    generic: 'More plugins and dependencies can mean more updates and more risk.',
   },
   {
     label: 'Ownership',
-    zh: 'You own the code, domain, and hosting. I set it up, deploy it, and push everything over to you.',
-    generic: 'Proprietary builders, theme/plugin dependency, migration friction',
+    zh: 'You own the site, the domain, and the hosting, so the business stays in your control.',
+    generic: 'Locked into a platform or builder that can be harder to move away from.',
   },
   {
     label: 'Support',
-    zh: 'Direct access to the Senior Engineer building the site',
-    generic: 'Account managers, junior handoffs, offshore queues',
+    zh: 'You work directly with the person building the site, so decisions move faster.',
+    generic: 'More handoffs, slower replies, and less direct accountability.',
   },
 ];
 
@@ -66,34 +66,34 @@ const messyCode = `<!-- builder-output-final-v27 -->
 const sections = [
   {
     eyebrow: 'Trust',
-    title: 'You get the Architect, not the Intern.',
+    title: 'You get the person doing the work.',
     body: [
-      'I bring 6+ years of full-stack engineering experience and a University of Wisconsin-Milwaukee background into every project. That matters because the technical decisions under the hood determine whether the site becomes an asset or a liability.',
-      'At big agencies, your project is often handed off to juniors or offshore teams. With me, you have direct-line access to the Senior Engineer writing every line of your code.',
+      'You are not paying for a sales rep, a project manager, and three layers of handoff. You work directly with me from strategy through launch.',
+      'That means faster decisions, clearer communication, and a site that reflects your business instead of a template someone else recycled.',
     ],
   },
   {
     eyebrow: 'Speed & SEO',
-    title: 'Speed is a Feature, not an Afterthought.',
+    title: 'Fast sites turn more visitors into calls.',
     body: [
-      'I build on React and Vite because performance is not a vanity metric. It is part of the product. The result is typically sub-2-second load behavior and Lighthouse targets in the 95-100 range when the content stack stays disciplined.',
-      'WordPress, Wix, and GoDaddy builders usually ship bloated front-end output, stacked third-party scripts, and slower 3-5 second load profiles with 40-60 Lighthouse scores. Google explicitly rewards faster experiences. I build high-performance assets that rank, not just digital brochures that sit on page 10.',
+      'A faster website keeps people engaged longer and gives them less reason to leave before taking action.',
+      'I build with performance and search visibility in mind so your site is easier to find, easier to use, and more likely to convert.',
     ],
   },
   {
     eyebrow: 'Ownership',
-    title: 'You Own the Asset, 100%.',
+    title: 'You keep full control of your website.',
     body: [
-      'Many agencies use proprietary builders or complex WordPress setups that lock you into their ecosystem. With ZH Web Solutions, you own your code. You also own the domain and the hosting account. I handle the setup, deployment, and technical handoff, then push everything over to you once the build is live.',
-      'That means no recurring platform fees, no plugin rent, and zero platform lock-in. If you ever want to move, you take the engine with you because the website remains a business asset you control instead of a subscription dependency you lease forever.',
+      'Your site, domain, and hosting are set up so the business owns the asset, not a platform or builder.',
+      'If you ever need to switch providers, expand, or move in a different direction, you are not trapped by someone else’s system.',
     ],
   },
   {
     eyebrow: 'Security',
-    title: 'Virtually Unhackable Foundations.',
+    title: 'Fewer weak points means fewer headaches.',
     body: [
-      'Roughly speaking, most commodity CMS attacks target WordPress plugins, admin panels, and databases because that is where the vulnerability surface lives. That stack can be patched and managed, but it is still inherently more exposed.',
-      'My static-first architecture has zero database vulnerabilities and no third-party plugin bloat. Your business reputation is protected by hardened, custom code rather than a pile of update prompts and attack vectors.',
+      'I build in a way that avoids a lot of the common issues that come from plugin-heavy setups and overly complex builder stacks.',
+      'The result is a cleaner, easier-to-manage site with less maintenance stress for your business.',
     ],
   },
 ];
@@ -123,7 +123,7 @@ const About = () => {
             Premium websites cost more because cheap foundations cost more later.
           </h1>
           <p className="text-xl md:text-2xl text-zinc-600 dark:text-zinc-300 font-medium leading-relaxed max-w-4xl">
-            If you are comparing me against WordPress shops, Wix freelancers, or GoDaddy resellers, you are not comparing the same product. I build custom React/Vite systems engineered for speed, rankings, ownership, and long-term leverage.
+            If you are comparing me against WordPress shops, Wix freelancers, or GoDaddy resellers, you are not comparing the same product. I build websites designed to bring in more leads, make your business look more credible, and stay in your control long after launch.
           </p>
         </motion.div>
 
@@ -164,10 +164,10 @@ const About = () => {
                 The Premise
               </p>
               <h3 className="text-3xl font-black tracking-tight mb-4">
-                Better code compounds.
+                Better websites create better business results.
               </h3>
               <p className="text-zinc-300 leading-relaxed mb-6">
-                Faster sites convert better, rank better, and break less often. That is the real reason custom engineering earns premium pricing. It changes the operating characteristics of the asset.
+                Faster sites keep more visitors engaged, make your business look more trustworthy, and reduce avoidable problems after launch. That is why custom work can be worth more than a cheaper template build.
               </p>
               <div className="grid grid-cols-2 gap-4">
                 <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
@@ -191,8 +191,6 @@ const About = () => {
               viewport={{ once: true }}
               className="rounded-[2.5rem] bg-zinc-50 border border-zinc-200 p-8 md:p-10 shadow-sm"
             >
-              <p className="text-[10px] font-black uppercase tracking-[0.24em] text-accent-orange mb-4">
-              </p>
               <h3 className="text-3xl font-black tracking-tight text-obsidian-950 mb-4">
                 Clean architecture beats builder residue.
               </h3>
@@ -265,8 +263,6 @@ const About = () => {
           viewport={{ once: true }}
           className="mt-10 rounded-[3rem] bg-obsidian-950 text-white p-10 md:p-14 text-center shadow-sm"
         >
-          <p className="text-[10px] font-black uppercase tracking-[0.28em] text-accent-orange mb-4">
-          </p>
           <h2 className="text-4xl md:text-6xl font-black tracking-tighter leading-[0.95] mb-5">
             Ready to build something that actually performs?
           </h2>
