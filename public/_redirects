@@ -3,3 +3,4 @@
 # Static files (e.g. dist/services/index.html from prerender-routes.js)
 # always win over this rule.
 /*    /index.html   200
+/templates    /404.html   404
