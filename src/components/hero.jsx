@@ -137,7 +137,7 @@ const Hero = ({ handleMouseEnter, handleMouseLeave }) => {
           className="flex justify-center"
         >
           <Link
-            to="/custom-discovery"
+            to="/pricing"
             className="group relative inline-flex max-w-full items-center justify-center gap-2 px-5 py-3 text-sm sm:gap-3 sm:px-10 sm:py-5 sm:text-lg bg-sunset-gradient text-white rounded-full font-bold overflow-hidden transition-all hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl"
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
