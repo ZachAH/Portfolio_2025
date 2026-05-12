@@ -429,7 +429,7 @@ const PricingGuides = () => {
                 <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500" />
               </span>
               <span className="text-sm font-bold text-green-800 dark:text-green-300">
-                A Better Alternative to Template Sites — Professional Websites Without the Upfront Cost
+                Same Premium Websites as Custom Builds — Professional Quality Without the Upfront Cost
               </span>
             </motion.div>
           )}
@@ -516,48 +516,286 @@ const PricingGuides = () => {
                 </div>
               </div>
 
-              <div className="p-6 md:p-8 bg-gradient-to-br from-red-50/80 to-red-100/50 dark:from-red-900/10 dark:to-red-800/5 rounded-3xl border border-red-500/20 shadow-sm mb-6 md:mb-8">
+              <div className="p-6 md:p-8 bg-white dark:bg-obsidian-950 rounded-3xl border border-gray-200 dark:border-white/10 shadow-sm mb-6 md:mb-8">
                 <div className="flex flex-col sm:flex-row items-start gap-4">
-                  <div className="w-10 h-10 rounded-xl bg-red-500/10 flex items-center justify-center shrink-0">
-                    <svg className="w-5 h-5 text-red-600 dark:text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <div className="w-10 h-10 rounded-xl bg-accent-orange/10 flex items-center justify-center shrink-0">
+                    <svg className="w-5 h-5 text-accent-orange" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                   </div>
                   <div className="flex-1">
-                    <h4 className="text-lg font-bold text-obsidian-950 dark:text-white mb-2">Stop Paying the "Template Tax"</h4>
+                    <h4 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Stop Paying the "Template Tax"</h4>
                     <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-sm mb-4">
-                      While templates look cheaper at a glance, the hidden costs of maintenance and performance bloat add up quickly. We simplify your tech so you can focus on your business.
+                      The big three platforms look cheap upfront, but their hidden costs and limitations add up fast. Here's the real breakdown:
                     </p>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      <div className="p-4 bg-white/50 dark:bg-black/20 rounded-2xl border border-red-200/50">
-                        <h5 className="font-bold text-red-700 dark:text-red-400 text-sm mb-2 uppercase tracking-wider">The "DIY" Nightmare:</h5>
-                        <ul className="space-y-2 text-xs text-gray-600 dark:text-gray-300">
-                          <li className="flex justify-between"><span>Fragile Plugins:</span> <span className="font-semibold text-red-600">$200–$400/yr</span></li>
-                          <li className="flex justify-between"><span>Theme Licenses:</span> <span className="font-semibold text-red-600">$50–$150/yr</span></li>
-                          <li className="flex justify-between"><span>Shared Hosting:</span> <span className="font-semibold text-red-600">$300–$600/yr</span></li>
-                          <li className="flex justify-between border-t border-red-200/50 pt-2 font-bold text-red-800 dark:text-red-300">
-                            <span>Total Hidden Fees:</span> <span>$650–$1,400+/yr</span>
-                          </li>
-                        </ul>
+                    
+                    <div className="space-y-4 mb-4">
+                      <div className="p-4 bg-gray-50 dark:bg-white/5 rounded-2xl border border-gray-200 dark:border-white/10">
+                        <h5 className="font-bold text-slate-900 dark:text-white text-sm mb-3 uppercase tracking-wider">Wix - The App Trap</h5>
+                          <div className="grid grid-cols-2 gap-2 text-xs text-slate-600 dark:text-slate-300 mb-2">
+                          <div className="flex justify-between">
+                            <span>Base plan (Core):</span>
+                            <span className="font-semibold text-red-600">$29/month</span>
+                          </div>
+                          <div className="flex justify-between">
+                            <span>Business plan:</span>
+                            <span className="font-semibold text-red-600">$36/month</span>
+                          </div>
+                          <div className="flex justify-between">
+                            <span>Custom domain:</span>
+                            <span className="font-semibold text-red-600">$15–$25/year</span>
+                          </div>
+                          <div className="flex justify-between">
+                            <span>Apps (SEO, forms, etc.):</span>
+                            <span className="font-semibold text-red-600">$5–$50/month each</span>
+                          </div>
+                        </div>
+                        <div className="pt-2 mt-2 border-t border-gray-200 dark:border-white/10">
+                          <div className="flex justify-between font-bold text-slate-900 dark:text-white">
+                            <span>Realistic monthly total:</span>
+                            <span className="font-bold text-red-600">$50–$150+/month</span>
+                          </div>
+                        </div>
+                        <p className="text-xs text-slate-600 dark:text-slate-400 mt-2 italic">
+                          Hidden gotcha: The app marketplace is where they get you. Need booking? Extra. Advanced SEO? Extra. Email marketing? Extra.
+                        </p>
                       </div>
-                      <div className="p-4 bg-green-500/5 rounded-2xl border border-green-500/20">
-                        <h5 className="font-bold text-green-700 dark:text-green-400 text-sm mb-2 uppercase tracking-wider">The Custom Partnership:</h5>
-                        <ul className="space-y-2 text-xs text-gray-600 dark:text-gray-300 font-medium">
-                          <li className="flex items-center gap-2">
-                            <span className="w-1.5 h-1.5 rounded-full bg-green-500"></span> Zero-Bloat Architecture
-                          </li>
-                          <li className="flex items-center gap-2">
-                            <span className="w-1.5 h-1.5 rounded-full bg-green-500"></span> Enterprise-Grade Hosting
-                          </li>
-                          <li className="flex items-center gap-2">
-                            <span className="w-1.5 h-1.5 rounded-full bg-green-500"></span> All Security & Backups
-                          </li>
-                          <li className="flex items-center gap-2 text-green-700 dark:text-green-400 font-bold border-t border-green-500/20 pt-2">
-                            <span className="w-1.5 h-1.5 rounded-full bg-green-500"></span> Senior Engineer Access
-                          </li>
-                        </ul>
+
+                      <div className="p-4 bg-gray-50 dark:bg-white/5 rounded-2xl border border-gray-200 dark:border-white/10">
+                        <h5 className="font-bold text-slate-900 dark:text-white text-sm mb-3 uppercase tracking-wider">Squarespace - The Clean Trap</h5>
+                          <div className="grid grid-cols-2 gap-2 text-xs text-slate-600 dark:text-slate-300 mb-2">
+                          <div className="flex justify-between">
+                            <span>Basic plan:</span>
+                            <span className="font-semibold text-red-600">$23/month</span>
+                          </div>
+                          <div className="flex justify-between">
+                            <span>Business plan:</span>
+                            <span className="font-semibold text-red-600">$33/month</span>
+                          </div>
+                          <div className="flex justify-between">
+                            <span>Commerce plans:</span>
+                            <span className="font-semibold text-red-600">$36–$65/month</span>
+                          </div>
+                          <div className="flex justify-between">
+                            <span>Email campaigns:</span>
+                            <span className="font-semibold text-red-600">$7–$54/month</span>
+                          </div>
+                        </div>
+                        <div className="pt-2 mt-2 border-t border-gray-200 dark:border-white/10">
+                          <div className="flex justify-between font-bold text-slate-900 dark:text-white">
+                            <span>Realistic monthly total:</span>
+                            <span className="font-bold text-red-600">$40–$120+/month</span>
+                          </div>
+                        </div>
+                        <p className="text-xs text-slate-600 dark:text-slate-400 mt-2 italic">
+                          Hidden gotcha: 3% transaction fee on Business plan unless you upgrade. Their own add-ons (email, memberships) stack up fast.
+                        </p>
+                      </div>
+
+                      <div className="p-4 bg-gray-50 dark:bg-white/5 rounded-2xl border border-gray-200 dark:border-white/10">
+                        <h5 className="font-bold text-slate-900 dark:text-white text-sm mb-3 uppercase tracking-wider">Shopify - The E-commerce Trap</h5>
+                          <div className="grid grid-cols-2 gap-2 text-xs text-slate-600 dark:text-slate-300 mb-2">
+                          <div className="flex justify-between">
+                            <span>Basic plan:</span>
+                            <span className="font-semibold text-red-600">$39/month</span>
+                          </div>
+                          <div className="flex justify-between">
+                            <span>Shopify plan:</span>
+                            <span className="font-semibold text-red-600">$105/month</span>
+                          </div>
+                          <div className="flex justify-between">
+                            <span>Premium themes:</span>
+                            <span className="font-semibold text-red-600">$100–$400 one-time</span>
+                          </div>
+                          <div className="flex justify-between">
+                            <span>Apps (reviews, upsells):</span>
+                            <span className="font-semibold text-red-600">$10–$100/month each</span>
+                          </div>
+                        </div>
+                        <div className="pt-2 mt-2 border-t border-gray-200 dark:border-white/10">
+                          <div className="flex justify-between font-bold text-slate-900 dark:text-white">
+                            <span>Realistic monthly total:</span>
+                            <span className="font-bold text-red-600">$100–$500+/month</span>
+                          </div>
+                        </div>
+                        <p className="text-xs text-slate-600 dark:text-slate-400 mt-2 italic">
+                          Hidden gotcha: Most stores need 5–10 apps, adding $100–$300/month. Plus payment processing fees on every transaction.
+                        </p>
                       </div>
                     </div>
+
+                    <div className="p-4 bg-gray-50 dark:bg-white/5 rounded-2xl border border-gray-200 dark:border-white/10 mb-4">
+                      <h5 className="font-bold text-slate-900 dark:text-white text-sm mb-3 uppercase tracking-wider">Side-by-Side Reality Check</h5>
+                      <div className="overflow-x-auto">
+                        <table className="w-full text-xs text-slate-600 dark:text-slate-300">
+                          <thead>
+                            <tr className="border-b border-gray-200 dark:border-white/10">
+                              <th className="text-left py-2">Platform</th>
+                              <th className="text-center py-2">Advertised</th>
+                              <th className="text-center py-2">Realistic Cost</th>
+                              <th className="text-center py-2">Code Ownership</th>
+                              <th className="text-center py-2">Portability</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr className="border-b border-red-100/30">
+                              <td className="py-2 font-bold">Wix</td>
+                              <td className="text-center">$17/mo</td>
+                              <td className="text-center font-semibold text-red-600">$50–$150</td>
+                              <td className="text-center">❌ None</td>
+                              <td className="text-center">❌ Locked in</td>
+                            </tr>
+                            <tr className="border-b border-red-100/30">
+                              <td className="py-2 font-bold">Squarespace</td>
+                              <td className="text-center">$16/mo</td>
+                              <td className="text-center font-semibold text-red-600">$40–$120</td>
+                              <td className="text-center">❌ None</td>
+                              <td className="text-center">❌ Locked in</td>
+                            </tr>
+                            <tr>
+                              <td className="py-2 font-bold">Shopify</td>
+                              <td className="text-center">$29/mo</td>
+                              <td className="text-center font-semibold text-red-600">$100–$500</td>
+                              <td className="text-center">❌ None</td>
+                              <td className="text-center">Limited</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+
+                    <div className="p-4 bg-gray-50 dark:bg-white/5 rounded-2xl border border-gray-200 dark:border-white/10">
+                      <h5 className="font-bold text-slate-900 dark:text-white text-sm mb-2 uppercase tracking-wider">The Big Picture vs. Custom React</h5>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                          <h6 className="font-bold text-slate-900 dark:text-white text-xs mb-2">Template Sites (3 years):</h6>
+                          <ul className="space-y-1 text-xs text-slate-600 dark:text-slate-300">
+                            <li>• Cost: $1,500–$5,000+</li>
+                            <li>• Nothing to show for it</li>
+                            <li>• No code you own</li>
+                            <li>• Can't migrate easily</li>
+                            <li>• Looks like a template</li>
+                          </ul>
+                        </div>
+                        <div>
+                          <h6 className="font-bold text-slate-900 dark:text-white text-xs mb-2">Custom React Site:</h6>
+                          <ul className="space-y-1 text-xs text-slate-600 dark:text-slate-300">
+                            <li>• Higher upfront, lower long-term</li>
+                            <li>• You own everything</li>
+                            <li>• Scales infinitely better</li>
+                            <li>• Any dev can take over</li>
+                            <li>• Worth it past year 2-3</li>
+                          </ul>
+                        </div>
+                      </div>
+                      <p className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-widest text-center mt-3 pt-3 border-t border-gray-200 dark:border-white/10">
+                        My managed plans: Professional React site + ongoing care for $99–$395/month
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="p-6 md:p-8 bg-white dark:bg-obsidian-950 rounded-3xl border border-gray-200 dark:border-white/10 shadow-sm mb-6 md:mb-8">
+                <div className="flex flex-col sm:flex-row items-start gap-4">
+                  <div className="w-10 h-10 rounded-xl bg-accent-orange/10 flex items-center justify-center shrink-0">
+                    <svg className="w-5 h-5 text-accent-orange" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                    </svg>
+                  </div>
+                  <div className="flex-1">
+                    <h4 className="text-lg font-bold text-slate-900 dark:text-white mb-2">The Agency Price Reality Check</h4>
+                    <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-sm mb-4">
+                      Traditional agencies charge astronomical rates for the same professional quality. Here's what businesses typically pay elsewhere:
+                    </p>
+                    
+                    <div className="space-y-4 mb-4">
+                      <div className="bg-gray-50 dark:bg-white/5 rounded-2xl p-4 border border-gray-200 dark:border-white/10">
+                        <h5 className="font-bold text-slate-900 dark:text-white text-sm mb-3 uppercase tracking-wider">Website Build (React Site)</h5>
+                        <div className="space-y-2">
+                          <div className="flex justify-between items-center">
+                            <span className="text-xs text-gray-600 dark:text-gray-300">Freelancer / small agency:</span>
+                            <span className="font-semibold text-red-600">$3,000 – $10,000</span>
+                          </div>
+                          <div className="flex justify-between items-center">
+                            <span className="text-xs text-gray-600 dark:text-gray-300">Mid-size agency:</span>
+                            <span className="font-semibold text-red-600">$10,000 – $40,000</span>
+                          </div>
+                          <div className="flex justify-between items-center">
+                            <span className="text-xs text-gray-600 dark:text-gray-300">Large / premium agency:</span>
+                            <span className="font-semibold text-red-600">$40,000 – $150,000+</span>
+                          </div>
+                          <div className="pt-2 mt-2 border-t border-gray-200 dark:border-white/10">
+                            <div className="flex justify-between items-center">
+                              <span className="text-xs font-bold text-slate-700 dark:text-slate-300">Typical small-to-mid business:</span>
+                              <span className="text-sm font-bold text-red-600">$5,000 – $20,000</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="bg-gray-50 dark:bg-white/5 rounded-2xl p-4 border border-gray-200 dark:border-white/10">
+                        <h5 className="font-bold text-slate-900 dark:text-white text-sm mb-3 uppercase tracking-wider">Monthly Ongoing Costs</h5>
+                        <div className="space-y-2">
+                          <div className="flex justify-between items-center">
+                            <span className="text-xs text-gray-600 dark:text-gray-300">Basic managed hosting:</span>
+                            <span className="font-semibold text-red-600">$50 – $200/month</span>
+                          </div>
+                          <div className="flex justify-between items-center">
+                            <span className="text-xs text-gray-600 dark:text-gray-300">Mid-tier (AWS/Vercel/Netlify):</span>
+                            <span className="font-semibold text-red-600">$100 – $500/month</span>
+                          </div>
+                          <div className="flex justify-between items-center">
+                            <span className="text-xs text-gray-600 dark:text-gray-300">High-traffic or complex:</span>
+                            <span className="font-semibold text-red-600">$500 – $2,000+/month</span>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="bg-gray-50 dark:bg-white/5 rounded-2xl p-4 border border-gray-200 dark:border-white/10">
+                        <h5 className="font-bold text-slate-900 dark:text-white text-sm mb-3 uppercase tracking-wider">Monthly Maintenance Plans</h5>
+                        <div className="space-y-2">
+                          <div className="flex justify-between items-center">
+                            <span className="text-xs text-gray-600 dark:text-gray-300">Basic (security, minor fixes):</span>
+                            <span className="font-semibold text-red-600">$150 – $500/month</span>
+                          </div>
+                          <div className="flex justify-between items-center">
+                            <span className="text-xs text-gray-600 dark:text-gray-300">Standard (content updates, support):</span>
+                            <span className="font-semibold text-red-600">$500 – $1,500/month</span>
+                          </div>
+                          <div className="flex justify-between items-center">
+                            <span className="text-xs text-gray-600 dark:text-gray-300">Premium (ongoing dev, features):</span>
+                            <span className="font-semibold text-red-600">$1,500 – $5,000+/month</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="p-4 bg-gray-50 dark:bg-white/5 rounded-2xl border border-gray-200 dark:border-white/10 mb-4">
+                      <h5 className="font-bold text-slate-900 dark:text-white text-sm mb-2 uppercase tracking-wider">Realistic Agency Total (Small Business)</h5>
+                      <div className="space-y-1 text-xs text-slate-600 dark:text-slate-300">
+                        <div className="flex justify-between">
+                          <span>Build (one-time):</span>
+                          <span className="font-bold text-red-600">$8,000–$15,000</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span>Hosting:</span>
+                          <span className="font-bold text-red-600">$100–$200/month</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span>Maintenance plan:</span>
+                          <span className="font-bold text-red-600">$300–$800/month</span>
+                        </div>
+                        <div className="flex justify-between pt-2 mt-2 border-t border-gray-200 dark:border-white/10">
+                          <span className="font-bold text-slate-900 dark:text-white">Monthly ongoing total:</span>
+                          <span className="font-bold text-red-600">$400–$1,000/month</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <p className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-widest text-center">
+                      My managed plans: $99–$395/month with professional build included
+                    </p>
                   </div>
                 </div>
               </div>
