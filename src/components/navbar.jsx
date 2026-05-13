@@ -131,20 +131,26 @@ const Navbar = ({ handleMouseEnter, handleMouseLeave }) => {
               transition={{ type: 'spring', damping: 25, stiffness: 200 }}
               className="fixed top-0 right-0 bottom-0 w-[80%] max-w-[400px] glass-card !rounded-none !border-l border-obsidian-700/10 p-10 flex flex-col md:hidden pointer-events-auto shadow-2xl z-[1001]"
             >
-              <div className="flex justify-between items-center mb-16">
+              <div className="flex justify-between items-center mb-8">
                 <div className="flex items-center">
                   <span className="w-8 h-8 rounded-lg bg-sunset-gradient flex items-center justify-center mr-2 text-white text-xs">ZH</span>
                   <span className="font-bold tracking-tighter">ZH Web Solutions</span>
                 </div>
-                <button
-                  onClick={() => setIsOpen(false)}
-                  className="p-2 text-text-primary hover:text-accent-orange transition-colors"
-                >
-                  <FiX size={24} />
-                </button>
+                <div className="flex items-center gap-3">
+                  <div>
+                    <span className="text-xs font-semibold text-text-secondary uppercase tracking-widest block mb-2">Theme</span>
+                    <ThemeToggle handleMouseEnter={handleMouseEnter} handleMouseLeave={handleMouseLeave} />
+                  </div>
+                  <button
+                    onClick={() => setIsOpen(false)}
+                    className="p-2 text-text-primary hover:text-accent-orange transition-colors"
+                  >
+                    <FiX size={24} />
+                  </button>
+                </div>
               </div>
 
-              <div className="flex flex-col gap-8">
+              <div className="flex flex-col gap-6">
                 {navLinks.map((link, i) => (
                   <motion.div
                     key={link.path}
@@ -168,7 +174,7 @@ const Navbar = ({ handleMouseEnter, handleMouseLeave }) => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.5 }}
-                className="mt-auto pt-10 border-t border-obsidian-700/10 flex flex-col gap-6"
+                className="mt-auto pt-8 border-t border-obsidian-700/10 flex flex-col gap-6"
               >
                 <a
                   href={PHONE_HREF}
@@ -178,11 +184,6 @@ const Navbar = ({ handleMouseEnter, handleMouseLeave }) => {
                   <FiPhone size={16} />
                   <span>{PHONE_NUMBER}</span>
                 </a>
-
-                <div>
-                  <span className="text-xs font-semibold text-text-secondary uppercase tracking-widest block mb-4">Appearance</span>
-                  <ThemeToggle handleMouseEnter={handleMouseEnter} handleMouseLeave={handleMouseEnter} />
-                </div>
                 
                 <div className="flex items-center gap-4 text-text-secondary">
                   <span className="text-xs font-medium">© 2026 ZH Web Solutions</span>
