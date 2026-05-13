@@ -851,58 +851,87 @@ const PricingGuides = () => {
                 <h4 className="text-xl font-bold text-obsidian-950 dark:text-white mb-3 flex items-center justify-center gap-2">
                   Professional Quality, Zero Headaches
                 </h4>
-                <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-sm sm:text-base mb-4">
+                <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-sm sm:text-base mb-6">
                   Every plan includes a custom-designed website built with React, TypeScript, TailwindCSS, and Vite—the same tech stack used by Facebook, Netflix, Airbnb, and Shopify.
                   This means your site loads faster, ranks better, and converts more visitors than template sites built with bloated builders.
                 </p>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4 text-left">
-                  <div className="space-y-2">
-                    <h5 className="font-bold text-obsidian-950 dark:text-white text-sm">Why This Tech Stack Wins:</h5>
-                    <ul className="space-y-1">
+                
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6 text-left">
+                  <div className="space-y-4">
+                    <h5 className="font-bold text-obsidian-950 dark:text-white text-sm">How This Grows Your Business:</h5>
+                    <ul className="space-y-2">
                       <li className="flex items-start gap-2 text-xs text-gray-600 dark:text-gray-300">
                         <span className="text-green-600 dark:text-green-400">•</span>
-                        <span><strong>React + Vite:</strong> Lightning-fast loading speeds</span>
+                        <span><strong>Lightning-fast load times</strong> - Visitors don't leave waiting for slow sites</span>
                       </li>
                       <li className="flex items-start gap-2 text-xs text-gray-600 dark:text-gray-300">
                         <span className="text-green-600 dark:text-green-400">•</span>
-                        <span><strong>TypeScript:</strong> Fewer bugs, better reliability</span>
+                        <span><strong>Higher Google rankings</strong> - More customers find you organically</span>
                       </li>
                       <li className="flex items-start gap-2 text-xs text-gray-600 dark:text-gray-300">
                         <span className="text-green-600 dark:text-green-400">•</span>
-                        <span><strong>TailwindCSS:</strong> Clean, optimized code</span>
+                        <span><strong>Mobile-optimized experience</strong> - Captures the 70% of customers on phones</span>
+                      </li>
+                    </ul>
+                    
+                    <h5 className="font-bold text-obsidian-950 dark:text-white text-sm">Your Competitive Advantage:</h5>
+                    <ul className="space-y-2">
+                      <li className="flex items-start gap-2 text-xs text-gray-600 dark:text-gray-300">
+                        <span className="text-green-600 dark:text-green-400">•</span>
+                        <span><strong>Google prioritizes fast sites</strong> - 90+ Lighthouse scores boost rankings</span>
+                      </li>
+                      <li className="flex items-start gap-2 text-xs text-gray-600 dark:text-gray-300">
+                        <span className="text-green-600 dark:text-green-400">•</span>
+                        <span><strong>Every second counts</strong> - 1-second delay = 7% conversion loss</span>
+                      </li>
+                      <li className="flex items-start gap-2 text-xs text-gray-600 dark:text-gray-300">
+                        <span className="text-green-600 dark:text-green-400">•</span>
+                        <span><strong>Stand out from competitors</strong> - Custom design vs generic templates</span>
+                      </li>
+                      <li className="flex items-start gap-2 text-xs text-gray-600 dark:text-gray-300">
+                        <span className="text-green-600 dark:text-green-400">•</span>
+                        <span><strong>Scale as you grow</strong> - No limitations when you're ready to expand</span>
                       </li>
                     </ul>
                   </div>
-                  <div className="space-y-2">
-                    <h5 className="font-bold text-obsidian-950 dark:text-white text-sm">Business Results:</h5>
-                    <ul className="space-y-1">
-                      <li className="flex items-start gap-2 text-xs text-gray-600 dark:text-gray-300">
-                        <span className="text-green-600 dark:text-green-400">•</span>
-                        <span>Better Google rankings</span>
+                  
+                  <div className="space-y-4">
+                    <h5 className="font-bold text-obsidian-950 dark:text-white text-sm">Flexible Terms for Your Business:</h5>
+                    <ul className="space-y-3">
+                      <li className="flex items-start gap-3">
+                        <svg className="w-5 h-5 text-green-600 dark:text-green-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <span className="text-xs text-gray-600 dark:text-gray-300"><strong>6-month partnership</strong> - Time to perfect your site and see real results</span>
                       </li>
-                      <li className="flex items-start gap-2 text-xs text-gray-600 dark:text-gray-300">
-                        <span className="text-green-600 dark:text-green-400">•</span>
-                        <span>Higher conversion rates</span>
+                      <li className="flex items-start gap-3">
+                        <svg className="w-5 h-5 text-green-600 dark:text-green-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <span className="text-xs text-gray-600 dark:text-gray-300"><strong>Own your website anytime</strong> - Optional buyout gives you complete control</span>
                       </li>
-                      <li className="flex items-start gap-2 text-xs text-gray-600 dark:text-gray-300">
-                        <span className="text-green-600 dark:text-green-400">•</span>
-                        <span>Mobile visitors stay longer</span>
+                      <li className="flex items-start gap-3">
+                        <svg className="w-5 h-5 text-green-600 dark:text-green-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <span className="text-xs text-gray-600 dark:text-gray-300"><strong>Complete asset transfer</strong> - All files, designs, and intellectual property included</span>
                       </li>
                     </ul>
                   </div>
                 </div>
-                <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-sm sm:text-base">
+                
+                <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-sm sm:text-base mb-6">
                   Perfect for businesses that want to focus on running their business while I handle the website with enterprise-grade technology,
                   with the flexibility to scale as your needs grow.
                 </p>
-              </div>
-
-              <div className="mt-8 flex flex-wrap justify-center gap-3">
-                {['More leads', 'Better visibility', 'Higher trust', 'Stronger conversion', 'Ongoing support'].map((tag) => (
-                  <span key={tag} className="px-4 py-2 rounded-full bg-green-500/10 border border-green-500/20 text-xs font-bold text-green-700 dark:text-green-400 uppercase tracking-widest">
-                    {tag}
-                  </span>
-                ))}
+                
+                <div className="flex flex-wrap justify-center gap-2">
+                  {['More leads', 'Better visibility', 'Higher trust', 'Stronger conversion', 'Ongoing support', 'Flexible ownership'].map((tag) => (
+                    <span key={tag} className="px-3 py-1.5 rounded-full bg-green-500/10 border border-green-500/20 text-xs font-bold text-green-700 dark:text-green-400 uppercase tracking-widest">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
               </div>
             </motion.div>
           ) : (
