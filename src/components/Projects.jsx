@@ -17,7 +17,6 @@ const projectsData = [
     category: "Custom Business Website",
     location: "West Bend, WI",
     description: "A complete modern redesign of a local cleaning company's website, focused on speed, clarity, and converting visitors into customers. Built with React, Tailwind, and Vite for top-tier performance.",
-    csDescription: "Transformed a legacy small-business website into a high-performing, mobile-first platform. Implemented a fully modern React architecture, responsive UI components, optimized hero sections, and a clean service navigation system.",
     image: "/KMPC.webp",
     link: "https://dev-site--kmpc.netlify.app/",
     tags: ["React", "TypeScript", "Tailwind CSS", "Vite"],
@@ -30,7 +29,6 @@ const projectsData = [
     location: "Milwaukee, WI",
     isDevelopment: true,
     description: "A fully responsive React + Vite + Tailwind website built for a real Milwaukee-area pizzeria, featuring intuitive navigation, dynamic menu sections, and an embedded Google Map. Includes a custom CMS admin dashboard.",
-    csDescription: "Designed and launched a modern digital storefront to increase online visibility, improve ordering convenience, and drive repeat customers. Implemented responsive UI and optimized load speeds.",
     image: "/pizza.webp",
     link: "https://uppercrustpizza.netlify.app/",
     tags: ["React", "TailwindCss", "Typescript", "Firebase"],
@@ -43,7 +41,6 @@ const projectsData = [
     location: "Milwaukee, WI",
     isDevelopment: true,
     description: "An e-commerce site for a local Christian based apparel company, built with custom CMS features and Stripe integration.",
-    csDescription: "Built a custom e-commerce platform with an integrated CMS for easy product management and Stripe for secure payment processing. The solution streamlined operations and provided a seamless shopping experience.",
     image: "/saved&sent.webp",
     link: "https://savedandsent.netlify.app/",
     tags: ["React", "Node.js", "Firebase", "Stripe"],
@@ -56,7 +53,6 @@ const projectsData = [
     isDevelopment: true,
     location: "New Berlin, WI",
     description: "A high-conversion service platform featuring a streamlined lead-generation funnel and a custom-built estimate request system for local homeowners.",
-    csDescription: "Developed a performance-focused service site with a focus on local SEO and mobile-first lead capture. Implemented custom forms and interactive service mapping to drive customer inquiries.",
     image: "/gutterscraftllc.webp",
     link: "https://gutterscraftllc.com/", // Update this if you have a different production/preview link
     tags: ["React", "Tailwind CSS", "Framer Motion", "Vite"],
@@ -68,7 +64,6 @@ const projectsData = [
     category: "Custom E-Commerce Storefront",
     location: "Remote / National",
     description: "The official storefront for an alternative apparel brand, prioritizing dark-mode aesthetics, high-impact visual storytelling, and smooth micro-interactions.",
-    csDescription: "Engineered a high-fidelity e-commerce experience using GSAP for sophisticated animations and Vite for near-instant load times. Focused on maintaining brand identity through custom UI components and unique product layouts.",
     image: "/clawanddecay.webp",
     link: "https://clawanddecay.com/",
     tags: ["TypeScript", "GSAP", "Vite", "Tailwind CSS"],
@@ -81,7 +76,6 @@ const projectsData = [
     location: "Remote / National",
     isDevelopment: true,
     description: "A modern, performance-optimized website for a nationwide forestry services company, featuring a clean design, clear service descriptions, and strong calls to action.",
-    csDescription: "Built a high-impact digital presence for a commercial forestry company, utilizing React and Tailwind CSS to create a visually compelling and user-friendly site. Implemented custom animations and interactive elements to engage visitors and drive inquiries.",
     image: "/commerciallogging.jpg",
     link: "https://gertchmockup.netlify.app/",
     tags: ["TypeScript", "GSAP", "Vite", "Tailwind CSS"],
@@ -90,16 +84,133 @@ const projectsData = [
   {
     id: 12,
     title: "Maison Boutique",
-    category: "E-commerce Storefront",
+    category: "Template",
     location: "Remote / National",
-    isDevelopment: true,
+    isDevelopment: false,
+    isTemplate: true, // This is a commercial template, not a client project
     description: "A sleek online storefront for a boutique fashion brand, designed to showcase products with high-quality visuals and smooth user interactions.",
-    csDescription: "Developed a visually stunning e-commerce site for a boutique fashion brand, leveraging GSAP for dynamic animations and Vite for optimal performance. The design emphasizes product imagery and provides an intuitive shopping experience.",
     image: "/boutique.jpg",
     link: "https://ecommercetemplatezh.netlify.app/",
     tags: ["TypeScript", "GSAP", "Vite", "Tailwind CSS"],
     testimonial: null,
-  }
+  },
+  {
+    id: 13,
+    title: "Brutalist Steetwear",
+    category: "Template",
+    location: "Remote / National",
+    isDevelopment: false,
+    isTemplate: true, // This is a commercial template, not a client project
+    description: "A butalist-inspired e-commerce template for a streetwear brand, featuring bold typography, high-contrast design, and dynamic animations to create a memorable shopping experience.",
+    image: "/brutalist_template.webp",
+    link: "https://brutalistecommerce.netlify.app/",
+    tags: ["TypeScript", "GSAP", "Vite", "Tailwind CSS"],
+    testimonial: null,
+  },
+  {
+    id: 14,
+    title: "Modern Buisness",
+    category: "Template",
+    location: "Remote / National",
+    isDevelopment: false,
+    isTemplate: true, // This is a commercial template, not a client project
+    description: "A modern template for local businesses, featuring a clean design, clear service sections, and strong calls to action. Perfect for small companies looking to establish a professional online presence quickly.",
+    image: "/buisness_modern.webp",
+    link: "https://premiumbuissnesstemplate.netlify.app/",
+    tags: ["TypeScript", "GSAP", "Vite", "Tailwind CSS"],
+    testimonial: null,
+  },
+  {
+    id: 15,
+    title: "Portfolio Template",
+    category: "Buisness Template",
+    location: "Remote / National",
+    isDevelopment: false,
+    isTemplate: true, // This is a commercial template, not a client project
+    description: "A premium portfolio template designed for creatives and professionals looking to showcase their work with a modern, visually engaging design and smooth user experience.",
+    image: "/coach_template.webp",
+    link: "https://influencertemplate.netlify.app/",
+    tags: ["TypeScript", "GSAP", "Vite", "Tailwind CSS"],
+    testimonial: null,
+  },
+  {
+    id: 17,
+    title: "Modern Trades",
+    category: "Trades Template",
+    location: "Remote / National",
+    isDevelopment: false,
+    isTemplate: true, // This is a commercial template, not a client project
+    description: "A lead geneeration template for local trades businesses, featuring clear service sections, strong calls to action, and a design that builds trust with potential customers.",
+    image: "/construction_template.webp",
+    link: "https://tradestemplatezh.netlify.app/",
+    tags: ["TypeScript", "GSAP", "Vite", "Tailwind CSS"],
+    testimonial: null,
+  },
+  {
+    id: 18,
+    title: "Restaurant Template",
+    category: "Template",
+    location: "Remote / National",
+    isDevelopment: false,
+    isTemplate: true, // This is a commercial template, not a client project
+    description: "A beautiful Restaurant template built with React, Tailwind CSS, and Vite. Perfect for local eateries looking to establish a strong online presence with a modern design and smooth user experience.",
+    image: "restaurant_template.webp",
+    link: "https://restauranttemplate01.netlify.app/",
+    tags: ["TypeScript", "GSAP", "Vite", "Tailwind CSS"],
+    testimonial: null,
+  },
+  {
+    id: 19,
+    title: "Lawfirm Template",
+    category: "Template",
+    location: "Remote / National",
+    isDevelopment: false,
+    isTemplate: true, // This is a commercial template, not a client project
+    description: "A professional template designed for law firms and attorneys, featuring a clean layout, clear service sections, and strong calls to action to help convert visitors into clients.",
+    image: "legal_template.webp",
+    link: "https://lawfirmtemplate.netlify.app/",
+    tags: ["TypeScript", "GSAP", "Vite", "Tailwind CSS"],
+    testimonial: null,
+  },
+  {
+    id: 20,
+    title: "Real Estate Template",
+    category: "Template",
+    location: "Remote / National",
+    isDevelopment: false,
+    isTemplate: true, // This is a commercial template, not a client project
+    description: "A modern template designed for real estate agents and agencies, featuring a clean layout, clear property sections, and strong calls to action to help convert visitors into clients.",
+    image: "realestate_template.webp",
+    link: "https://realestatetemplatelux.netlify.app/",
+    tags: ["TypeScript", "GSAP", "Vite", "Tailwind CSS"],
+    testimonial: null,
+  },
+  {
+    id: 21,
+    title: "Home Services Template",
+    category: "Template",
+    location: "Remote / National",
+    isDevelopment: false,
+    isTemplate: true, // This is a commercial template, not a client project
+    description: "A lead generation template for home services businesses, featuring clear service sections, strong calls to action, and a design that builds trust with potential customers.",
+    image: "hero_service_template.webp",
+    link: "https://homeservicetemplatelocal.netlify.app/",
+    tags: ["TypeScript", "GSAP", "Vite", "Tailwind CSS"],
+    testimonial: null,
+  },
+  {
+    id: 22,
+    title: "Services Template",
+    category: "Template",
+    location: "Remote / National",
+    isDevelopment: false,
+    isTemplate: true, // This is a commercial template, not a client project
+    description: "A lead generation template for service-based businesses, featuring clear service sections, strong calls to action, and a design that builds trust with potential customers.",
+    image: "services.png",
+    link: "https://buildservicetemplate.netlify.app/",
+    tags: ["TypeScript", "GSAP", "Vite", "Tailwind CSS"],
+    testimonial: null,
+  },
 ];
 
 const Projects = ({ handleMouseEnter, handleMouseLeave }) => {
@@ -165,30 +276,6 @@ const Projects = ({ handleMouseEnter, handleMouseLeave }) => {
             Every project is publicly live and verifiable. Keep in mind some of these are still in development, so you may see work-in-progress elements or placeholder content.
           </div>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <button
-              onClick={() => setViewMode('DEV')}
-              className={`px-8 py-3 rounded-full text-sm font-bold transition-all duration-300 w-full sm:w-auto ${
-                viewMode === 'DEV'
-                ? 'bg-sunset-gradient text-white shadow-lg shadow-accent-red/20 scale-105'
-                : 'glass text-text-secondary dark:text-zinc-300 hover:text-text-primary dark:hover:text-white'
-              }`}
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
-            >
-              Technical Developer 🛠️
-            </button>
-            <button
-              onClick={() => setViewMode('CS')}
-              className={`px-8 py-3 rounded-full text-sm font-bold transition-all duration-300 w-full sm:w-auto ${
-                viewMode === 'CS'
-                ? 'bg-sunset-gradient text-white shadow-lg shadow-accent-red/20 scale-105'
-                : 'glass text-text-secondary dark:text-zinc-300 hover:text-text-primary dark:hover:text-white'
-              }`}
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
-            >
-              Client Success 🤝
-            </button>
           </div>
         </motion.div>
 
