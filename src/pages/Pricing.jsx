@@ -9,10 +9,10 @@ const pricingJsonLd = {
   '@graph': [
     {
       '@type': 'WebPage',
-      name: 'Wisconsin Web Development Pricing & Packages',
+      name: 'Wisconsin Web Development Packages & Plans',
       url: 'https://zachhowell.dev/pricing',
       description:
-        'Transparent pricing for freelance web development packages. Custom React websites, e-commerce, SEO, and ongoing support for Wisconsin small businesses.',
+        'Transparent packages for freelance web development. Custom React websites, e-commerce, SEO, and ongoing support for Wisconsin small businesses.',
     },
     breadcrumb([
       { name: 'Home', path: '/' },
@@ -30,10 +30,10 @@ const Pricing = () => {
       className="pt-24 pb-12" // Padding to account for the fixed Navbar
     >
       <Seo
-        title="Wisconsin Web Development Pricing | Custom Builds & Partnership Plans — Zach Howell"
-        description="Transparent pricing for Wisconsin web development. Custom React builds, technical SEO, hosting guidance, and ongoing partnership plans for businesses in Milwaukee, Brookfield, Mequon, Waukesha, and Southeastern Wisconsin."
+        title="Wisconsin Web Development Packages | Custom Builds & Partnership Plans — Zach Howell"
+        description="Transparent packages for Wisconsin web development. Custom React builds, technical SEO, hosting guidance, and ongoing partnership plans for businesses in Milwaukee, Brookfield, Mequon, Waukesha, and Southeastern Wisconsin."
         path="/pricing"
-        keywords="web development pricing Wisconsin, custom website pricing Milwaukee, Brookfield web design cost, Mequon web developer pricing, freelance developer rates Wisconsin, React website pricing, Waukesha web design quote, custom build pricing Wisconsin"
+        keywords="web development packages Wisconsin, custom website packages Milwaukee, Brookfield web design cost, Mequon web developer packages, freelance developer packages Wisconsin, React website packages, Waukesha web design quote, custom build packages Wisconsin"
         jsonLd={pricingJsonLd}
       />
       <PricingGuides

@@ -33,6 +33,30 @@ const ProjectCard = ({ project, index, viewMode, handleMouseEnter, handleMouseLe
           </div>
         )}
 
+        {/* Exclusive Layout Badge */}
+        {project.isTemplate && !project.isDevelopment && (
+          <div className="absolute top-5 left-5 z-20">
+            <div className="flex items-center gap-2 px-3 py-1.5 bg-white/90 dark:bg-obsidian-950/60 backdrop-blur-md border border-blue-500/30 rounded-full shadow-lg">
+              <span className="w-1.5 h-1.5 rounded-full bg-blue-500" />
+              <span className="text-[10px] font-black uppercase tracking-[0.2em] text-blue-600 dark:text-blue-400">
+                Exclusive Layout
+              </span>
+            </div>
+          </div>
+        )}
+
+        {/* Exclusive Layout Badge (stacked below In Development) */}
+        {project.isTemplate && project.isDevelopment && (
+          <div className="absolute top-16 left-5 z-20">
+            <div className="flex items-center gap-2 px-3 py-1.5 bg-white/90 dark:bg-obsidian-950/60 backdrop-blur-md border border-blue-500/30 rounded-full shadow-lg">
+              <span className="w-1.5 h-1.5 rounded-full bg-blue-500" />
+              <span className="text-[10px] font-black uppercase tracking-[0.2em] text-blue-600 dark:text-blue-400">
+                Exclusive Layout
+              </span>
+            </div>
+          </div>
+        )}
+
         {/* Location Pill — signals real local business */}
         {project.location && (
           <div className="absolute top-5 right-5 z-20">

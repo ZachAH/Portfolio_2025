@@ -122,7 +122,7 @@ const projectsData = [
   },
   {
     id: 15,
-    title: "Portfolio Template",
+    title: "Portfolio",
     category: "Buisness Template",
     location: "Remote / National",
     isDevelopment: false,
@@ -148,7 +148,7 @@ const projectsData = [
   },
   {
     id: 18,
-    title: "Restaurant Template",
+    title: "Rusty Fork",
     category: "Template",
     location: "Remote / National",
     isDevelopment: false,
@@ -161,7 +161,7 @@ const projectsData = [
   },
   {
     id: 19,
-    title: "Lawfirm Template",
+    title: "Lawfirm",
     category: "Template",
     location: "Remote / National",
     isDevelopment: false,
@@ -174,7 +174,7 @@ const projectsData = [
   },
   {
     id: 20,
-    title: "Real Estate Template",
+    title: "Real Estate",
     category: "Template",
     location: "Remote / National",
     isDevelopment: false,
@@ -187,7 +187,7 @@ const projectsData = [
   },
   {
     id: 21,
-    title: "Home Services Template",
+    title: "Home Services",
     category: "Template",
     location: "Remote / National",
     isDevelopment: false,
@@ -200,7 +200,7 @@ const projectsData = [
   },
   {
     id: 22,
-    title: "Services Template",
+    title: "Services",
     category: "Template",
     location: "Remote / National",
     isDevelopment: false,
@@ -208,6 +208,32 @@ const projectsData = [
     description: "A lead generation template for service-based businesses, featuring clear service sections, strong calls to action, and a design that builds trust with potential customers.",
     image: "services.png",
     link: "https://buildservicetemplate.netlify.app/",
+    tags: ["TypeScript", "GSAP", "Vite", "Tailwind CSS"],
+    testimonial: null,
+  },
+  {
+    id: 23,
+    title: "Wisconsin Rustic",
+    category: "Template",
+    location: "Remote / National",
+    isDevelopment: false,
+    isTemplate: true, // This is a commercial template, not a client project
+    description: "A rustic-themed template designed for Wisconsin-based businesses, featuring a warm color palette, textured backgrounds, and a design that evokes the charm of the Midwest.",
+    image: "rustic.png",
+    link: "https://saucemockup.netlify.app/",
+    tags: ["TypeScript", "GSAP", "Vite", "Tailwind CSS"],
+    testimonial: null,
+  },
+  {
+    id: 24,
+    title: "Wisconsin Hobby Shop",
+    category: "Template",
+    location: "Remote / National",
+    isDevelopment: false,
+    isTemplate: true, // This is a commercial template, not a client project
+    description: "A hobby shop template designed to grab customer's attention and turn browsers into customers.",
+    image: "card.png",
+    link: "https://nexgencards.netlify.app/",
     tags: ["TypeScript", "GSAP", "Vite", "Tailwind CSS"],
     testimonial: null,
   },

@@ -40,7 +40,7 @@ const Navbar = ({ handleMouseEnter, handleMouseLeave }) => {
     { name: 'Why Me?', path: '/about' },
     { name: 'Services', path: '/services' },
     { name: 'Areas Served', path: '/locations' },
-    { name: 'Pricing', path: '/pricing' },
+    { name: 'Packages', path: '/pricing' },
     { name: 'Free Audit', path: '/audit' },
     { name: 'Contact', path: '/#contact' },
   ];

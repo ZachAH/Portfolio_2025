@@ -38,8 +38,8 @@ const stats = [
 
 const guarantees = [
   {
-    title: 'Fixed Pricing',
-    copy: 'Transparent pricing. No surprise invoices after the build starts.',
+    title: 'Fixed Packages',
+    copy: 'Transparent packages. No surprise invoices after the build starts.',
   },
   {
     title: 'Direct Access',

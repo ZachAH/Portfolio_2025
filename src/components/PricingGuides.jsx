@@ -80,10 +80,12 @@ const PricingCard = ({ title, price, description, features, notIncluded, accent,
         )}
 
         <h3 className="text-2xl font-bold text-obsidian-950 dark:text-white mb-2">{title}</h3>
-        <div className="flex items-baseline gap-1 mb-4">
-          <span className="text-4xl font-bold text-obsidian-950 dark:text-white">{price}</span>
-          {price.includes('/') && <span className="text-gray-500 dark:text-gray-300 text-sm font-medium">/month</span>}
-        </div>
+        {price && (
+          <div className="flex items-baseline gap-1 mb-4">
+            <span className="text-4xl font-bold text-obsidian-950 dark:text-white">{price}</span>
+            {price.includes('/') && <span className="text-gray-500 dark:text-gray-300 text-sm font-medium">/month</span>}
+          </div>
+        )}
         {subtext && (
           <p className="text-xs text-gray-500 dark:text-gray-400 mb-4 font-medium">{subtext}</p>
         )}
@@ -135,7 +137,7 @@ const PricingCard = ({ title, price, description, features, notIncluded, accent,
               : 'bg-obsidian-950 text-white dark:bg-white dark:text-obsidian-950 hover:opacity-90'
               }`}
           >
-            {isPopular ? 'Get Started' : 'Get Started'}
+            Grow My Revenue
           </button>
         ) : stripeUrl ? (
           <button
@@ -145,17 +147,17 @@ const PricingCard = ({ title, price, description, features, notIncluded, accent,
               : 'bg-obsidian-950 text-white dark:bg-white dark:text-obsidian-950 hover:opacity-90'
               }`}
           >
-            {isPopular ? 'Order Now' : 'Get Started'}
+            Order Now
           </button>
         ) : (
           <Link
             to={link || "/contact"}
-            className={`w-full py-4 rounded-full font-bold transition-all active:scale-95 shadow-md text-center block ${isPopular
+            className={`w-full py-4 rounded-full font-bold transition-all active:scale-95 shadow-md text-center block text-xs leading-tight ${isPopular
               ? 'bg-accent-orange text-white hover:bg-accent-orange/90'
               : 'bg-obsidian-950 text-white dark:bg-white dark:text-obsidian-950 hover:opacity-90'
               }`}
           >
-            {isPopular ? 'Get Started' : 'Get Started'}
+            Grow My Revenue
           </Link>
         )}
       </motion.div>
@@ -181,8 +183,8 @@ const PricingGuides = () => {
   const content = {
     growth: [
       {
-        title: "The Sentry",
-        price: "$50/mo",
+        title: "Foundation Support",
+        price: "",
         description: "Zero-latency infrastructure and security for high-performance React applications.",
         features: [
           "Netlify Edge-Network Hosting",
@@ -197,8 +199,8 @@ const PricingGuides = () => {
         link: "/contact"
       },
       {
-        title: "The Pilot",
-        price: "$125/mo",
+        title: "Accelerator Plan",
+        price: "",
         description: "Peace of mind with monthly expert care and future-proof optimization.",
         features: [
           "Includes Sentry Plan",
@@ -211,8 +213,8 @@ const PricingGuides = () => {
         link: "/contact"
       },
       {
-        title: "The Navigator",
-        price: "$400/mo",
+        title: "Growth Accelerator",
+        price: "",
         description: "Active scaling for brands that need regular feature updates, deep SEO, and data-driven growth.",
         features: [
           "Includes Pilot Plan",
@@ -228,8 +230,8 @@ const PricingGuides = () => {
         link: "/contact"
       },
       {
-        title: "The Co-Pilot",
-        price: "$900/mo",
+        title: "Elite Strategy Partner",
+        price: "",
         description: "A dedicated full-stack partner for high-traffic or E-commerce brands.",
         features: [
           "Includes Navigator Plan",
@@ -243,8 +245,8 @@ const PricingGuides = () => {
       }],
     managed: [
       {
-        title: "Launch",
-        price: "$99/mo",
+        title: "The Launchpad Package",
+        price: "",
         description: "A professionally built website for businesses that want a strong online presence without the large upfront project cost. Ideal for businesses that want a clean, modern site with the essentials fully handled.",
         features: [
           "Custom-designed website",
@@ -259,14 +261,14 @@ const PricingGuides = () => {
           "Large design revisions",
           "Custom integrations or advanced CMS features"
         ],
-        subtext: "+ $499 Setup Fee",
+        subtext: "",
         accent: "text-blue-500",
         modalType: "call",
         link: "/contact"
       },
       {
-        title: "Growth",
-        price: "$195/mo",
+        title: "The Performance Package",
+        price: "",
         description: "A managed website designed to help your business do more than just look good online. Best for businesses that want stronger visibility, performance insights, and regular ongoing improvements.",
         features: [
           "Everything in Launch",
@@ -282,15 +284,15 @@ const PricingGuides = () => {
           "Large redesign requests",
           "Advanced custom application functionality"
         ],
-        subtext: "+ $699 Setup Fee",
+        subtext: "",
         accent: "text-accent-orange",
         isPopular: true,
         modalType: "call",
         link: "/contact"
       },
       {
-        title: "Partner",
-        price: "$395/mo",
+        title: "The Executive Package",
+        price: "",
         description: "A hands-on website partnership for businesses that want consistent improvements, priority support, and a developer actively helping the site perform better over time. This plan is for businesses that want ongoing attention, not just maintenance.",
         features: [
           "Everything in Growth",
@@ -306,7 +308,7 @@ const PricingGuides = () => {
           "Large-scale rebuilds",
           "Heavy third-party system integrations unless scoped separately"
         ],
-        subtext: "+ $1199 Setup Fee",
+        subtext: "",
         accent: "text-purple-500",
         modalType: "call",
         link: "/contact"
@@ -367,11 +369,11 @@ const PricingGuides = () => {
       }
     ],
     custom: [
-      { title: "Landing Page", price: "$800–$1,200", description: "High-conversion single page for lead gen, product launches, or portfolios.", features: ["Single Page Design", "Lead Gen & CTA Optimized", "React/Tailwind Stack", "Performance Optimized"], notIncluded: ["Domain, hosting & DevOps (see below)", "Stock photography or copywriting"], accent: "text-gray-500 dark:text-silver-400", link: "/custom-discovery" },
-      { title: "Business Site", price: "$1,500–$3,000", description: "A polished, fast online home for service providers. 3–6 custom pages.", features: ["3–6 Custom Pages", "UI/UX Flow Design", "SEO & Local Metadata", "Performance Optimized"], notIncluded: ["Domain, hosting & DevOps (see below)", "Stock photography or copywriting"], accent: "text-blue-500", link: "/custom-discovery" },
-      { title: "Dynamic + CMS", price: "$3,500–$6,000", description: "Advanced builds with a custom Admin Dashboard via Firebase/Firestore.", features: ["Everything in Business", "Secure Admin Portal", "Real-Time Content Updates", "Asset Management"], notIncluded: ["Domain, hosting & DevOps (see below)"], accent: "text-accent-orange", isPopular: true, link: "/custom-discovery" },
-      { title: "E-Commerce / Web App", price: "$5,000–$8,500+", description: "Full-scale stores or complex application logic with React/Next.js.", features: ["Custom API Logic", "Stripe Integration", "Complex Business Logic", "Scalable Architecture"], notIncluded: ["Domain, hosting & DevOps (see below)"], accent: "text-emerald-500", link: "/custom-discovery" },
-      { title: "Total Brand Launch", price: "$6,000–$9,000+", description: "The full package — website, CMS, brand identity, DevOps, and 3 months of dedicated support.", features: ["Full Custom Website + CMS", "Brand Identity & Logo", "Domain, Hosting & Full DevOps", "3 Months Support Included"], accent: "text-purple-500", link: "/custom-discovery" }
+      { title: "Lead Generation Site", price: "", description: "High-conversion single page for lead gen, product launches, or portfolios.", features: ["Single Page Design", "Lead Gen & CTA Optimized", "React/Tailwind Stack", "Performance Optimized"], notIncluded: ["Domain, hosting & DevOps (see below)", "Stock photography or copywriting"], accent: "text-gray-500 dark:text-silver-400", link: "/custom-discovery" },
+      { title: "Core Multi-Page Business Site", price: "", description: "A polished, fast online home for service providers. 3–6 custom pages.", features: ["3–6 Custom Pages", "UI/UX Flow Design", "SEO & Local Metadata", "Performance Optimized"], notIncluded: ["Domain, hosting & DevOps (see below)", "Stock photography or copywriting"], accent: "text-blue-500", link: "/custom-discovery" },
+      { title: "Custom Content Engine", price: "", description: "Advanced builds with a custom Admin Dashboard via Firebase/Firestore.", features: ["Everything in Business", "Secure Admin Portal", "Real-Time Content Updates", "Asset Management"], notIncluded: ["Domain, hosting & DevOps (see below)"], accent: "text-accent-orange", isPopular: true, link: "/custom-discovery" },
+      { title: "Full-Stack Application", price: "", description: "Full-scale stores or complex application logic with React/Next.js.", features: ["Custom API Logic", "Stripe Integration", "Complex Business Logic", "Scalable Architecture"], notIncluded: ["Domain, hosting & DevOps (see below)"], accent: "text-emerald-500", link: "/custom-discovery" },
+      { title: "Total Brand Transformation", price: "", description: "The full package — website, CMS, brand identity, DevOps, and 3 months of dedicated support.", features: ["Full Custom Website + CMS", "Brand Identity & Logo", "Domain, Hosting & Full DevOps", "3 Months Support Included"], accent: "text-purple-500", link: "/custom-discovery" }
     ]
   };
 
@@ -380,7 +382,7 @@ const PricingGuides = () => {
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-6xl font-bold tracking-tighter text-obsidian-950 dark:text-white mb-6">
-            Pricing & <span className="text-gradient">Partnership</span>
+            Partnership & <span className="text-gradient">Performance</span>
           </h2>
 
           <div className="flex flex-col items-center gap-8">
@@ -392,7 +394,7 @@ const PricingGuides = () => {
                   className={`px-4 sm:px-6 py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all uppercase tracking-widest ${activeTab === tab ? 'bg-white dark:bg-white dark:text-obsidian-950 shadow-md' : 'text-gray-500 dark:text-gray-300 hover:text-accent-orange'
                     }`}
                 >
-                  {tab === 'growth' ? 'Partnership Plans' : tab === 'managed' ? 'Managed Website Plans' : 'Custom Builds'}
+                  {tab === 'growth' ? 'Support Tiers' : tab === 'managed' ? 'Managed Solutions' : 'Custom Builds'}
                 </button>
               ))}
             </div>
@@ -953,7 +955,7 @@ const PricingGuides = () => {
                   <div>
                     <h4 className="text-lg font-bold text-obsidian-950 dark:text-white mb-2">DevOps & Launch Package — Quoted Separately</h4>
                     <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-sm mb-3">
-                      The prices above cover <span className="font-bold text-obsidian-950 dark:text-white">custom code, design, and development</span>. Domain registration,
+                      The packages above cover <span className="font-bold text-obsidian-950 dark:text-white">custom code, design, and development</span>. Domain registration,
                       hosting setup, DNS configuration, SSL, deployment, and ongoing infrastructure are scoped and quoted during our discovery call based on your project's needs.
                     </p>
                     <div className="flex flex-wrap gap-2">
