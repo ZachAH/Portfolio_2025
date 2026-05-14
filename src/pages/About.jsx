@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import Seo from '../components/Seo';
+import ConversionDashboard from '../components/ConversionDashboard';
 import { personSchema, breadcrumb } from '../utils/structuredData';
 
 const aboutJsonLd = {
@@ -17,83 +18,63 @@ const aboutJsonLd = {
 
 const comparisonRows = [
   {
-    label: 'Speed',
-    zh: 'Faster load times help keep visitors engaged and reduce the chance they leave before converting.',
-    generic: 'Slower pages that frustrate visitors and lose leads before they take action.',
+    label: 'Traffic',
+    zh: 'Built to rank higher on Google and Google Maps, driving more organic views and foot traffic.',
+    generic: 'Harder to find online, buried under competitors who invested in real web development.',
   },
   {
-    label: 'SEO',
-    zh: 'Built to make it easier for search engines to understand your site and for customers to find you.',
-    generic: 'Harder to optimize, with more clutter that can hold back visibility.',
+    label: 'Leads',
+    zh: 'Contact forms and calls-to-action designed to convert visitors into booked customers automatically.',
+    generic: 'Generic forms that visitors ignore or abandon before they ever reach you.',
   },
   {
-    label: 'Security',
-    zh: 'Fewer moving parts means fewer common break points and less maintenance stress.',
-    generic: 'More plugins and dependencies can mean more updates and more risk.',
+    label: 'ROI',
+    zh: 'A site that pays for itself by consistently bringing in new business without ongoing ad spend.',
+    generic: 'Constant monthly fees for plugins, maintenance, and missed opportunities with no direct revenue.',
   },
   {
-    label: 'Ownership',
-    zh: 'You own the site, the domain, and the hosting, so the business stays in your control.',
-    generic: 'Locked into a platform or builder that can be harder to move away from.',
+    label: 'Convenience',
+    zh: 'Leads come to you automatically — email, phone calls, reservations — without lifting a finger.',
+    generic: 'Missed calls and lost inquiries from forms that break or slow mobile experiences.',
   },
   {
-    label: 'Support',
-    zh: 'You work directly with the person building the site, so decisions move faster.',
-    generic: 'More handoffs, slower replies, and less direct accountability.',
+    label: 'Longevity',
+    zh: 'Keeps driving results year after year with minimal upkeep and no platform lock-in.',
+    generic: 'More time and money spent fixing issues instead of actually growing your business.',
   },
 ];
 
-const cleanCode = `export function Hero() {
-  return (
-    <section className="grid gap-6">
-      <h1>Fast sites close faster.</h1>
-      <p>Lean React + Vite architecture.</p>
-      <button>Start discovery</button>
-    </section>
-  );
-}`;
-
-const messyCode = `<!-- builder-output-final-v27 -->
-<div class="wp-block-group builder-row">
-  <div class="plugin-wrapper plugin-wrapper-2">
-    <div class="hero-module module-189">
-      <script src="/plugin/plugin.js"></script>
-      <div class="nested-shortcode">[cta_button id="7"]</div>
-    </div>
-  </div>
-</div>`;
-
 const sections = [
   {
-    eyebrow: 'Trust',
-    title: 'You get the person doing the work.',
+    eyebrow: 'Results',
+    title: 'Your website should put money back in your pocket.',
     body: [
-      'You are not paying for a sales rep, a project manager, and three layers of handoff. You work directly with me from strategy through launch.',
-      'That means faster decisions, clearer communication, and a site that reflects your business instead of a template someone else recycled.',
+      'I build your site to capture every opportunity — forms that route directly to your email, call tracking that shows exactly where new business comes from, and booking flows that convert browsers into reservations without you lifting a finger.',
+      'When your website is engineered for conversion, you stop chasing leads and start receiving them. That is the difference between a site you pay for and a site that pays you.',
     ],
   },
   {
-    eyebrow: 'Speed & SEO',
-    title: 'Fast sites turn more visitors into calls.',
+    eyebrow: 'Visibility',
+    title: 'Show up where your customers are searching.',
     body: [
-      'A faster website keeps people engaged longer and gives them less reason to leave before taking action.',
-      'I build with performance and search visibility in mind so your site is easier to find, easier to use, and more likely to convert.',
+      'When someone searches for a restaurant or service near them, your business needs to be front and center. I build your site to maximize local search and Google Maps visibility so you get more views, more clicks, and more foot traffic.',
+      'Higher rankings mean more organic leads without spending a dime on ads. That is the kind of ROI that compounds over time.',
     ],
   },
   {
-    eyebrow: 'Ownership',
-    title: 'You keep full control of your website.',
+    eyebrow: 'Leads',
+    title: 'Never miss a potential customer again.',
     body: [
-      'Your site, domain, and hosting are set up so the business owns the asset, not a platform or builder.',
-      'If you ever need to switch providers, expand, or move in a different direction, you are not trapped by someone else’s system.',
+      'Your site should work for you 24/7 — capturing leads, booking calls, and sending inquiries straight to your email without any extra effort on your part.',
+      'From contact forms that actually convert to automated lead capture, every piece is designed to turn casual browsers into booked customers.',
     ],
   },
   {
-    eyebrow: 'Security',
-    title: 'Fewer weak points means fewer headaches.',
+    eyebrow: 'Long-Term Value',
+    title: 'More revenue, less maintenance.',
     body: [
-      'I build in a way that avoids a lot of the common issues that come from plugin-heavy setups and overly complex builder stacks.',
-      'The result is a cleaner, easier-to-manage site with less maintenance stress for your business.',
+      'A cheap site costs you more in the long run — lost leads from slow load times, missed calls from poor mobile experiences, and endless fees that eat into your margin.',
+      'I build for results that last. You get a site that keeps driving business month after month without constant upkeep or unexpected bills.',
     ],
   },
 ];
@@ -102,10 +83,10 @@ const About = () => {
   return (
     <section id="about" className="py-32 px-6 md:px-12 lg:px-24 bg-white dark:bg-obsidian-950">
       <Seo
-        title="Why ZH Web Solutions? | Senior Engineer, Fast React Builds, Zero Lock-In"
-        description="Why businesses pay more for ZH Web Solutions: direct access to a senior full-stack engineer, high-performance React/Vite builds, better SEO, stronger security, and 100% ownership without WordPress or builder lock-in."
+        title="Why ZH Web Solutions? | More Customers, More Revenue, Zero Hassle"
+        description="Why businesses choose ZH Web Solutions: more Google Maps visibility, more phone calls and leads, higher ROI, and a website that brings in customers while you focus on running your business."
         path="/about"
-        keywords="why choose custom web development, React vs WordPress web design, senior full-stack engineer web developer, high performance website Wisconsin, zero lock-in website development, premium web developer Milwaukee"
+        keywords="more google maps visibility, get more phone calls from website, website leads to email, higher ROI website, local SEO for restaurants, website for service businesses, Milwaukee web developer"
         jsonLd={aboutJsonLd}
       />
 
@@ -120,10 +101,10 @@ const About = () => {
             Why Me?
           </span>
           <h1 className="text-5xl md:text-7xl font-black tracking-tighter text-obsidian-950 dark:text-white leading-[0.92] mb-6">
-            Premium websites cost more because cheap foundations cost more later.
+            More filled seats. More phone calls. More revenue.
           </h1>
           <p className="text-xl md:text-2xl text-zinc-600 dark:text-zinc-300 font-medium leading-relaxed max-w-4xl">
-            If you are comparing me against WordPress shops, Wix freelancers, or GoDaddy resellers, you are not comparing the same product. I build websites designed to bring in more leads, make your business look more credible, and stay in your control long after launch.
+            Every decision I make building your site is about one thing — turning visitors into paying customers. Whether that means reservations hitting your phone, leads landing in your inbox, or customers finding you on Google Maps, your website should work as hard as you do.
           </p>
         </motion.div>
 
@@ -164,55 +145,34 @@ const About = () => {
                 The Premise
               </p>
               <h3 className="text-3xl font-black tracking-tight mb-4">
-                Better websites create better business results.
+                Your website is your best marketing hire.
               </h3>
               <p className="text-zinc-300 leading-relaxed mb-6">
-                Faster sites keep more visitors engaged, make your business look more trustworthy, and reduce avoidable problems after launch. That is why custom work can be worth more than a cheaper template build.
+                Every visitor to your site is a potential customer. I build to make sure they take action — picking up the phone, filling out a form, or walking through your door. A well-built site pays for itself by consistently bringing in new business.
               </p>
               <div className="grid grid-cols-2 gap-4">
                 <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
-                  <p className="text-2xl font-black text-accent-orange">6+</p>
+                  <p className="text-2xl font-black text-accent-orange">Higher</p>
                   <p className="text-[11px] uppercase tracking-[0.18em] text-zinc-400 font-bold mt-1">
-                    Years Full-Stack
+                    Google Maps Rankings
                   </p>
                 </div>
                 <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
-                  <p className="text-2xl font-black text-accent-orange">95-100</p>
+                  <p className="text-2xl font-black text-accent-orange">More</p>
                   <p className="text-[11px] uppercase tracking-[0.18em] text-zinc-400 font-bold mt-1">
-                    Lighthouse Targets
+                    Leads to Your Inbox
                   </p>
                 </div>
               </div>
             </motion.aside>
 
-            <motion.aside
+            <motion.div
               initial={{ opacity: 0, y: 22 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="rounded-[2.5rem] bg-zinc-50 border border-zinc-200 p-8 md:p-10 shadow-sm"
             >
-              <h3 className="text-3xl font-black tracking-tight text-obsidian-950 mb-4">
-                Clean architecture beats builder residue.
-              </h3>
-              <div className="grid grid-cols-1 gap-4">
-                <div className="rounded-[1.75rem] border border-emerald-500/20 bg-emerald-50 p-5">
-                  <p className="text-[10px] font-black uppercase tracking-[0.2em] text-emerald-700 mb-3">
-                    Custom React / Vite
-                  </p>
-                  <pre className="text-[11px] leading-relaxed text-obsidian-950 whitespace-pre-wrap overflow-x-auto font-mono">
-                    {cleanCode}
-                  </pre>
-                </div>
-                <div className="rounded-[1.75rem] border border-zinc-300 bg-white p-5">
-                  <p className="text-[10px] font-black uppercase tracking-[0.2em] text-zinc-500 mb-3">
-                    Generic Builder Output
-                  </p>
-                  <pre className="text-[11px] leading-relaxed text-zinc-500 whitespace-pre-wrap overflow-x-auto font-mono">
-                    {messyCode}
-                  </pre>
-                </div>
-              </div>
-            </motion.aside>
+              <ConversionDashboard />
+            </motion.div>
           </div>
         </div>
 
@@ -264,10 +224,10 @@ const About = () => {
           className="mt-10 rounded-[3rem] bg-obsidian-950 text-white p-10 md:p-14 text-center shadow-sm"
         >
           <h2 className="text-4xl md:text-6xl font-black tracking-tighter leading-[0.95] mb-5">
-            Ready to build something that actually performs?
+            Ready to start getting more customers?
           </h2>
           <p className="text-zinc-300 max-w-3xl mx-auto text-lg leading-relaxed mb-8">
-            If you want a site that loads faster, ranks better, stays secure, and remains yours long after launch day, start the discovery process.
+            If you are ready for a website that actually brings in business — more calls, more bookings, more revenue — start the discovery process today.
           </p>
           <Link
             to="/custom-discovery"
