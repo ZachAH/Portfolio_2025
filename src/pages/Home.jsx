@@ -67,11 +67,11 @@ const SummerPromoModal = ({ isOpen, onClose }) => (
 
               <h2 className="max-w-lg text-4xl font-black leading-[0.95] tracking-tight text-obsidian-950 dark:text-white sm:text-5xl">
                 Summer Sale:
-                <span className="block text-accent-orange">3 months of The Pilot included</span>
+                <span className="block text-accent-orange">3 months of The Accelerator Plan included</span>
               </h2>
 
               <p className="mt-4 max-w-lg text-sm leading-relaxed text-obsidian-950/75 dark:text-white/80 sm:text-base">
-                Every new website build includes 3 free months of The Pilot partnership plan. Hosting stability, SEO upkeep, and expert support are bundled in for launch season. Offer ends soon.
+                Every new website build includes 3 free months of The Accelerator Support plan. Hosting stability, SEO upkeep, and expert support are bundled in for launch season. Offer ends soon.
               </p>
 
               <div className="mt-6 rounded-2xl border border-white/60 bg-white/45 p-4 shadow-sm backdrop-blur-sm dark:border-white/10 dark:bg-black/15">
