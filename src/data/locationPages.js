@@ -125,6 +125,177 @@ export const locationPages = [
       'Custom code foundations that are easy to extend later',
     ],
   },
+  {
+    slug: 'waukesha',
+    city: 'Waukesha',
+    focusKeyword: 'Main Street Credibility',
+    metaDescription:
+      'Looking for a web developer in Waukesha? ZH Web Solutions builds high-performance, GSAP-powered websites to help Waukesha businesses compete with main street credibility and modern digital reach.',
+    heroLead:
+      'Waukesha businesses face a unique challenge: standing out in a growing market where both legacy institutions and new entrants are competing for the same local audience. Your website has to bridge that gap between established trust and modern execution.',
+    serviceDescription:
+      'My Waukesha web development approach is centered on Main Street Credibility: building sites that feel deeply local and trustworthy while delivering the speed, motion, and conversion architecture that todays web standards demand.',
+    marketInsight:
+      'That means clean service pages that rank locally, intentional motion that signals quality without slowing things down, and a site structure that makes it easy for both longtime residents and newcomers to find what they need and take action.',
+    proofPoints: [
+      'Downtown-ready design language that balances professionalism with approachability',
+      'Service-page architecture built for local search dominance',
+      'Conversion paths calibrated for service-based and retail-adjacent businesses',
+      'Trust-building layout patterns that reduce hesitation and increase inbound contact',
+    ],
+  },
+  {
+    slug: 'wauwatosa',
+    city: 'Wauwatosa',
+    focusKeyword: 'Village Vitality',
+    metaDescription:
+      'Looking for a web developer in Wauwatosa? ZH Web Solutions builds high-performance, GSAP-powered websites to help Wauwatosa businesses thrive with village vitality and modern web standards.',
+    heroLead:
+      'Wauwatosa sits at the intersection of historic village character and modern professional expectation. A website here needs to honor that balance: feel current without losing warmth, and perform technically without sacrificing personality.',
+    serviceDescription:
+      'In Wauwatosa, I focus on Village Vitality: building custom sites that serve established local businesses, growing practices, and service professionals who need a web presence that reflects Tosas unique energy.',
+    marketInsight:
+      'That translates to cleaner information architecture, brand-forward design that stands out in a dense local market, and technical performance that keeps visitors engaged from first click to conversion.',
+    proofPoints: [
+      'Brand-forward layouts suited for Tosas walkable business districts',
+      'Local SEO structure that helps businesses compete in a dense market',
+      'Performance-tuned builds for mobile-heavy local search traffic',
+      'Clear content hierarchy that moves visitors from discovery to inquiry',
+    ],
+  },
+  {
+    slug: 'cedarburg',
+    city: 'Cedarburg',
+    focusKeyword: 'Heritage Branding',
+    metaDescription:
+      'Looking for a web developer in Cedarburg? ZH Web Solutions builds high-performance, GSAP-powered websites that help Cedarburg businesses reflect their heritage while competing in the modern market.',
+    heroLead:
+      'Cedarburg is a market built on history, charm, and quality. For businesses here, the website needs to communicate the same care and attention that the community itself is known for without feeling dated or static.',
+    serviceDescription:
+      'For Cedarburg clients, I lead with Heritage Branding: a design and development approach that respects the character of the market while delivering a modern, performance-optimized digital presence that drives real results.',
+    marketInsight:
+      'That means thoughtful typography, refined motion that feels intentional rather than flashy, and a site structure that makes browsing feel as welcoming as a walk through Cedar Creek Settlement.',
+    proofPoints: [
+      'Heritage-informed design that respects Cedarburgs character',
+      'Performance-first builds optimized for mobile and local search',
+      'Conversion paths tailored for tourism, retail, and service businesses',
+      'Premium visual storytelling without sacrificing speed or clarity',
+    ],
+  },
+  {
+    slug: 'hartford',
+    city: 'Hartford',
+    focusKeyword: 'Small-Market Impact',
+    metaDescription:
+      'Looking for a web developer in Hartford, WI? ZH Web Solutions builds high-performance, GSAP-powered websites to help Hartford businesses make a big impact in their local market.',
+    heroLead:
+      'Hartford businesses know the value of community connection. In a growing market where personal reputation still drives referrals, your website needs to look every bit as professional as the service you deliver in person.',
+    serviceDescription:
+      'For Hartford, I focus on Small-Market Impact: building lean, high-impact websites that help local businesses punch above their weight online without overcomplicating the message or the technology.',
+    marketInsight:
+      'That means intentional design, clear service positioning, and performance-tuned pages that make it easy for Hartford residents to find you, trust you, and reach out on the spot.',
+    proofPoints: [
+      'Lean, high-impact site architecture for growing local markets',
+      'Clear service positioning that drives immediate understanding',
+      'Performance-tuned pages that load fast on any device',
+      'Local SEO signals calibrated for Washington County relevance',
+    ],
+  },
+  {
+    slug: 'port-washington',
+    city: 'Port Washington',
+    focusKeyword: 'Harbor Presence',
+    metaDescription:
+      'Looking for a web developer in Port Washington? ZH Web Solutions builds high-performance, GSAP-powered websites that help Port Washington businesses stand out with a commanding harbor presence online.',
+    heroLead:
+      'Port Washington has a distinct identity shaped by Lake Michigan, a historic downtown, and a community that values quality. For businesses here, the website needs to capture that same character while delivering modern performance.',
+    serviceDescription:
+      'In Port Washington, the approach is Harbor Presence: building sites that feel as distinctive and inviting as the lakefront itself, with clean design, fast load times, and conversion paths that turn local curiosity into booked business.',
+    marketInsight:
+      'That means visual storytelling that reflects the market, service-page depth that builds trust quickly, and a mobile experience polished enough for visitors exploring the harbor on their phones.',
+    proofPoints: [
+      'Design language that reflects Port Washingtons lakefront character',
+      'Service-page depth built for tourism, dining, and local services',
+      'Mobile-first experience for visitors exploring on the go',
+      'Local SEO structured for Ozaukee County search visibility',
+    ],
+  },
+  {
+    slug: 'grafton',
+    city: 'Grafton',
+    focusKeyword: 'Corridor Growth',
+    metaDescription:
+      'Looking for a web developer in Grafton, WI? ZH Web Solutions builds high-performance, GSAP-powered websites to help Grafton businesses grow along the I-43 corridor.',
+    heroLead:
+      'Grafton sits along a busy corridor where first impressions happen fast. A website that loads slowly or looks outdated costs real opportunities, especially when competitors are just a few miles away in Mequon or Cedarburg.',
+    serviceDescription:
+      'My Grafton strategy focuses on Corridor Growth: building fast, conversion-ready websites that help Grafton businesses capture more local traffic and stand out along the competitive I-43 corridor.',
+    marketInsight:
+      'That usually means performance-optimized pages, tighter conversion flows, and design that feels polished enough to compete with neighboring markets while still reflecting Graftons own community identity.',
+    proofPoints: [
+      'Performance-optimized builds for competitive corridor visibility',
+      'Conversion flows designed to capture nearby market traffic',
+      'Polished design that competes with neighboring suburban markets',
+      'Local SEO structure covering Grafton and surrounding areas',
+    ],
+  },
+  {
+    slug: 'jackson',
+    city: 'Jackson',
+    focusKeyword: 'Community Roots',
+    metaDescription:
+      'Looking for a web developer in Jackson, WI? ZH Web Solutions builds high-performance, GSAP-powered websites to help Jackson businesses grow from strong community roots.',
+    heroLead:
+      'Jackson is a close-knit community where local trust goes a long way. For businesses here, the website needs to reinforce that trust with a clean, credible presence that makes local customers feel confident reaching out.',
+    serviceDescription:
+      'For Jackson clients, I emphasize Community Roots: building straightforward, professional websites that help local businesses strengthen their reputation and capture more nearby customers without unnecessary complexity.',
+    marketInsight:
+      'That means clean information architecture, trust-building design patterns, and a mobile-friendly experience that matches how Jackson families search for local services on the go.',
+    proofPoints: [
+      'Straightforward site architecture built for local credibility',
+      'Trust-focused design patterns for service-based businesses',
+      'Mobile-optimized experience for on-the-go local searchers',
+      'Washington County local SEO to capture nearby demand',
+    ],
+  },
+  {
+    slug: 'slinger',
+    city: 'Slinger',
+    focusKeyword: 'Local Momentum',
+    metaDescription:
+      'Looking for a web developer in Slinger, WI? ZH Web Solutions builds high-performance, GSAP-powered websites to help Slinger businesses build momentum in their local market.',
+    heroLead:
+      'Slinger is a growing community where businesses have room to expand their local footprint. A strong website helps capture that momentum by turning local search traffic into real, qualified leads.',
+    serviceDescription:
+      'For Slinger, I build around Local Momentum: creating fast, conversion-focused websites that help growing businesses in Slinger establish a credible online presence and pull ahead of less polished competitors.',
+    marketInsight:
+      'That means straightforward service pages, clear calls to action, and local search infrastructure that helps Slinger businesses show up when nearby customers are looking for what they offer.',
+    proofPoints: [
+      'Conversion-focused layouts for growing local markets',
+      'Clear service pages that answer customer questions fast',
+      'Local SEO built for Washington County search volume',
+      'Fast, lean codebase that is easy to update as the business grows',
+    ],
+  },
+  {
+    slug: 'menomonee-falls',
+    city: 'Menomonee Falls',
+    focusKeyword: 'Community Reach',
+    metaDescription:
+      'Looking for a web developer in Menomonee Falls? ZH Web Solutions builds high-performance, GSAP-powered websites to help Menomonee Falls businesses extend their community reach through modern web design.',
+    heroLead:
+      'Menomonee Falls combines small-community warmth with suburban growth. Businesses here need websites that feel approachable and locally grounded while performing at the level of a modern, growth-oriented company.',
+    serviceDescription:
+      'For Menomonee Falls, the strategy is Community Reach: building digital presences that reflect the Falls collaborative, family-friendly identity while delivering the technical rigor needed to win search visibility and convert local traffic.',
+    marketInsight:
+      'That means tighter service narratives, stronger trust signals, and a mobile-first experience that makes it easy for local customers to learn, trust, and reach out without friction.',
+    proofPoints: [
+      'Community-forward layouts built for local service businesses',
+      'Mobile-optimized design for on-the-go family decision-makers',
+      'Local search infrastructure for surrounding Waukesha County reach',
+      'Clean site architecture that supports both credibility and conversion',
+    ],
+  },
 ];
 
 export const locationPageMap = Object.fromEntries(

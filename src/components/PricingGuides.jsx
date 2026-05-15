@@ -317,7 +317,7 @@ const PricingGuides = () => {
     templates: [
       {
         title: "The 72h Sprint",
-        price: "$1,400",
+        price: "",
         description: "Velocity as a Service. I take your selected foundation and transform it into a high-performance, live brand in exactly 48 hours. One fixed price — no hidden fees, no recurring charges.",
         features: [
           "Full Source Code Ownership — yours on day one",
@@ -341,7 +341,7 @@ const PricingGuides = () => {
       },
       {
         title: "Modern Edge",
-        price: "$2,000",
+        price: "",
         description: "For brands that need to command attention. High-impact UI paired with complex motion logic to establish immediate market authority.",
         features: ["Elite Source Code Access",
           "Aggressive GSAP Motion Engine",
@@ -357,7 +357,7 @@ const PricingGuides = () => {
       },
       {
         title: "Commerce Launch",
-        price: "$3,200",
+        price: "",
         description: "A secure revenue machine. I'll deploy your full shop with functional cart and inventory logic.",
         features: ["Choice of Elite E-Com Foundation",
           "Strategic Inventory & SKU Setup",
@@ -463,16 +463,104 @@ const PricingGuides = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="mt-20 p-8 bg-gray-50 dark:bg-white/5 rounded-3xl border border-accent-orange/20 text-center max-w-4xl mx-auto shadow-sm"
+              className="mt-20 max-w-4xl mx-auto"
             >
-              <h4 className="text-xl font-bold text-obsidian-950 dark:text-white mb-3 flex items-center justify-center gap-2">
-                The Advantage of Working With Me
-              </h4>
-              <p className="text-gray-600 dark:text-gray-300 leading-relaxed italic text-sm sm:text-base">
-                "I build with modern frameworks like React and TailwindCSS, meaning I am significantly faster than developers using
-                legacy builders. An 'hour' of my time usually covers what takes other agencies three — you're paying for rapid,
-                professional execution on a world-class foundation."
-              </p>
+              <div className="p-8 bg-gray-50 dark:bg-white/5 rounded-3xl border border-accent-orange/20 text-center shadow-sm mb-10">
+                <h4 className="text-xl font-bold text-obsidian-950 dark:text-white mb-3 flex items-center justify-center gap-2">
+                  The Advantage of Working With Me
+                </h4>
+                <p className="text-gray-600 dark:text-gray-300 leading-relaxed italic text-sm sm:text-base">
+                  "I build with modern frameworks like React and TailwindCSS, meaning I am significantly faster than developers using
+                  legacy builders. An 'hour' of my time usually covers what takes other agencies three — you're paying for rapid,
+                  professional execution on a world-class foundation."
+                </p>
+              </div>
+
+              {/* ── FAQ SECTION ──── */}
+              <div className="mb-10">
+                <h3 className="text-2xl md:text-3xl font-bold tracking-tight text-obsidian-950 dark:text-white mb-2 text-center">
+                  Support Plan FAQs
+                </h3>
+                <p className="text-sm text-zinc-500 dark:text-zinc-400 text-center mb-8">
+                  How ongoing partnership works after your custom build is live.
+                </p>
+                <div className="space-y-4">
+                  {[
+                    {
+                      q: "What's the difference between the support tiers?",
+                      a: "Each tier adds more engineering hours and deeper strategic involvement. Foundation Support covers infrastructure and security monitoring. Accelerator adds monthly SEO tuning and an expert hour for updates. Growth Accelerator includes behavioral analytics, conversion optimization, and priority support. Elite Strategy Partner gives you dedicated strategy calls and direct Slack or text access for fast turnaround."
+                    },
+                    {
+                      q: "Can I upgrade or downgrade my plan later?",
+                      a: "Yes. Plans are month-to-month — you can move up for more hours and priority access whenever your needs grow, or scale back if things quiet down. No long-term contracts, no penalties."
+                    },
+                    {
+                      q: "What kind of response time can I expect?",
+                      a: "Growth Accelerator and Elite plans get priority 24-hour support. Foundation and Accelerator plans receive standard support with updates typically handled within 48 hours. For urgent issues — site down, payment gateway errors — I prioritize regardless of tier."
+                    },
+                    {
+                      q: "What happens if I need more hours than my plan includes?",
+                      a: "I track hours monthly and let you know before you exceed your allotment. Additional hours are billed at my standard hourly rate, or you can upgrade to the next tier for a better rate if you consistently need more."
+                    },
+                    {
+                      q: "Do I need a support plan if my site is already built?",
+                      a: "A custom React site doesn't require ongoing maintenance the way WordPress does — no plugin updates, no core patches. But support plans give you priority access for content changes, feature additions, SEO tuning, and analytics reviews. Think of it as having a senior engineer on retainer rather than paying for bug fixes."
+                    }
+                  ].map((faq) => (
+                    <details
+                      key={faq.q}
+                      className="group rounded-2xl border border-zinc-200 dark:border-white/10 bg-white dark:bg-white/5 overflow-hidden"
+                    >
+                      <summary className="flex items-center justify-between p-5 cursor-pointer text-sm font-bold text-obsidian-950 dark:text-white hover:bg-zinc-50 dark:hover:bg-white/[0.08] transition-colors">
+                        <span>{faq.q}</span>
+                        <svg className="w-4 h-4 shrink-0 text-zinc-400 group-open:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                        </svg>
+                      </summary>
+                      <p className="px-5 pb-5 text-sm text-zinc-600 dark:text-zinc-300 leading-relaxed border-t border-zinc-200 dark:border-white/10 pt-4">
+                        {faq.a}
+                      </p>
+                    </details>
+                  ))}
+                </div>
+              </div>
+
+              {/* ── TRUST SIGNALS ──── */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div className="p-5 rounded-2xl border border-zinc-200 dark:border-white/10 bg-white dark:bg-white/5">
+                  <div className="w-9 h-9 rounded-xl bg-blue-500/10 flex items-center justify-center mb-3">
+                    <svg className="w-4 h-4 text-blue-600 dark:text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                    </svg>
+                  </div>
+                  <h4 className="text-sm font-bold text-obsidian-950 dark:text-white mb-1">Direct Engineer Access</h4>
+                  <p className="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">
+                    You talk directly to the engineer who built your site. No ticket queues, no account managers, no bots. Text, email, or Slack — whatever works for you.
+                  </p>
+                </div>
+                <div className="p-5 rounded-2xl border border-zinc-200 dark:border-white/10 bg-white dark:bg-white/5">
+                  <div className="w-9 h-9 rounded-xl bg-emerald-500/10 flex items-center justify-center mb-3">
+                    <svg className="w-4 h-4 text-emerald-600 dark:text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                    </svg>
+                  </div>
+                  <h4 className="text-sm font-bold text-obsidian-950 dark:text-white mb-1">24/7 Uptime & Performance Monitoring</h4>
+                  <p className="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">
+                    Every plan includes automated uptime sentry, CI/CD deployment monitoring, and dependency patching. Your site is watched even when you are not.
+                  </p>
+                </div>
+                <div className="p-5 rounded-2xl border border-zinc-200 dark:border-white/10 bg-white dark:bg-white/5">
+                  <div className="w-9 h-9 rounded-xl bg-accent-orange/10 flex items-center justify-center mb-3">
+                    <svg className="w-4 h-4 text-accent-orange" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                  </div>
+                  <h4 className="text-sm font-bold text-obsidian-950 dark:text-white mb-1">Proactive Growth, Not Reactive Fixes</h4>
+                  <p className="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">
+                    Higher tiers include monthly analytics reviews, SEO health audits, and conversion recommendations. I reach out with opportunities — you don't have to chase me for improvements.
+                  </p>
+                </div>
+              </div>
             </motion.div>
           ) : activeTab === 'managed' ? (
             <motion.div
@@ -691,7 +779,7 @@ const PricingGuides = () => {
                         </div>
                       </div>
                       <p className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-widest text-center mt-3 pt-3 border-t border-gray-200 dark:border-white/10">
-                        My managed plans: Professional React site + ongoing care for $99–$395/month
+                        My managed plans: Professional React site + ongoing care — scoped during our call
                       </p>
                     </div>
                   </div>
@@ -796,7 +884,7 @@ const PricingGuides = () => {
                     </div>
 
                     <p className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-widest text-center">
-                      My managed plans: $99–$395/month with professional build included
+                      My managed plans: professional build included — scoped during our call
                     </p>
                   </div>
                 </div>
@@ -993,6 +1081,92 @@ const PricingGuides = () => {
                     {tag}
                   </span>
                 ))}
+              </div>
+
+              {/* ── FAQ SECTION ──── */}
+              <div className="mt-14">
+                <h3 className="text-2xl md:text-3xl font-bold tracking-tight text-obsidian-950 dark:text-white mb-2 text-center">
+                  Frequently Asked Questions
+                </h3>
+                <p className="text-sm text-zinc-500 dark:text-zinc-400 text-center mb-8">
+                  What actually drives the investment for a custom build.
+                </p>
+                <div className="space-y-4">
+                  {[
+                    {
+                      q: "Why don't custom builds have a fixed price listed?",
+                      a: "Because scope determines cost. A 3-page marketing site with static content is a fundamentally different engineering problem than a full-stack SaaS app with authentication, payment processing, real-time data, and AI agents. I quote after a discovery call where I understand your actual requirements — not before."
+                    },
+                    {
+                      q: "What makes one custom build cost more than another?",
+                      a: "The biggest drivers are page count, third-party API integrations (Stripe, OpenAI, Airtable, HubSpot), custom animation systems (Framer Motion, GSAP timelines), real-time data syncing (Firebase, WebSockets), admin dashboard complexity, user authentication and role management, and whether content needs a headless CMS. Each one adds measurable engineering time."
+                    },
+                    {
+                      q: "How do animations and motion design affect the cost?",
+                      a: "Simple fade-ins and scroll reveals are lightweight. Complex choreographed sequences — multi-stage GSAP timelines, parallax systems, SVG morphing, scroll-triggered narrative animations — require significantly more engineering and QA. I use motion intentionally: where it supports your brand story and conversion goals, not as decorative bloat."
+                    },
+                    {
+                      q: "What does AI integration add to a custom build?",
+                      a: "AI features — GPT-powered content generation, intelligent search with embeddings, automated workflows, or custom agent logic — add backend infrastructure. The cost depends on prompt chain complexity, whether you need RAG (retrieval-augmented generation) with vector databases, API usage volume, and how tightly the AI logic integrates with your existing business data."
+                    },
+                    {
+                      q: "What's the real difference between a custom build and a template?",
+                      a: "Templates restrict your layout, limit performance optimization, and lock you into someone else's technology choices. A custom build gives you full control over every pixel, every interaction, and every integration. You own the code, it scales with your business, and any developer can work on it — no proprietary platform lock-in."
+                    }
+                  ].map((faq) => (
+                    <details
+                      key={faq.q}
+                      className="group rounded-2xl border border-zinc-200 dark:border-white/10 bg-white dark:bg-white/5 overflow-hidden"
+                    >
+                      <summary className="flex items-center justify-between p-5 cursor-pointer text-sm font-bold text-obsidian-950 dark:text-white hover:bg-zinc-50 dark:hover:bg-white/[0.08] transition-colors">
+                        <span>{faq.q}</span>
+                        <svg className="w-4 h-4 shrink-0 text-zinc-400 group-open:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                        </svg>
+                      </summary>
+                      <p className="px-5 pb-5 text-sm text-zinc-600 dark:text-zinc-300 leading-relaxed border-t border-zinc-200 dark:border-white/10 pt-4">
+                        {faq.a}
+                      </p>
+                    </details>
+                  ))}
+                </div>
+              </div>
+
+              {/* ── TRUST SIGNALS ──── */}
+              <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div className="p-5 rounded-2xl border border-zinc-200 dark:border-white/10 bg-white dark:bg-white/5">
+                  <div className="w-9 h-9 rounded-xl bg-emerald-500/10 flex items-center justify-center mb-3">
+                    <svg className="w-4 h-4 text-emerald-600 dark:text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                    </svg>
+                  </div>
+                  <h4 className="text-sm font-bold text-obsidian-950 dark:text-white mb-1">Technology TCO</h4>
+                  <p className="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">
+                    Custom React eliminates recurring plugin licenses, bloated page builders, and platform transaction fees. Over 3 years, the total cost of ownership is competitive with — or lower than — the big closed platforms.
+                  </p>
+                </div>
+                <div className="p-5 rounded-2xl border border-zinc-200 dark:border-white/10 bg-white dark:bg-white/5">
+                  <div className="w-9 h-9 rounded-xl bg-amber-500/10 flex items-center justify-center mb-3">
+                    <svg className="w-4 h-4 text-amber-600 dark:text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                  </div>
+                  <h4 className="text-sm font-bold text-obsidian-950 dark:text-white mb-1">Performance Benchmarks</h4>
+                  <p className="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">
+                    90+ Lighthouse scores guaranteed across all audits. Every build is optimized for Core Web Vitals out of the box — no plugins, no performance drag, no surprises.
+                  </p>
+                </div>
+                <div className="p-5 rounded-2xl border border-zinc-200 dark:border-white/10 bg-white dark:bg-white/5">
+                  <div className="w-9 h-9 rounded-xl bg-blue-500/10 flex items-center justify-center mb-3">
+                    <svg className="w-4 h-4 text-blue-600 dark:text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                    </svg>
+                  </div>
+                  <h4 className="text-sm font-bold text-obsidian-950 dark:text-white mb-1">Security Standards</h4>
+                  <p className="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">
+                    No third-party plugin attack surface. Content Security Policy headers, XSS/CSRF protection, automatic dependency patching, and HTTPS/SSL baked into every build by default.
+                  </p>
+                </div>
               </div>
             </motion.div>
           )}
