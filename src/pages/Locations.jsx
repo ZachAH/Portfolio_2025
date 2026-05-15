@@ -39,10 +39,10 @@ const Locations = () => {
       <div className="max-w-6xl mx-auto">
         <div className="max-w-3xl">
           <span className="text-xs font-black tracking-[0.3em] text-accent-orange uppercase mb-4 inline-block">
-            Locations
+            <span className="text-gradient">Locations</span>
           </span>
           <h1 className="text-4xl md:text-6xl font-bold tracking-tighter text-obsidian-950 dark:text-white mb-6">
-            Custom web development across Southeastern Wisconsin.
+            Custom web development across <span className="text-gradient">Southeastern Wisconsin</span>.
           </h1>
           <p className="text-lg text-zinc-600 dark:text-zinc-300 leading-relaxed">
           </p>

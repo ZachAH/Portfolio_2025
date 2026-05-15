@@ -98,10 +98,10 @@ const About = () => {
           className="max-w-5xl"
         >
           <span className="text-xs font-black tracking-[0.32em] text-accent-orange uppercase mb-5 inline-block">
-            Why Me?
+            <span className="text-gradient">Why Me?</span>
           </span>
           <h1 className="text-5xl md:text-7xl font-black tracking-tighter text-obsidian-950 dark:text-white leading-[0.92] mb-6">
-            More filled seats. More phone calls. More revenue.
+            More filled seats. More phone calls. <span className="text-gradient">More revenue.</span>
           </h1>
           <p className="text-xl md:text-2xl text-zinc-600 dark:text-zinc-300 font-medium leading-relaxed max-w-4xl">
             Every decision I make building your site is about one thing — turning visitors into paying customers. Whether that means reservations hitting your phone, leads landing in your inbox, or customers finding you on Google Maps, your website should work as hard as you do.
