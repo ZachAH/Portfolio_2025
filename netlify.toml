@@ -1,0 +1,7 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+# Matches Netlify default — explicit so canonical/sitemap trailing slashes stay in sync.
+[build.processing.html]
+  pretty_urls = true

@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import Seo from '../components/Seo';
 import { breadcrumb } from '../utils/structuredData';
 import { getLocationPath, locationPages } from '../data/locationPages';
+import { absoluteUrl } from '../utils/seoUrls';
 
 const locationsJsonLd = {
   '@context': 'https://schema.org',
@@ -19,7 +20,7 @@ const locationsJsonLd = {
         '@type': 'ListItem',
         position: index + 1,
         name: `${location.city} Web Design`,
-        url: `https://zachhowell.dev${getLocationPath(location.slug)}`,
+        url: absoluteUrl(getLocationPath(location.slug)),
       })),
     },
   ],

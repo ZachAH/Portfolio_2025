@@ -1,14 +1,4 @@
-export const SERVICE_AREA_NAMES = [
-  'New Berlin',
-  'Brookfield',
-  'Milwaukee',
-  'Mequon',
-  'Elm Grove',
-  'Waukesha',
-  'West Bend',
-  'Whitefish Bay',
-  'Fox Point',
-];
+import { canonicalPath } from '../utils/seoUrls.js';
 
 export const locationPages = [
   {
@@ -302,4 +292,12 @@ export const locationPageMap = Object.fromEntries(
   locationPages.map((page) => [page.slug, page])
 );
 
-export const getLocationPath = (slug) => `/locations/${slug}-web-design`;
+/** All cities with dedicated location landing pages, plus core service-area entries. */
+export const SERVICE_AREA_NAMES = [
+  'New Berlin',
+  'Fox Point',
+  ...locationPages.map((page) => page.city),
+];
+
+export const getLocationPath = (slug) =>
+  canonicalPath(`/locations/${slug}-web-design`);

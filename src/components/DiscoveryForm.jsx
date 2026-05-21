@@ -24,7 +24,7 @@ const DiscoveryForm = ({ embedded = false, title = 'Tell me what you need.', des
   const [isComplete, setIsComplete] = useState(false);
 
   const serviceArea = useMemo(() => {
-    const match = location.pathname.match(/^\/locations\/(.+?)-web-design$/);
+    const match = location.pathname.match(/^\/locations\/(.+?)-web-design\/?$/);
     if (!match) return '';
     return match[1]
       .split('-')
@@ -99,7 +99,12 @@ const DiscoveryForm = ({ embedded = false, title = 'Tell me what you need.', des
   return (
     <section className={embedded ? 'py-0' : 'min-h-screen pt-32 pb-20 px-6 bg-white dark:bg-obsidian-950'}>
       {!embedded && (
-        <Seo title="Custom Build Discovery | Zach Howell" description="Kick off the discovery phase for a fully custom website or web app build." path="/custom-discovery" />
+        <Seo
+          title="Custom Build Discovery | Zach Howell"
+          description="Kick off the discovery phase for a fully custom website or web app build."
+          path="/custom-discovery"
+          noindex
+        />
       )}
       <div className="max-w-3xl mx-auto">
         <div className="text-center mb-12">

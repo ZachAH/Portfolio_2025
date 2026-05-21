@@ -1,6 +1,6 @@
 # SPA fallback — any route Netlify can't match to a static file
 # falls back to the SPA entry so React Router can handle it.
-# Static files (e.g. dist/services/index.html from prerender-routes.js)
-# always win over this rule.
+# Static prerendered HTML (dist/<route>/index.html) always wins first.
+# Canonical URLs use trailing slashes (Netlify pretty_urls); sitemap matches.
 /*    /index.html   200
 /templates    /404.html   404

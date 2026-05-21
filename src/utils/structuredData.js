@@ -1,8 +1,7 @@
 // Reusable JSON-LD structured-data builders for SEO.
 // Spec: https://schema.org
 import { SERVICE_AREA_NAMES } from '../data/locationPages';
-
-const SITE_URL = 'https://zachhowell.dev';
+import { SITE_URL, absoluteUrl } from './seoUrls';
 
 const WISCONSIN_SERVICE_AREAS = SERVICE_AREA_NAMES.map((name) => ({
   '@type': 'City',
@@ -61,7 +60,7 @@ export const localBusinessSchema = {
   url: SITE_URL,
   telephone: '+1-262-341-7181',
   description:
-    'Custom React web development and local SEO for Wisconsin businesses. ZH Web Solutions builds high-performance websites for New Berlin, Brookfield, Milwaukee, Mequon, Elm Grove, Waukesha, West Bend, Whitefish Bay, and Fox Point.',
+    'Custom React web development and local SEO for Wisconsin businesses across Southeastern Wisconsin, including New Berlin, Milwaukee, Brookfield, Mequon, Waukesha, Menomonee Falls, Cedarburg, and surrounding markets.',
   priceRange: '$$',
   areaServed: WISCONSIN_SERVICE_AREAS,
   address: ADDRESS,
@@ -163,6 +162,6 @@ export const breadcrumb = (items) => ({
     '@type': 'ListItem',
     position: i + 1,
     name: item.name,
-    item: `${SITE_URL}${item.path}`,
+    item: absoluteUrl(item.path),
   })),
 });

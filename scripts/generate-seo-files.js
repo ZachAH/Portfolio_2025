@@ -1,11 +1,22 @@
 #!/usr/bin/env node
 import fs from 'node:fs';
 import path from 'node:path';
-import { getLocationPath, locationPages } from '../src/data/locationPages.js';
-
-const SITE_URL = 'https://zachhowell.dev';
+import { getLocationPath, locationPages, SERVICE_AREA_NAMES } from '../src/data/locationPages.js';
+import { absoluteUrl, canonicalPath, SITE_URL } from '../src/utils/seoUrls.js';
 const today = new Date().toISOString().slice(0, 10);
 const publicDir = path.resolve('public');
+
+const DISALLOW_PATHS = ['/launch-onboarding', '/custom-discovery'];
+
+const AI_CRAWLERS = [
+  'GPTBot',
+  'ClaudeBot',
+  'anthropic-ai',
+  'Google-Extended',
+  'PerplexityBot',
+  'Bytespider',
+  'CCBot',
+];
 
 const routes = [
   {
@@ -16,42 +27,35 @@ const routes = [
       'Main landing page for Zach Howell and ZH Web Solutions, focused on custom React websites, GSAP motion, technical SEO, and local business growth.',
   },
   {
-    path: '/services',
+    path: canonicalPath('/services'),
     changefreq: 'monthly',
     priority: '0.9',
     summary:
       'Detailed overview of custom web development services including React, Vite, GSAP, technical SEO, analytics, hosting, and accessibility.',
   },
   {
-    path: '/pricing',
+    path: canonicalPath('/pricing'),
     changefreq: 'monthly',
     priority: '0.9',
     summary:
       'Pricing page for custom builds and ongoing partnership plans. Current public emphasis is on custom development rather than template launches.',
   },
   {
-    path: '/audit',
+    path: canonicalPath('/audit'),
     changefreq: 'monthly',
     priority: '0.85',
     summary:
       'Lead-generation page offering a free website audit across performance, SEO, accessibility, security, and conversion readiness.',
   },
   {
-    path: '/about',
+    path: canonicalPath('/about'),
     changefreq: 'monthly',
     priority: '0.8',
     summary:
       'Authority page explaining why businesses choose ZH Web Solutions over WordPress, Wix, and GoDaddy: senior-engineer execution, faster performance, stronger SEO, better security, and full ownership.',
   },
   {
-    path: '/custom-discovery',
-    changefreq: 'monthly',
-    priority: '0.8',
-    summary:
-      'Short discovery form for custom website and web application inquiries.',
-  },
-  {
-    path: '/locations',
+    path: canonicalPath('/locations'),
     changefreq: 'monthly',
     priority: '0.85',
     summary:
@@ -71,7 +75,7 @@ const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 ${routes
   .map(
     (route) => `  <url>
-    <loc>${SITE_URL}${route.path}</loc>
+    <loc>${absoluteUrl(route.path)}</loc>
     <lastmod>${today}</lastmod>
     <changefreq>${route.changefreq}</changefreq>
     <priority>${route.priority}</priority>
@@ -91,7 +95,7 @@ This website belongs to Zach Howell, a Wisconsin-based senior full-stack enginee
 
 ${routes
   .map(
-    (route) => `- [${route.path === '/' ? 'Home' : route.path.replace(/^\//, '')}](${SITE_URL}${route.path})
+    (route) => `- [${route.path === '/' ? 'Home' : route.path.replace(/^\//, '').replace(/\/$/, '')}](${absoluteUrl(route.path)})
   Summary: ${route.summary}`
   )
   .join('\n\n')}
@@ -108,21 +112,13 @@ ${routes
 
 ## Geography
 
-- New Berlin
-- Brookfield
-- Milwaukee
-- Mequon
-- Elm Grove
-- Waukesha
-- West Bend
-- Whitefish Bay
-- Fox Point
+${SERVICE_AREA_NAMES.map((city) => `- ${city}`).join('\n')}
 
 ## Contact and Conversion Paths
 
-- Custom discovery: ${SITE_URL}/custom-discovery
-- Free audit: ${SITE_URL}/audit
-- Locations hub: ${SITE_URL}/locations
+- Custom discovery: ${absoluteUrl('/custom-discovery')} (blocked in robots.txt — form-only)
+- Free audit: ${absoluteUrl('/audit')}
+- Locations hub: ${absoluteUrl('/locations')}
 - Phone: 262-341-7181
 
 ## Notes for LLMs and Crawlers
@@ -130,10 +126,32 @@ ${routes
 - The public marketing site is currently focused on custom builds rather than the template store.
 - The route \`/launch-onboarding\` is a private onboarding flow and should not be treated as a general public informational page.
 - The route \`/templates\` should not be treated as a current primary offer page.
+- Full crawler policy: ${SITE_URL}/robots.txt
+`;
+
+const disallowLines = DISALLOW_PATHS.map((p) => `Disallow: ${p}`).join('\n');
+const aiAgentLines = AI_CRAWLERS.map((agent) => `User-agent: ${agent}`).join('\n');
+
+const robots = `# zachhowell.dev — crawler policy
+# LLM site guide: ${SITE_URL}/llms.txt
+
+User-agent: *
+Allow: /
+${disallowLines}
+
+# AI training & search crawlers — public marketing pages OK; private flows blocked
+${aiAgentLines}
+Allow: /
+${disallowLines}
+
+# Sitemap
+Sitemap: ${SITE_URL}/sitemap.xml
 `;
 
 fs.writeFileSync(path.join(publicDir, 'sitemap.xml'), sitemap, 'utf8');
 fs.writeFileSync(path.join(publicDir, 'llms.txt'), llms, 'utf8');
+fs.writeFileSync(path.join(publicDir, 'robots.txt'), robots, 'utf8');
 
 console.log('[seo-files] wrote public/sitemap.xml');
 console.log('[seo-files] wrote public/llms.txt');
+console.log('[seo-files] wrote public/robots.txt');

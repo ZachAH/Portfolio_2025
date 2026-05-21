@@ -5,6 +5,7 @@ import Seo from '../components/Seo';
 import DiscoveryForm from '../components/DiscoveryForm';
 import { breadcrumb } from '../utils/structuredData';
 import { getLocationPath, locationPageMap, locationPages } from '../data/locationPages';
+import { absoluteUrl, canonicalPath } from '../utils/seoUrls';
 
 const normalizeSlug = (slug = '') => slug.replace(/-web-design$/, '');
 
@@ -40,7 +41,7 @@ const LocationPage = () => {
   );
 
   if (!location) {
-    return <Navigate to="/locations" replace />;
+    return <Navigate to={canonicalPath('/locations')} replace />;
   }
 
   const path = getLocationPath(location.slug);
@@ -55,9 +56,18 @@ const LocationPage = () => {
         { name: `${location.city} Web Design`, path },
       ]),
       {
+        '@type': 'WebPage',
+        '@id': `${absoluteUrl(path)}#webpage`,
+        url: absoluteUrl(path),
+        name: title,
+        description: location.metaDescription,
+        isPartOf: { '@type': 'WebSite', url: 'https://zachhowell.dev', name: 'ZH Web Solutions' },
+      },
+      {
         '@type': 'Service',
         name: `${location.city} Web Development`,
         serviceType: 'Custom Web Development',
+        url: absoluteUrl(path),
         areaServed: {
           '@type': 'City',
           name: location.city,

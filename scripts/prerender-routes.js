@@ -26,8 +26,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { getLocationPath, locationPages } from '../src/data/locationPages.js';
-
-const SITE_URL = 'https://zachhowell.dev';
+import { absoluteUrl, canonicalPath, distSegment } from '../src/utils/seoUrls.js';
 const DIST = path.resolve('dist');
 const TEMPLATE_PATH = path.join(DIST, 'index.html');
 
@@ -35,37 +34,38 @@ const TEMPLATE_PATH = path.join(DIST, 'index.html');
 // page's <Seo> component so the first-paint copy matches hydration.
 const ROUTES = [
   {
-    path: '/services',
+    path: canonicalPath('/services'),
     title: 'Web Development Services | React, E-Commerce & SEO — Zach Howell',
     description:
       'Custom React websites, e-commerce builds, SEO optimization, and ongoing support for Wisconsin small businesses. See every service I offer and how I work.',
   },
   {
-    path: '/about',
+    path: canonicalPath('/about'),
     title: 'Why ZH Web Solutions? | Senior Engineer, Fast React Builds, Zero Lock-In',
     description:
       'Why businesses pay more for ZH Web Solutions: direct access to a senior full-stack engineer, high-performance React/Vite builds, better SEO, stronger security, and full ownership without WordPress or builder lock-in.',
   },
   {
-    path: '/pricing',
+    path: canonicalPath('/pricing'),
     title: 'Pricing | Custom Builds & Partnership Plans — Zach Howell',
     description:
       'Transparent pricing for custom React builds and ongoing partnership plans. No hidden fees — see exactly what you get at each tier.',
   },
   {
-    path: '/audit',
+    path: canonicalPath('/audit'),
     title: 'Free Website Audit | Find What\'s Hurting Your Site — Zach Howell',
     description:
       'Get a free, no-strings website audit. I review your site\'s performance, SEO, accessibility, and conversion gaps and send you a personalized action plan.',
   },
   {
-    path: '/custom-discovery',
+    path: canonicalPath('/custom-discovery'),
     title: 'Custom Build Discovery | Zach Howell',
     description:
       'Start a custom website or web app project with ZH Web Solutions. Share your business, goals, and what you need built and get a response within 24 hours.',
+    noindex: true,
   },
   {
-    path: '/locations',
+    path: canonicalPath('/locations'),
     title: 'Web Design Service Areas in Southeastern Wisconsin | ZH Web Solutions',
     description:
       'Explore the Southeastern Wisconsin markets ZH Web Solutions serves, including Milwaukee, Brookfield, Mequon, Elm Grove, Whitefish Bay, and West Bend.',
@@ -92,8 +92,8 @@ const escapeHtml = (s) =>
     .replace(/</g, '&lt;')
     .replace(/>/g, '&gt;');
 
-const renderRoute = ({ path: routePath, title, description }) => {
-  const url = `${SITE_URL}${routePath}`;
+const renderRoute = ({ path: routePath, title, description, noindex = false }) => {
+  const url = absoluteUrl(routePath);
   const escTitle = escapeHtml(title);
   const escDesc = escapeHtml(description);
 
@@ -159,18 +159,23 @@ const renderRoute = ({ path: routePath, title, description }) => {
     `<link rel="canonical" href="${url}" />`
   );
 
+  html = html.replace(
+    /<meta\s+name="robots"\s+content="[^"]*"\s*\/?>/i,
+    `<meta name="robots" content="${noindex ? 'noindex,nofollow' : 'index,follow,max-image-preview:large'}" />`
+  );
+
   return html;
 };
 
 let written = 0;
 for (const route of ROUTES) {
   const html = renderRoute(route);
-  const outDir = path.join(DIST, route.path.replace(/^\//, ''));
+  const outDir = path.join(DIST, distSegment(route.path));
   const outFile = path.join(outDir, 'index.html');
 
   fs.mkdirSync(outDir, { recursive: true });
   fs.writeFileSync(outFile, html, 'utf8');
-  console.log(`[prerender] wrote ${path.relative(DIST, outFile)}  (canonical: ${SITE_URL}${route.path})`);
+  console.log(`[prerender] wrote ${path.relative(DIST, outFile)}  (canonical: ${absoluteUrl(route.path)})`);
   written++;
 }
 

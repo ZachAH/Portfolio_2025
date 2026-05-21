@@ -1,4 +1,19 @@
+# zachhowell.dev — crawler policy
+# LLM site guide: https://zachhowell.dev/llms.txt
+
 User-agent: *
+Allow: /
+Disallow: /launch-onboarding
+Disallow: /custom-discovery
+
+# AI training & search crawlers — public marketing pages OK; private flows blocked
+User-agent: GPTBot
+User-agent: ClaudeBot
+User-agent: anthropic-ai
+User-agent: Google-Extended
+User-agent: PerplexityBot
+User-agent: Bytespider
+User-agent: CCBot
 Allow: /
 Disallow: /launch-onboarding
 Disallow: /custom-discovery

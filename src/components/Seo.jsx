@@ -11,8 +11,9 @@ import { useEffect } from 'react';
  * need first-paint meta tags for older crawlers, switch to a
  * pre-rendering / SSR strategy (e.g. vite-plugin-ssr or Next.js).
  */
-const SITE_URL = 'https://zachhowell.dev';
-const DEFAULT_IMAGE = `${SITE_URL}/og-preview.png`;
+import { absoluteUrl } from '../utils/seoUrls';
+
+const DEFAULT_IMAGE = 'https://zachhowell.dev/og-preview.png';
 
 const setMeta = (selector, attr, value) => {
   if (value == null) return;
@@ -58,7 +59,7 @@ const Seo = ({
   noindex = false,
 }) => {
   useEffect(() => {
-    const url = `${SITE_URL}${path}`;
+    const url = absoluteUrl(path);
     const fullTitle = title;
 
     if (fullTitle) document.title = fullTitle;

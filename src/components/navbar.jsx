@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FiMenu, FiPhone, FiX } from 'react-icons/fi';
 import ThemeToggle from './ThemeToggle';
+import { canonicalPath } from '../utils/seoUrls';
 
 const PHONE_NUMBER = '262-341-7181';
 const PHONE_HREF = 'tel:2623417181';
@@ -37,11 +38,11 @@ const Navbar = ({ handleMouseEnter, handleMouseLeave }) => {
 
   const navLinks = [
     { name: 'Home', path: '/' },
-    { name: 'Why Me?', path: '/about' },
-    { name: 'Services', path: '/services' },
-    { name: 'Areas Served', path: '/locations' },
-    { name: 'Packages', path: '/pricing' },
-    { name: 'Free Audit', path: '/audit' },
+    { name: 'Why Me?', path: '/about/' },
+    { name: 'Services', path: '/services/' },
+    { name: 'Areas Served', path: '/locations/' },
+    { name: 'Packages', path: '/pricing/' },
+    { name: 'Free Audit', path: '/audit/' },
     { name: 'Contact', path: '/#contact' },
   ];
 
@@ -50,7 +51,7 @@ const Navbar = ({ handleMouseEnter, handleMouseLeave }) => {
     if (path.startsWith('/#')) {
       return location.pathname === '/' && location.hash === path.substring(1);
     }
-    return location.pathname === path;
+    return canonicalPath(location.pathname) === canonicalPath(path);
   };
 
   return (
