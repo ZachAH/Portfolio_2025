@@ -115,7 +115,21 @@ const Footer = ({ handleMouseEnter, handleMouseLeave }) => {
           </div>
         </div>
 
-        <div className="text-center md:text-right">
+        <div className="text-center md:text-right flex flex-col gap-4 items-center md:items-end">
+          <div>
+            <p className="text-[10px] font-black uppercase tracking-[0.24em] text-accent-orange mb-3">
+              Also by Zach
+            </p>
+            <a
+              href="https://weddings.zachhowell.dev"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-text-secondary dark:text-zinc-300 hover:text-rose-500 dark:hover:text-rose-400 transition-colors"
+            >
+              <span>💍</span>
+              Wedding Websites
+            </a>
+          </div>
           <p className="text-[10px] uppercase font-bold tracking-[0.2em] text-text-secondary/40 dark:text-zinc-400">
             &copy; 2026 ZH Web Solutions All Rights Reserved
           </p>

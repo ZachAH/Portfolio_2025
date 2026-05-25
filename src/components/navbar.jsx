@@ -43,6 +43,7 @@ const Navbar = ({ handleMouseEnter, handleMouseLeave }) => {
     { name: 'Areas Served', path: '/locations/' },
     { name: 'Packages', path: '/pricing/' },
     { name: 'Free Audit', path: '/audit/' },
+    { name: 'Weddings', path: null, href: 'https://weddings.zachhowell.dev', external: true },
     { name: 'Contact', path: '/#contact' },
   ];
 
@@ -71,23 +72,36 @@ const Navbar = ({ handleMouseEnter, handleMouseLeave }) => {
 
         {/* Desktop Links */}
         <div className="hidden md:flex items-center gap-6">
-          {navLinks.map((link) => (
-            <Link
-              key={link.path}
-              to={link.path}
-              className={`relative px-3 py-1 text-sm font-medium transition-colors hover:text-accent-orange ${
-                isActive(link.path) ? 'text-accent-orange' : 'text-text-primary'
-              }`}
-            >
-              {link.name}
-              {isActive(link.path) && (
-                <motion.div
-                  layoutId="navUnderline"
-                  className="absolute bottom-0 left-0 right-0 h-[2px] bg-sunset-gradient rounded-full"
-                />
-              )}
-            </Link>
-          ))}
+          {navLinks.map((link) =>
+            link.external ? (
+              <a
+                key={link.href}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="relative px-3 py-1 text-sm font-medium transition-colors hover:text-accent-orange text-text-primary flex items-center gap-1"
+              >
+                {link.name}
+                <span className="text-[9px] font-black uppercase tracking-widest text-accent-orange border border-accent-orange/40 bg-accent-orange/10 px-1.5 py-0.5 rounded-full leading-none">New</span>
+              </a>
+            ) : (
+              <Link
+                key={link.path}
+                to={link.path}
+                className={`relative px-3 py-1 text-sm font-medium transition-colors hover:text-accent-orange ${
+                  isActive(link.path) ? 'text-accent-orange' : 'text-text-primary'
+                }`}
+              >
+                {link.name}
+                {isActive(link.path) && (
+                  <motion.div
+                    layoutId="navUnderline"
+                    className="absolute bottom-0 left-0 right-0 h-[2px] bg-sunset-gradient rounded-full"
+                  />
+                )}
+              </Link>
+            )
+          )}
         </div>
 
         <div className="flex items-center gap-4">
@@ -154,19 +168,31 @@ const Navbar = ({ handleMouseEnter, handleMouseLeave }) => {
               <div className="flex flex-col gap-6">
                 {navLinks.map((link, i) => (
                   <motion.div
-                    key={link.path}
+                    key={link.href || link.path}
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: i * 0.1 }}
                   >
-                    <Link
-                      to={link.path}
-                      className={`text-3xl font-bold tracking-tight py-2 block transition-colors ${
-                        isActive(link.path) ? 'text-accent-orange' : 'text-text-primary hover:text-accent-orange'
-                      }`}
-                    >
-                      {link.name}
-                    </Link>
+                    {link.external ? (
+                      <a
+                        href={link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-3xl font-bold tracking-tight py-2 flex items-center gap-3 transition-colors text-text-primary hover:text-accent-orange"
+                      >
+                        {link.name}
+                        <span className="text-[9px] font-black uppercase tracking-widest text-accent-orange border border-accent-orange/40 bg-accent-orange/10 px-1.5 py-0.5 rounded-full leading-none">New</span>
+                      </a>
+                    ) : (
+                      <Link
+                        to={link.path}
+                        className={`text-3xl font-bold tracking-tight py-2 block transition-colors ${
+                          isActive(link.path) ? 'text-accent-orange' : 'text-text-primary hover:text-accent-orange'
+                        }`}
+                      >
+                        {link.name}
+                      </Link>
+                    )}
                   </motion.div>
                 ))}
               </div>

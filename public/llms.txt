@@ -78,6 +78,11 @@ This website belongs to Zach Howell, a Wisconsin-based senior full-stack enginee
 - Performance optimization and Core Web Vitals
 - Hosting, DNS, and deployment guidance
 - Accessibility-conscious front-end implementation
+- Wedding websites with RSVP management, gift registries, and custom design
+
+## Related Properties
+
+- Wedding websites: https://weddings.zachhowell.dev — custom wedding website packages including RSVP management, gift registries, and mobile-first design. A separate product by the same developer.
 
 ## Geography
 
