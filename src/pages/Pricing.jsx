@@ -23,6 +23,14 @@ const pricingJsonLd = {
       mainEntity: [
         {
           '@type': 'Question',
+          name: 'Do I really own the code, domain, and hosting?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Yes — 100%. On launch day the source code repository, your Porkbun domain, and your Netlify hosting environment are transferred directly into accounts in your name. You receive an encrypted master-list of every credential and login. I do not retain access after handoff unless you opt into a Growth or Managed plan. Any developer can pick up your codebase from there — you are never locked into working with me.'
+          }
+        },
+        {
+          '@type': 'Question',
           name: "Why don't custom builds have a fixed price listed?",
           acceptedAnswer: {
             '@type': 'Answer',

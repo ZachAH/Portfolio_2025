@@ -90,13 +90,13 @@ const Services = ({ handleMouseEnter, handleMouseLeave }) => {
     },
     {
       title: "Assets & Infrastructure",
-      description: "Complete technical foundation with 100% client ownership. I manage Porkbun domain procurement, SSL, and lightning-fast Netlify deployment.",
+      description: "Complete technical foundation with 100% client ownership. I procure your Porkbun domain, configure SSL, and deploy to Netlify — then transfer the domain, hosting, code, and every credential to your accounts on launch day. No retained access, no platform lock-in.",
       icon: (
         <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
         </svg>
       ),
-      tags: ["Porkbun", "Netlify", "Full Ownership"]
+      tags: ["Porkbun", "Netlify", "Full Ownership Transfer"]
     },
     {
       title: "SEO, AI Visibility & Analytics",
@@ -187,6 +187,83 @@ const Services = ({ handleMouseEnter, handleMouseLeave }) => {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
+          className="relative mb-20 p-10 md:p-14 rounded-[3rem] border border-accent-orange/30 bg-gradient-to-br from-accent-orange/5 via-transparent to-accent-orange/5 dark:from-accent-orange/10 dark:to-accent-orange/5 overflow-hidden"
+        >
+          <div className="absolute -top-1/2 -right-1/4 w-1/2 h-full bg-accent-orange/10 blur-[120px] pointer-events-none" />
+          <div className="relative z-10 grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-10 items-center">
+            <div>
+              <div className="flex items-center gap-2 mb-4">
+                <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+                <span className="text-[10px] font-black uppercase tracking-[0.3em] text-green-600 dark:text-green-400">
+                  Built Into Every Engagement
+                </span>
+              </div>
+              <h2 className="text-3xl md:text-5xl font-black tracking-tighter text-zinc-900 dark:text-white uppercase leading-[0.95] mb-5">
+                You own 100% of the <span className="text-gradient">code, domain &amp; hosting</span>.
+              </h2>
+              <p className="text-base md:text-lg text-zinc-600 dark:text-zinc-300 font-medium leading-relaxed mb-6">
+                I handle the build, the domain registration (Porkbun), and the production hosting (Netlify) — then transfer every asset directly into your accounts on launch day. No retained access, no platform lock-in, no monthly fee to "keep" your own site.
+              </p>
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                {[
+                  "Domain pushed to your Porkbun",
+                  "Hosting transferred to your Netlify",
+                  "Full source code repository handoff",
+                  "Secure master-list of every credential",
+                  "No proprietary platform or vendor lock-in",
+                  "Any developer can take over — including not me",
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-2.5 text-sm text-zinc-700 dark:text-zinc-200 font-medium">
+                    <svg className="w-5 h-5 text-accent-orange shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="relative">
+              <div className="rounded-[2rem] bg-white dark:bg-obsidian-950 border border-zinc-200 dark:border-white/10 p-7 shadow-premium">
+                <div className="flex items-center justify-between mb-5 pb-4 border-b border-zinc-200 dark:border-white/10">
+                  <span className="text-[10px] font-black uppercase tracking-[0.22em] text-accent-orange">
+                    Handoff Checklist
+                  </span>
+                  <span className="text-[10px] font-black uppercase tracking-widest text-green-600 dark:text-green-400">
+                    Day Of Launch
+                  </span>
+                </div>
+                <ol className="space-y-4">
+                  {[
+                    { step: "01", title: "Domain Push", desc: "Porkbun account transfer initiated to your name." },
+                    { step: "02", title: "Hosting Transfer", desc: "Netlify site reassigned to your team workspace." },
+                    { step: "03", title: "Source Code", desc: "Full repository handed off with deployment docs." },
+                    { step: "04", title: "Credential Vault", desc: "Encrypted master-list of every login emailed to you." },
+                  ].map((item) => (
+                    <li key={item.step} className="flex items-start gap-4">
+                      <span className="shrink-0 w-9 h-9 rounded-xl bg-accent-orange/10 text-accent-orange flex items-center justify-center font-black text-xs">
+                        {item.step}
+                      </span>
+                      <div>
+                        <div className="text-sm font-black text-zinc-900 dark:text-white uppercase tracking-wide">
+                          {item.title}
+                        </div>
+                        <div className="text-xs text-zinc-500 dark:text-zinc-300 mt-0.5 leading-relaxed">
+                          {item.desc}
+                        </div>
+                      </div>
+                    </li>
+                  ))}
+                </ol>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
           className="bg-white dark:bg-obsidian-900/40 border border-zinc-200 dark:border-obsidian-800 p-12 md:p-20 rounded-[3.5rem] mb-32 relative shadow-sm overflow-hidden"
         >
           <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -195,7 +272,7 @@ const Services = ({ handleMouseEnter, handleMouseLeave }) => {
                 Every detail, <span className="text-gradient">handled</span>.
               </h2>
               <p className="text-xl text-zinc-600 dark:text-zinc-300 font-medium leading-relaxed mb-8">
-                I provide a complete white-glove service. You bring the vision, and I handle the technical complexity from domain purchase to global scale.
+                I provide a complete white-glove service. You bring the vision, and I handle the technical complexity from domain purchase to global scale — then hand every account, credential, and line of code over to you on launch day.
               </p>
               <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {["Porkbun DNS", "SEO Strategy", "WCAG Compliance", "CI/CD Management", "SSL Security", "Netlify Hosting"].map((item, i) => (

@@ -190,8 +190,8 @@ const WHITE_GLOVE_INCLUSIONS = [
     copy: 'Schema, Open Graph, sitemap, and Google Search Console baked in.',
   },
   {
-    title: 'You Own Everything',
-    copy: 'Code, domain, hosting — every account is yours. I email you a secure master-list of all credentials after launch.',
+    title: 'Full Ownership Transfer',
+    copy: 'On launch day I transfer the source code, your Porkbun domain, and your Netlify hosting directly into your accounts. You receive a secure master-list of every credential — zero retained access on my end.',
   },
 ];
 
@@ -340,10 +340,18 @@ const Templates = ({ handleMouseEnter, handleMouseLeave }) => {
             {/* Headline row */}
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
               <div>
-                <div className="flex items-center gap-2 mb-3">
-                  <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                  <span className="text-[10px] font-black uppercase tracking-[0.3em] text-green-600 dark:text-green-400">
-                    White Glove Deployment
+                <div className="flex flex-wrap items-center gap-3 mb-3">
+                  <div className="inline-flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+                    <span className="text-[10px] font-black uppercase tracking-[0.3em] text-green-600 dark:text-green-400">
+                      White Glove Deployment
+                    </span>
+                  </div>
+                  <span className="inline-flex items-center gap-1.5 rounded-full border border-green-500/30 bg-green-500/10 px-3 py-1 text-[9px] font-black uppercase tracking-[0.18em] text-green-700 dark:text-green-400">
+                    <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                    </svg>
+                    Ownership Transferred On Launch
                   </span>
                 </div>
                 <h2 className="text-3xl md:text-5xl font-black text-zinc-900 dark:text-white uppercase tracking-tighter leading-[0.95]">
@@ -353,8 +361,9 @@ const Templates = ({ handleMouseEnter, handleMouseLeave }) => {
                 </h2>
                 <p className="mt-4 text-base md:text-lg text-zinc-600 dark:text-zinc-300 font-medium max-w-2xl leading-relaxed">
                   Buying a template package isn't just buying code. I personally handle
-                  the domain, hosting, DNS, deployment, and brand integration — you get a
-                  fully-live website, not a zip file and a "good luck."
+                  the domain, hosting, DNS, deployment, and brand integration — then
+                  transfer the source code, domain, and hosting into <span className="font-bold text-zinc-900 dark:text-white">your accounts</span> on
+                  launch day. Fully-live website, fully yours.
                 </p>
               </div>
 

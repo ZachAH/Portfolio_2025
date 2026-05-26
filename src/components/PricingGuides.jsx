@@ -369,11 +369,11 @@ const PricingGuides = () => {
       }
     ],
     custom: [
-      { title: "Lead Generation Site", price: "", description: "High-conversion single page for lead gen, product launches, or portfolios.", features: ["Single Page Design", "Lead Gen & CTA Optimized", "React/Tailwind Stack", "Performance Optimized"], notIncluded: ["Domain, hosting & DevOps (see below)", "Stock photography or copywriting"], accent: "text-gray-500 dark:text-silver-400", link: "/custom-discovery" },
-      { title: "Core Multi-Page Business Site", price: "", description: "A polished, fast online home for service providers. 3–6 custom pages.", features: ["3–6 Custom Pages", "UI/UX Flow Design", "SEO & Local Metadata", "Performance Optimized"], notIncluded: ["Domain, hosting & DevOps (see below)", "Stock photography or copywriting"], accent: "text-blue-500", link: "/custom-discovery" },
-      { title: "Custom Content Engine", price: "", description: "Advanced builds with a custom Admin Dashboard via Firebase/Firestore.", features: ["Everything in Business", "Secure Admin Portal", "Real-Time Content Updates", "Asset Management"], notIncluded: ["Domain, hosting & DevOps (see below)"], accent: "text-accent-orange", isPopular: true, link: "/custom-discovery" },
-      { title: "Full-Stack Application", price: "", description: "Full-scale stores or complex application logic with React/Next.js.", features: ["Custom API Logic", "Stripe Integration", "Complex Business Logic", "Scalable Architecture"], notIncluded: ["Domain, hosting & DevOps (see below)"], accent: "text-emerald-500", link: "/custom-discovery" },
-      { title: "Total Brand Transformation", price: "", description: "The full package — website, CMS, brand identity, DevOps, and 3 months of dedicated support.", features: ["Full Custom Website + CMS", "Brand Identity & Logo", "Domain, Hosting & Full DevOps", "3 Months Support Included"], accent: "text-purple-500", link: "/custom-discovery" }
+      { title: "Lead Generation Site", price: "", description: "High-conversion single page for lead gen, product launches, or portfolios.", features: ["Single Page Design", "Lead Gen & CTA Optimized", "React/Tailwind Stack", "Performance Optimized", "100% Code Ownership on Launch"], notIncluded: ["Domain, hosting & DevOps (see below)", "Stock photography or copywriting"], accent: "text-gray-500 dark:text-silver-400", link: "/custom-discovery" },
+      { title: "Core Multi-Page Business Site", price: "", description: "A polished, fast online home for service providers. 3–6 custom pages.", features: ["3–6 Custom Pages", "UI/UX Flow Design", "SEO & Local Metadata", "Performance Optimized", "100% Code Ownership on Launch"], notIncluded: ["Domain, hosting & DevOps (see below)", "Stock photography or copywriting"], accent: "text-blue-500", link: "/custom-discovery" },
+      { title: "Custom Content Engine", price: "", description: "Advanced builds with a custom Admin Dashboard via Firebase/Firestore.", features: ["Everything in Business", "Secure Admin Portal", "Real-Time Content Updates", "Asset Management", "100% Code Ownership on Launch"], notIncluded: ["Domain, hosting & DevOps (see below)"], accent: "text-accent-orange", isPopular: true, link: "/custom-discovery" },
+      { title: "Full-Stack Application", price: "", description: "Full-scale stores or complex application logic with React/Next.js.", features: ["Custom API Logic", "Stripe Integration", "Complex Business Logic", "Scalable Architecture", "100% Code Ownership on Launch"], notIncluded: ["Domain, hosting & DevOps (see below)"], accent: "text-emerald-500", link: "/custom-discovery" },
+      { title: "Total Brand Transformation", price: "", description: "The full package — website, CMS, brand identity, DevOps, and 3 months of dedicated support.", features: ["Full Custom Website + CMS", "Brand Identity & Logo", "Domain, Hosting & Full DevOps", "Full Ownership Transferred at Launch", "3 Months Support Included"], accent: "text-purple-500", link: "/custom-discovery" }
     ]
   };
 
@@ -1032,6 +1032,30 @@ const PricingGuides = () => {
               exit={{ opacity: 0 }}
               className="mt-20 max-w-4xl mx-auto"
             >
+              {/* Ownership Transfer callout */}
+              <div className="p-6 md:p-8 bg-gradient-to-br from-green-50/80 to-emerald-100/50 dark:from-green-900/10 dark:to-emerald-800/5 rounded-3xl border border-green-500/25 shadow-sm mb-8">
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 rounded-xl bg-green-500/10 flex items-center justify-center shrink-0 mt-1">
+                    <svg className="w-5 h-5 text-green-600 dark:text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                    </svg>
+                  </div>
+                  <div className="flex-1">
+                    <h4 className="text-lg font-bold text-obsidian-950 dark:text-white mb-2">You own 100% of everything — transferred on launch day.</h4>
+                    <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-sm mb-3">
+                      Every custom build comes with a guaranteed ownership handoff. The day your site goes live, I transfer the <span className="font-bold text-obsidian-950 dark:text-white">source code</span>, your <span className="font-bold text-obsidian-950 dark:text-white">domain (Porkbun)</span>, and your <span className="font-bold text-obsidian-950 dark:text-white">hosting (Netlify)</span> directly into your accounts — alongside an encrypted master-list of every credential. No retained access. No platform lock-in. No monthly fee to keep your own site.
+                    </p>
+                    <div className="flex flex-wrap gap-2">
+                      {['Source Code Handoff', 'Domain Push to Your Porkbun', 'Hosting Transfer to Your Netlify', 'Credential Master-List', 'Zero Lock-In'].map((item) => (
+                        <span key={item} className="px-3 py-1 rounded-full bg-green-500/10 border border-green-500/20 text-[10px] font-bold text-green-700 dark:text-green-400 uppercase tracking-widest">
+                          {item}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+
               {/* DevOps & Launch Package callout */}
               <div className="p-6 md:p-8 bg-gradient-to-br from-blue-50/80 to-blue-100/50 dark:from-blue-900/10 dark:to-blue-800/5 rounded-3xl border border-blue-500/20 shadow-sm mb-8">
                 <div className="flex items-start gap-4">
@@ -1044,7 +1068,7 @@ const PricingGuides = () => {
                     <h4 className="text-lg font-bold text-obsidian-950 dark:text-white mb-2">DevOps & Launch Package — Quoted Separately</h4>
                     <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-sm mb-3">
                       The packages above cover <span className="font-bold text-obsidian-950 dark:text-white">custom code, design, and development</span>. Domain registration,
-                      hosting setup, DNS configuration, SSL, deployment, and ongoing infrastructure are scoped and quoted during our discovery call based on your project's needs.
+                      hosting setup, DNS configuration, SSL, deployment, and ongoing infrastructure are scoped and quoted during our discovery call based on your project's needs. Whichever route you choose, the domain and hosting end up registered in <span className="font-bold text-obsidian-950 dark:text-white">your name</span> — never mine.
                     </p>
                     <div className="flex flex-wrap gap-2">
                       {['Domain Registration (Porkbun)', 'Hosting & CDN (Netlify)', 'DNS & SSL Config', 'Production Deployment', 'SEO Infrastructure'].map((item) => (
@@ -1093,6 +1117,10 @@ const PricingGuides = () => {
                 </p>
                 <div className="space-y-4">
                   {[
+                    {
+                      q: "Do I really own the code, domain, and hosting?",
+                      a: "Yes — 100%. On launch day I transfer the source code repository, your Porkbun domain, and your Netlify hosting environment directly into accounts in your name. You receive an encrypted master-list of every credential and login. I do not retain access after handoff unless you opt into a Growth or Managed plan. Any developer can pick up your codebase from there — you are never locked into working with me."
+                    },
                     {
                       q: "Why don't custom builds have a fixed price listed?",
                       a: "Because scope determines cost. A 3-page marketing site with static content is a fundamentally different engineering problem than a full-stack SaaS app with authentication, payment processing, real-time data, and AI agents. I quote after a discovery call where I understand your actual requirements — not before."

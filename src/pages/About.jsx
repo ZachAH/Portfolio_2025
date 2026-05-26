@@ -18,6 +18,11 @@ const aboutJsonLd = {
 
 const comparisonRows = [
   {
+    label: 'Ownership',
+    zh: 'You own 100% of the code, domain, and hosting. Every account is transferred to you on launch day — no platform lock-in, no monthly "rent" to keep your own site.',
+    generic: 'Locked into Wix, Squarespace, or Shopify. You rent the site, never own the code, and lose everything if you stop paying.',
+  },
+  {
     label: 'Traffic',
     zh: 'Built to rank higher on Google and Google Maps, driving more organic views and foot traffic.',
     generic: 'Harder to find online, buried under competitors who invested in real web development.',
@@ -45,6 +50,14 @@ const comparisonRows = [
 ];
 
 const sections = [
+  {
+    eyebrow: 'Ownership',
+    title: 'You own 100% of the code, domain, and hosting.',
+    body: [
+      'Most "web designers" rent you a site. They lock your business onto a platform you don\'t control, charge you forever to access your own pages, and disappear if you ever want to move. That model is broken — so I don\'t use it.',
+      'I build your site, register your domain through Porkbun, and deploy to Netlify under accounts I create on your behalf. On launch day, I transfer all three — the source code, the domain, and the hosting — directly into your name. You receive an encrypted master-list with every credential. From that moment forward, you are the sole owner. No retained access, no platform lock-in, no monthly fee to keep your own website.',
+    ],
+  },
   {
     eyebrow: 'Results',
     title: 'Your website should put money back in your pocket.',

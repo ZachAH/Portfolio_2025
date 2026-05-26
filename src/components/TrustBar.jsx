@@ -57,8 +57,8 @@ const guarantees = [
 
 const riskReversals = [
   {
-    title: 'Full Ownership Guarantee',
-    copy: 'You own the final website, source code, accounts, and assets at handoff. No platform lock-in or hidden fees.',
+    title: '100% Ownership Transferred at Launch',
+    copy: 'On deployment day I transfer full ownership of your source code, domain (Porkbun), and hosting (Netlify) directly to your accounts. You walk away with every credential, every file, every login — zero platform lock-in, zero hidden fees.',
   },
   {
     title: 'Deadline Guarantee',
