@@ -66,12 +66,12 @@ const SummerPromoModal = ({ isOpen, onClose }) => (
               </div>
 
               <h2 className="max-w-lg text-4xl font-black leading-[0.95] tracking-tight text-obsidian-950 dark:text-white sm:text-5xl">
-                Memorial Day Weekend Sale:
-                <span className="block text-accent-orange">60% Percent off!</span>
+                Start of Summer Sale:
+                <span className="block text-accent-orange">Save an Average of $1,000!</span>
               </h2>
 
               <p className="mt-4 max-w-lg text-sm leading-relaxed text-obsidian-950/75 dark:text-white/80 sm:text-base">
-                Every new website build I am now taking 60% off for a lmitied time only. An average savings of $1,200+. Offer ends 05/26.
+                Kick off summer with a new website. For a limited time, every new build is discounted — most clients save over $1,000 on a fully custom site they own outright.
               </p>
 
               <div className="mt-6 rounded-2xl border border-white/60 bg-white/45 p-4 shadow-sm backdrop-blur-sm dark:border-white/10 dark:bg-black/15">
@@ -80,8 +80,8 @@ const SummerPromoModal = ({ isOpen, onClose }) => (
                 </p>
                 <div className="mt-3 grid gap-2 text-sm font-semibold text-obsidian-950 dark:text-white sm:grid-cols-2">
                   <span>Lead Generation Site</span>
-                  <span>Cort Multi-Page Buisness Site</span>
-                  <span>Full Google and AI SEO Intergration</span>
+                  <span>Core Multi-Page Business Site</span>
+                  <span>Full Google and AI SEO Integration</span>
                   <span>You Own 100% of everything</span>
                 </div>
               </div>
