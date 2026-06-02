@@ -25,7 +25,7 @@ const stats = [
   {
     icon: <FaMapMarkerAlt className="w-5 h-5" />,
     value: 'WI',
-    label: 'New Berlin',
+    label: 'West Bend',
     sub: 'Wisconsin, USA',
   },
   {
@@ -87,7 +87,7 @@ const reviews = [
   },
   {
     name: 'Gutters Craft LLC',
-    meta: 'Gutter Services · Greenfield, WI',
+    meta: 'Gutter Services · Port Washington, WI',
     text: 'ZH Website Solutions absolutely exceeded every expectation I had. The design and functionality were tailored specifically to my business. They understood exactly what I needed and turned it into a clean, high-performing site that has already increased my calls and bookings. Hands down the best investment you can make.',
     date: 'April 2026',
     source: 'facebook',

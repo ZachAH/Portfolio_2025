@@ -10,16 +10,16 @@ const WISCONSIN_SERVICE_AREAS = SERVICE_AREA_NAMES.map((name) => ({
 
 const ADDRESS = {
   '@type': 'PostalAddress',
-  addressLocality: 'New Berlin',
+  addressLocality: 'West Bend',
   addressRegion: 'WI',
-  postalCode: '53151',
+  postalCode: '53095',
   addressCountry: 'US',
 };
 
 const GEO = {
   '@type': 'GeoCoordinates',
-  latitude: 42.9764,
-  longitude: -88.1084,
+  latitude: 43.4253,
+  longitude: -88.1834,
 };
 
 export const personSchema = {
@@ -60,7 +60,7 @@ export const localBusinessSchema = {
   url: SITE_URL,
   telephone: '+1-262-341-7181',
   description:
-    'Custom React web development and local SEO for Wisconsin businesses across Southeastern Wisconsin, including New Berlin, Milwaukee, Brookfield, Mequon, Waukesha, Menomonee Falls, Cedarburg, and surrounding markets.',
+    'Custom React web development and local SEO for Wisconsin businesses across Southeastern Wisconsin, including West Bend, Milwaukee, Brookfield, Mequon, Waukesha, Menomonee Falls, Cedarburg, and surrounding markets.',
   priceRange: '$$',
   areaServed: WISCONSIN_SERVICE_AREAS,
   address: ADDRESS,

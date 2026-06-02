@@ -89,7 +89,7 @@ const llms = `# ZH Web Solutions
 
 Canonical site: ${SITE_URL}
 
-This website belongs to Zach Howell, a Wisconsin-based senior full-stack engineer and freelance web developer in New Berlin, WI. The public site currently emphasizes custom React/Vite builds, GSAP-powered front-end execution, technical SEO, analytics, hosting guidance, and ongoing partnership support for businesses in Southeastern Wisconsin.
+This website belongs to Zach Howell, a Wisconsin-based senior full-stack engineer and freelance web developer in West Bend, WI. The public site currently emphasizes custom React/Vite builds, GSAP-powered front-end execution, technical SEO, analytics, hosting guidance, and ongoing partnership support for businesses in Southeastern Wisconsin.
 
 ## Primary Pages
 

@@ -145,7 +145,7 @@ const STEPS: Step[] = [
                     { value: 'high_impact', label: 'Aggressive & Bold (High-End Agency)' }
                 ]
             },
-            { id: 'targetAudience', label: 'Who is your ideal customer?', placeholder: 'e.g., Tattoo enthusiasts in New Berlin.', type: 'text' },
+            { id: 'targetAudience', label: 'Who is your ideal customer?', placeholder: 'e.g., Tattoo enthusiasts in West Bend.', type: 'text' },
             { id: 'coreServices', label: 'Top 3 Services/Products', placeholder: 'e.g., Custom Tattoos, Piercings...', type: 'textarea' },
             {
                 id: 'colorPreference',
@@ -391,7 +391,7 @@ const STEPS: Step[] = [
             },
             { id: 'publicEmail', label: 'Public Business Email', placeholder: 'hello@brand.com', type: 'email' },
             { id: 'publicPhone', label: 'Business Phone Number', type: 'tel' },
-            { id: 'publicAddress', label: 'Physical Address / Service Area', placeholder: '123 Main St, New Berlin, WI or Service Area', type: 'text' },
+            { id: 'publicAddress', label: 'Physical Address / Service Area', placeholder: '123 Main St, West Bend, WI or Service Area', type: 'text' },
             { id: 'businessHours', label: 'Hours of Operation', placeholder: 'e.g., Mon-Fri: 9-5', type: 'text' },
             {
                 id: 'socialHeader',

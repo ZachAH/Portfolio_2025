@@ -56,7 +56,7 @@ const Footer = ({ handleMouseEnter, handleMouseLeave }) => {
             <div className="flex flex-col gap-2 text-xs font-semibold text-text-secondary dark:text-zinc-300">
               <div className="flex items-center justify-center md:justify-start gap-2">
                 <FaMapMarkerAlt className="text-accent-orange" />
-                <span>Based in New Berlin, Wisconsin</span>
+                <span>Based in West Bend, Wisconsin</span>
               </div>
               <div className="flex items-center justify-center md:justify-start gap-2">
                 <FaEnvelope className="text-accent-orange" />

@@ -1,9 +1,49 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import selfieImg from '../assets/selfie.webp';
 
+const CALENDLY_URL = 'https://calendly.com/zachary-zachhowell/30min';
+
+// Lazily inject Calendly's popup widget assets (once) so the booking
+// overlay can open on the page without the visitor ever leaving.
+const ensureCalendly = () => {
+  if (typeof document === 'undefined') return;
+
+  if (!document.querySelector('link[data-calendly]')) {
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = 'https://assets.calendly.com/assets/external/widget.css';
+    link.setAttribute('data-calendly', 'true');
+    document.head.appendChild(link);
+  }
+
+  if (!document.querySelector('script[data-calendly]')) {
+    const script = document.createElement('script');
+    script.src = 'https://assets.calendly.com/assets/external/widget.js';
+    script.async = true;
+    script.setAttribute('data-calendly', 'true');
+    document.body.appendChild(script);
+  }
+};
+
 const Contact = ({ handleMouseEnter, handleMouseLeave }) => {
   const [status, setStatus] = useState("IDLE"); // IDLE, SENDING, SUCCESS, ERROR
+
+  // Preload the Calendly assets so the popup opens instantly on click.
+  useEffect(() => {
+    ensureCalendly();
+  }, []);
+
+  const openCalendly = (e) => {
+    e.preventDefault();
+    ensureCalendly();
+    if (window.Calendly) {
+      window.Calendly.initPopupWidget({ url: CALENDLY_URL });
+    } else {
+      // Assets still loading — fall back to opening in a new tab.
+      window.open(CALENDLY_URL, '_blank', 'noopener,noreferrer');
+    }
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -71,7 +111,7 @@ const Contact = ({ handleMouseEnter, handleMouseLeave }) => {
               <div className="relative w-72 h-96 md:w-80 md:h-[450px] overflow-hidden rounded-[3.5rem] border border-obsidian-700/20 glass">
                 <img
                   src={selfieImg}
-                  alt="Zach Howell — freelance full-stack web developer based in New Berlin, Wisconsin"
+                  alt="Zach Howell — freelance full-stack web developer based in West Bend, Wisconsin"
                   loading="lazy"
                   decoding="async"
                   className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000 ease-in-out scale-105 hover:scale-100"
@@ -114,6 +154,28 @@ const Contact = ({ handleMouseEnter, handleMouseLeave }) => {
                     </p>
                   </div>
                 </div>
+              </div>
+
+              {/* Book-a-call path — captures visitors who'd rather talk
+                  than fill out the form. Opens Calendly as an on-page
+                  popup overlay. */}
+              <div className="pt-4 w-full max-w-sm">
+                <button
+                  type="button"
+                  onClick={openCalendly}
+                  className="group flex w-full items-center justify-center gap-3 rounded-2xl border border-accent-orange/30 bg-accent-orange/10 px-6 py-4 text-sm font-black uppercase tracking-[0.18em] text-accent-orange transition-all hover:bg-accent-orange hover:text-white hover:scale-[1.02] active:scale-95"
+                  onMouseEnter={handleMouseEnter}
+                  onMouseLeave={handleMouseLeave}
+                  aria-label="Book a free 15-minute call with Zach Howell"
+                >
+                  <svg className="h-5 w-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
+                  <span>Book a Free 15-Min Call</span>
+                </button>
+                <p className="mt-3 text-center text-xs text-text-secondary font-medium">
+                  Prefer to talk? Grab a time — no commitment, no pressure.
+                </p>
               </div>
             </div>
           </motion.div>

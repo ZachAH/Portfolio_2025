@@ -29,7 +29,7 @@ def draw_footer(canvas_obj, doc):
     canvas_obj.saveState()
     canvas_obj.setFillColor(GRAY_LIGHT)
     canvas_obj.setFont("Helvetica", 7)
-    canvas_obj.drawCentredString(WIDTH / 2, 30, "zachhowell.dev  |  zachary@zachhowell.dev  |  New Berlin, WI")
+    canvas_obj.drawCentredString(WIDTH / 2, 30, "zachhowell.dev  |  zachary@zachhowell.dev  |  West Bend, WI")
     canvas_obj.restoreState()
 
 

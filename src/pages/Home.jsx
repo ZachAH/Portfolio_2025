@@ -174,7 +174,7 @@ function Home({ handleMouseEnter, handleMouseLeave }) {
         title="Wisconsin Web Developer | Custom React Websites for Small Business — Zach Howell"
         description="Wisconsin freelance web developer building fast, SEO-optimized React websites, e-commerce stores, and custom web apps for small businesses. Serving Milwaukee, Waukesha, Madison, and all of WI. Get a free website audit today."
         path="/"
-        keywords="Wisconsin web developer, Milwaukee web designer, small business website Wisconsin, React developer Milwaukee, custom website development Waukesha, web design New Berlin WI, freelance developer Wisconsin, e-commerce developer Milwaukee, SEO optimization Wisconsin, affordable small business web design, website developer near me WI"
+        keywords="Wisconsin web developer, Milwaukee web designer, small business website Wisconsin, React developer Milwaukee, custom website development Waukesha, web design West Bend WI, freelance developer Wisconsin, e-commerce developer Milwaukee, SEO optimization Wisconsin, affordable small business web design, website developer near me WI"
         jsonLd={homeJsonLd}
       />
       <SummerPromoModal isOpen={showSummerPromo} onClose={() => setShowSummerPromo(false)} />

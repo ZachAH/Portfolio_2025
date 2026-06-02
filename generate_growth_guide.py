@@ -29,7 +29,7 @@ def draw_footer(c, doc):
     c.saveState()
     c.setFillColor(GRAY_LIGHT)
     c.setFont("Helvetica", 7)
-    c.drawCentredString(WIDTH / 2, 30, "zachhowell.dev  |  zachary@zachhowell.dev  |  New Berlin, WI")
+    c.drawCentredString(WIDTH / 2, 30, "zachhowell.dev  |  zachary@zachhowell.dev  |  West Bend, WI")
     c.restoreState()
 
 

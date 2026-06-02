@@ -51,7 +51,7 @@ const projectsData = [
     title: "Gutters Craft LLC",
     category: "Custom Business Website",
     isDevelopment: true,
-    location: "New Berlin, WI",
+    location: "Port Washington, WI",
     description: "A high-conversion service platform featuring a streamlined lead-generation funnel and a custom-built estimate request system for local homeowners.",
     image: "/gutterscraftllc.webp",
     link: "https://gutterscraftllc.com/", // Update this if you have a different production/preview link
