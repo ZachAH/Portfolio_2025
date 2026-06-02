@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import { ensureCalendly, openCalendly } from '../utils/calendly';
 
 const SharpieUnderline = () => (
   <svg
@@ -100,6 +100,12 @@ const WisconsinOutline = () => {
 };
 
 const Hero = ({ handleMouseEnter, handleMouseLeave }) => {
+  // Preload Calendly's assets so the booking popup opens instantly
+  // when a visitor clicks the primary CTA.
+  useEffect(() => {
+    ensureCalendly();
+  }, []);
+
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
@@ -136,8 +142,9 @@ const Hero = ({ handleMouseEnter, handleMouseLeave }) => {
           animate="visible"
           className="flex justify-center"
         >
-          <Link
-            to="/pricing"
+          <button
+            type="button"
+            onClick={openCalendly}
             className="group relative inline-flex max-w-full items-center justify-center gap-2 px-5 py-3 text-sm sm:gap-3 sm:px-10 sm:py-5 sm:text-lg bg-sunset-gradient text-white rounded-full font-bold overflow-hidden transition-all hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl"
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
@@ -161,7 +168,7 @@ const Hero = ({ handleMouseEnter, handleMouseLeave }) => {
             >
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
-          </Link>
+          </button>
         </motion.div>
 
         {/* Ownership badge — surfaces the single biggest differentiator
